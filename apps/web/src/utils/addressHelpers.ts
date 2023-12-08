@@ -1,0 +1,143 @@
+import { ChainId } from '@pancakeswap/sdk'
+import { Pool } from '@pancakeswap/uikit'
+import { DEFAULT_ACTIVE_CHAIN_ID } from "config/chains"
+import addresses from 'config/constants/contracts'
+import { VaultKey } from 'state/types'
+
+export const getAddress = (address: Pool.Address, chainId?: number): string => {
+  return address[chainId] ? address[chainId] : address[DEFAULT_ACTIVE_CHAIN_ID] || address[ChainId.BSC] // edit detect delete bsc chain
+}
+
+export const getMasterChefAddress = (chainId?: number) => {
+  return getAddress(addresses.masterChef, chainId)
+}
+export const getMasterChefV1Address = () => {
+  return getAddress(addresses.masterChefV1)
+}
+export const getMulticallAddress = (chainId?: number) => {
+  return getAddress(addresses.multiCall, chainId)
+}
+export const getLotteryV2Address = () => {
+  return getAddress(addresses.lotteryV2)
+}
+export const getPancakeProfileAddress = () => {
+  return getAddress(addresses.pancakeProfile, DEFAULT_ACTIVE_CHAIN_ID)
+}
+export const getPancakeBunniesAddress = () => {
+  return getAddress(addresses.pancakeBunnies, DEFAULT_ACTIVE_CHAIN_ID)
+}
+export const getBunnyFactoryAddress = (chainId: number) => {
+  return getAddress(addresses.bunnyFactory, chainId)
+}
+export const getPredictionsV1Address = () => {
+  return getAddress(addresses.predictionsV1)
+}
+export const getClaimRefundAddress = () => {
+  return getAddress(addresses.claimRefund)
+}
+export const getPointCenterIfoAddress = () => {
+  return getAddress(addresses.pointCenterIfo)
+}
+export const getBunnySpecialAddress = () => {
+  return getAddress(addresses.bunnySpecial)
+}
+export const getTradingCompetitionAddressEaster = () => {
+  return getAddress(addresses.tradingCompetitionEaster)
+}
+export const getTradingCompetitionAddressFanToken = () => {
+  return getAddress(addresses.tradingCompetitionFanToken)
+}
+
+export const getTradingCompetitionAddressMobox = () => {
+  return getAddress(addresses.tradingCompetitionMobox)
+}
+
+export const getTradingCompetitionAddressMoD = () => {
+  return getAddress(addresses.tradingCompetitionMoD)
+}
+
+export const getEasterNftAddress = () => {
+  return getAddress(addresses.easterNft)
+}
+
+export const getVaultPoolAddress = (vaultKey: VaultKey) => {
+  if (!vaultKey) {
+    return null
+  }
+  return getAddress(addresses[vaultKey])
+}
+
+export const getCakeVaultAddress = () => {
+  return getAddress(addresses.cakeVault, DEFAULT_ACTIVE_CHAIN_ID)
+}
+
+export const getCakeFlexibleSideVaultAddress = () => {
+  return getAddress(addresses.cakeFlexibleSideVault, DEFAULT_ACTIVE_CHAIN_ID)
+}
+
+export const getBunnySpecialCakeVaultAddress = () => {
+  return getAddress(addresses.bunnySpecialCakeVault)
+}
+export const getBunnySpecialPredictionAddress = () => {
+  return getAddress(addresses.bunnySpecialPrediction)
+}
+export const getBunnySpecialLotteryAddress = () => {
+  return getAddress(addresses.bunnySpecialLottery)
+}
+export const getBunnySpecialXmasAddress = () => {
+  return getAddress(addresses.bunnySpecialXmas)
+}
+export const getFarmAuctionAddress = () => {
+  return getAddress(addresses.farmAuction)
+}
+export const getAnniversaryAchievement = () => {
+  return getAddress(addresses.AnniversaryAchievement)
+}
+
+export const getNftMarketAddress = () => {
+  return getAddress(addresses.nftMarket, DEFAULT_ACTIVE_CHAIN_ID)
+}
+export const getNftSaleAddress = () => {
+  return getAddress(addresses.nftSale)
+}
+export const getPancakeSquadAddress = () => {
+  return getAddress(addresses.pancakeSquad)
+}
+export const getPotteryDrawAddress = () => {
+  return getAddress(addresses.potteryDraw)
+}
+
+export const getZapAddress = (chainId?: number) => {
+  return getAddress(addresses.zap, chainId)
+}
+export const getICakeAddress = () => {
+  return getAddress(addresses.iCake, DEFAULT_ACTIVE_CHAIN_ID)
+}
+
+export const getBCakeFarmBoosterAddress = (chainId: number) => {
+  return getAddress(addresses.bCakeFarmBooster, chainId)
+}
+
+export const getBCakeFarmBoosterProxyFactoryAddress = () => {
+  return getAddress(addresses.bCakeFarmBoosterProxyFactory)
+}
+
+export const getNonBscVaultAddress = (chainId?: number) => {
+  return getAddress(addresses.nonBscVault, chainId)
+}
+
+export const getCrossFarmingSenderAddress = (chainId?: number) => {
+  return getAddress(addresses.crossFarmingSender, chainId)
+}
+
+export const getCrossFarmingReceiverAddress = (chainId?: number) => {
+  return getAddress(addresses.crossFarmingReceiver, chainId)
+}
+
+export const getMMLinkedPoolAddress = (chainId?: number) => {
+  return getAddress(addresses.mmLinkedPool, chainId)
+}
+
+export const getStableSwapNativeHelperAddress = (chainId?: number) => {
+  return getAddress(addresses.stableSwapNativeHelper, chainId)
+}

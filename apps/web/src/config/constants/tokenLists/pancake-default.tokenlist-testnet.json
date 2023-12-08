@@ -1,0 +1,86 @@
+{
+  "name": "MetaViral Default List",
+  "timestamp": "2022-01-26T11:45:09Z",
+  "version": {
+    "major": 4,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://metaviralscan.com/logo.png",
+  "keywords": ["metaviral", "default"],
+  "tokens": [
+    {
+      "name": "Wrapped MTV",
+      "symbol": "WMTV",
+      "address": "0x99d5BD783eD96Fe81624a16B4f60E2f88f759BfF",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0x99d5BD783eD96Fe81624a16B4f60E2f88f759BfF.png"
+    },
+    {
+      "name": "BUSD",
+      "symbol": "BUSD",
+      "address": "0x65c72B37d645A0533418E68E89AAA513A11AdA99",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0x65c72B37d645A0533418E68E89AAA513A11AdA99.png"
+    },
+    {
+      "name": "USDT",
+      "symbol": "USDT",
+      "address": "0x35F6207320Ae813198485b93eD8036ebab8De5c8",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0x35F6207320Ae813198485b93eD8036ebab8De5c8.png"
+    },
+    {
+      "name": "Wrapped WETH",
+      "symbol": "WETH",
+      "address": "0x0CEbCcBe3fa08cC3584297739C5f8aF741aC0700",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0x0CEbCcBe3fa08cC3584297739C5f8aF741aC0700.png"
+    },
+    {
+      "name": "Wrapped WBTC",
+      "symbol": "WBTC",
+      "address": "0xfB8FDE2FaA21d14EE6348eF8d858230eFc8cDCb4",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0xfB8FDE2FaA21d14EE6348eF8d858230eFc8cDCb4.png"
+    },
+    {
+      "name": "MTN",
+      "symbol": "MTN",
+      "address": "0x6aaD23FFae9cA01bC8514b1A682B1503564c7C56",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0x6aaD23FFae9cA01bC8514b1A682B1503564c7C56.png"
+    },
+    {
+      "name": "BEL",
+      "symbol": "BEL",
+      "address": "0xfe015FB41e54363faEEEfB3E4c5A8279c335cC16",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0xfe015FB41e54363faEEEfB3E4c5A8279c335cC16.png"
+    },
+    {
+      "name": "ELD",
+      "symbol": "ELD",
+      "address": "0xc89449ABa531B5b17a12c08B2C576651Fb1E85cA",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0xc89449ABa531B5b17a12c08B2C576651Fb1E85cA.png"
+    },
+    {
+      "name": "SAS",
+      "symbol": "SAS",
+      "address": "0x488Dc393CD656127c85169656b7531477b871066",
+      "chainId": 10435,
+      "decimals": 18,
+      "logoURI": "/images/10435/tokens/0x488Dc393CD656127c85169656b7531477b871066.png"
+    }
+  ]
+}

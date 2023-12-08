@@ -1,0 +1,62 @@
+{
+  "name": "MetaViral Default List",
+  "timestamp": "2022-01-26T11:45:09Z",
+  "version": {
+    "major": 4,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://metaviralscan.com/logo.png",
+  "keywords": ["metaviral", "default"],
+  "tokens": [
+    {
+      "name": "Wrapped MTV",
+      "symbol": "WMTV",
+      "address": "0x433b04307151b0cdb1eE3BFCffBde391e86be43F",
+      "chainId": 10434,
+      "decimals": 18,
+      "logoURI": "/images/10434/tokens/0x433b04307151b0cdb1eE3BFCffBde391e86be43F.png"
+    },
+    {
+      "name": "MetaViral USD",
+      "symbol": "MUSD",
+      "address": "0x6a3f146746AFf711D7486c01ba0F181FF364e23D",
+      "chainId": 10434,
+      "decimals": 18,
+      "logoURI": "/images/10434/tokens/0x6a3f146746AFf711D7486c01ba0F181FF364e23D.png"
+    },
+    {
+      "name": "MetaViral USD PEG-Tether",
+      "symbol": "USDT",
+      "address": "0x88cd3B410235F7C35819ab4a606b2724Da47a56a",
+      "chainId": 10434,
+      "decimals": 18,
+      "logoURI": "/images/10434/tokens/0x88cd3B410235F7C35819ab4a606b2724Da47a56a.png"
+    },
+    {
+      "name": "BERYL",
+      "symbol": "BEL",
+      "address": "0xCEC0cfAdf437421901177A9D12bddE9ED14870FB",
+      "chainId": 10434,
+      "decimals": 18,
+      "logoURI": "/images/10434/tokens/0xCEC0cfAdf437421901177A9D12bddE9ED14870FB.png"
+    },
+    {
+      "name": "EMERALD",
+      "symbol": "EMERALD",
+      "address": "0x2E0cc652e87fb83601C11Bd667C11591A20379fF",
+      "chainId": 10434,
+      "decimals": 18,
+      "logoURI": "/images/10434/tokens/0x2E0cc652e87fb83601C11Bd667C11591A20379fF.png"
+    },
+    {
+      "name": "SARDIUS",
+      "symbol": "SARDIUS",
+      "address": "0x43982b29e792B928c73dE5694c7040F8086bAEC3",
+      "chainId": 10434,
+      "decimals": 18,
+      "logoURI": "/images/10434/tokens/0x43982b29e792B928c73dE5694c7040F8086bAEC3.png"
+    }
+  ]
+}
