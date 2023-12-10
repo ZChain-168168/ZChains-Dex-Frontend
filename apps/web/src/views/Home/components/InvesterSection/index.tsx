@@ -21,7 +21,7 @@ const InvesterSection = () => {
           <Text mb="24px" fontSize="16px">
             So investors using the{' '}
             <Text as="span" color="primary">
-              TeleportStationManna
+              TeleportStation
             </Text>{' '}
             platform just in your grasp get attractive benefits
           </Text>
@@ -39,7 +39,7 @@ const InvesterSection = () => {
           <Text mb="24px" fontSize={['12px', , '16px']}>
             So investors using the{' '}
             <Text as="span" color="primary">
-              TeleportStationManna
+              TeleportStation
             </Text>{' '}
             platform just in your grasp get attractive benefits
           </Text>

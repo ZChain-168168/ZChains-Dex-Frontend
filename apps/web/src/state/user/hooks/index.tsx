@@ -512,6 +512,7 @@ export function toV2LiquidityToken([tokenA, tokenB]: [ERC20Token, ERC20Token]): 
 export function useTrackedTokenPairs(): [ERC20Token, ERC20Token][] {
   const { chainId } = useActiveChainId()
   const tokens = useOfficialsAndUserAddedTokens()
+  console.log('tokens', tokens)
 
   // pinned pairs
   const pinnedPairs = useMemo(() => (chainId ? PINNED_PAIRS[chainId] ?? [] : []), [chainId])
@@ -525,6 +526,7 @@ export function useTrackedTokenPairs(): [ERC20Token, ERC20Token][] {
 
     return fPairs
   })
+  console.log('2345345234', BASES_TO_TRACK_LIQUIDITY_FOR, chainId)
 
   // pairs for every token against every base
   const generatedPairs: [ERC20Token, ERC20Token][] = useMemo(
@@ -532,12 +534,16 @@ export function useTrackedTokenPairs(): [ERC20Token, ERC20Token][] {
       chainId
         ? flatMap(Object.keys(tokens), (tokenAddress) => {
             const token = tokens[tokenAddress]
+            console.log('token  generatedPairs ', token)
+
             // for each token on the current chain,
             return (
               // loop through all bases on the current chain
               (BASES_TO_TRACK_LIQUIDITY_FOR[chainId] ?? [])
                 // to construct pairs of the given token with each base
                 .map((base) => {
+                  console.log('base  generatedPairs ', base)
+
                   const baseAddress = isAddress(base.address)
 
                   if (baseAddress && baseAddress === tokenAddress) {
@@ -551,9 +557,11 @@ export function useTrackedTokenPairs(): [ERC20Token, ERC20Token][] {
         : [],
     [tokens, chainId],
   )
+  console.log('generatedPairs', generatedPairs)
 
   // pairs saved by users
   const savedSerializedPairs = useSelector<AppState, AppState['user']['pairs']>(({ user: { pairs } }) => pairs)
+  console.log('savedSerializedPairs', savedSerializedPairs)
 
   const userPairs: [ERC20Token, ERC20Token][] = useMemo(() => {
     if (!chainId || !savedSerializedPairs) return []
@@ -574,6 +582,9 @@ export function useTrackedTokenPairs(): [ERC20Token, ERC20Token][] {
     // dedupes pairs of tokens in the combined list
     const keyed = combinedList.reduce<{ [key: string]: [ERC20Token, ERC20Token] }>((memo, [tokenA, tokenB]) => {
       const sorted = tokenA.sortsBefore(tokenB)
+      console.log('token a======', tokenA)
+      console.log('token b =======', tokenB)
+
       const key = sorted
         ? `${isAddress(tokenA.address)}:${isAddress(tokenB.address)}`
         : `${isAddress(tokenB.address)}:${isAddress(tokenA.address)}`

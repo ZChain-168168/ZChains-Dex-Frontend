@@ -29,4 +29,4 @@ if (typeof global.window !== undefined) {
 export const ACTIVE_CHAIN = chainKey === CHAIN_QUERY_NAME[ChainId.MTV_TESTNET] ? 'testnet' : 'mainnet' // edit
 
 // default select chainId
-export const DEFAULT_ACTIVE_CHAIN_ID = ACTIVE_CHAIN === 'testnet' ? ChainId.CREDIT : ChainId.BSC_TESTNET // edit
+export const DEFAULT_ACTIVE_CHAIN_ID = ACTIVE_CHAIN === 'testnet' ? ChainId.BSC_TESTNET : ChainId.BSC_TESTNET // edit

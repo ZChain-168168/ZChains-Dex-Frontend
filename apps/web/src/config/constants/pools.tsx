@@ -3,7 +3,7 @@ import { Pool } from '@pancakeswap/uikit'
 import { SerializedWrappedToken } from '@pancakeswap/token-lists'
 import Trans from 'components/Trans'
 import { VaultKey } from 'state/types'
-import { bscTokens, mtvTestnetTokens } from '@pancakeswap/tokens'
+import { bscTokens, creditTokens, mtvTestnetTokens } from '@pancakeswap/tokens'
 import { PoolCategory } from './types'
 
 export const MAX_LOCK_DURATION = 31536000
@@ -60,8 +60,8 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
   // edit
   {
     sousId: 0,
-    stakingToken: mtvTestnetTokens.usdtMTVLPs,
-    earningToken: mtvTestnetTokens.musd,
+    stakingToken: creditTokens.usdt,
+    earningToken: creditTokens.usdt,
     contractAddress: {
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
       97: '',
@@ -72,34 +72,34 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     tokenPerBlock: '0.01022',
     isFinished: false,
   },
-  {
-    sousId: 1,
-    stakingToken: mtvTestnetTokens.usdtMTVLPs,
-    earningToken: mtvTestnetTokens.musd,
-    contractAddress: {
-      56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
-      97: '',
-      10435: '0x3dc160f7302bc915e6134b6d963c55eb97c545ae',
-      4400: '0x7036EF2bE4e56Ed60058bB3e9D5dB4E62EEB8de3',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '0.01022',
-    version: 3,
-  },
-  {
-    sousId: 2,
-    stakingToken: mtvTestnetTokens.busdMTVLPs,
-    earningToken: mtvTestnetTokens.musd,
-    contractAddress: {
-      56: '0xaEC63F134a7853C6DaC9BA428d7962cD7C6c5e30',
-      97: '',
-      10435: '0xd120ef7cae427e6018046c97d8b61fc900ba9d0a',
-      4400: '0x7036EF2bE4e56Ed60058bB3e9D5dB4E62EEB8de3',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '0.02022',
-    version: 3,
-  },
+  // {
+  //   sousId: 1,
+  //   stakingToken: creditTokens.usdt,
+  //   earningToken:  creditTokens.usdt,
+  //   contractAddress: {
+  //     56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+  //     97: '',
+  //     10435: '0x3dc160f7302bc915e6134b6d963c55eb97c545ae',
+  //     4400: '0x7036EF2bE4e56Ed60058bB3e9D5dB4E62EEB8de3',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '0.01022',
+  //   version: 3,
+  // },
+  // {
+  //   sousId: 2,
+  //   stakingToken: mtvTestnetTokens.busdMTVLPs,
+  //   earningToken: mtvTestnetTokens.musd,
+  //   contractAddress: {
+  //     56: '0xaEC63F134a7853C6DaC9BA428d7962cD7C6c5e30',
+  //     97: '',
+  //     10435: '0xd120ef7cae427e6018046c97d8b61fc900ba9d0a',
+  //     4400: '0x7036EF2bE4e56Ed60058bB3e9D5dB4E62EEB8de3',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '0.02022',
+  //   version: 3,
+  // },
 ].map((p) => ({
   ...p,
   stakingToken: p.stakingToken.serialize,

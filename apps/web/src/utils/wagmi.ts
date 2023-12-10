@@ -96,6 +96,7 @@ export const creditChain: Chain = {
   blockExplorers: {
     default: { name: 'Scan creditsmartchain', url: 'https://scan.creditsmartchain.com/' },
   },
+
   contracts: {
     multicall3: {
       address: multicallAddresses[ChainId.CREDIT] as any,
@@ -105,7 +106,7 @@ export const creditChain: Chain = {
   testnet: true,
 }
 
-const CHAINS = [bscTestnet]
+const CHAINS = [bscTestnet, creditChain]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null
