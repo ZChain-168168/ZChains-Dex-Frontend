@@ -5,8 +5,6 @@ import addresses from 'config/constants/contracts'
 import { VaultKey } from 'state/types'
 
 export const getAddress = (address: Pool.Address, chainId?: number): string => {
-  console.log('address', address)
-
   return address[chainId] ? address[chainId] : address[DEFAULT_ACTIVE_CHAIN_ID] || address[ChainId.BSC] // edit detect delete bsc chain
 }
 

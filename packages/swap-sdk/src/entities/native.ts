@@ -22,8 +22,6 @@ export class Native extends NativeCurrency {
   }
 
   public get wrapped(): Token {
-    console.log('chainId wrapppppp')
-
     const wnative = WNATIVE[this.chainId]
     invariant(!!wnative, 'WRAPPED')
     return wnative

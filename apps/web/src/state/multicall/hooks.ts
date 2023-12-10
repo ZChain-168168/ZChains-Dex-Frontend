@@ -308,7 +308,7 @@ export function useSingleCallResult(
       ? [
           {
             address: contract.address,
-            callData: contract.interface.encodeFunctionData(fragment, inputs),
+            callData: contract.interface?.encodeFunctionData(fragment, inputs),
           },
         ]
       : []

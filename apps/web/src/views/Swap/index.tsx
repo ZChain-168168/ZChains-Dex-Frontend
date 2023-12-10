@@ -30,7 +30,6 @@ export default function Swap() {
   const [isSwapHotTokenDisplay, setIsSwapHotTokenDisplay] = useSwapHotTokenDisplay()
   const { t } = useTranslation()
   const { chainId } = useActiveChainId()
-  console.log('chainId======', chainId)
 
   // swap state & price data
   const {

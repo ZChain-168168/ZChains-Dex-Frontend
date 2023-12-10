@@ -106,7 +106,7 @@ export const creditChain: Chain = {
   testnet: true,
 }
 
-const CHAINS = [bscTestnet, creditChain]
+const CHAINS = [creditChain]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null
@@ -231,8 +231,6 @@ export const client = createClient({
 export const CHAIN_IDS = chains.map((c) => c.id)
 
 export const isChainSupported = memoize((chainId: number) => {
-  console.log('chainId', chainId)
-
   return CHAIN_IDS.includes(chainId)
 })
 
