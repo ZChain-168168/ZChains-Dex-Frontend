@@ -3,7 +3,7 @@ import { BinanceWalletConnector } from '@pancakeswap/wagmi/connectors/binanceWal
 import { BloctoConnector } from '@pancakeswap/wagmi/connectors/blocto'
 import { TrustWalletConnector } from '@pancakeswap/wagmi/connectors/trustWallet'
 import { multicallAddresses, multicallCreateBlockNumber } from '@pancakeswap/multicall'
-import { bsc, mainnet } from 'wagmi/chains'
+import { bsc, bscTestnet, mainnet } from 'wagmi/chains'
 import { Chain, configureChains, createClient } from 'wagmi'
 import memoize from 'lodash/memoize'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
@@ -14,7 +14,8 @@ import { LedgerConnector } from 'wagmi/connectors/ledger'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { SafeConnector } from './safeConnector'
 
-export const mtvTestnet: Chain = { // edit
+export const mtvTestnet: Chain = {
+  // edit
   id: ChainId.MTV_TESTNET,
   name: 'MetaViral Chain Testnet',
   network: 'mtvTestnet',
@@ -46,7 +47,8 @@ export const mtvTestnet: Chain = { // edit
   testnet: true,
 }
 
-export const mtv: Chain = { // edit
+export const mtv: Chain = {
+  // edit
   id: ChainId.MTV,
   name: 'MetaViral Chain',
   network: 'mtv',
@@ -78,16 +80,32 @@ export const mtv: Chain = { // edit
   testnet: true,
 }
 
-const CHAINS = process.env.NEXT_PUBLIC_NODE_ENV === "development" ? [
-  // mainnet, 
-  // bsc, 
-  // bscTestnet, 
-  // goerli,
-  mtvTestnet,
-  mtv,
-] : [
-  mtv
-]
+export const creditChain: Chain = {
+  id: 4400,
+  name: 'Credit Smart Chain',
+  network: 'CREDIT',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'CREDIT mainnet',
+    symbol: 'CREDIT',
+  },
+  rpcUrls: {
+    public: { http: ['https://rpc.creditsmartchain.com/'] },
+    default: { http: ['https://rpc.creditsmartchain.com/'] },
+  },
+  blockExplorers: {
+    default: { name: 'Scan creditsmartchain', url: 'https://scan.creditsmartchain.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: multicallAddresses[ChainId.CREDIT] as any,
+      blockCreated: multicallCreateBlockNumber[ChainId.CREDIT],
+    },
+  },
+  testnet: true,
+}
+
+const CHAINS = [bscTestnet]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null
@@ -144,7 +162,7 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'MetaViral',
+    appName: 'TeleportStation',
     appLogoUrl: 'https://swap.metaviral.com/logo.png',
   },
 })
@@ -211,5 +229,10 @@ export const client = createClient({
 
 export const CHAIN_IDS = chains.map((c) => c.id)
 
-export const isChainSupported = memoize((chainId: number) => CHAIN_IDS.includes(chainId))
+export const isChainSupported = memoize((chainId: number) => {
+  console.log('chainId', chainId)
+
+  return CHAIN_IDS.includes(chainId)
+})
+
 export const isChainTestnet = memoize((chainId: number) => chains.find((c) => c.id === chainId)?.testnet)

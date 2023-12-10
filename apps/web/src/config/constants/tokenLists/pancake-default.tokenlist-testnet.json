@@ -1,5 +1,5 @@
 {
-  "name": "MetaViral Default List",
+  "name": "TeleportStation Default List",
   "timestamp": "2022-01-26T11:45:09Z",
   "version": {
     "major": 4,
@@ -7,8 +7,8 @@
     "patch": 0
   },
   "tags": {},
-  "logoURI": "https://metaviralscan.com/logo.png",
-  "keywords": ["metaviral", "default"],
+  "logoURI": "https://teleportstationscan.com/logo.png",
+  "keywords": ["teleportstation", "default"],
   "tokens": [
     {
       "name": "Wrapped MTV",

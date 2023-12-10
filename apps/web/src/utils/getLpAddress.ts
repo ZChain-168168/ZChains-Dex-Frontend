@@ -9,19 +9,23 @@ const getLpAddress = memoize(
     if (!token1 || !token2) {
       return null
     }
+    console.log('checksummedToken1Address', token1, token2)
     if (typeof token1 === 'string' || token1 instanceof String) {
+      console.log('checksummedToken1Address   2362346234')
       const checksummedToken1Address = isAddress(token1)
+
       if (!checksummedToken1Address) {
         return null
       }
-      token1AsTokenInstance = new ERC20Token(chainId, checksummedToken1Address, 18, 'MTV-LP')
+
+      token1AsTokenInstance = new ERC20Token(chainId, checksummedToken1Address, 18, 'CREDIT-LP')
     }
     if (typeof token2 === 'string' || token2 instanceof String) {
       const checksummedToken2Address = isAddress(token2)
       if (!checksummedToken2Address) {
         return null
       }
-      token2AsTokenInstance = new ERC20Token(chainId, checksummedToken2Address, 18, 'MTV-LP')
+      token2AsTokenInstance = new ERC20Token(chainId, checksummedToken2Address, 18, 'CREDIT-LP')
     }
     return Pair.getAddress(token1AsTokenInstance as ERC20Token, token2AsTokenInstance as ERC20Token)
   },

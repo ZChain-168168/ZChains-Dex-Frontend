@@ -2,11 +2,13 @@ import { getAddress } from '@ethersproject/address'
 import memoize from 'lodash/memoize'
 import { ChainId, Token } from '@pancakeswap/sdk'
 
-const mapping = { // edit
+const mapping = {
+  // edit
   [ChainId.BSC]: 'smartchain',
   [ChainId.ETHEREUM]: 'ethereum',
   [ChainId.MTV_TESTNET]: 'mtvtestnet',
   [ChainId.MTV]: 'mtv',
+  [ChainId.CREDIT]: 'credit',
 }
 
 const getTokenLogoURL = memoize(

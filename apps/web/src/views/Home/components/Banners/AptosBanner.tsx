@@ -61,7 +61,7 @@ const AptosBanner = () => {
           <Button
             minHeight="48px"
             onClick={() =>
-              window?.open('https://docs.metaviralscan.com/aptos-deployment', '_blank', 'noopener noreferrer')
+              window?.open('https://docs.teleportstationscan.com/aptos-deployment', '_blank', 'noopener noreferrer')
             }
           >
             <Text color="invertedContrast" bold fontSize="16px" mr="4px">

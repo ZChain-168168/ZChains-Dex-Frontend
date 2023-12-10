@@ -7,7 +7,7 @@ import { RowBetween, RowFixed } from 'components/Layout/Row'
 import { BUYBACK_FEE, LP_HOLDERS_FEE, TOTAL_FEE, TREASURY_FEE } from 'config/constants/info'
 import { useState } from 'react'
 import { Field } from 'state/swap/actions'
-import { DOCS_URL } from "config/constants"
+import { DOCS_URL } from 'config/constants'
 import FormattedPriceImpact from './FormattedPriceImpact'
 import { RouterViewer } from './RouterViewer'
 import SwapRoute from './SwapRoute'
@@ -138,7 +138,7 @@ function TradeSummary({
                     </Text>
                     :{' '}
                     {t(
-                      'MetaViral does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
+                      'TeleportStation does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
                     )}
                   </Text>
                 </>

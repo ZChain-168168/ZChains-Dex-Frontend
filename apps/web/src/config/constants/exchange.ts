@@ -1,7 +1,17 @@
 import { ChainId, JSBI, Percent, Token, WNATIVE } from '@pancakeswap/sdk'
 import { BigNumber } from '@ethersproject/bignumber'
-import { bscTokens, bscTestnetTokens, mtvTestnetTokens, mtvTokens, USDC, USDT, BUSD, WBTC_ETH } from '@pancakeswap/tokens'
-import { DOCS_URL } from "config/constants"
+import {
+  bscTokens,
+  bscTestnetTokens,
+  mtvTestnetTokens,
+  mtvTokens,
+  USDC,
+  USDT,
+  BUSD,
+  WBTC_ETH,
+  creditTokens,
+} from '@pancakeswap/tokens'
+import { DOCS_URL } from 'config/constants'
 import { ChainTokenList } from './types'
 
 // used to construct intermediary pairs for trading
@@ -20,6 +30,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
   [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
+  [ChainId.CREDIT]: [creditTokens.wbnb, creditTokens.busd, creditTokens.usdt],
 }
 
 /**
@@ -52,6 +63,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
   [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
+  [ChainId.CREDIT]: [creditTokens.wbnb, creditTokens.busd, creditTokens.usdt],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -62,6 +74,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
   [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
+  [ChainId.CREDIT]: [creditTokens.wbnb, creditTokens.busd, creditTokens.usdt],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -82,6 +95,10 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
   [ChainId.MTV]: [
     [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
     [mtvTestnetTokens.busd, mtvTestnetTokens.usdt],
+  ],
+  [ChainId.CREDIT]: [
+    [creditTokens.wbnb, creditTokens.busd],
+    [creditTokens.busd, creditTokens.usdt],
   ],
 }
 

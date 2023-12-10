@@ -74,13 +74,13 @@ const FAQ = () => {
             <Text fontSize="14px" color="textSubtle">
               -{' '}
               {t(
-                'In the event of a disagreement concerning the final winning team or rank, MetaViral will have the final say.',
+                'In the event of a disagreement concerning the final winning team or rank, TeleportStation will have the final say.',
               )}
             </Text>
             <Text fontSize="14px" color="textSubtle">
               -{' '}
               {t(
-                'MetaViral can and will disqualify any team or specific members that are proven to have taken malicious action or attempt to “cheat” in any way.',
+                'TeleportStation can and will disqualify any team or specific members that are proven to have taken malicious action or attempt to “cheat” in any way.',
               )}
             </Text>
           </FoldableText>

@@ -32,7 +32,7 @@ import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
 import { useBUSDCakeAmount } from 'hooks/useBUSDPrice'
 import { useIfoCredit, useIfoCeiling } from 'state/pools/hooks'
 import { getICakeWeekDisplay } from 'views/Pools/helpers'
-import { DOCS_URL } from "config/constants"
+import { DOCS_URL } from 'config/constants'
 
 interface TypeProps {
   ifoCurrencyAddress: string
@@ -217,7 +217,7 @@ const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
               {t('Activate your Profile')}
             </Heading>
             <Text color="textSubtle" small mb="16px">
-              {t('You’ll need an active MetaViral Profile to take part in an IFO!')}
+              {t('You’ll need an active TeleportStation Profile to take part in an IFO!')}
             </Text>
             {renderAccountStatus()}
           </CardBody>

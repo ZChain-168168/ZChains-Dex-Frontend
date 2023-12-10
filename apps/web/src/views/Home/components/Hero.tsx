@@ -2,7 +2,7 @@ import { Text, Button, Flex, TextGradient, NextLinkFromReactRouter } from '@panc
 import { useAccount } from 'wagmi'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { useTranslation } from '@pancakeswap/localization'
-import Image from 'next/legacy/image' 
+import Image from 'next/legacy/image'
 import { ChainId } from '@pancakeswap/sdk'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import styled, { keyframes } from 'styled-components'
@@ -130,21 +130,19 @@ const Hero = () => {
         <Flex flex="1" flexDirection="column">
           <Text mb="16px" maxWidth="600px">
             <TextGradient as="span" fontSize={['32px', , '48px']}>
-              {t('MetaViralManna ')}{' '}
+              {t('TeleportStationManna ')}{' '}
             </TextGradient>
             <Text as="span" fontSize={['32px', , '48px']}>
               synergizes with MSMEs
             </Text>
           </Text>
           <Text as="p" mb="24px" fontSize={['12px', , '16px']} lineHeight="24px" maxWidth="440px">
-            {t('The first Equity Crowdfunding platform built using MetaViral Smart Chain technology')}
+            {t('The first Equity Crowdfunding platform built using Credit Smart Chain technology')}
           </Text>
           <Flex>
             {account ? (
               <NextLinkFromReactRouter to="/swap">
-                <Button variant={!account ? 'secondary' : 'primary'}>
-                  {t('Trade Now')}
-                </Button>
+                <Button variant={!account ? 'secondary' : 'primary'}>{t('Trade Now')}</Button>
               </NextLinkFromReactRouter>
             ) : (
               <ConnectWalletButton mr="8px" />
@@ -160,8 +158,8 @@ const Hero = () => {
           position="relative"
         >
           {/* <BunnyWrapper> */}
-            <Image src={bunnyImage} priority placeholder="blur" alt={t('')}  />
-            {/* <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} /> */}
+          <Image src={bunnyImage} priority placeholder="blur" alt={t('')} />
+          {/* <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} /> */}
           {/* </BunnyWrapper> */}
           {/* <StarsWrapper>
             <CompositeImage {...starsImage} />

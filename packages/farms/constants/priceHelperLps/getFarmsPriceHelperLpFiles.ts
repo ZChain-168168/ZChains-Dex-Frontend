@@ -4,7 +4,7 @@ import FarmsBscTestnetPriceHelper from './97'
 import FarmsEthereumPriceHelper from './1'
 import FarmsGoerliPriceHelper from './5'
 import FarmsMtvPriceHelper from './10435'
- 
+import FarmsCreditPriceHelper from './4400'
 // edit
 export const getFarmsPriceHelperLpFiles = (chainId: ChainId) => {
   switch (chainId) {
@@ -18,6 +18,8 @@ export const getFarmsPriceHelperLpFiles = (chainId: ChainId) => {
       return FarmsGoerliPriceHelper
     case ChainId.MTV_TESTNET:
       return FarmsMtvPriceHelper
+    case ChainId.CREDIT:
+      return FarmsCreditPriceHelper
     default:
       return []
   }

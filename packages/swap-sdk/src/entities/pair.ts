@@ -56,6 +56,8 @@ export class Pair {
   private readonly tokenAmounts: [CurrencyAmount<ERC20Token>, CurrencyAmount<ERC20Token>]
 
   public static getAddress(tokenA: ERC20Token, tokenB: ERC20Token): string {
+    console.log('FACTORY_ADDRESS_MAP[tokenA.chainId]', FACTORY_ADDRESS_MAP[tokenA.chainId])
+
     return computePairAddress({ factoryAddress: FACTORY_ADDRESS_MAP[tokenA.chainId], tokenA, tokenB })
   }
 
@@ -67,8 +69,8 @@ export class Pair {
       tokenAmounts[0].currency.chainId,
       Pair.getAddress(tokenAmounts[0].currency, tokenAmounts[1].currency),
       18,
-      'MetaSwap-LP',// edit
-      'MetaSwap LPs', // edit
+      'MetaSwap-LP', // edit
+      'MetaSwap LPs' // edit
     )
     this.tokenAmounts = tokenAmounts as [CurrencyAmount<ERC20Token>, CurrencyAmount<ERC20Token>]
   }

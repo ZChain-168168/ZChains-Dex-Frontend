@@ -118,9 +118,15 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
 }
 
 export const usePriceByPairs = (currencyA?: Currency, currencyB?: Currency) => {
+  console.log('currencyA', currencyA)
   const [tokenA, tokenB] = [currencyA?.wrapped, currencyB?.wrapped]
+  console.log('currencyAv', currencyA)
   const pairAddress = getLpAddress(tokenA, tokenB)
+  console.log('pairAddress', pairAddress)
+
   const pairContract = usePairContract(pairAddress)
+  console.log('currencyA', currencyA)
+
   const provider = useProvider({ chainId: currencyA.chainId })
 
   const { data: price } = useSWR(
@@ -190,8 +196,11 @@ export const useCakeBusdPrice = (
 ): Price<ERC20Token, ERC20Token> | undefined => {
   const { chainId } = useActiveChainId()
   // const isTestnet = !forceMainnet && isChainTestnet(chainId)
-  // Return bsc testnet cake if chain is testnet 
+  // Return bsc testnet cake if chain is testnet
   const cake: Token = WNATIVE[chainId] || CAKE[ChainId.BSC]
+  // const cake: Token = CAKE[ChainId.BSC]
+  console.log('cake', cake)
+
   return usePriceByPairs(BUSD[cake.chainId], cake)
 }
 
