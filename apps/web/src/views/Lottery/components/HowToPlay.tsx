@@ -3,7 +3,7 @@ import { Box, Flex, Text, Heading, Link, Image, useMatchBreakpoints } from '@pan
 import { useTranslation } from '@pancakeswap/localization'
 import useTheme from 'hooks/useTheme'
 import { BallWithNumber, MatchExampleA, MatchExampleB, PoolAllocationChart } from '../svgs'
-import { DOCS_URL } from "config/constants"
+import { DOCS_URL } from 'config/constants'
 
 const Divider = styled.div`
   background-color: ${({ theme }) => theme.colors.cardBorder};
@@ -333,9 +333,7 @@ const HowToPlay: React.FC<React.PropsWithChildren> = () => {
                 {t(
                   'An average total of 35,000 CAKE from the treasury is added to lottery rounds over the course of a week. This CAKE is of course also included in rollovers! Read more in our guide to ',
                 )}
-                <InlineLink href={`${DOCS_URL}/tokenomics/cake/cake-tokenomics`}>
-                  {t('CAKE Tokenomics')}
-                </InlineLink>
+                <InlineLink href={`${DOCS_URL}/tokenomics/cake/cake-tokenomics`}>{t('CAKE Tokenomics')}</InlineLink>
               </Text>
             </li>
           </BulletList>
@@ -354,7 +352,7 @@ const HowToPlay: React.FC<React.PropsWithChildren> = () => {
           <Text>
             {t('Check our in-depth guide on')}{' '}
             <InlineLink href={`${DOCS_URL}/products/lottery/lottery-guide`}>
-              {t('how to play the MetaViral lottery!')}
+              {t('how to play the TeleportStation lottery!')}
             </InlineLink>
           </Text>
         </Flex>

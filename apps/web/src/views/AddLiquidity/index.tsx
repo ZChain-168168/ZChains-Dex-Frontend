@@ -780,7 +780,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
                   <>
                     <LightCard padding="0px" borderRadius="20px">
                       <RowBetween padding="1rem">
-                        <Text fontSize="14px">
+                        <Text color="rgb(92,225,230)" fontSize="14px">
                           {noLiquidity ? t('Initial prices and share in the pair') : t('Prices and Share')}
                         </Text>
                       </RowBetween>{' '}

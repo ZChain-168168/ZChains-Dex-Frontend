@@ -28,6 +28,15 @@ export const CAKE_TESTNET_MTV = new ERC20Token( // edit
   'https://pancakeswap.finance/',
 )
 
+export const CAKE_CREDIT = new ERC20Token( // edit
+  ChainId.CREDIT,
+  process.env.NEXT_PUBLIC_WRAPPED || '0xf7D5280ED0DC5fC3E0Af25973508a4F0b9B19Ba6',
+  18,
+  'CAKE',
+  'TeleportSwap Token',
+  'https://pancakeswap.finance/',
+)
+
 export const USDC_BSC = new ERC20Token(
   ChainId.BSC,
   '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
@@ -99,6 +108,16 @@ export const USDT_MTV = new ERC20Token(
   '/images/10435/tokens/0x88cd3B410235F7C35819ab4a606b2724Da47a56a.png',
 )
 
+export const USDT_CREDIT = new ERC20Token(
+  ChainId.CREDIT,
+  process.env.NEXT_PUBLIC_WRAPPED || '0xf7D5280ED0DC5fC3E0Af25973508a4F0b9B19Ba6',
+  18,
+  'USDT',
+  'MetaViral USD PEG-Tether',
+  'https://tether.to/',
+  '/images/10435/tokens/0xf7D5280ED0DC5fC3E0Af25973508a4F0b9B19Ba6.png',
+)
+
 export const BUSD_BSC = new ERC20Token(
   ChainId.BSC,
   '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
@@ -137,6 +156,16 @@ export const BUSD_MTV = new ERC20Token(
   '/images/10435/tokens/0x6a3f146746AFf711D7486c01ba0F181FF364e23D.png',
 )
 
+export const BUSD_CREDIT = new ERC20Token(
+  ChainId.CREDIT,
+  process.env.NEXT_PUBLIC_WRAPPED || '0xf7D5280ED0DC5fC3E0Af25973508a4F0b9B19Ba6',
+  18,
+  'CUSD',
+  'Credit Chain USD ( CUSD )',
+  'https://www.paxos.com/busd/',
+  '/images/10435/tokens/0xf7D5280ED0DC5fC3E0Af25973508a4F0b9B19Ba6.png',
+)
+
 export const BUSD_ETH = new ERC20Token(
   ChainId.ETHEREUM,
   '0x4Fabb145d64652a948d72533023f6E7A623C7C53',
@@ -170,12 +199,14 @@ export const BUSD: Record<ChainId, ERC20Token> = {
   [ChainId.BSC_TESTNET]: BUSD_TESTNET,
   [ChainId.MTV_TESTNET]: BUSD_TESTNET_MTV,
   [ChainId.MTV]: BUSD_MTV, // edit as MUSD
+  [ChainId.CREDIT]: BUSD_CREDIT,
 }
 
 export const CAKE = {
   [ChainId.BSC]: CAKE_MAINNET,
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
   [ChainId.MTV_TESTNET]: CAKE_TESTNET_MTV, // edit
+  [ChainId.CREDIT]: CAKE_CREDIT,
 }
 
 export const USDC = {
@@ -183,6 +214,7 @@ export const USDC = {
   [ChainId.BSC_TESTNET]: USDC_TESTNET,
   [ChainId.ETHEREUM]: USDC_ETH,
   [ChainId.GOERLI]: USDC_GOERLI,
+  [ChainId.CREDIT]: USDT_CREDIT,
 }
 
 export const USDT = {
@@ -190,4 +222,5 @@ export const USDT = {
   [ChainId.ETHEREUM]: USDT_ETH,
   [ChainId.MTV_TESTNET]: USDT_MTV_TESTNET,
   [ChainId.MTV]: USDT_MTV, // edit
+  [ChainId.CREDIT]: USDT_CREDIT, // edit
 }

@@ -24,7 +24,8 @@ const queryClient = new QueryClient()
 
 export default function Swap() {
   const { isDesktop } = useMatchBreakpoints()
-  const { isChartExpanded, isChartDisplayed, setIsChartDisplayed, setIsChartExpanded, isChartSupported } = useContext(SwapFeaturesContext)
+  const { isChartExpanded, isChartDisplayed, setIsChartDisplayed, setIsChartExpanded, isChartSupported } =
+    useContext(SwapFeaturesContext)
   const [isSwapHotTokenDisplay, setIsSwapHotTokenDisplay] = useSwapHotTokenDisplay()
   const { t } = useTranslation()
 

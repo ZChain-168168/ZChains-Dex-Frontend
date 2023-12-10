@@ -24,7 +24,7 @@ export const AUCTION_WHITELISTED_BIDDERS_TO_FETCH = 500
 export const IPFS_GATEWAY = 'https://ipfs.io/ipfs'
 
 export const cstValue = {
-  tokenName: 'MTV',
-  chainName: 'MetaViral',
-  scanName: 'MetaViralScan',
+  tokenName: 'CSC',
+  chainName: 'TeleportStation',
+  scanName: 'TeleportStation',
 } // edit

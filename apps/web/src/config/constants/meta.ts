@@ -4,8 +4,8 @@ import { PageMeta } from './types'
 import { ASSET_CDN } from './endpoints'
 
 export const DEFAULT_META: PageMeta = {
-  title: 'MetaViral',
-  description: 'MetaViral',
+  title: 'TeleportStation',
+  description: 'TeleportStation',
   image: `${ASSET_CDN}/web/og/hero.jpg`,
 }
 
@@ -38,17 +38,17 @@ const getPathList = (t: ContextApi['t']): PathList => {
       '/voting/proposal/create': { title: t('Make a Proposal'), image: `${ASSET_CDN}/web/og/voting.jpg` },
       '/info': {
         title: `${t('Overview')} - ${t('Info')}`,
-        description: 'View statistics for MetaViral exchanges.',
+        description: 'View statistics for TeleportStation exchanges.',
         image: `${ASSET_CDN}/web/og/info.jpg`,
       },
       '/info/pairs': {
         title: `${t('Pairs')} - ${t('Info')}`,
-        description: 'View statistics for MetaViral exchanges.',
+        description: 'View statistics for TeleportStation exchanges.',
         image: `${ASSET_CDN}/web/og/info.jpg`,
       },
       '/info/tokens': {
         title: `${t('Tokens')} - ${t('Info')}`,
-        description: 'View statistics for MetaViral exchanges.',
+        description: 'View statistics for TeleportStation exchanges.',
         image: `${ASSET_CDN}/web/og/info.jpg`,
       },
       '/nfts': { title: t('NFT Marketplace'), image: `${ASSET_CDN}/web/og/nft.jpg` },
@@ -58,7 +58,7 @@ const getPathList = (t: ContextApi['t']): PathList => {
       '/pancake-squad': { basePath: true, title: t('Pancake Squad') },
       '/pottery': { basePath: true, title: t('Pottery'), image: `${ASSET_CDN}/web/og/pottery.jpg` },
     },
-    defaultTitleSuffix: t('MetaViral'),
+    defaultTitleSuffix: t('TeleportStation'),
   }
 }
 

@@ -45,7 +45,7 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
     >
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
         <StyledIconMobileContainer>
-          <img className="right-bg" src="/logotext-light.png" alt="" />
+          <img className="right-bg" src="/images/logo-text.png" alt="" />
         </StyledIconMobileContainer>
         <Flex flexDirection="column" alignItems="flex-start" mb={["42px", null, "36px"]}>
           <Text fontSize="20px">Disclaimer:</Text>

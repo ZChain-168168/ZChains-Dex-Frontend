@@ -7,7 +7,7 @@ import { useMemo, useState } from 'react'
 import { Field } from 'state/swap/actions'
 import styled from 'styled-components'
 import { warningSeverity } from 'utils/exchange'
-import { DOCS_URL } from "config/constants"
+import { DOCS_URL } from 'config/constants'
 import FormattedPriceImpact from '../../components/FormattedPriceImpact'
 import { StyledBalanceMaxMini, SwapCallbackError } from '../../components/styleds'
 import { TradeWithMM } from '../types'
@@ -156,7 +156,7 @@ export default function SwapModalFooter({
                     </Text>
                     :{' '}
                     {t(
-                      'MetaViral does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
+                      'TeleportStation does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
                     )}
                   </Text>
                 </>

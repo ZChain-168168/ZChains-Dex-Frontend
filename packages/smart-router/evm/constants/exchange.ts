@@ -1,5 +1,5 @@
 import { ChainId, Token, WBNB, WNATIVE } from '@pancakeswap/sdk'
-import { bscTokens, bscTestnetTokens, BUSD, USDC, USDT } from '@pancakeswap/tokens'
+import { bscTokens, bscTestnetTokens, BUSD, USDC, USDT, creditTokens } from '@pancakeswap/tokens'
 
 import { ChainMap, ChainTokenList } from '../types'
 
@@ -8,6 +8,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.GOERLI]: '0x3BC722f252C7bAE2f55647e49aDcB9d33Ff6eBcC',
   [ChainId.BSC]: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   [ChainId.BSC_TESTNET]: '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',
+  [ChainId.CREDIT]: '0x2eD5281861226Ad0187181450f139A515b1d08A1',
 }
 
 export const STABLE_SWAP_INFO_ADDRESS: ChainMap<string> = {
@@ -37,6 +38,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     bscTokens.usdc,
   ],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
+  [ChainId.CREDIT]: [creditTokens.wbnb, creditTokens.busd, creditTokens.usdt],
 }
 
 /**
@@ -71,6 +73,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.busd, bscTokens.cake, bscTokens.btcb],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
+  [ChainId.CREDIT]: [creditTokens.wbnb, creditTokens.busd, creditTokens.usdt],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -85,6 +88,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.wbnb, bscTokens.dai, bscTokens.busd, bscTokens.usdt, bscTokens.cake],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
+  [ChainId.CREDIT]: [creditTokens.wbnb, creditTokens.busd, creditTokens.usdt],
 }
 
 export const PINNED_PAIRS: {

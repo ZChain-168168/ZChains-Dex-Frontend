@@ -4,7 +4,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Container from 'components/Layout/Container'
 import { useAccount } from 'wagmi'
-import { DOCS_URL } from "config/constants"
+import { DOCS_URL } from 'config/constants'
 import SunburstSvg from './SunburstSvg'
 import CompositeImage from './CompositeImage'
 
@@ -97,7 +97,7 @@ const Footer = () => {
         <Text mb="24px" fontSize="32px" textAlign="center">
           {t('Ready for ')}{' '}
           <TextGradient as="span" fontSize="32px">
-            MetaViralManna ?
+            TeleportStationManna ?
           </TextGradient>
         </Text>
         <Text textAlign="center" fontSize="16px">
@@ -106,7 +106,7 @@ const Footer = () => {
         <Text mb="24px" fontSize="16px">
           No registration needed.
         </Text>
-        <Link external    href={`${DOCS_URL}`}>
+        <Link external href={`${DOCS_URL}`}>
           {t('Learn how to start')}
           <OpenNewIcon color="primary" ml="4px" />
         </Link>

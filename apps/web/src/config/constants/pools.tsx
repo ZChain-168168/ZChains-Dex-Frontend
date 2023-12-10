@@ -12,7 +12,8 @@ export const ONE_WEEK_DEFAULT = 604800
 export const BOOST_WEIGHT = BigNumber.from('20000000000000')
 export const DURATION_FACTOR = BigNumber.from('31536000')
 
-export const vaultPoolConfig = { // edit
+export const vaultPoolConfig = {
+  // edit
   // [VaultKey.CakeVaultV1]: {
   //   name: <Trans>Auto CAKE</Trans>,
   //   description: <Trans>Automatic restaking</Trans>,
@@ -23,7 +24,7 @@ export const vaultPoolConfig = { // edit
   //     secondarySrc: '/images/tokens/autorenew.svg',
   //   },
   // },
-  [VaultKey.CakeVault]: { 
+  [VaultKey.CakeVault]: {
     name: <Trans>Stake MTV</Trans>,
     description: <Trans>Stake, Earn – And more!</Trans>,
     autoCompoundFrequency: 5000,
@@ -55,7 +56,8 @@ export const vaultPoolConfig = { // edit
   // },
 } as const
 
-export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [ // edit
+export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
+  // edit
   {
     sousId: 0,
     stakingToken: mtvTestnetTokens.usdtMTVLPs,
@@ -63,7 +65,8 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [ 
     contractAddress: {
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
       97: '',
-      10435: '0x3dc160f7302bc915e6134b6d963c55eb97c545ae'
+      10435: '0x3dc160f7302bc915e6134b6d963c55eb97c545ae',
+      4400: '0x7036EF2bE4e56Ed60058bB3e9D5dB4E62EEB8de3',
     },
     poolCategory: PoolCategory.CORE,
     tokenPerBlock: '0.01022',
@@ -76,7 +79,8 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [ 
     contractAddress: {
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
       97: '',
-      10435: '0x3dc160f7302bc915e6134b6d963c55eb97c545ae'
+      10435: '0x3dc160f7302bc915e6134b6d963c55eb97c545ae',
+      4400: '0x7036EF2bE4e56Ed60058bB3e9D5dB4E62EEB8de3',
     },
     poolCategory: PoolCategory.CORE,
     tokenPerBlock: '0.01022',
@@ -89,7 +93,8 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [ 
     contractAddress: {
       56: '0xaEC63F134a7853C6DaC9BA428d7962cD7C6c5e30',
       97: '',
-      10435: '0xd120ef7cae427e6018046c97d8b61fc900ba9d0a'
+      10435: '0xd120ef7cae427e6018046c97d8b61fc900ba9d0a',
+      4400: '0x7036EF2bE4e56Ed60058bB3e9D5dB4E62EEB8de3',
     },
     poolCategory: PoolCategory.CORE,
     tokenPerBlock: '0.02022',

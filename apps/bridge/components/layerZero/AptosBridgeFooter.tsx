@@ -5,10 +5,10 @@ const AptosBridgeFooter = () => {
   return (
     <>
       <PoweredBy />
-      <LinkExternal m="20px auto" href="https://docs.metaviralscan.com/get-started-aptos/aptos-faq#cake-bridging">
+      <LinkExternal m="20px auto" href="https://docs.teleportstation.com/get-started-aptos/aptos-faq#cake-bridging">
         Need Help?
       </LinkExternal>
-      <LinkExternal m="20px auto" href="https://docs.metaviralscan.com/get-started-aptos/aptos-coin-guide">
+      <LinkExternal m="20px auto" href="https://docs.teleportstation.com/get-started-aptos/aptos-coin-guide">
         Don’t see your assets?
       </LinkExternal>
     </>

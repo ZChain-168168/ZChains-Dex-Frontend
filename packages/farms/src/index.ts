@@ -4,13 +4,13 @@ import { ChainId } from '@pancakeswap/sdk'
 import { masterChefAddresses } from './const'
 import { farmV2FetchFarms, FetchFarmsParams, fetchMasterChefV2Data } from './fetchFarms'
 
-const supportedChainId = [ChainId.MTV_TESTNET, ChainId.MTV] // edit
-export const bCakeSupportedChainId = [ChainId.MTV_TESTNET ,ChainId.MTV] // edit
+const supportedChainId = [ChainId.CREDIT, ChainId.BSC_TESTNET] // edit
+export const bCakeSupportedChainId = [ChainId.CREDIT, ChainId.BSC_TESTNET] // edit
 
 export function createFarmFetcher(multicallv2: MultiCallV2) {
   const fetchFarms = async (
     params: {
-      chainId: number,
+      chainId: number
       isTestnet: boolean
     } & Pick<FetchFarmsParams, 'chainId' | 'farms'>,
   ) => {
