@@ -192,7 +192,7 @@ export const WBTC_ETH = new ERC20Token(
   'Wrapped BTC',
 )
 
-export const BUSD: Record<ChainId, ERC20Token> = {
+export const BUSD = {
   [ChainId.ETHEREUM]: BUSD_ETH,
   [ChainId.GOERLI]: BUSD_GOERLI,
   [ChainId.BSC]: BUSD_BSC,
