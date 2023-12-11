@@ -532,6 +532,7 @@ export function useTrackedTokenPairs(): [ERC20Token, ERC20Token][] {
       chainId
         ? flatMap(Object.keys(tokens), (tokenAddress) => {
             const token = tokens[tokenAddress]
+
             // for each token on the current chain,
             return (
               // loop through all bases on the current chain

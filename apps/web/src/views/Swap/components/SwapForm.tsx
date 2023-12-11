@@ -160,7 +160,6 @@ export default function SwapForm() {
   }, [approval, approvalSubmitted])
 
   const maxAmountInput: CurrencyAmount<Currency> | undefined = maxAmountSpend(currencyBalances[Field.INPUT])
-
   const handleInputSelect = useCallback(
     (newCurrencyInput) => {
       setApprovalSubmitted(false) // reset 2 step UI for approvals

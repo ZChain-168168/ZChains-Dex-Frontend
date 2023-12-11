@@ -19,6 +19,7 @@ import useWarningImport from './hooks/useWarningImport'
 import { SmartSwapForm } from './SmartSwap'
 import { StyledInputCurrencyWrapper, StyledSwapContainer } from './styles'
 import { SwapFeaturesContext } from './SwapFeaturesContext'
+import { useActiveChainId } from 'hooks/useActiveChainId'
 
 const queryClient = new QueryClient()
 
@@ -28,6 +29,7 @@ export default function Swap() {
     useContext(SwapFeaturesContext)
   const [isSwapHotTokenDisplay, setIsSwapHotTokenDisplay] = useSwapHotTokenDisplay()
   const { t } = useTranslation()
+  const { chainId } = useActiveChainId()
 
   // swap state & price data
   const {

@@ -9,9 +9,7 @@ const getLpAddress = memoize(
     if (!token1 || !token2) {
       return null
     }
-    console.log('checksummedToken1Address', token1, token2)
     if (typeof token1 === 'string' || token1 instanceof String) {
-      console.log('checksummedToken1Address   2362346234')
       const checksummedToken1Address = isAddress(token1)
 
       if (!checksummedToken1Address) {

@@ -36,7 +36,7 @@ const SpeechBubble = styled.div`
   }
 `
 
-const domain = 'https://metaviralswap.com'
+const domain = 'https://teleportstation.io'
 
 const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
   const { t } = useTranslation()
