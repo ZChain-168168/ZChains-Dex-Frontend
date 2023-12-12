@@ -49,7 +49,7 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
   )
 
   const allTokens = useAllTokenDataSWR()
-  // console.log('allTokens', allTokens)
+  console.log('allTokens', allTokens)
 
   const formattedTokens = useMemo(() => {
     return Object.values(allTokens)
