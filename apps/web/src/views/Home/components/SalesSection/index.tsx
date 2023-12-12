@@ -45,9 +45,9 @@ const SalesSection: React.FC<{ chainId: number }> = ({ chainId }) => {
             <Text as="span">TeleportStation</Text> is governed by it’s community members who can create & vote important
             proposals
           </Text>
-          <Flex>
+          {/* <Flex>
             <Button scale="sm">Buy MTN</Button>
-          </Flex>
+          </Flex> */}
           <CustomEndLine />
         </Flex>
         <Flex flexDirection="column" flex="1" ml={[null, null, null, null]} mr={[null, null, null, '64px']} />

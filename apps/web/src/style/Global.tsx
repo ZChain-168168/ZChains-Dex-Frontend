@@ -12,8 +12,9 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};
-    --colors-primary:rgb(92, 225, 230);
-    --colors-backgroundAlt:#0D0023;
+    --colors-primary:#5CE1E6 !important;
+    --colors-backgroundAlt:#0D0023 !important;
+    --colors-secondary:#5CE1E6 !important;
     img {
       height: auto;
       max-width: 100%;
