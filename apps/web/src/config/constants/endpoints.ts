@@ -21,8 +21,8 @@ export const GRAPH_API_PREDICTION_V1 = 'https://api.thegraph.com/subgraphs/name/
 // export const INFO_CLIENT = 'https://proxy-worker.pancake-swap.workers.dev/bsc-exchange'
 export const INFO_CLIENT =
   ACTIVE_CHAIN === 'testnet'
-    ? 'https://query-testnet.metaviralscan.com/subgraphs/name/metaswap/exchange-v2'
-    : 'https://query-mainnet.metaviralscan.com/subgraphs/name/metaswap/exchange-v2' // edit
+    ? 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/exchange'
+    : 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/exchange' // edit
 
 export const INFO_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exhange-eth'
 export const BLOCKS_CLIENT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks'

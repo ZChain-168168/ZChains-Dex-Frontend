@@ -12,7 +12,7 @@ export const UserMenuItem = styled.button<UserMenuItemProps>`
   align-items: center;
   border: 0;
   background: transparent;
-  color: ${({ theme, disabled }) => disabled ? theme.colors.textDisabled : "#fff"};
+  color: ${({ theme, disabled }) => (disabled ? theme.colors.textDisabled : "#fff")};
   cursor: pointer;
   display: flex;
   font-size: 16px;

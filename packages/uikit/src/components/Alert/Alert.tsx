@@ -83,7 +83,9 @@ const Alert: React.FC<React.PropsWithChildren<AlertProps>> = ({ title, children,
         <Icon color="currentColor" width="24px" />
       </IconLabel>
       <Details hasHandler={!!onClick}>
-        <Text bold>{title}</Text>
+        <Text color="#fff" bold>
+          {title}
+        </Text>
         {typeof children === "string" ? (
           <Text style={{ wordBreak: "break-all" }} as="p">
             {children}

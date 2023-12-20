@@ -24,7 +24,7 @@ export const CAKE_TESTNET_MTV = new ERC20Token( // edit
   '0xbc691Ff9F9DCCa20DB97FCd56930a193169c9305',
   18,
   'CAKE',
-  'MetaSwap Token',
+  'TeleportSwap Token',
   'https://pancakeswap.finance/',
 )
 

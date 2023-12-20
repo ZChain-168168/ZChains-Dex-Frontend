@@ -178,7 +178,7 @@ export default function RemoveLiquidity({ currencyA, currencyB, currencyIdA, cur
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: "MetaSwap LPs", // 'Pancake LPs', // edit
+      name: 'TeleportSwap LPs', // 'Pancake LPs', // edit
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,
