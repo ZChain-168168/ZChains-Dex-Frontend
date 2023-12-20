@@ -280,8 +280,7 @@ export const useGetChainName = () => {
   const { pathname, query } = useRouter()
 
   const getChain = useCallback(() => {
-    if (pathname.includes('eth') || query.chain === 'eth') return 'ETH'
-    return 'BSC'
+    return 'CREDIT'
   }, [pathname, query])
   const [name, setName] = useState<MultiChainName | null>(() => getChain())
   const result = useMemo(() => name, [name])

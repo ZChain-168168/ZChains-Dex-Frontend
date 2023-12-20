@@ -49,14 +49,13 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
   )
 
   const allTokens = useAllTokenDataSWR()
-  console.log('allTokens', allTokens)
 
   const formattedTokens = useMemo(() => {
     return Object.values(allTokens)
       .map((token) => token.data)
       .filter((token) => token.name !== 'unknown')
   }, [allTokens])
-
+  
   const { poolsData } = usePoolsData()
 
   const somePoolsAreLoading = useMemo(() => {

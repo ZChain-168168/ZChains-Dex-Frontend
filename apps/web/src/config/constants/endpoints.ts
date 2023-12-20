@@ -9,7 +9,7 @@ export const GRAPH_API_LOTTERY = 'https://api.thegraph.com/subgraphs/name/pancak
 export const SNAPSHOT_BASE_URL = process.env.NEXT_PUBLIC_SNAPSHOT_BASE_URL // edit
 export const API_PROFILE = 'https://profile.pancakeswap.com'
 export const API_NFT = 'https://nft.pancakeswap.com/api/v1'
-export const SNAPSHOT_API = `${SNAPSHOT_BASE_URL}/graphql`
+export const SNAPSHOT_API = `${SNAPSHOT_BASE_URL}`
 export const SNAPSHOT_HUB_API = `${SNAPSHOT_BASE_URL}/api/message`
 export const GRAPH_API_POTTERY = 'https://api.thegraph.com/subgraphs/name/pancakeswap/pottery'
 
@@ -45,11 +45,13 @@ export const CELER_API = 'https://api.celerscan.com/scan'
 export const INFO_CLIENT_WITH_CHAIN = {
   [ChainId.BSC]: INFO_CLIENT,
   [ChainId.ETHEREUM]: INFO_CLIENT_ETH,
+  [ChainId.CREDIT]:INFO_CLIENT
 }
 
 export const BLOCKS_CLIENT_WITH_CHAIN = {
   [ChainId.BSC]: BLOCKS_CLIENT,
   [ChainId.ETHEREUM]: BLOCKS_CLIENT_ETH,
+  [ChainId.CREDIT]:BLOCKS_CLIENT
 }
 
 export const ASSET_CDN = 'https://assets.pancakeswap.finance'

@@ -252,7 +252,7 @@ function MinimalPositionCardView({
         </Card>
       ) : (
         <LightCard>
-          <Text fontSize="14px" style={{ textAlign: 'center' }}>
+          <Text fontSize="14px" color='#FAFAFA' style={{ textAlign: 'center' }}>
             <span role="img" aria-label="pancake-icon">
               🥞
             </span>{' '}

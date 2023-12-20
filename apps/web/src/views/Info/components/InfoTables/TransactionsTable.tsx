@@ -105,7 +105,6 @@ const DataRow: React.FC<React.PropsWithChildren<{ transaction: Transaction }>> =
   return (
     <ResponsiveGrid>
       <LinkExternal
-        isBscScan
         href={getBlockExploreLink(transaction.hash, 'transaction', chainName === 'ETH' && ChainId.ETHEREUM)}
       >
         <Text>
@@ -124,7 +123,6 @@ const DataRow: React.FC<React.PropsWithChildren<{ transaction: Transaction }>> =
         <Text>{`${formatAmount(abs1)} ${transaction.token1Symbol}`}</Text>
       </Text>
       <LinkExternal
-        isBscScan
         href={getBlockExploreLink(transaction.sender, 'address', chainName === 'ETH' && ChainId.ETHEREUM)}
       >
         {truncateHash(transaction.sender)}
