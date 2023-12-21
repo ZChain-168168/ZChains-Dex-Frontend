@@ -39,7 +39,7 @@ export const multiChainId = {
 export const multiChainPaths = {
   [ChainId.BSC]: '',
   [ChainId.ETHEREUM]: '/eth',
-  [ChainId.CREDIT]:''
+[ChainId.CREDIT]:''
 }
 
 export const multiChainQueryClient = {

@@ -30,7 +30,7 @@ export const CAKE_TESTNET_MTV = new ERC20Token( // edit
 
 // export const CAKE_CREDIT = new ERC20Token( // edit
 //   ChainId.CREDIT,
-//   '0x8bdC458717102471842FA83ccA4067275eF4ef81',
+//   '0x6ee35EC174d928E773Be492c99ab89Bd25EdbBf0',
 //   18,
 //   'CAKE',
 //   'TeleportSwap Token',
