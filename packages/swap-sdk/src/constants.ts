@@ -25,7 +25,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.BSC_TESTNET]: '0x176344b44a95536df4F486378A50875F48cB17FA',
   [ChainId.MTV_TESTNET]: '0xe569DAb4bF24dD2370e6e76Dd94498c00AD7344D', // edit
   [ChainId.MTV]: '0x6b300A5c17A058CC84c51EBDEaD7fF6D9841c13d', // edit
-  [ChainId.CREDIT]: '0x6ee35EC174d928E773Be492c99ab89Bd25EdbBf0',
+  [ChainId.CREDIT]: '0x10D8A4Cb684e913D8e5ca82168e77623877A8d5B',
 }
 
 const FACTORY_ADDRESS = '0x0581143aC484Ea70976bd4f3b4a91ce8D5Da5662'
@@ -37,7 +37,7 @@ export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.BSC_TESTNET]: '0xe27Fb19E926C47E05c1a4be6FD744f74B656479E',
   [ChainId.MTV_TESTNET]: '0xA48d3555e6846F891d4291AB37C5bD3CC47c55a5', // edit
   [ChainId.MTV]: '0x001d538DFafa303AD358B50A1d37bc7494891F70', // edit
-  [ChainId.CREDIT]: '0xcE78F58abA565d775ea43BA7aD098176B8bd21C2',
+  [ChainId.CREDIT]: '0x1F8F984E2D07252556e3895dd193968398048bf3',
 }
 
 const INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
@@ -49,7 +49,7 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.BSC_TESTNET]: '0x5fecf0089b488d689ca663fae59c148ac40005aeadbdc683b9afe2dd5ac445b7',
   [ChainId.MTV_TESTNET]: '0x68a52e8edf5c01d56cf9eed6893e94aad2ec6ef49b8aef6bd4e2d87f32baa4bd', // edit
   [ChainId.MTV]: '0x5fecf0089b488d689ca663fae59c148ac40005aeadbdc683b9afe2dd5ac445b7', // edit
-  [ChainId.CREDIT]: '0xd03d7ac42e3439653a71e353bb0d6df115f7c7140f34a5414d292f69348a28da',
+  [ChainId.CREDIT]: '0x95235e13cf3477e1e5f991fc05123af2d29b829cde4f23d515cdd24b5fffa40f',
 }
 
 export const WETH9 = {
@@ -116,12 +116,12 @@ export const WBNB = {
   ),
   [ChainId.CREDIT]: new ERC20Token(
     ChainId.CREDIT,
-    '0x6ee35EC174d928E773Be492c99ab89Bd25EdbBf0', // edit
+    '0xe5C2B1a3EbcD5Abd7511306E9931d26d5bb3C2e4', // edit
     18,
     'WCREDIT',
     'Wrapped CREDIT',
     'https://www.binance.org',
-    '/images/4400/tokens/0x6ee35EC174d928E773Be492c99ab89Bd25EdbBf0.png'
+    '/images/4400/tokens/0xe5C2B1a3EbcD5Abd7511306E9931d26d5bb3C2e4.png'
   ),
 }
 
