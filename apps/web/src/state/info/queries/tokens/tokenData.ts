@@ -60,7 +60,6 @@ const TOKEN_AT_BLOCK = (chainName: MultiChainName, block: number | undefined, to
       symbol
       name
       decimals
-      derived${multiChainQueryMainToken[chainName]}
       derivedUSD
       tradeVolumeUSD
       totalTransactions
@@ -77,7 +76,8 @@ const fetchTokenData = async (
   block14d: number,
   tokenAddresses: string[],
 ) => {
-  try { // edit
+  try {
+    // edit
     // const query = gql`
     //   query tokens {
     //     now: ${TOKEN_AT_BLOCK(chainName, null, tokenAddresses)}
@@ -272,7 +272,7 @@ export const fetchAllTokenDataByAddresses = async (
     const priceUSDChange = getPercentChange(priceUSD, priceUSDOneDay)
     const priceUSDChangeWeek = getPercentChange(priceUSD, priceUSDWeek)
     const txCount = getAmountChange(
-      current?.totalTransactions, 
+      current?.totalTransactions,
       // oneDay?.totalTransactions
     )
 

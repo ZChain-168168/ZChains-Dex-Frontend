@@ -16,7 +16,7 @@ export type MultiChainName = 'BSC' | 'ETH' | 'CREDIT'
 export const multiChainQueryMainToken = {
   BSC: 'BNB',
   ETH: 'ETH',
-  CREDIT: 'BNB',
+  CREDIT: 'ETH',
 }
 
 export const multiChainBlocksClient = {
@@ -28,6 +28,7 @@ export const multiChainBlocksClient = {
 export const multiChainStartTime = {
   BSC: PCS_V2_START,
   ETH: PCS_ETH_START,
+  CREDIT: PCS_ETH_START,
 }
 
 export const multiChainId = {

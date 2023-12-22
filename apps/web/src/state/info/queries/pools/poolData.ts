@@ -103,7 +103,7 @@ export const fetchPoolData = async (
   block7d: number,
   block14d: number,
   poolAddresses: string[],
-  chainName: 'CREDIT'|'ETH' | 'BSC' = 'CREDIT',
+  chainName: 'CREDIT' | 'ETH' | 'BSC' = 'CREDIT',
 ) => {
   try {
     // const query = gql`
@@ -300,12 +300,18 @@ export const fetchAllPoolDataWithAddress = async (
       // oneDay?.volumeUSD,
       // twoDays?.volumeUSD
     )
-    const volumeOutUSD = current?.volumeOutUSD && getAmountChange(current?.volumeOutUSD, 
-      // oneDay?.volumeOutUSD
-    )
-    const volumeOutUSDWeek = current?.volumeOutUSD && getAmountChange(current?.volumeOutUSD, 
-      // week?.volumeOutUSD
-    )
+    const volumeOutUSD =
+      current?.volumeOutUSD &&
+      getAmountChange(
+        current?.volumeOutUSD,
+        // oneDay?.volumeOutUSD
+      )
+    const volumeOutUSDWeek =
+      current?.volumeOutUSD &&
+      getAmountChange(
+        current?.volumeOutUSD,
+        // week?.volumeOutUSD
+      )
     const [volumeUSDWeek, volumeUSDChangeWeek] = getChangeForPeriod(
       current?.volumeUSD,
       // week?.volumeUSD,
@@ -314,8 +320,9 @@ export const fetchAllPoolDataWithAddress = async (
 
     const liquidityUSD = current ? current.reserveUSD : 0
 
-    const liquidityUSDChange = getPercentChange(current?.reserveUSD, 
-      // oneDay?.reserveUSD 
+    const liquidityUSDChange = getPercentChange(
+      current?.reserveUSD,
+      // oneDay?.reserveUSD
     )
 
     const liquidityToken0 = current ? current.reserve0 : 0
