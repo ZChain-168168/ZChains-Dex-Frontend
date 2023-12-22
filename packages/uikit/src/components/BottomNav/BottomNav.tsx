@@ -15,7 +15,6 @@ const BottomNav: React.FC<React.PropsWithChildren<BottomNavProps>> = ({
 }) => {
   const [menuOpenByIndex, setMenuOpenByIndex] = useState({});
   const isBottomMenuOpen = Object.values(menuOpenByIndex).some((acc) => acc);
-  console.log("items", items);
 
   return (
     <>
