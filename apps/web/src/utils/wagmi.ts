@@ -90,11 +90,11 @@ export const creditChain: Chain = {
     symbol: 'CREDIT',
   },
   rpcUrls: {
-    public: { http: ['https://rpc.creditsmartchain.com/'] },
-    default: { http: ['https://rpc.creditsmartchain.com/'] },
+    public: { http: ['https://rpc.creditsmartchain.com'] },
+    default: { http: ['https://rpc.creditsmartchain.com'] },
   },
   blockExplorers: {
-    default: { name: 'Scan creditsmartchain', url: 'https://scan.creditsmartchain.com/' },
+    default: { name: 'Scan creditsmartchain', url: 'https://scan.creditsmartchain.com' },
   },
 
   contracts: {

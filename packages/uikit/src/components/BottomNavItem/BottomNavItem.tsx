@@ -24,16 +24,12 @@ const BottomNavItem: React.FC<React.PropsWithChildren<BottomNavItemProps>> = ({
           fillIcon={fillIcon}
           height="22px"
           width="21px"
-          color={isActive ? "secondary" : "textSubtle"}
+          color={isActive ? "secondary" : "#e9e9e9"}
           isActive={isActive}
           activeBackgroundColor="backgroundAlt"
         />
       )}
-      <StyledBottomNavText
-        color={isActive ? "primary" : "textSubtle"}
-        fontWeight={isActive ? "600" : "400"}
-        fontSize="10px"
-      >
+      <StyledBottomNavText color={isActive ? "primary" : "#FFF"} fontWeight={isActive ? "600" : "400"} fontSize="10px">
         {label}
       </StyledBottomNavText>
     </Flex>

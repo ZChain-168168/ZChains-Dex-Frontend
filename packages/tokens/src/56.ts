@@ -2269,8 +2269,8 @@ export const bscTokens = {
     '0x2C717059b366714d267039aF8F59125CAdce6D8c',
     18,
     'MHUNT',
-    'MetaShooter',
-    'https://metashooter.gg/',
+    'TeleportShooter',
+    'https://teleportshooter.gg/',
   ),
   ole: new ERC20Token(
     ChainId.BSC,

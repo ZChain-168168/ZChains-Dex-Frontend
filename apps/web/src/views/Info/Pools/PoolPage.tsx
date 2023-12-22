@@ -122,7 +122,7 @@ const PoolPage: React.FC<React.PropsWithChildren<{ address: string }>> = ({ addr
     () => (isStableSwap ? new BigNumber(feeDisplay).times(2).toNumber() : 0),
     [isStableSwap, feeDisplay],
   )
-
+    
   return (
     <Page>
       <NextSeo title={poolData ? `${poolData?.token0.symbol} / ${poolData?.token1.symbol}` : null} />
