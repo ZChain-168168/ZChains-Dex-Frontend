@@ -22,7 +22,7 @@ const fetchTopPools = async (chainName: MultiChainName, timestamp24hAgo: number)
   const isStableSwap = checkIsStableSwap()
   const firstCount = isStableSwap ? 100 : 30
   let whereCondition =
-    chainName === 'BSC'
+    chainName === 'CREDIT'
       ? `where: { dailyTxns_gt: 0, token0_not_in: $blacklist, token1_not_in: $blacklist }`
       : `where: { date_gt: ${timestamp24hAgo}, token0_not_in: $blacklist, token1_not_in: $blacklist, dailyVolumeUSD_gt: 2000 }`
   if (isStableSwap) whereCondition = `where: { date_gt: ${timestamp24hAgo}}`
@@ -39,6 +39,7 @@ const fetchTopPools = async (chainName: MultiChainName, timestamp24hAgo: number)
         }
       }
     `
+
     const data = await getMultiChainQueryEndPointWithStableSwap(chainName).request<TopPoolsResponse>(query, {
       blacklist: multiChainTokenBlackList[chainName],
     })

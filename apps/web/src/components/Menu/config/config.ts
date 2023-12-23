@@ -57,6 +57,7 @@ const config: (
       fillIcon: SwapFillIcon,
       href: '/',
       items: [],
+      showItemsOnMobile: false,
     },
     {
       label: t('Liquidity'),
@@ -64,6 +65,7 @@ const config: (
       fillIcon: SwapFillIcon,
       href: '/liquidity',
       items: [],
+      showItemsOnMobile: false,
     },
     // {
     //   label: t('Earn'),

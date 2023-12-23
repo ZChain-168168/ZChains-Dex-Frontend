@@ -16,67 +16,67 @@ export type MultiChainName = 'BSC' | 'ETH' | 'CREDIT'
 export const multiChainQueryMainToken = {
   BSC: 'BNB',
   ETH: 'ETH',
-  CREDIT:'BNB'
+  CREDIT: 'ETH',
 }
 
 export const multiChainBlocksClient = {
   BSC: BLOCKS_CLIENT,
   ETH: BLOCKS_CLIENT_ETH,
-  CREDIT:BLOCKS_CLIENT
+  CREDIT: BLOCKS_CLIENT,
 }
 
 export const multiChainStartTime = {
   BSC: PCS_V2_START,
   ETH: PCS_ETH_START,
+  CREDIT: PCS_ETH_START,
 }
 
 export const multiChainId = {
   BSC: ChainId.BSC,
   ETH: ChainId.ETHEREUM,
-  CREDIT:ChainId.CREDIT
+  CREDIT: ChainId.CREDIT,
 }
 
 export const multiChainPaths = {
   [ChainId.BSC]: '',
   [ChainId.ETHEREUM]: '/eth',
-[ChainId.CREDIT]:''
+  [ChainId.CREDIT]: '',
 }
 
 export const multiChainQueryClient = {
   BSC: infoClient,
   ETH: infoClientETH,
-  CREDIT: infoClientCREDIT
+  CREDIT: infoClientCREDIT,
 }
 
 export const multiChainQueryEndPoint = {
   BSC: INFO_CLIENT,
   ETH: INFO_CLIENT_ETH,
-  CREDIT:INFO_CLIENT
+  CREDIT: INFO_CLIENT,
 }
 
 export const multiChainScan = {
   BSC: 'BscScan',
   ETH: 'EtherScan',
-  CREDIT:'CreditScan'
+  CREDIT: 'CreditScan',
 }
 
 export const multiChainTokenBlackList = {
   BSC: TOKEN_BLACKLIST,
   ETH: ETH_TOKEN_BLACKLIST,
-  CREDIT: TOKEN_BLACKLIST
+  CREDIT: TOKEN_BLACKLIST,
 }
 
 export const multiChainTokenWhiteList = {
   BSC: BSC_TOKEN_WHITELIST,
   ETH: ETH_TOKEN_WHITELIST,
-  CREDIT: BSC_TOKEN_WHITELIST
+  CREDIT: BSC_TOKEN_WHITELIST,
 }
 
 export const getMultiChainQueryEndPointWithStableSwap = (chainName: MultiChainName) => {
   const isStableSwap = checkIsStableSwap()
   if (isStableSwap) return infoStableSwapClient
-  console.log('multiChainQueryClient[chainName]',multiChainQueryClient[chainName]);
-  
+
   return multiChainQueryClient[chainName]
 }
 

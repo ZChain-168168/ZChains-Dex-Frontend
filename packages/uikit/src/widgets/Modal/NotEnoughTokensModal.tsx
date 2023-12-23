@@ -39,7 +39,7 @@ const NotEnoughTokensModal: React.FC<React.PropsWithChildren<NotEnoughTokensModa
           symbol: tokenSymbol,
         })}
       </Text>
-      <Button mt="24px" as="a" external href={tokenAddress ? `/swap?outputCurrency=${tokenAddress}` : "/swap"}>
+      <Button mt="24px" as="a" external href={tokenAddress ? `/?outputCurrency=${tokenAddress}` : "/"}>
         {t("Buy")} {tokenSymbol}
       </Button>
       {hideLocateAddress ? null : (
