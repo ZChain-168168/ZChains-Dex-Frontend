@@ -120,6 +120,7 @@ export const fetchPoolData = async (
         now: ${POOL_AT_BLOCK(chainName, null, poolAddresses)}
       }
     `
+
     const data = await getMultiChainQueryEndPointWithStableSwap(chainName).request<PoolsQueryResponse>(query)
     return { data, error: false }
   } catch (error) {
@@ -376,6 +377,7 @@ export const fetchAllPoolDataWithAddress = async (
 
 export const fetchAllPoolData = async (blocks: Block[], chainName: MultiChainName) => {
   const poolAddresses = await fetchTopPoolAddresses(chainName)
+
   return fetchAllPoolDataWithAddress(blocks, chainName, poolAddresses)
 }
 
