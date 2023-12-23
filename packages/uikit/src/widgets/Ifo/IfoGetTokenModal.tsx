@@ -27,7 +27,7 @@ const IfoGetTokenModal: React.FC<React.PropsWithChildren<Props>> = ({ symbol, ad
         <Button
           as={Link}
           external
-          href={`/swap?outputCurrency=${address}`}
+          href={`/?outputCurrency=${address}`}
           endIcon={<OpenNewIcon color="invertedContrast" />}
           minWidth="100%" // Bypass the width="fit-content" on Links
         >

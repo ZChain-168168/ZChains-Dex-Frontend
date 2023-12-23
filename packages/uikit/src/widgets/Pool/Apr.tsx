@@ -58,7 +58,7 @@ export function Apr<T>({
 
   const stakingTokenBalance = userData?.stakingTokenBalance ? new BigNumber(userData.stakingTokenBalance) : BIG_ZERO;
 
-  const apyModalLink = stakingToken?.address ? `/swap?outputCurrency=${stakingToken.address}` : "/swap";
+  const apyModalLink = stakingToken?.address ? `/?outputCurrency=${stakingToken.address}` : "/";
 
   const [onPresentApyModal] = useModal(
     <RoiCalculatorModal
