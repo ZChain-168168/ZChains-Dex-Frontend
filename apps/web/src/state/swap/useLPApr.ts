@@ -23,7 +23,7 @@ interface PoolReserveVolumeResponse {
 
 export const useLPApr = (pair?: Pair) => {
   const { data: poolData } = useSWRImmutable(
-    pair && pair.chainId === ChainId.BSC ? ['LP7dApr', pair.liquidityToken.address] : null,
+    pair && pair.chainId === ChainId.CREDIT ? ['LP7dApr', pair.liquidityToken.address] : null,
     async () => {
       const timestampsArray = getDeltaTimestamps()
       const blocks = await getBlocksFromTimestamps(timestampsArray, 'desc', 1000)
@@ -51,7 +51,7 @@ export const useLPApr = (pair?: Pair) => {
 const fetchPoolVolumeAndReserveData = async (
   block7d: number,
   poolAddress: string,
-  chainName: 'ETH' | 'BSC' = 'BSC',
+  chainName: 'ETH' | 'BSC' | 'CREDIT' = 'CREDIT',
 ) => {
   try {
     const query = gql`
@@ -70,7 +70,7 @@ const fetchPoolVolumeAndReserveData = async (
 }
 const POOL_AT_BLOCK = (chainName: MultiChainName, block: number | null, pool: string) => {
   const addressesString = `["${pool}"]`
-  const blockString = block ? `block: {number: ${block}}` : ``
+  const blockString = block ? `block: {number: ${1542807}}` : ``
   return `pairs(
     where: { id_in: ${addressesString} }
     ${blockString}

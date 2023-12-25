@@ -87,7 +87,7 @@ const Alert: React.FC<React.PropsWithChildren<AlertProps>> = ({ title, children,
           {title}
         </Text>
         {typeof children === "string" ? (
-          <Text style={{ wordBreak: "break-all" }} as="p">
+          <Text color="#FAFAFA" style={{ wordBreak: "break-all" }} as="p">
             {children}
           </Text>
         ) : (

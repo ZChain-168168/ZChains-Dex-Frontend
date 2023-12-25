@@ -74,7 +74,7 @@ const BorderCard = styled.div`
   padding: 16px;
 `
 
-const zapSupportedChainId = [ChainId.BSC, ChainId.BSC_TESTNET]
+const zapSupportedChainId = [ChainId.CREDIT]
 
 export default function RemoveLiquidity({ currencyA, currencyB, currencyIdA, currencyIdB }) {
   const router = useRouter()
@@ -872,7 +872,11 @@ export default function RemoveLiquidity({ currencyA, currencyB, currencyIdA, cur
                       liquidityErrorMessage: undefined,
                       txHash: undefined,
                     })
-                    onPresentRemoveLiquidity()
+                    if (approval === ApprovalState.APPROVED) {
+                      onPresentRemoveLiquidity()
+                    } else {
+                      approveCallback()
+                    }
                   }}
                   width="100%"
                   disabled={
@@ -881,7 +885,13 @@ export default function RemoveLiquidity({ currencyA, currencyB, currencyIdA, cur
                     (isZap && approval !== ApprovalState.APPROVED)
                   }
                 >
-                  {error || t('Remove')}
+                  {approval === ApprovalState.PENDING ? (
+                    <Dots>{t('Approving')}</Dots>
+                  ) : approval === ApprovalState.APPROVED ? (
+                    <>{error || t('Remove')}</>
+                  ) : (
+                    t('Approve')
+                  )}
                 </Button>
               </RowBetween>
             )}

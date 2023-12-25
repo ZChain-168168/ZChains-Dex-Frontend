@@ -83,7 +83,7 @@ export default function PoolFinder() {
 
   const prerequisiteMessage = (
     <LightCard padding="45px 10px">
-      <Text textAlign="center" color='#fafafa'>
+      <Text textAlign="center" color="#fafafa">
         {!account ? t('Connect to a wallet to find pools') : t('Select a token to find your liquidity.')}
       </Text>
     </LightCard>
@@ -156,7 +156,9 @@ export default function PoolFinder() {
               ) : (
                 <LightCard padding="45px 10px">
                   <AutoColumn gap="sm" justify="center">
-                    <Text textAlign="center">{t('You don’t have liquidity in this pair yet.')}</Text>
+                    <Text color="#fafafa" textAlign="center">
+                      {t('You don’t have liquidity in this pair yet.')}
+                    </Text>
                     <Button
                       as={NextLinkFromReactRouter}
                       to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}
