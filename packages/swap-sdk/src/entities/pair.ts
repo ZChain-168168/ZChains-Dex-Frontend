@@ -67,8 +67,8 @@ export class Pair {
       tokenAmounts[0].currency.chainId,
       Pair.getAddress(tokenAmounts[0].currency, tokenAmounts[1].currency),
       18,
-      'TeleportSwap-LP', // edit
-      'TeleportSwap LPs' // edit
+      'Teleport-LP', // edit
+      'TeleportLPs' // edit
     )
     this.tokenAmounts = tokenAmounts as [CurrencyAmount<ERC20Token>, CurrencyAmount<ERC20Token>]
   }

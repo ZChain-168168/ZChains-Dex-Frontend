@@ -89,6 +89,26 @@ export const USDT_ETH = new ERC20Token(
   'https://tether.to/',
 )
 
+export const EGG_CREDIT = new ERC20Token(
+  ChainId.CREDIT,
+  '0x366b71c23396d845Bb5CC1631606F17F0b45033f',
+  6,
+  'EGG',
+  'AFASA EggBank Egg Token',
+  'https://tether.to/',
+  '/images/4400/tokens/0x366b71c23396d845Bb5CC1631606F17F0b45033f.png',
+)
+
+export const HEN_CREDIT = new ERC20Token(
+  ChainId.CREDIT,
+  '0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A',
+  6,
+  'HEN',
+  'AFASA EggBank Hen Token',
+  'https://tether.to/',
+  '/images/4400/tokens/0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A.png',
+)
+
 export const USDT_MTV_TESTNET = new ERC20Token(
   ChainId.MTV_TESTNET,
   '0x35F6207320Ae813198485b93eD8036ebab8De5c8',

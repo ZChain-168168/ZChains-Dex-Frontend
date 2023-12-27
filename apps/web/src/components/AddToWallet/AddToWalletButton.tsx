@@ -92,6 +92,8 @@ const AddToWalletButton: React.FC<AddToWalletButtonProps & ButtonProps> = ({
     <Button
       {...props}
       onClick={() => {
+        console.log('14261261261361236312361236123')
+
         const image = tokenLogo ? (BAD_SRCS[tokenLogo] ? undefined : tokenLogo) : undefined
         connector.watchAsset?.({
           address: tokenAddress,
