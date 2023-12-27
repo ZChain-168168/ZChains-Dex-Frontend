@@ -83,7 +83,7 @@ export const USDT_BSC = new ERC20Token(
 export const USDT_ETH = new ERC20Token(
   ChainId.ETHEREUM,
   '0xdAC17F958D2ee523a2206206994597C13D831ec7',
-  6,
+  18,
   'USDT',
   'Tether USD',
   'https://tether.to/',
@@ -92,7 +92,7 @@ export const USDT_ETH = new ERC20Token(
 export const EGG_CREDIT = new ERC20Token(
   ChainId.CREDIT,
   '0x366b71c23396d845Bb5CC1631606F17F0b45033f',
-  6,
+  18,
   'EGG',
   'AFASA EggBank Egg Token',
   'https://tether.to/',
