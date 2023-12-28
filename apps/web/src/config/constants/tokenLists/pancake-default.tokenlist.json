@@ -1,5 +1,5 @@
 {
-  "name": "MetaViral Default List",
+  "name": "Teleport Default List",
   "timestamp": "2022-01-26T11:45:09Z",
   "version": {
     "major": 4,
@@ -7,56 +7,40 @@
     "patch": 0
   },
   "tags": {},
-  "logoURI": "https://metaviralscan.com/logo.png",
-  "keywords": ["metaviral", "default"],
+  "logoURI": "https://creditsmartchain.com/fav.png",
+  "keywords": ["Teleport", "default"],
   "tokens": [
     {
-      "name": "Wrapped MTV",
-      "symbol": "WMTV",
-      "address": "0x433b04307151b0cdb1eE3BFCffBde391e86be43F",
-      "chainId": 10434,
+      "name": "Wrapped CREDIT",
+      "symbol": "WCREDIT",
+      "address": "0xe5C2B1a3EbcD5Abd7511306E9931d26d5bb3C2e4",
+      "chainId": 4400,
       "decimals": 18,
-      "logoURI": "/images/10434/tokens/0x433b04307151b0cdb1eE3BFCffBde391e86be43F.png"
+      "logoURI": "/images/4400/tokens/0xe5C2B1a3EbcD5Abd7511306E9931d26d5bb3C2e4.png"
     },
     {
-      "name": "MetaViral USD",
-      "symbol": "MUSD",
-      "address": "0x6a3f146746AFf711D7486c01ba0F181FF364e23D",
-      "chainId": 10434,
-      "decimals": 18,
-      "logoURI": "/images/10434/tokens/0x6a3f146746AFf711D7486c01ba0F181FF364e23D.png"
-    },
-    {
-      "name": "MetaViral USD PEG-Tether",
+      "name": "Teleport USDT",
       "symbol": "USDT",
-      "address": "0x88cd3B410235F7C35819ab4a606b2724Da47a56a",
-      "chainId": 10434,
+      "address": "0x4DD741d2F49073ed7aCfaA34fb53330C7324e319",
+      "chainId": 4400,
       "decimals": 18,
-      "logoURI": "/images/10434/tokens/0x88cd3B410235F7C35819ab4a606b2724Da47a56a.png"
+      "logoURI": "/images/4400/tokens/0x4DD741d2F49073ed7aCfaA34fb53330C7324e319.png"
     },
     {
-      "name": "BERYL",
-      "symbol": "BEL",
-      "address": "0xCEC0cfAdf437421901177A9D12bddE9ED14870FB",
-      "chainId": 10434,
+      "name": "AFASA EggBank Hen Token",
+      "symbol": "HEN",
+      "address": "0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A",
+      "chainId": 4400,
       "decimals": 18,
-      "logoURI": "/images/10434/tokens/0xCEC0cfAdf437421901177A9D12bddE9ED14870FB.png"
+      "logoURI": "/images/4400/tokens/0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A.png"
     },
     {
-      "name": "EMERALD",
-      "symbol": "EMERALD",
-      "address": "0x2E0cc652e87fb83601C11Bd667C11591A20379fF",
-      "chainId": 10434,
+      "name": "AFASA EggBank EGG Token",
+      "symbol": "EGG",
+      "address": "0x366b71c23396d845Bb5CC1631606F17F0b45033f",
+      "chainId": 4400,
       "decimals": 18,
-      "logoURI": "/images/10434/tokens/0x2E0cc652e87fb83601C11Bd667C11591A20379fF.png"
-    },
-    {
-      "name": "SARDIUS",
-      "symbol": "SARDIUS",
-      "address": "0x43982b29e792B928c73dE5694c7040F8086bAEC3",
-      "chainId": 10434,
-      "decimals": 18,
-      "logoURI": "/images/10434/tokens/0x43982b29e792B928c73dE5694c7040F8086bAEC3.png"
+      "logoURI": "/images/4400/tokens/0x366b71c23396d845Bb5CC1631606F17F0b45033f.png"
     }
   ]
 }

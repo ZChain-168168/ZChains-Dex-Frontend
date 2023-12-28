@@ -65,7 +65,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
   [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
-  [ChainId.CREDIT]: [creditTokens.usdt, creditTokens.wbnb, EGG_CREDIT, HEN_CREDIT],
+  [ChainId.CREDIT]: [creditTokens.usdt, creditTokens.wbnb],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -76,7 +76,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
   [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
-  [ChainId.CREDIT]: [creditTokens.usdt, creditTokens.wbnb, EGG_CREDIT, HEN_CREDIT],
+  [ChainId.CREDIT]: [creditTokens.usdt, creditTokens.wbnb],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {

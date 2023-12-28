@@ -113,7 +113,7 @@ function ImportToken({ tokens, handleCurrencySelect }: ImportProps) {
                 </>
               )}
             </Grid>
-            {token && SUPPORT_ONLY_BSC.includes(token.chainId) && <AccessRisk token={token} />}
+            {/* {token && SUPPORT_ONLY_BSC.includes(token.chainId) && <AccessRisk token={token} />} */}
           </Flex>
         )
       })}
