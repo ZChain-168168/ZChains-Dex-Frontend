@@ -396,11 +396,11 @@ const LimitOrders = () => {
                       showUSDPrice
                     />
 
-                    <Box id="yo">
+                    {/* <Box id="yo">
                       {isAccessTokenSupported && currencies.input && currencies.input.isToken && (
                         <AccessRisk token={currencies.input} />
                       )}
-                    </Box>
+                    </Box> */}
 
                     <SwitchTokensButton
                       handleSwitchTokens={handleTokenSwitch}
@@ -419,11 +419,11 @@ const LimitOrders = () => {
                       commonBasesType={CommonBasesType.SWAP_LIMITORDER}
                       showUSDPrice
                     />
-                    <Box>
+                    {/* <Box>
                       {isAccessTokenSupported && currencies.output && currencies.output.isToken && (
                         <AccessRisk token={currencies.output} />
                       )}
-                    </Box>
+                    </Box> */}
                     <LimitOrderPrice
                       id="limit-order-desired-rate-input"
                       value={formattedAmounts.price}
