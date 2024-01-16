@@ -273,12 +273,21 @@ const CampaignsUpdateRate: React.FC = () => {
                           <Input size="middle" placeholder="1000" autoComplete="true" />
                         </Form.Item>
 
-                        <MinusCircleOutlined className="dynamic-delete-button" onClick={() => remove(name)} />
+                        <MinusCircleOutlined
+                          className="dynamic-delete-button"
+                          onClick={() => remove(name)}
+                          rev={undefined}
+                        />
                       </Form.Item>
                     ))}
 
                     <Form.Item className="button-action">
-                      <Button type="dashed" onClick={() => add()} style={{ width: '100%' }} icon={<PlusOutlined />}>
+                      <Button
+                        type="dashed"
+                        onClick={() => add()}
+                        style={{ width: '100%' }}
+                        icon={<PlusOutlined rev={undefined} />}
+                      >
                         Add new NFT and Reward
                       </Button>
                       <Form.ErrorList errors={errors} />

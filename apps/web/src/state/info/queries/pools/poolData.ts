@@ -103,7 +103,7 @@ export const fetchPoolData = async (
   block7d: number,
   block14d: number,
   poolAddresses: string[],
-  chainName: 'CREDIT' | 'ETH' | 'BSC' = 'CREDIT',
+  chainName: 'CREDIT' | 'ETH' | 'BSC' | 'AVAX' = 'CREDIT',
 ) => {
   try {
     // const query = gql`

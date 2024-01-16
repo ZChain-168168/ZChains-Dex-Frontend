@@ -19,7 +19,8 @@ import potteryReducer from './pottery'
 import globalReducer from './global/reducer'
 import staking from './staking/reducer'
 import admin from './admin/reducer'
-
+import nfts from './nfts/reducer'
+import campaignsReducer from './campaigns'
 const PERSISTED_KEYS: string[] = ['user', 'transactions']
 
 const persistConfig = {
@@ -51,6 +52,8 @@ const persistedReducer = persistReducer(
     multicall,
     staking,
     admin,
+    nfts,
+    campaigns: campaignsReducer,
   }),
 )
 

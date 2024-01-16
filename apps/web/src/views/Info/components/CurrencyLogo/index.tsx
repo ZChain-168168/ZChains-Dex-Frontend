@@ -18,7 +18,7 @@ export const CurrencyLogo: React.FC<
   React.PropsWithChildren<{
     address?: string
     size?: string
-    chainName?: 'ETH' | 'BSC' |'CREDIT'
+    chainName?: 'ETH' | 'BSC' | 'CREDIT' | 'AVAX'
   }>
 > = ({ address, size = '24px', chainName = 'BSC', ...rest }) => {
   const src = useMemo(() => {
@@ -40,7 +40,7 @@ interface DoubleCurrencyLogoProps {
   address0?: string
   address1?: string
   size?: number
-  chainName?: 'ETH' | 'BSC' |'CREDIT'
+  chainName?: 'ETH' | 'BSC' | 'CREDIT' | 'AVAX'
 }
 
 export const DoubleCurrencyLogo: React.FC<React.PropsWithChildren<DoubleCurrencyLogoProps>> = ({

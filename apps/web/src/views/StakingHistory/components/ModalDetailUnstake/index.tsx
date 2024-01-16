@@ -188,7 +188,6 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
           <Flex>
             <Box>
               <Checkbox
-                scale="xs"
                 checked={isAgreementChecked}
                 onChange={(e) => {
                   setIsAgreementChecked(e.target.checked)

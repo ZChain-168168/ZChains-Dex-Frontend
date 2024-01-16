@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 import { useRouter } from 'next/router'
 
-import ReactHTMLTableToExcel from 'react-html-table-to-excel'
+// import ReactHTMLTableToExcel from 'react-html-table-to-excel'
 
 import { formatCode } from 'helpers'
 import { useClaimPools } from 'state/staking/fetchPoolList'
@@ -279,14 +279,14 @@ const Pool: React.FC = () => {
       </div>
       <div className="table-wrapper" ref={tableRef}>
         <WExportCsv>
-          <ReactHTMLTableToExcel
+          {/* <ReactHTMLTableToExcel
             id="table-xls-button"
             className="download-table-xls-button"
             table="table-to-xls"
             sheet="Sales report"
             filename="Stake Pools"
             buttonText="Export CSV"
-          />
+          /> */}
         </WExportCsv>
 
         <Table

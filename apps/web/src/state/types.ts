@@ -1,12 +1,13 @@
 import { BigNumber as EthersBigNumber } from '@ethersproject/bignumber'
 import { parseUnits } from '@ethersproject/units'
-import { SerializedFarmsState } from '@pancakeswap/farms'
+import { SerializedFarmPublicData, SerializedFarmUserData, SerializedFarmsState } from '@pancakeswap/farms'
 import { Token } from '@pancakeswap/sdk'
 import { SerializedWrappedToken } from '@pancakeswap/token-lists'
 import { Pool } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
 import { CampaignType, FetchStatus, LotteryStatus, LotteryTicket, Team, TranslatableText } from 'config/constants/types'
 import { NftToken } from './nftMarket/types'
+import { CampaignItem } from './campaigns/types'
 
 export enum GAS_PRICE {
   default = '5',
@@ -609,7 +610,9 @@ export interface PotteryWithdrawAbleData {
   lockedDate: string
   balanceOf: string
 }
-
+export interface CampaignsState {
+  data: CampaignItem[]
+}
 // Global state
 
 export interface State {
@@ -619,4 +622,8 @@ export interface State {
   predictions: PredictionsState
   lottery: LotteryState
   pottery: PotteryState
+  campaigns: CampaignsState
+}
+export interface SerializedFarm extends SerializedFarmPublicData {
+  userData?: SerializedFarmUserData
 }

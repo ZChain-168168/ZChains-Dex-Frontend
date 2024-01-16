@@ -103,6 +103,7 @@ import crossFarmingProxyAbi from 'config/abi/crossFarmingProxy.json'
 import mmLinkedPoolAbi from 'config/abi/mmLinkedPool.json'
 import stableSwapNativeHelperAbi from 'config/abi/stableSwapNativeHelper.json'
 import stakingAbi from 'config/abi/stakingAbi.json'
+import campaignAbi from 'config/abi/campaignAbi.json'
 
 // Types
 import type {
@@ -156,9 +157,10 @@ import type {
   MmLinkedPool,
   StableSwapNativeHelper,
   StakingAbi,
+  CampaignAbi,
 } from 'config/abi/types'
 import { ChainId } from '@pancakeswap/sdk'
-import { CONTRACT_STAKING } from 'config'
+import { CONTRACT_ADDRESS, CONTRACT_STAKING } from 'config'
 
 export const getContract = ({
   abi,
@@ -425,4 +427,8 @@ export const getStableSwapNativeHelperContract = (signer?: Signer | Provider, ch
 
 export const getContractStaking = (address?: string, signer?: Signer | Provider) => {
   return getContract({ abi: stakingAbi, address: address || CONTRACT_STAKING, signer }) as StakingAbi
+}
+
+export const getCampaignContract = (signer?: Signer | Provider) => {
+  return getContract({ abi: campaignAbi, address: CONTRACT_ADDRESS, signer }) as CampaignAbi
 }

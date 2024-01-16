@@ -1,13 +1,13 @@
 import momentTimezone from 'moment-timezone'
 
 // eslint-disable-next-line no-extend-native
-Date.prototype.addDays = (date: any, days: number) => {
+Date.prototype.addDays = (date, days) => {
   const pDate = new Date(date || new Date())
   pDate.setDate(pDate.getDate() + days)
   return pDate
 }
 
-export function getDateToDate(t0: string | number | Date, t1: string | number | Date) {
+export function getDateToDate(t0, t1) {
   const d = new Date(t1).getTime() - new Date(t0).getTime()
   const weekdays = Math.floor(d / 1000 / 60 / 60 / 24 / 7)
   const days = Math.floor(d / 1000 / 60 / 60 / 24 - weekdays * 7)
@@ -24,7 +24,7 @@ export function getDateToDate(t0: string | number | Date, t1: string | number | 
       minutes * 60 * 1000 -
       seconds * 1000,
   )
-  const t: any = {
+  const t = {
     end: d <= 0,
   }
 
@@ -38,7 +38,7 @@ export function getDateToDate(t0: string | number | Date, t1: string | number | 
   return t
 }
 
-export function countDateToDate(t0: any, t1: any) {
+export function countDateToDate(t0, t1) {
   const { weekdays, days, hours, minutes, seconds } = getDateToDate(t0, t1)
   if (weekdays || days) {
     return `${weekdays * 7 + days} days`
@@ -52,7 +52,7 @@ export function countDateToDate(t0: any, t1: any) {
   return `${seconds} seconds`
 }
 
-export const formatDate = (date: momentTimezone.MomentInput, format = 'YYYY/MM/DD HH:mm:ss') => {
+export const formatDate = (date, format = 'YYYY/MM/DD HH:mm:ss') => {
   // const country = JSON.parse(localStorage.getItem("userInfo"));
   const country = 'Asia/Ho_Chi_Minh'
   if (date) {
