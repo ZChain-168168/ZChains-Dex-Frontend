@@ -1,3 +1,4 @@
+import { avaxTokens } from './../../../tokens/src/43114'
 import { ChainId, Token, WBNB, WNATIVE } from '@pancakeswap/sdk'
 import { bscTokens, bscTestnetTokens, BUSD, USDC, USDT, creditTokens } from '@pancakeswap/tokens'
 
@@ -9,6 +10,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.BSC]: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   [ChainId.BSC_TESTNET]: '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',
   [ChainId.CREDIT]: '0x6ee35EC174d928E773Be492c99ab89Bd25EdbBf0',
+  [ChainId.AVAX]: '0x24035Dc2e27B3BD7114d0D9995FaD0d08F8019A6',
 }
 
 export const STABLE_SWAP_INFO_ADDRESS: ChainMap<string> = {
@@ -74,6 +76,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.BSC]: [bscTokens.busd, bscTokens.cake, bscTokens.btcb],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.CREDIT]: [creditTokens.wbnb, creditTokens.usdt],
+  [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.wbnb],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -89,6 +92,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.BSC]: [bscTokens.wbnb, bscTokens.dai, bscTokens.busd, bscTokens.usdt, bscTokens.cake],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.CREDIT]: [creditTokens.wbnb, creditTokens.usdt],
+  [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.wbnb],
 }
 
 export const PINNED_PAIRS: {

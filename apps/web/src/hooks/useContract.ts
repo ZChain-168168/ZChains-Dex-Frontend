@@ -2,17 +2,20 @@ import {
   Cake,
   CakeFlexibleSideVaultV2,
   CakeVaultV2,
+  CampaignAbi,
   Erc20,
   Erc20Bytes32,
   Erc721collection,
   Multicall,
+  StakingAbi,
   Weth,
   Zap,
 } from 'config/abi/types'
 import zapAbi from 'config/abi/zap.json'
+import campaignsAbi from 'config/abi/campaignAbi.json'
 import { useProviderOrSigner } from 'hooks/useProviderOrSigner'
 import { useMemo } from 'react'
-import { getMulticallAddress, getPredictionsV1Address, getZapAddress } from 'utils/addressHelpers'
+import { getCampaignsAddress, getMulticallAddress, getPredictionsV1Address, getZapAddress } from 'utils/addressHelpers'
 import {
   getAnniversaryAchievementContract,
   getBCakeFarmBoosterContract,
@@ -72,10 +75,12 @@ import IPancakePairABI from 'config/abi/IPancakePair.json'
 import multiCallAbi from 'config/abi/Multicall.json'
 import WETH_ABI from 'config/abi/weth.json'
 import { getContract } from 'utils'
+import stakingAbi from 'config/abi/stakingAbi.json'
 
 import { IPancakePair } from 'config/abi/types/IPancakePair'
 import { VaultKey } from 'state/types'
 import { useActiveChainId } from './useActiveChainId'
+import { CONTRACT_STAKING } from 'config'
 
 /**
  * Helper hooks to get specific contracts (by ABI)
@@ -392,4 +397,12 @@ export const useStableSwapNativeHelperContract = () => {
   const { chainId } = useActiveChainId()
   const { data: signer } = useSigner()
   return useMemo(() => getStableSwapNativeHelperContract(signer, chainId), [signer, chainId])
+}
+
+export function useContractStaking(withSignerIfPossible = true): StakingAbi {
+  return useContract(CONTRACT_STAKING, stakingAbi, withSignerIfPossible)
+}
+
+export function useContractCampaigns(withSignerIfPossible = true): CampaignAbi {
+  return useContract(getCampaignsAddress(), campaignsAbi, withSignerIfPossible)
 }

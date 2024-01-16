@@ -214,6 +214,7 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
     [ChainId.MTV_TESTNET]: { ...map1[ChainId.MTV_TESTNET], ...map2[ChainId.MTV_TESTNET] },
     [ChainId.MTV]: { ...map1[ChainId.MTV], ...map2[ChainId.MTV] }, // edit
     [ChainId.CREDIT]: { ...map1[ChainId.CREDIT], ...map2[ChainId.CREDIT] },
+    [ChainId.AVAX]: { ...map1[ChainId.AVAX], ...map2[ChainId.AVAX] },
   }
 }
 

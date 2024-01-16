@@ -1,4 +1,4 @@
-import { ChainId, ERC20Token } from '@pancakeswap/sdk'
+import { ChainId, ERC20Token, Token } from '@pancakeswap/sdk'
 
 // edit
 export const CAKE_MAINNET = new ERC20Token(
@@ -102,7 +102,7 @@ export const EGG_CREDIT = new ERC20Token(
 export const HEN_CREDIT = new ERC20Token(
   ChainId.CREDIT,
   '0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A',
-  6,
+  18,
   'HEN',
   'AFASA EggBank Hen Token',
   'https://tether.to/',
@@ -136,6 +136,16 @@ export const USDT_CREDIT = new ERC20Token(
   'Teleport USDT',
   'https://tether.to/',
   '/images/4400/tokens/0x4DD741d2F49073ed7aCfaA34fb53330C7324e319.png',
+)
+
+export const USDT_AVAX = new ERC20Token(
+  ChainId.AVAX,
+  '0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7',
+  18,
+  'USDT',
+  'Avalanche USDT',
+  'https://tether.to/',
+  '/images/43114/tokens/0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7.png',
 )
 
 export const BUSD_BSC = new ERC20Token(
@@ -243,4 +253,27 @@ export const USDT = {
   [ChainId.MTV_TESTNET]: USDT_MTV_TESTNET,
   [ChainId.MTV]: USDT_MTV, // edit
   [ChainId.CREDIT]: USDT_CREDIT, // edit
+  [ChainId.AVAX]: USDT_AVAX,
+}
+export const OPV_MAINNET = new Token(
+  ChainId.BSC,
+  '0x36c7b164f85d6f775cd128966d5819c7d36feff3',
+  18,
+  'OPV',
+  'OpenLive Group',
+  'https://pancakeswap.finance/',
+)
+
+export const OPV_TESTNET = new Token(
+  ChainId.BSC_TESTNET,
+  '0x083d803CD54f3cbc2A41DA5D7AD998CF0DFA3Cc9',
+  18,
+  'OPV',
+  'OpenLive Group',
+  'https://pancakeswap.finance/',
+)
+
+export const OPV = {
+  [ChainId.BSC]: OPV_MAINNET,
+  [ChainId.BSC_TESTNET]: OPV_TESTNET,
 }

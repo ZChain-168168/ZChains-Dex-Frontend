@@ -17,6 +17,8 @@ import user from './user/reducer'
 import limitOrders from './limitOrders/reducer'
 import potteryReducer from './pottery'
 import globalReducer from './global/reducer'
+import staking from './staking/reducer'
+import admin from './admin/reducer'
 
 const PERSISTED_KEYS: string[] = ['user', 'transactions']
 
@@ -47,6 +49,8 @@ const persistedReducer = persistReducer(
     mint,
     burn,
     multicall,
+    staking,
+    admin,
   }),
 )
 

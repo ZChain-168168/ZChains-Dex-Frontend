@@ -15,6 +15,7 @@ export const multicallCreateBlockNumber = {
   [ChainId.MTV_TESTNET]: 98221,
   [ChainId.MTV]: 462418, // edit
   [ChainId.CREDIT]: 1269263,
+  [ChainId.AVAX]: 40374887,
 }
 
 export const multicallAddresses = {
@@ -26,6 +27,7 @@ export const multicallAddresses = {
   [ChainId.MTV_TESTNET]: '0x04Fd205Acc48D9a0ad4E5EcAeFe79E6a7841C3c6', // edit
   [ChainId.MTV]: '0x8cD2973949E9371692E6d561BfaA86A54C4f696e', // edit
   [ChainId.CREDIT]: '0x7b9C46E416d32B99d34A9E508eC5Dd4bD728B314',
+  [ChainId.AVAX]: '0xd68A5f46e7F7AB0f122cda11F4AC49e72b56f005',
 }
 
 export const getMulticallContract = (chainId: ChainId, provider: Provider) => {

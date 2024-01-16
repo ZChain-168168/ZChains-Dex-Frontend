@@ -242,7 +242,7 @@ export default function SwapForm() {
             otherCurrency={currencies[Field.OUTPUT]}
             id="swap-currency-input"
             showCommonBases
-            showUSDPrice={!!tokenMap[chainId]?.[inputCurrencyId] || inputCurrencyId === NATIVE[chainId]?.symbol}
+            showUSDPrice={false}
             commonBasesType={CommonBasesType.SWAP_LIMITORDER}
           />
           {/* {isAccessTokenSupported && inputCurrency?.isToken && (
@@ -278,7 +278,7 @@ export default function SwapForm() {
             otherCurrency={currencies[Field.INPUT]}
             id="swap-currency-output"
             showCommonBases
-            showUSDPrice={!!tokenMap[chainId]?.[outputCurrencyId] || outputCurrencyId === NATIVE[chainId]?.symbol}
+            showUSDPrice={false}
             commonBasesType={CommonBasesType.SWAP_LIMITORDER}
           />
 

@@ -6,7 +6,10 @@ export const GRAPH_API_PREDICTION_BNB = 'https://api.thegraph.com/subgraphs/name
 export const GRAPH_API_PREDICTION_CAKE = 'https://api.thegraph.com/subgraphs/name/pancakeswap/prediction-cake'
 
 export const GRAPH_API_LOTTERY = 'https://api.thegraph.com/subgraphs/name/pancakeswap/lottery'
-export const SNAPSHOT_BASE_URL = process.env.NEXT_PUBLIC_SNAPSHOT_BASE_URL // edit
+export const SNAPSHOT_BASE_URL =
+  ACTIVE_CHAIN === 'credit'
+    ? 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/pairs'
+    : 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-avax' // edit
 export const API_PROFILE = 'https://profile.pancakeswap.com'
 export const API_NFT = 'https://nft.pancakeswap.com/api/v1'
 export const SNAPSHOT_API = `${SNAPSHOT_BASE_URL}`
@@ -20,9 +23,11 @@ export const GRAPH_API_PREDICTION_V1 = 'https://api.thegraph.com/subgraphs/name/
 
 // export const INFO_CLIENT = 'https://proxy-worker.pancake-swap.workers.dev/bsc-exchange'
 export const INFO_CLIENT =
-  ACTIVE_CHAIN === 'testnet'
+  ACTIVE_CHAIN === 'credit'
     ? 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/exchange'
-    : 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/exchange' // edit
+    : 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-exchange-avax' // edit
+
+export const INFO_CLIENT_AVAX = 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-avax'
 
 export const INFO_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exhange-eth'
 export const BLOCKS_CLIENT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks'
@@ -45,13 +50,15 @@ export const CELER_API = 'https://api.celerscan.com/scan'
 export const INFO_CLIENT_WITH_CHAIN = {
   [ChainId.BSC]: INFO_CLIENT,
   [ChainId.ETHEREUM]: INFO_CLIENT_ETH,
-  [ChainId.CREDIT]:INFO_CLIENT
+  [ChainId.CREDIT]: INFO_CLIENT,
+  [ChainId.AVAX]: INFO_CLIENT,
 }
 
 export const BLOCKS_CLIENT_WITH_CHAIN = {
   [ChainId.BSC]: BLOCKS_CLIENT,
   [ChainId.ETHEREUM]: BLOCKS_CLIENT_ETH,
-  [ChainId.CREDIT]:BLOCKS_CLIENT
+  [ChainId.CREDIT]: BLOCKS_CLIENT,
+  [ChainId.AVAX]: INFO_CLIENT,
 }
 
 export const ASSET_CDN = 'https://assets.pancakeswap.finance'

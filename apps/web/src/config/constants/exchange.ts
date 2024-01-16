@@ -1,3 +1,4 @@
+import { avaxTokens } from './../../../../../packages/tokens/src/43114'
 import { ChainId, JSBI, Percent, Token, WNATIVE } from '@pancakeswap/sdk'
 import { BigNumber } from '@ethersproject/bignumber'
 import {
@@ -33,6 +34,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
   [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
   [ChainId.CREDIT]: [creditTokens.usdt],
+  [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
 /**
@@ -66,6 +68,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
   [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
   [ChainId.CREDIT]: [creditTokens.usdt, creditTokens.wbnb],
+  [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -77,6 +80,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
   [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
   [ChainId.CREDIT]: [creditTokens.usdt, creditTokens.wbnb],
+  [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -102,6 +106,7 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [creditTokens.usdt, creditTokens.wbnb],
     [creditTokens.usdt, creditTokens.wbnb],
   ],
+  [ChainId.AVAX]: [[avaxTokens.wbnb, avaxTokens.usdt]],
 }
 
 export const BIG_INT_ZERO = JSBI.BigInt(0)

@@ -114,8 +114,8 @@ export const getICakeAddress = () => {
   return getAddress(addresses.iCake, DEFAULT_ACTIVE_CHAIN_ID)
 }
 
-export const getBCakeFarmBoosterAddress = (chainId: number) => {
-  return getAddress(addresses.bCakeFarmBooster, chainId)
+export const getBCakeFarmBoosterAddress = (chainId?: number) => {
+  return getAddress(addresses.bCakeFarmBooster)
 }
 
 export const getBCakeFarmBoosterProxyFactoryAddress = () => {
@@ -140,4 +140,7 @@ export const getMMLinkedPoolAddress = (chainId?: number) => {
 
 export const getStableSwapNativeHelperAddress = (chainId?: number) => {
   return getAddress(addresses.stableSwapNativeHelper, chainId)
+}
+export const getCampaignsAddress = () => {
+  return process.env.CONTRACT_ADDRESS
 }

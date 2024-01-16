@@ -22,6 +22,8 @@ export const AUCTION_BIDDERS_TO_FETCH = 500
 export const RECLAIM_AUCTIONS_TO_FETCH = 500
 export const AUCTION_WHITELISTED_BIDDERS_TO_FETCH = 500
 export const IPFS_GATEWAY = 'https://ipfs.io/ipfs'
+export const TOKEN_ADDRESS = process.env.NEXT_PUBLIC_TOKEN_ADDRESS
+export const CONTRACT_STAKING = process.env.NEXT_PUBLIC_CONTRACT_STAKING
 
 export const cstValue = {
   tokenName: 'CSC',

@@ -9,15 +9,13 @@ const mapping = {
   [ChainId.MTV_TESTNET]: 'mtvtestnet',
   [ChainId.MTV]: 'mtv',
   [ChainId.CREDIT]: 'credit',
+  [ChainId.AVAX]: 'avax',
 }
 
 const getTokenLogoURL = memoize(
   (token?: Token) => {
-    
     if (token && mapping[token.chainId]) {
-      return `/images/blockchains/${mapping[token.chainId]}/assets/${getAddress(
-        token.address,
-      )}.png`
+      return `/images/blockchains/${mapping[token.chainId]}/assets/${getAddress(token.address)}.png`
     }
     return null
   },

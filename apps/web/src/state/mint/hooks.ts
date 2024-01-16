@@ -171,6 +171,7 @@ export function useDerivedMintInfo(
       }
       return undefined
     }
+
     const wrappedCurrencyA = currencyA?.wrapped
     return pair && wrappedCurrencyA ? pair.priceOf(wrappedCurrencyA) : undefined
   }, [currencyA, noLiquidity, pair, parsedAmounts])

@@ -95,6 +95,15 @@ const config: (
       items: [],
     },
     // {
+    //   label: t('Staking'),
+    //   href: '/staking',
+    //   icon: EarnIcon,
+    //   fillIcon: EarnFillIcon,
+    //   image: '/images/decorations/pe2.png',
+    //   showItemsOnMobile: false,
+    //   items: [],
+    // },
+    // {
     //   label: t('Voting'),
     //   href: '/voting',
     //   supportChainIds: SUPPORT_ONLY_BSC,
