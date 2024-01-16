@@ -360,10 +360,7 @@ const AdminLayout = ({ children }: any) => {
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: '0 31px' }}>
             <div className="header-admin-left">
-              {React.createElement(collapsed ? MenuOutlined : MenuOutlined, {
-                className: 'trigger',
-                onClick: () => setCollapsed(!collapsed),
-              })}
+              <MenuOutlined rev={undefined} className="trigger" onClick={() => setCollapsed(!collapsed)} />
             </div>
 
             <div className="header-admin-right">
