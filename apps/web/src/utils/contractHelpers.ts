@@ -3,7 +3,7 @@ import type { Provider } from '@ethersproject/providers'
 import { provider } from 'utils/wagmi'
 import { Contract } from '@ethersproject/contracts'
 import poolsConfig from 'config/constants/pools'
-import { DEFAULT_ACTIVE_CHAIN_ID } from "config/chains"
+import { DEFAULT_ACTIVE_CHAIN_ID } from 'config/chains'
 import { PoolCategory } from 'config/constants/types'
 import { CAKE } from '@pancakeswap/tokens'
 
@@ -102,6 +102,8 @@ import crossFarmingReceiverAbi from 'config/abi/crossFarmingReceiver.json'
 import crossFarmingProxyAbi from 'config/abi/crossFarmingProxy.json'
 import mmLinkedPoolAbi from 'config/abi/mmLinkedPool.json'
 import stableSwapNativeHelperAbi from 'config/abi/stableSwapNativeHelper.json'
+import stakingAbi from 'config/abi/stakingAbi.json'
+import campaignAbi from 'config/abi/campaignAbi.json'
 
 // Types
 import type {
@@ -154,8 +156,11 @@ import type {
   CrossFarmingProxy,
   MmLinkedPool,
   StableSwapNativeHelper,
+  StakingAbi,
+  CampaignAbi,
 } from 'config/abi/types'
 import { ChainId } from '@pancakeswap/sdk'
+import { CONTRACT_ADDRESS, CONTRACT_STAKING } from 'config'
 
 export const getContract = ({
   abi,
@@ -362,7 +367,11 @@ export const getIfoCreditAddressContract = (signer?: Signer | Provider) => {
 }
 
 export const getBCakeFarmBoosterContract = (signer?: Signer | Provider) => {
-  return getContract({ abi: bCakeFarmBoosterAbi, address: getBCakeFarmBoosterAddress(DEFAULT_ACTIVE_CHAIN_ID), signer }) as BCakeFarmBooster
+  return getContract({
+    abi: bCakeFarmBoosterAbi,
+    address: getBCakeFarmBoosterAddress(),
+    signer,
+  }) as BCakeFarmBooster
 }
 
 export const getBCakeFarmBoosterProxyFactoryContract = (signer?: Signer | Provider) => {
@@ -414,4 +423,12 @@ export const getStableSwapNativeHelperContract = (signer?: Signer | Provider, ch
     chainId,
     signer,
   }) as StableSwapNativeHelper
+}
+
+export const getContractStaking = (address?: string, signer?: Signer | Provider) => {
+  return getContract({ abi: stakingAbi, address: address || CONTRACT_STAKING, signer }) as StakingAbi
+}
+
+export const getCampaignContract = (signer?: Signer | Provider) => {
+  return getContract({ abi: campaignAbi, address: CONTRACT_ADDRESS, signer }) as CampaignAbi
 }

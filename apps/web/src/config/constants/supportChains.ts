@@ -1,6 +1,6 @@
 import { ChainId } from '@pancakeswap/sdk'
 
-export const SUPPORT_ONLY_BSC = [ChainId.CREDIT] // edit
+export const SUPPORT_ONLY_BSC = [ChainId.CREDIT, ChainId.AVAX] // edit
 export const SUPPORT_FARMS = [ChainId.CREDIT]
 
 export const SUPPORT_ZAP = [ChainId.CREDIT]

@@ -17,8 +17,6 @@ export const isAddress = memoize((value: any): string | false => {
     const isAddress = getAddress(value)
     return isAddress
   } catch (error) {
-    console.log('error', error)
-
     return false
   }
 })
@@ -82,4 +80,8 @@ export function escapeRegExp(string: string): string {
 export function isTokenOnList(defaultTokens: TokenAddressMap<ChainId>, currency?: Currency): boolean {
   if (currency?.isNative) return true
   return Boolean(currency?.isToken && defaultTokens[currency.chainId]?.[currency.address])
+}
+
+export function toLocaleString(x) {
+  return x.toLocaleString('fullwide', { useGrouping: false })
 }

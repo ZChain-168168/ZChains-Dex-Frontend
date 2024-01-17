@@ -11,6 +11,7 @@ export const CHAIN_QUERY_NAME = {
   [ChainId.MTV_TESTNET]: 'mtvTestnet',
   [ChainId.MTV]: 'mtv',
   [ChainId.CREDIT]: 'credit',
+  [ChainId.AVAX]: 'avax',
 } satisfies Record<ChainId, string>
 
 const CHAIN_QUERY_NAME_TO_ID = invert(CHAIN_QUERY_NAME)
@@ -26,7 +27,8 @@ if (typeof global.window !== undefined) {
 }
 
 // Config constant
-export const ACTIVE_CHAIN = chainKey === CHAIN_QUERY_NAME[ChainId.CREDIT] ? 'testnet' : 'mainnet' // edit
+export const ACTIVE_CHAIN =
+  chainKey === CHAIN_QUERY_NAME[ChainId.CREDIT] ? CHAIN_QUERY_NAME[ChainId.CREDIT] : CHAIN_QUERY_NAME[ChainId.AVAX] // edit
 
 // default select chainId
-export const DEFAULT_ACTIVE_CHAIN_ID =  ChainId.CREDIT // edit
+export const DEFAULT_ACTIVE_CHAIN_ID = ChainId.CREDIT // edit

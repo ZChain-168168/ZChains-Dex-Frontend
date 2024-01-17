@@ -185,7 +185,7 @@ export default function PoolFinder() {
             ) : pairState === PairState.INVALID ? (
               <LightCard padding="45px 10px">
                 <AutoColumn gap="sm" justify="center">
-                  <Text textAlign="center" fontWeight={500}>
+                  <Text color="#fafafa" textAlign="center" fontWeight={500}>
                     {t('Invalid pair.')}
                   </Text>
                 </AutoColumn>

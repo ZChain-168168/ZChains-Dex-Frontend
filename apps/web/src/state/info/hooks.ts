@@ -280,6 +280,7 @@ export const useGetChainName = () => {
   const { pathname, query } = useRouter()
 
   const getChain = useCallback(() => {
+    if (pathname.includes('avax')) return 'AVAX'
     return 'CREDIT'
   }, [pathname, query])
   const [name, setName] = useState<MultiChainName | null>(() => getChain())

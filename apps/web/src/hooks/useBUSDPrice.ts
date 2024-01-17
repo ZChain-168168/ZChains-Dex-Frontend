@@ -12,7 +12,7 @@ import {
   WETH9,
 } from '@pancakeswap/sdk'
 import { FAST_INTERVAL } from 'config/constants'
-import { CAKE, USDC, USDT } from '@pancakeswap/tokens'
+import { CAKE, OPV, USDC, USDT } from '@pancakeswap/tokens'
 import { useMemo } from 'react'
 import useSWR from 'swr'
 import useSWRImmutable from 'swr/immutable'
@@ -23,6 +23,7 @@ import { useProvider } from 'wagmi'
 import { usePairContract } from './useContract'
 import { PairState, usePairs } from './usePairs'
 import { useActiveChainId } from './useActiveChainId'
+import useActiveWeb3React from './useActiveWeb3React'
 
 /**
  * Returns the price in BUSD of the input currency
@@ -217,6 +218,17 @@ export const useBNBBusdPrice = (
   const { chainId } = useActiveChainId()
   const isTestnet = !forceMainnet && isChainTestnet(chainId)
   // Return bsc testnet wbnb if chain is testnet
-  const wbnb: Token = isTestnet ? WBNB[ChainId.BSC_TESTNET] : WBNB[ChainId.BSC]
+  const wbnb: Token = isTestnet ? WBNB[chainId] : WBNB[chainId]
   return usePriceByPairs(USDT[wbnb.chainId], wbnb)
+}
+
+export const useOPVBusdPrice = ({ forceMainnet } = { forceMainnet: false }) => {
+  const { chainId } = useActiveWeb3React()
+  const isTestnet = !forceMainnet && isChainTestnet(chainId)
+  const opv: Token = isTestnet ? OPV[ChainId.BSC_TESTNET] : OPV[ChainId.BSC]
+  const opvPrice = usePriceByPairs(USDT[opv.chainId], opv)
+  if (opvPrice) {
+    return multiplyPriceByAmount(opvPrice, 1)
+  }
+  return undefined
 }

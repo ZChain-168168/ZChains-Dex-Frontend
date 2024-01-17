@@ -55,7 +55,7 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
       .map((token) => token.data)
       .filter((token) => token.name !== 'unknown')
   }, [allTokens])
-  
+
   const { poolsData } = usePoolsData()
 
   const somePoolsAreLoading = useMemo(() => {

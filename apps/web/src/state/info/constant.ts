@@ -1,5 +1,5 @@
 import { BLOCKS_CLIENT, BLOCKS_CLIENT_ETH, INFO_CLIENT, INFO_CLIENT_ETH } from 'config/constants/endpoints'
-import { infoClientETH, infoClient, infoStableSwapClient, infoClientCREDIT } from 'utils/graphql'
+import { infoClientETH, infoClient, infoStableSwapClient, infoClientCREDIT, infoClientAVAX } from 'utils/graphql'
 
 import { ChainId } from '@pancakeswap/sdk'
 import {
@@ -11,18 +11,20 @@ import {
   ETH_TOKEN_WHITELIST,
 } from 'config/constants/info'
 
-export type MultiChainName = 'BSC' | 'ETH' | 'CREDIT'
+export type MultiChainName = 'BSC' | 'ETH' | 'CREDIT' | 'AVAX'
 
 export const multiChainQueryMainToken = {
   BSC: 'BNB',
   ETH: 'ETH',
   CREDIT: 'ETH',
+  AVAX: 'AVAX',
 }
 
 export const multiChainBlocksClient = {
   BSC: BLOCKS_CLIENT,
   ETH: BLOCKS_CLIENT_ETH,
   CREDIT: BLOCKS_CLIENT,
+  AVAX: BLOCKS_CLIENT,
 }
 
 export const multiChainStartTime = {
@@ -35,18 +37,21 @@ export const multiChainId = {
   BSC: ChainId.BSC,
   ETH: ChainId.ETHEREUM,
   CREDIT: ChainId.CREDIT,
+  AVAX: ChainId.AVAX,
 }
 
 export const multiChainPaths = {
   [ChainId.BSC]: '',
   [ChainId.ETHEREUM]: '/eth',
   [ChainId.CREDIT]: '',
+  [ChainId.AVAX]: '',
 }
 
 export const multiChainQueryClient = {
   BSC: infoClient,
   ETH: infoClientETH,
   CREDIT: infoClientCREDIT,
+  AVAX: infoClientAVAX,
 }
 
 export const multiChainQueryEndPoint = {
