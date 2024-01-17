@@ -130,7 +130,7 @@ export const WBNB = {
   [ChainId.AVAX]: new ERC20Token(
     ChainId.AVAX,
     '0x5464FcbDdC94005e77c81739CA99A7F9C98fa8e4', // edit
-    18,
+    6,
     'WAVAX',
     'Wrapped Avalanche C-Chain',
     'https://www.binance.org',
