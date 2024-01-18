@@ -47,7 +47,7 @@
       "symbol": "WAVAX",
       "address": "0x5464FcbDdC94005e77c81739CA99A7F9C98fa8e4",
       "chainId": 43114,
-      "decimals": 18,
+      "decimals": 6,
       "logoURI": "/images/43114/tokens/0x5464FcbDdC94005e77c81739CA99A7F9C98fa8e4.png"
     },
     {
@@ -55,7 +55,7 @@
       "symbol": "USDT",
       "address": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
       "chainId": 43114,
-      "decimals": 18,
+      "decimals": 6,
       "logoURI": "/images/43114/tokens/0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7.png"
     }
   ]

@@ -111,7 +111,7 @@ export const avalanche: Chain = {
   name: 'Avalanche C-Chain',
   network: 'AVAX',
 
-  nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
+  nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 6 },
   blockExplorers: {
     default: {
       name: 'snowtrace',
