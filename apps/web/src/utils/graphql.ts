@@ -4,6 +4,7 @@ import {
   STABLESWAP_SUBGRAPH_CLIENT,
   INFO_CLIENT_ETH,
   INFO_CLIENT_AVAX,
+  INFO_CLIENT_STAKING,
 } from 'config/constants/endpoints'
 import { GraphQLClient } from 'graphql-request'
 import { INFO_CLIENT_WITH_CHAIN } from '../config/constants/endpoints'
@@ -36,6 +37,8 @@ export const infoClientETH = new GraphQLClient(INFO_CLIENT_ETH)
 export const infoClientMTV = new GraphQLClient(INFO_CLIENT_ETH)
 
 export const infoClientCREDIT = new GraphQLClient(INFO_CLIENT)
+
+export const infoClientStaking = new GraphQLClient(INFO_CLIENT_STAKING)
 
 export const infoClientAVAX = new GraphQLClient(INFO_CLIENT_AVAX)
 

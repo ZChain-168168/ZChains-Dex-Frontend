@@ -165,7 +165,7 @@ import { CONTRACT_ADDRESS, CONTRACT_STAKING } from 'config'
 export const getContract = ({
   abi,
   address,
-  chainId = DEFAULT_ACTIVE_CHAIN_ID,
+  chainId = 97,
   signer,
 }: {
   abi: any

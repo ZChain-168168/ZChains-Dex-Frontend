@@ -132,14 +132,7 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
   const { opvEarned } = useStakingEarned(account, dataModal?.start)
 
   return (
-    <Modal
-      title={title}
-      headerBackground="#EEFBFF"
-      bodyPadding="0"
-      onDismiss={onDismiss}
-      {...props}
-      style={{ width: '100%', maxWidth: '500px' }}
-    >
+    <Modal title={title} headerBackground="#EEFBFF" bodyPadding="0" onDismiss={onDismiss} maxWidth={500} {...props}>
       <WStyledModal>
         <ul className="modal-history-steps">
           <li>
@@ -157,17 +150,17 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
         </ul>
         <div className="modal-info-stake">
           <Flex justifyContent="space-between" mb="10px">
-            <Text fontWeight="700">OPV Staked</Text>
+            <Text fontWeight="700">CREDIT Staked</Text>
             <Text color="textSubtle" fontWeight="600">
               <Amount value={dataModal?.amount} />
             </Text>
           </Flex>
           <Flex justifyContent="space-between">
-            <Text fontWeight="700">OPV Earn</Text>
+            <Text fontWeight="700">CREDIT Earn</Text>
             <Text color="textSubtle" fontWeight="600">
               <FormatAmount
                 value={roundNumber(opvEarned, { scale: 6, scaleSmall: 3 })}
-                suffix={` OPV`}
+                suffix={` CREDIT`}
                 nullValue="--"
               />
             </Text>

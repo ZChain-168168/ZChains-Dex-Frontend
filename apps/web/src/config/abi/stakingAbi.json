@@ -1,6 +1,6 @@
 [
   {
-    "inputs": [{ "internalType": "address payable", "name": "wallet", "type": "address" }],
+    "inputs": [{ "internalType": "address", "name": "_commissionWallet", "type": "address" }],
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
@@ -46,7 +46,12 @@
     "name": "OwnershipTransferred",
     "type": "event"
   },
-  { "anonymous": false, "inputs": [], "name": "Pause", "type": "event" },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "address", "name": "account", "type": "address" }],
+    "name": "Paused",
+    "type": "event"
+  },
   {
     "anonymous": false,
     "inputs": [
@@ -58,7 +63,12 @@
     "name": "UnStake",
     "type": "event"
   },
-  { "anonymous": false, "inputs": [], "name": "Unpause", "type": "event" },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": false, "internalType": "address", "name": "account", "type": "address" }],
+    "name": "Unpaused",
+    "type": "event"
+  },
   {
     "anonymous": false,
     "inputs": [
@@ -136,7 +146,7 @@
           { "internalType": "uint256", "name": "apr", "type": "uint256" },
           { "internalType": "uint256", "name": "totalStakedAmount", "type": "uint256" }
         ],
-        "internalType": "struct OpvStake.Plan",
+        "internalType": "struct NFTStaking.Plan",
         "name": "plan",
         "type": "tuple"
       }
@@ -176,7 +186,7 @@
               { "internalType": "bool", "name": "isUnStake", "type": "bool" },
               { "internalType": "uint256", "name": "checkpoint", "type": "uint256" }
             ],
-            "internalType": "struct OpvStake.Deposit[]",
+            "internalType": "struct NFTStaking.Deposit[]",
             "name": "deposits",
             "type": "tuple[]"
           },
@@ -184,7 +194,7 @@
           { "internalType": "uint256", "name": "registerTime", "type": "uint256" },
           { "internalType": "uint256", "name": "lastStake", "type": "uint256" }
         ],
-        "internalType": "struct OpvStake.User",
+        "internalType": "struct NFTStaking.User",
         "name": "userInfo",
         "type": "tuple"
       }
@@ -246,13 +256,6 @@
     "name": "owner",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "pause",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -324,13 +327,6 @@
   },
   {
     "inputs": [],
-    "name": "stakingToken",
-    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "totalStakedAmount",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
@@ -351,13 +347,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "unpause",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [
       { "internalType": "uint256", "name": "poolId", "type": "uint256" },
       { "internalType": "uint256", "name": "planId", "type": "uint256" },
@@ -367,7 +356,7 @@
           { "internalType": "uint256", "name": "apr", "type": "uint256" },
           { "internalType": "uint256", "name": "totalStakedAmount", "type": "uint256" }
         ],
-        "internalType": "struct OpvStake.Plan",
+        "internalType": "struct NFTStaking.Plan",
         "name": "plan",
         "type": "tuple"
       }
@@ -385,7 +374,7 @@
           { "internalType": "address", "name": "rewardAddress", "type": "address" },
           { "internalType": "address", "name": "lpAddress", "type": "address" }
         ],
-        "internalType": "struct OpvStake.Pool",
+        "internalType": "struct NFTStaking.Pool",
         "name": "pool",
         "type": "tuple"
       }

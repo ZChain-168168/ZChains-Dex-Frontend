@@ -7,6 +7,7 @@ import { formatBigNumber } from 'utils/formatBalance'
 import { FetchStatus } from 'config/constants/types'
 import { useTotalStaked } from 'state/staking/fetchTotalStaked'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
+import { useRouter } from 'next/router'
 
 const WHeaderStakingList = styled.div`
   width: 100%;
@@ -51,7 +52,7 @@ const HeaderStakingList = ({ opvEarned }) => {
   const { account } = useActiveWeb3React()
   const { balance, fetchStatus } = useGetOpvBalance()
   const { totalStaked } = useTotalStaked(account)
-
+  const router = useRouter()
   return (
     <WHeaderStakingList>
       <Row
@@ -97,9 +98,13 @@ const HeaderStakingList = ({ opvEarned }) => {
         </Col>
         <Col xs={24} sm={12} md={6}>
           <WButtonHistory>
-            <Link href="/staking/history">
-              <Button>History</Button>
-            </Link>
+            <Button
+              onClick={() => {
+                router.push('/new-staking/history')
+              }}
+            >
+              History
+            </Button>
           </WButtonHistory>
         </Col>
       </Row>

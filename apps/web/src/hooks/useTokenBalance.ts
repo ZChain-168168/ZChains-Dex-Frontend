@@ -1,6 +1,6 @@
 import { useAccount } from 'wagmi'
 import BigNumber from 'bignumber.js'
-import { CAKE, USDT_CREDIT } from '@pancakeswap/tokens'
+import { CAKE, OPV, USDT_CREDIT } from '@pancakeswap/tokens'
 import { FAST_INTERVAL } from 'config/constants'
 import { BigNumber as EthersBigNumber } from '@ethersproject/bignumber'
 import { Zero } from '@ethersproject/constants'
@@ -63,7 +63,7 @@ export default useTokenBalance
 
 export const useGetOpvBalance = () => {
   const { chainId } = useActiveWeb3React()
-  const { balance, fetchStatus } = useTokenBalance(USDT_CREDIT.address)
+  const { balance, fetchStatus } = useTokenBalance(OPV[chainId]?.address)
 
   // TODO: Remove ethers conversion once useTokenBalance is converted to ethers.BigNumber
   return { balance: EthersBigNumber.from(balance.toString()), fetchStatus }

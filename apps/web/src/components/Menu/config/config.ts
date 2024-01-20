@@ -94,15 +94,14 @@ const config: (
       showItemsOnMobile: false,
       items: [],
     },
-    // {
-    //   label: t('Staking'),
-    //   href: '/staking',
-    //   icon: EarnIcon,
-    //   fillIcon: EarnFillIcon,
-    //   image: '/images/decorations/pe2.png',
-    //   showItemsOnMobile: false,
-    //   items: [],
-    // },
+    {
+      label: t('Staking'),
+      href: '/new-staking',
+      icon: EarnIcon,
+      fillIcon: EarnFillIcon,
+      showItemsOnMobile: false,
+      items: [],
+    },
     // {
     //   label: t('Voting'),
     //   href: '/voting',

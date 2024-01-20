@@ -126,11 +126,6 @@ const config = {
         permanent: true,
       },
       {
-        source: '/staking',
-        destination: '/staking',
-        permanent: true,
-      },
-      {
         source: '/farms/archived',
         destination: '/farms/history',
         permanent: true,
@@ -138,12 +133,6 @@ const config = {
       {
         source: '/pool',
         destination: '/liquidity',
-        permanent: true,
-      },
-   
-      {
-        source: '/syrup',
-        destination: '/pools',
         permanent: true,
       },
       {
@@ -159,6 +148,16 @@ const config = {
       {
         source: '/info/pools/:address',
         destination: '/info/pairs/:address',
+        permanent: true,
+      },
+      {
+        source: '/pools',
+        destination: '/staking',
+        permanent: true,
+      },
+      {
+        source: '/syrup',
+        destination: '/staking',
         permanent: true,
       },
     ]

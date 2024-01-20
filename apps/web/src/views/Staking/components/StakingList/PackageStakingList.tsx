@@ -24,7 +24,9 @@ const WPackageStakingList = styled.div`
 
     .ant-table-thead
       > tr
-      > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+      > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not(
+        [colspan]
+      )::before {
       display: none;
     }
 
@@ -96,7 +98,7 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking }) => {
       title: t('Token'),
       dataIndex: 'title',
       render: () => {
-        return <div className="staking-item-token">OPV</div>
+        return <div className="staking-item-token">CREDIT</div>
       },
     },
     {
@@ -128,7 +130,7 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking }) => {
                 value={roundNumber(new BigNumber(text).shiftedBy(-18).toNumber())}
                 displayType="text"
                 thousandSeparator
-                suffix={` OPV`}
+                suffix={` CREDIT`}
                 renderText={(txt) => txt}
               />
             ) : (

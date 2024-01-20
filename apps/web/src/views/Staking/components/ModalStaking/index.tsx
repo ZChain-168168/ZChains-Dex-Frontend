@@ -151,7 +151,7 @@ const ModalStaking: React.FC<Props> = ({
     setStakingLoading(false)
     if (status) {
       addTransaction(txResponse, {
-        summary: `Staking: ${dataModal.time} days with ${amount} OPV`,
+        summary: `Staking: ${dataModal.time} days with ${amount} CREDIT`,
       })
       onStakingSuccess()
       setAmount('')
@@ -190,7 +190,7 @@ const ModalStaking: React.FC<Props> = ({
             mb="24px"
             style={{ borderBottom: '1px solid #333' }}
           >
-            OPV Staking
+            CREDIT Staking
           </Text>
           <div className="modal-staking-left-body">
             <Caution01 />
@@ -211,7 +211,7 @@ const ModalStaking: React.FC<Props> = ({
                 {opvFetchStatus !== FetchStatus.Fetched ? (
                   <Skeleton height="22px" width="60px" />
                 ) : (
-                  <Text fontSize={['12px', , '16px']}>Available amount: {formatBigNumber(opvBalance, 3)} OPV</Text>
+                  <Text fontSize={['12px', , '16px']}>Available amount: {formatBigNumber(opvBalance, 3)} CREDIT</Text>
                 )}
               </Flex>
               <StakingInput
@@ -219,7 +219,7 @@ const ModalStaking: React.FC<Props> = ({
                 value={amount}
                 rightNode={
                   <InputRightNode className="">
-                    <Text>OPV</Text>
+                    <Text>CREDIT</Text>
                     <span className="divider" />
                     <Button scale="xs" onClick={handleMaxAmount}>
                       Max
@@ -233,7 +233,7 @@ const ModalStaking: React.FC<Props> = ({
               Lock Amount Limitation
             </Text>
             <Grid gridTemplateColumns={['1fr', , '1fr 1fr']}>
-              <Text fontSize={['12px', , '16px']}>Minium: {dataModal?.min || '--'} OPV</Text>
+              <Text fontSize={['12px', , '16px']}>Minium: {dataModal?.min || '--'} CREDIT</Text>
               {/* <Text fontSize={['12px', , '16px']}>Maximum: {dataModal?.max || '--'} OPV</Text> */}
             </Grid>
           </div>
@@ -311,7 +311,7 @@ const ModalStaking: React.FC<Props> = ({
                   />
                 </Box>
                 <Text fontSize={['12px', , ' 14px']} pl="10px">
-                  I have read and I agree to OPENLIVE Staking Service Agreement
+                  I have read and I agree to TELEPORT Staking Service Agreement
                 </Text>
               </Flex>
             </Box>
