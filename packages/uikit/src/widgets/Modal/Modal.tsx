@@ -13,6 +13,7 @@ export const ModalWrapper = ({
   onDismiss,
   minWidth,
   hideCloseButton,
+  maxWidth,
   ...props
 }: PropsWithChildren<ModalWrapperProps>) => {
   const { isMobile } = useMatchBreakpoints();
@@ -33,6 +34,7 @@ export const ModalWrapper = ({
       }}
       ref={wrapperRef}
       $minWidth={minWidth}
+      $maxWitdh={maxWidth}
       {...props}
     >
       {children}
@@ -49,6 +51,7 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   bodyPadding = "24px",
   headerBackground = "transparent",
   minWidth = "320px",
+  maxWidth = 500,
   ...props
 }) => {
   const theme = useTheme();

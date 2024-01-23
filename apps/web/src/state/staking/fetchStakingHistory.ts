@@ -7,7 +7,7 @@ import { AppState, useAppDispatch } from 'state'
 
 import { useCallback, useEffect, useState } from 'react'
 import { gql } from 'graphql-request'
-import { infoClientCREDIT } from 'utils/graphql'
+import { infoClientStaking } from 'utils/graphql'
 import { StakingHistory, STAKING_STATUS } from './types'
 import { setStakingHistory } from './actions'
 
@@ -97,7 +97,7 @@ const graphStakingClaimWithdrawHistories = async (userAddress, planId, transacti
         }
       }
     `
-    const data = await infoClientCREDIT.request(query)
+    const data = await infoClientStaking.request(query)
     return data
   } catch (error) {
     console.error('Failed staking Claim Pools', error)
@@ -201,7 +201,7 @@ const graphStakingClaimDepositHistories = async (userAddress, planId, transactio
         }
       }
     `
-    const data = await infoClientCREDIT.request(query)
+    const data = await infoClientStaking.request(query)
     return data
   } catch (error) {
     console.error('Failed staking Claim Pools', error)
@@ -286,7 +286,7 @@ const graphStakingClaimDepositHistoriesByDate = async (start: string, end: strin
         }
       }
     `
-    const data = await infoClientCREDIT.request(query)
+    const data = await infoClientStaking.request(query)
     return data
   } catch (error) {
     console.error('Failed graphStakingClaimDepositHistoriesByDate', error)

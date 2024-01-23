@@ -147,7 +147,7 @@ const TokenPage: React.FC<React.PropsWithChildren<{ routeAddress: string }>> = (
                   isBscScan={multiChainId[chainName] === ChainId.BSC}
                   mr="8px"
                   color="primary"
-                  href={getBlockExploreLink(address, 'address')}
+                  href={getBlockExploreLink(address, 'address', chainId)}
                 >
                   {t('View on %site%', { site: cstValue.scanName })}
                 </LinkExternal>

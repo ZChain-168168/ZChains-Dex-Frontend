@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { gql } from 'graphql-request'
-import { infoClientCREDIT } from 'utils/graphql'
+import { infoClientStaking } from 'utils/graphql'
 import { StakingPools } from './types'
 
 // fetch nft detail graphql
@@ -17,7 +17,7 @@ const graphStakingClaimPools = async () => {
         }
       }
     `
-    const data = await infoClientCREDIT.request(query)
+    const data = await infoClientStaking.request(query)
     return data
   } catch (error) {
     console.error('Failed staking Claim Pools', error)

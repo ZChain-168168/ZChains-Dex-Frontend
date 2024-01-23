@@ -9,7 +9,7 @@ const Amount: React.FC<{ value }> = ({ value, ...props }) => (
         value={roundNumber(value, { scale: 2 })}
         thousandSeparator
         displayType="text"
-        suffix={` OPV`}
+        suffix={` CREDIT`}
         renderText={(txt) => txt}
         {...props}
       />

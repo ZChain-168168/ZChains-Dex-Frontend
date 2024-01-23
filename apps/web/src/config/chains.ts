@@ -28,7 +28,11 @@ if (typeof global.window !== undefined) {
 
 // Config constant
 export const ACTIVE_CHAIN =
-  chainKey === CHAIN_QUERY_NAME[ChainId.CREDIT] ? CHAIN_QUERY_NAME[ChainId.CREDIT] : CHAIN_QUERY_NAME[ChainId.AVAX] // edit
+  chainKey === CHAIN_QUERY_NAME[ChainId.CREDIT]
+    ? CHAIN_QUERY_NAME[ChainId.CREDIT]
+    : chainKey === CHAIN_QUERY_NAME[ChainId.BSC_TESTNET]
+    ? CHAIN_QUERY_NAME[ChainId.BSC_TESTNET]
+    : CHAIN_QUERY_NAME[ChainId.AVAX] // edit
 
 // default select chainId
 export const DEFAULT_ACTIVE_CHAIN_ID = ChainId.CREDIT // edit

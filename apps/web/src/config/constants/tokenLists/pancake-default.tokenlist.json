@@ -59,12 +59,12 @@
       "logoURI": "/images/43114/tokens/0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7.png"
     },
     {
-      "name": "Wrapped CREDIT",
+      "name": "Teleport CREDIT",
       "symbol": "tCREDIT",
-      "address": "0xf5a2e43133105aa41c516ca0e8fd41621b6c0525",
+      "address": "0x0667D72e77D899A81965FFD415A5ea45D4A1275A",
       "chainId": 43114,
       "decimals": 18,
-      "logoURI": "/images/43114/tokens/0xf5a2e43133105aa41c516ca0e8fd41621b6c0525.png"
+      "logoURI": "/images/43114/tokens/0x0667D72e77D899A81965FFD415A5ea45D4A1275A.png"
     }
   ]
 }

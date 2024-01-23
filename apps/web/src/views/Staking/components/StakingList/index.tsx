@@ -20,14 +20,15 @@ const StakingList: React.FC = () => {
   const [modalStaking, setModalStaking] = useState({ open: false, dataModal: null })
 
   const { stakingList, fetchStakingList } = useStakingListData()
+
   const { projectFee } = useContractStakingConditions()
   const { stakingHistory } = useStakingHistory(account)
   // const { opvEarned } = useStakingEarn(account, stakingList, stakingHistory)
   const { opvEarned } = useStakingTotalEarnedContract(account, stakingHistory)
 
   const handleStaking = (packageItem) => {
-    // setModalStaking({ open: true, dataModal: packageItem })
-    router.push('new-staking')
+    setModalStaking({ open: true, dataModal: packageItem })
+    // router.push('new-staking')
   }
 
   const handleStakingSuccess = useCallback(() => {
