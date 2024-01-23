@@ -29,6 +29,6 @@ export const DEFAULT_CHAIN_ID = process.env.NEXT_PUBLIC_DEFAULT_CHAIN_ID
 export const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS
 export const cstValue = {
   tokenName: 'CSC',
-  chainName: 'TeleportStation',
-  scanName: 'TeleportStation',
+  chainName: 'Snowtrace',
+  scanName: 'Snowtrace',
 } // edit
