@@ -273,6 +273,15 @@ export const OPV_TESTNET = new Token(
   'https://pancakeswap.finance/',
 )
 
+export const TELEPORT_CREDIT = new Token(
+  ChainId.CREDIT,
+  '0x4d5d78a5e645707b7039f6e872d3d02984c9ddf5',
+  18,
+  'CREDIT',
+  'Teleport CREDIT',
+  'https://pancakeswap.finance/',
+)
+
 export const OPV = {
   [ChainId.BSC]: OPV_MAINNET,
   [ChainId.BSC_TESTNET]: OPV_TESTNET,

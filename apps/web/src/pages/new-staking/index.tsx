@@ -4,6 +4,6 @@ import { ChainId } from '@pancakeswap/sdk'
 
 const StakingPage = () => <Staking />
 
-StakingPage.Chains = [ChainId.BSC_TESTNET]
+StakingPage.chains = [ChainId.BSC_TESTNET]
 
 export default StakingPage
