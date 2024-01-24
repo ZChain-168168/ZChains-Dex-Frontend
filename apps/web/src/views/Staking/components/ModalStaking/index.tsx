@@ -130,7 +130,7 @@ const ModalStaking: React.FC<Props> = ({
       return false
     }
     if (!isAgreementChecked) {
-      setErrorMess(t('Please check to agree OPENLIVE Staking Service Agreement'))
+      setErrorMess(t('Please check to agree Teleport Staking Service Agreement'))
       return false
     }
 
