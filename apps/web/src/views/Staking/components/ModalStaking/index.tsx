@@ -7,7 +7,7 @@ import { useContractStaking } from 'hooks/useContract'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import { toLocaleString } from 'utils'
 import { StakingItemType } from 'state/staking/types'
-import { isNumber } from 'helpers'
+import { isNumber, roundNumber } from 'helpers'
 import { useTranslation } from '@pancakeswap/localization'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useTransactionAdder } from 'state/transactions/hooks'
@@ -24,6 +24,7 @@ import useCatchTxErrorMessage from 'hooks/useCatchTxErrorMessage'
 import Caution01 from './Caution01'
 import StakingInput from './StakingInput'
 import CautionImage from '../../images/caution.png'
+import BigNumber from 'bignumber.js'
 
 const GlobalStyleModalStaking = createGlobalStyle`
   .ant-modal-content {
@@ -83,7 +84,7 @@ const InputRightNode = styled.div`
 `
 interface Props {
   open?: boolean
-  dataModal?: StakingItemType
+  dataModal?: any
   projectFee?: number
   setModalStaking?: (p: any) => void
   onStakingSuccess: () => void
@@ -102,7 +103,6 @@ const ModalStaking: React.FC<Props> = ({
   const [isAgreementChecked, setIsAgreementChecked] = useState(false)
   const [amount, setAmount] = useState<string | number>('')
   const [stakingLoading, setStakingLoading] = useState(false)
-
   const contractStaking = useContractStaking()
   const { callWithGasPrice } = useCallWithGasPrice()
   const { fetchWithCatchTxError } = useCatchTxErrorMessage()
@@ -110,7 +110,7 @@ const ModalStaking: React.FC<Props> = ({
   const { account } = useActiveWeb3React()
   const addTransaction = useTransactionAdder()
 
-  const { balance: opvBalance, fetchStatus: opvFetchStatus } = useGetOpvBalance()
+  const { balance: opvBalance, fetchStatus: opvFetchStatus } = useGetOpvBalance(dataModal?.pool?.stakeAddress?.id)
 
   // w currency
   const currencyOpv = useCurrency(TOKEN_ADDRESS)
@@ -135,8 +135,8 @@ const ModalStaking: React.FC<Props> = ({
     }
 
     const stakingParams = {
-      poolId: dataModal.poolId,
-      planId: dataModal.planId,
+      poolId: dataModal?.pool?.id,
+      planId: dataModal?.id?.split('-')[1],
       feeBnb: toLocaleString(projectFee * 1e18),
       amount: toLocaleString(+amount * 1e18),
     }
@@ -151,7 +151,7 @@ const ModalStaking: React.FC<Props> = ({
     setStakingLoading(false)
     if (status) {
       addTransaction(txResponse, {
-        summary: `Staking: ${dataModal.time} days with ${amount} CREDIT`,
+        summary: `Staking: ${dataModal.day} days with ${amount} ${dataModal?.pool?.stakeAddress?.symbol}`,
       })
       onStakingSuccess()
       setAmount('')
@@ -165,6 +165,7 @@ const ModalStaking: React.FC<Props> = ({
   const handleMaxAmount = () => {
     setAmount(formatBigNumber(opvBalance, 3))
   }
+
   return (
     <Modal
       open={open}
@@ -190,7 +191,7 @@ const ModalStaking: React.FC<Props> = ({
             mb="24px"
             style={{ borderBottom: '1px solid #333' }}
           >
-            CREDIT Staking
+            {dataModal?.pool?.stakeAddress?.symbol} Staking
           </Text>
           <div className="modal-staking-left-body">
             <Caution01 />
@@ -201,7 +202,7 @@ const ModalStaking: React.FC<Props> = ({
               <Text mb="5px" bold fontSize={['12px', , '16px']}>
                 Type
               </Text>
-              <StakingInput readOnly value={`${dataModal?.time} Days`} style={{ textAlign: 'center' }} />
+              <StakingInput readOnly value={`${dataModal?.day} Days`} style={{ textAlign: 'center' }} />
             </Box>
             <Box mb="24px">
               <Flex justifyContent="space-between">
@@ -211,7 +212,9 @@ const ModalStaking: React.FC<Props> = ({
                 {opvFetchStatus !== FetchStatus.Fetched ? (
                   <Skeleton height="22px" width="60px" />
                 ) : (
-                  <Text fontSize={['12px', , '16px']}>Available amount: {formatBigNumber(opvBalance, 3)} CREDIT</Text>
+                  <Text fontSize={['12px', , '16px']}>
+                    Available amount: {formatBigNumber(opvBalance, 3)} {dataModal?.pool?.stakeAddress?.symbol}
+                  </Text>
                 )}
               </Flex>
               <StakingInput
@@ -219,7 +222,7 @@ const ModalStaking: React.FC<Props> = ({
                 value={amount}
                 rightNode={
                   <InputRightNode className="">
-                    <Text>CREDIT</Text>
+                    <Text>{dataModal?.pool?.stakeAddress?.symbol}</Text>
                     <span className="divider" />
                     <Button scale="xs" onClick={handleMaxAmount}>
                       Max
@@ -233,7 +236,9 @@ const ModalStaking: React.FC<Props> = ({
               Lock Amount Limitation
             </Text>
             <Grid gridTemplateColumns={['1fr', , '1fr 1fr']}>
-              <Text fontSize={['12px', , '16px']}>Minium: {dataModal?.min || '--'} CREDIT</Text>
+              <Text fontSize={['12px', , '16px']}>
+                Minium: {dataModal?.min || '--'} {dataModal?.pool?.stakeAddress?.symbol}
+              </Text>
               {/* <Text fontSize={['12px', , '16px']}>Maximum: {dataModal?.max || '--'} OPV</Text> */}
             </Grid>
           </div>
@@ -266,7 +271,7 @@ const ModalStaking: React.FC<Props> = ({
             <Flex justifyContent="space-between" mb="24px">
               <Text fontSize={['12px', , '16px']}>Est.APR</Text>
               <Text bold color="#46D79E" fontSize={['12px', , '16px']}>
-                {dataModal?.apr} %
+                {roundNumber(new BigNumber(dataModal?.rewardPerSecond).shiftedBy(-18).toNumber()) * 3600 * 24} %
               </Text>
             </Flex>
             <Box background="#BBBBBB" borderRadius="12px" p="12px">

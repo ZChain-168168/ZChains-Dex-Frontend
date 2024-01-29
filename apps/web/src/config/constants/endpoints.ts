@@ -27,7 +27,7 @@ export const INFO_CLIENT =
     ? 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/exchange'
     : 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-exchange-avax' // edit
 
-export const INFO_CLIENT_STAKING = 'https://api.thegraph.com/subgraphs/name/tdkhoa2002/staking_no_refferals'
+export const INFO_CLIENT_STAKING = 'https://api.thegraph.com/subgraphs/name/vanphuc079/staking-pools/'
 
 export const INFO_CLIENT_AVAX = 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-avax'
 

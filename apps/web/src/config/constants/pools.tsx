@@ -64,7 +64,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     earningToken: creditTokens.usdt,
     contractAddress: {
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
-      97: '',
+      97: '0x228E1ae35066E836ad3D0856a31591faB1Fd3d99',
       10435: '0x3dc160f7302bc915e6134b6d963c55eb97c545ae',
       4400: '0x7036EF2bE4e56Ed60058bB3e9D5dB4E62EEB8de3',
     },

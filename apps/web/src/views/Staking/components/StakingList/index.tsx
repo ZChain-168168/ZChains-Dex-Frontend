@@ -9,6 +9,7 @@ import ModalStaking from '../ModalStaking'
 import HeaderStakingList from './HeaderStakingList'
 import PackageStakingList from './PackageStakingList'
 import useContractStakingConditions from '../../hooks/useContractStakingConditions'
+import { useClaimPool } from 'state/staking/fetchPoolList'
 
 const WStakingList = styled.div`
   width: 100%;
@@ -16,10 +17,11 @@ const WStakingList = styled.div`
 
 const StakingList: React.FC = () => {
   const router = useRouter()
+  const id = router.query.id
   const { account } = useActiveWeb3React()
   const [modalStaking, setModalStaking] = useState({ open: false, dataModal: null })
-
-  const { stakingList, fetchStakingList } = useStakingListData()
+  const { stakingList, fetchStakingList } = useStakingListData(Number(id) || 0)
+  const { pool } = useClaimPool(id?.toString() || '0')
 
   const { projectFee } = useContractStakingConditions()
   const { stakingHistory } = useStakingHistory(account)
@@ -28,7 +30,6 @@ const StakingList: React.FC = () => {
 
   const handleStaking = (packageItem) => {
     setModalStaking({ open: true, dataModal: packageItem })
-    // router.push('new-staking')
   }
 
   const handleStakingSuccess = useCallback(() => {
@@ -38,8 +39,8 @@ const StakingList: React.FC = () => {
 
   return (
     <WStakingList>
-      <HeaderStakingList opvEarned={opvEarned} />
-      <PackageStakingList stakingList={stakingList} onStaking={handleStaking} />
+      <HeaderStakingList opvEarned={opvEarned} pool={pool?.data} />
+      <PackageStakingList pool={pool?.data} stakingList={stakingList} onStaking={handleStaking} />
       <ModalStaking
         open={modalStaking.open}
         dataModal={modalStaking.dataModal}

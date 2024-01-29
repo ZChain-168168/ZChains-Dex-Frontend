@@ -1,9 +1,9 @@
 import { CHAIN_IDS } from 'utils/wagmi'
-import Staking from '../../views/Staking'
 import { ChainId } from '@pancakeswap/sdk'
+import Pools from 'views/new-pools/components'
 
-const StakingPage = () => <Staking />
+const PoolsPage = () => <Pools />
 
-StakingPage.chains = [ChainId.BSC_TESTNET]
+PoolsPage.chains = [ChainId.BSC_TESTNET]
 
-export default StakingPage
+export default PoolsPage
