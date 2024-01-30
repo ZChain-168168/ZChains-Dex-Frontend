@@ -8,12 +8,51 @@ const graphStakingClaimPools = async () => {
   try {
     const query = gql`
       query stakingClaimPools {
-        stakePools {
+        pools {
+          totalStaked
+          totalReward
+          stakeAddress {
+            symbol
+            name
+            id
+            decimals
+          }
+          rewardAddress {
+            symbol
+            name
+            id
+            decimals
+          }
+          terms {
+            totalStaked
+            totalReward
+            rewardPerSecond
+            maxTotalStake
+            id
+            day
+            maxTotalStake
+          }
           id
-          lpAddress
-          lpTokenName
-          rewardAddress
-          rewardTokenName
+        }
+        terms {
+          day
+          id
+          maxTotalStake
+          rewardPerSecond
+          totalReward
+          totalStaked
+          pool {
+            id
+            totalReward
+            totalStaked
+          }
+          maxTotalStake
+        }
+        tokens {
+          symbol
+          name
+          id
+          decimals
         }
       }
     `
@@ -25,8 +64,62 @@ const graphStakingClaimPools = async () => {
   }
 }
 
+const graphStakingClaimPool = async (id: string) => {
+  try {
+    const query = gql`
+      query stakingClaimPool($id: ID!) {
+        pool(id: $id) {
+          totalStaked
+          totalReward
+          id
+          rewardAddress {
+            decimals
+            id
+            name
+            symbol
+          }
+          stakeAddress {
+            decimals
+            id
+            name
+            symbol
+          }
+          terms {
+            id
+            day
+            rewardPerSecond
+            totalStaked
+            totalReward
+            maxTotalStake
+            pool {
+              rewardAddress {
+                decimals
+                id
+                name
+                symbol
+              }
+              stakeAddress {
+                decimals
+                id
+                symbol
+                name
+              }
+              id
+            }
+          }
+        }
+      }
+    `
+    const data = await infoClientStaking.request(query, { id })
+    return data
+  } catch (error) {
+    console.error('Failed staking Claim Pools', error)
+    return null
+  }
+}
+
 interface ResponseClaimPool {
-  data: StakingPools[] | undefined | null
+  data: any[] | undefined | null
 }
 
 export const useClaimPools = (): {
@@ -40,7 +133,7 @@ export const useClaimPools = (): {
   const fetchPoolList = useCallback(async () => {
     const result = await graphStakingClaimPools()
     setPoolLists({
-      data: result?.stakePools || null,
+      data: result?.pools || null,
     })
   }, [])
 
@@ -49,4 +142,27 @@ export const useClaimPools = (): {
   }, [fetchPoolList])
 
   return { poolLists, fetchPoolList }
+}
+
+export const useClaimPool = (
+  id: string,
+): {
+  pool: any
+  fetchPoolList: () => void
+} => {
+  const [pool, setPool] = useState<any>({
+    data: undefined,
+  })
+  const fetchPoolList = useCallback(async () => {
+    const result = await graphStakingClaimPool(id)
+    setPool({
+      data: result?.pool || null,
+    })
+  }, [])
+
+  useEffect(() => {
+    fetchPoolList()
+  }, [fetchPoolList])
+
+  return { pool, fetchPoolList }
 }

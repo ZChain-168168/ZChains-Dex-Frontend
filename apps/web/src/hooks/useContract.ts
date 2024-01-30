@@ -399,8 +399,8 @@ export const useStableSwapNativeHelperContract = () => {
   return useMemo(() => getStableSwapNativeHelperContract(signer, chainId), [signer, chainId])
 }
 
-export function useContractStaking(withSignerIfPossible = true): StakingAbi {
-  return useContract(CONTRACT_STAKING, stakingAbi, withSignerIfPossible)
+export function useContractStaking(address?: string, withSignerIfPossible = true): StakingAbi {
+  return useContract(address || CONTRACT_STAKING, stakingAbi, withSignerIfPossible)
 }
 
 export function useContractCampaigns(withSignerIfPossible = true): CampaignAbi {
