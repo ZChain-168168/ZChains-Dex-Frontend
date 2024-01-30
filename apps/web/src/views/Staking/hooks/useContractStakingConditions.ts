@@ -9,7 +9,7 @@ function useContractStakingConditions(): StakingConditionType {
   const [stakingConditions, setStakingConditions] = useState<StakingConditionType>({
     projectFee: undefined,
   })
-  const contractStaking = useContractStaking(false)
+  const contractStaking = useContractStaking(undefined, false)
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-extra-semi

@@ -61,10 +61,10 @@ export const useGetCakeBalance = () => {
 
 export default useTokenBalance
 
-export const useGetOpvBalance = () => {
+export const useGetOpvBalance = (address?: string) => {
   const { chainId } = useActiveWeb3React()
 
-  const { balance, fetchStatus } = useTokenBalance(TELEPORT_CREDIT.address)
+  const { balance, fetchStatus } = useTokenBalance(address || TELEPORT_CREDIT.address)
 
   // TODO: Remove ethers conversion once useTokenBalance is converted to ethers.BigNumber
   return { balance: EthersBigNumber.from(balance.toString()), fetchStatus }

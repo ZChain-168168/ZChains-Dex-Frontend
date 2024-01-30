@@ -35,4 +35,4 @@ export const ACTIVE_CHAIN =
     : CHAIN_QUERY_NAME[ChainId.AVAX] // edit
 
 // default select chainId
-export const DEFAULT_ACTIVE_CHAIN_ID = ChainId.CREDIT // edit
+export const DEFAULT_ACTIVE_CHAIN_ID = ChainId.BSC_TESTNET // edit

@@ -48,11 +48,12 @@ const WButtonHistory = styled.div`
   }
 `
 
-const HeaderStakingList = ({ opvEarned }) => {
+const HeaderStakingList = ({ opvEarned, pool }) => {
   const { account } = useActiveWeb3React()
-  const { balance, fetchStatus } = useGetOpvBalance()
+  const { balance, fetchStatus } = useGetOpvBalance(pool?.stakeAddress?.id)
   const { totalStaked } = useTotalStaked(account)
   const router = useRouter()
+
   return (
     <WHeaderStakingList>
       <Row
@@ -64,7 +65,7 @@ const HeaderStakingList = ({ opvEarned }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              CREDIT AVAILABLE
+              {pool?.rewardAddress?.symbol || 'CREDIT'} AVAILABLE
             </Text>
             <Text fontSize={['13px', , '13px']} ellipsis fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
               <CurrencyFormat
@@ -79,7 +80,7 @@ const HeaderStakingList = ({ opvEarned }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              CURENT CREDIT STAKING
+              CURRENT {pool?.rewardAddress?.symbol || 'CREDIT'} STAKING
             </Text>
             <Text fontSize={['13px', , '13px']} fontWeight={600}>
               <CurrencyFormat value={totalStaked || 0} displayType="text" thousandSeparator renderText={(t) => t} />
@@ -89,7 +90,7 @@ const HeaderStakingList = ({ opvEarned }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              CREDIT EARNED
+              {pool?.rewardAddress?.symbol || 'CREDIT'} EARNED
             </Text>
             <Text fontSize={['13px', , '13px']} fontWeight={600}>
               <CurrencyFormat value={opvEarned || 0} displayType="text" thousandSeparator renderText={(t) => t} />

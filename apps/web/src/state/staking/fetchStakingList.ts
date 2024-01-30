@@ -7,7 +7,7 @@ import { getContractStaking } from 'utils/contractHelpers'
 import { StakingItemType } from './types'
 import { setStakingList } from './actions'
 
-export const useStakingListData = (poolId = 1): { stakingList: StakingItemType[]; fetchStakingList: () => void } => {
+export const useStakingListData = (poolId = 0): { stakingList: StakingItemType[]; fetchStakingList: () => void } => {
   const dispatch = useAppDispatch()
 
   const { mutate } = useSWR(
@@ -19,11 +19,10 @@ export const useStakingListData = (poolId = 1): { stakingList: StakingItemType[]
         try {
           let count = 0
           while (true) {
-            count += 1
-            const poolInfo = await contractStaking.getPlanInfo(poolId, count)
-            const apr = +poolInfo.apr.toString()
-            const time = +poolInfo.time.toString()
-            const totalStakedAmount = +poolInfo.totalStakedAmount.toString()
+            const poolInfo = await contractStaking.poolPlans(poolId, count)
+            const apr = +poolInfo.rewardPerSecond.toString()
+            const time = +poolInfo.day.toString()
+            const totalStakedAmount = +poolInfo.totalStaked.toString()
             if (apr === 0 && time === 0 && totalStakedAmount === 0) break
             const aprPerDay = +((apr / 1e18) * 100 * 365 * 86400).toFixed(1)
             arr.push({
@@ -35,6 +34,7 @@ export const useStakingListData = (poolId = 1): { stakingList: StakingItemType[]
               min: 1,
               max: 500,
             })
+            count += 1
           }
           dispatch(
             setStakingList({

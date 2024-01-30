@@ -8,6 +8,7 @@ import { setTotalStaked } from './actions'
 
 export const useTotalStaked = (
   address: string,
+  contractAddress?: string,
 ): { totalStaked: number | null | undefined; fetchTotalStaked: () => void } => {
   const dispatch = useAppDispatch()
 

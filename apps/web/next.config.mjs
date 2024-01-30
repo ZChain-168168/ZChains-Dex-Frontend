@@ -150,16 +150,6 @@ const config = {
         destination: '/info/pairs/:address',
         permanent: true,
       },
-      {
-        source: '/pools',
-        destination: '/staking',
-        permanent: true,
-      },
-      {
-        source: '/syrup',
-        destination: '/staking',
-        permanent: true,
-      },
     ]
   },
   webpack: (webpackConfig, { webpack }) => {

@@ -31,7 +31,7 @@ export const useStakingHistory = (
               const endTime = +item.finish.toString() * 1000
               return {
                 amount: new BigNumber(+item.amount.toString()).shiftedBy(-18).toNumber(),
-                apr: +item.apr.toString(),
+                apr: new BigNumber(+item.amount.toString()).shiftedBy(-18).toNumber() * 3600 * 24,
                 checkpoint: +item.checkpoint.toString(),
                 fee: +item.fee.toString(),
                 isUnStake: item.isUnStake,

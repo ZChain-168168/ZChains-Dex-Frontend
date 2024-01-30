@@ -3,7 +3,7 @@ import { useLocalNetworkChain } from 'hooks/useActiveChainId'
 import { useTranslation } from '@pancakeswap/localization'
 import { useSwitchNetwork, useSwitchNetworkLocal } from 'hooks/useSwitchNetwork'
 import Image from 'next/image'
-import { chains as chainsInit } from "utils/wagmi"
+import { chains as chainsInit } from 'utils/wagmi'
 import useAuth from 'hooks/useAuth'
 import { useMenuItems } from 'components/Menu/hooks/useMenuItems'
 import { useRouter } from 'next/router'
@@ -18,7 +18,7 @@ export function UnsupportedNetworkModal({ pageSupportedChains }: { pageSupported
   const { switchNetworkAsync, isLoading, canSwitch } = useSwitchNetwork()
   const switchNetworkLocal = useSwitchNetworkLocal()
   const { chains } = useNetwork()
-  const chainId = useLocalNetworkChain() 
+  const chainId = useLocalNetworkChain()
   const { isConnected } = useAccount()
   const { logout } = useAuth()
   const { t } = useTranslation()
@@ -33,7 +33,7 @@ export function UnsupportedNetworkModal({ pageSupportedChains }: { pageSupported
   }, [menuItems, pathname])
 
   const supportedMainnetChains = useMemo(
-    () => chains.filter((chain) => !chain.testnet && pageSupportedChains?.includes(chain.id)),
+    () => chains.filter((chain) => pageSupportedChains?.includes(chain.id)),
     [chains, pageSupportedChains],
   )
 
@@ -61,7 +61,7 @@ export function UnsupportedNetworkModal({ pageSupportedChains }: { pageSupported
             isLoading={isLoading}
             onClick={() => {
               if (supportedMainnetChains.map((c) => c.id).includes(chainId)) {
-                switchNetworkAsync(chainId)
+                switchNetworkAsync(supportedMainnetChains[0].id)
               } else {
                 switchNetworkAsync(chainsInit[0].id)
               }
