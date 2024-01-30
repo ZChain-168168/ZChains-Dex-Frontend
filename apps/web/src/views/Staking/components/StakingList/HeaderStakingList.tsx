@@ -55,7 +55,6 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
   const { balance, fetchStatus } = useGetOpvBalance(pool?.stakeAddress?.id)
   const { totalStaked } = useTotalStaked(account, pool?.stakeAddress?.id)
   const router = useRouter()
-  console.log('pool dàafasfasfasfasfa', pool)
 
   return (
     <WHeaderStakingList>
