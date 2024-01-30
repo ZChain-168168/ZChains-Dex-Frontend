@@ -5,6 +5,7 @@ import { roundNumber } from 'helpers'
 import { useContractStaking } from 'hooks/useContract'
 import { formatBigNumber } from 'utils/formatBalance'
 import { StakingHistory, StakingItemType, STAKING_STATUS } from './types'
+import { log } from 'console'
 
 export function useStakingEarn(account?: string, stakingList?: StakingItemType[], stakingHistory?: StakingHistory[]) {
   const [opvEarned, setOpvEarned] = useState<number | undefined>()
@@ -49,11 +50,15 @@ export async function fetchStakingEarned(contractStaking, account, startTime) {
   return totalEarn
 }
 
-export function useStakingTotalEarnedContract(account?: string, stakingHistory?: StakingHistory[]) {
-  const contractStaking = useContractStaking()
+export function useStakingTotalEarnedContract(
+  account?: string,
+  stakingHistory?: StakingHistory[],
+  stakingAddress?: string,
+) {
+  const contractStaking = useContractStaking(stakingAddress)
   const [opvEarned, setOpvEarned] = useState<number | undefined>()
   useSWR(
-    ['staking-earned-contract', account, stakingHistory],
+    ['staking-earned-contract', account, stakingHistory, stakingAddress],
     async () => {
       if (account && contractStaking && stakingHistory) {
         try {
@@ -84,7 +89,6 @@ export function useStakingEarned(account?: string, start?: number) {
           const resultEarned = await fetchStakingEarned(contractStaking, account, start / 1000)
           return resultEarned
         } catch (error) {
-          console.error('useStakingEarned', error)
           return undefined
         }
       }

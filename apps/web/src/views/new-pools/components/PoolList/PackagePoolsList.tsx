@@ -111,14 +111,14 @@ const PackagePoolList: React.FC<Props> = ({ stakingList, onStaking, onUpdate }) 
       title: t('Token'),
       dataIndex: 'title',
       render: (_, record) => {
-        return <div className="staking-item-token">{record?.rewardAddress?.name}</div>
+        return <div className="staking-item-token">{record?.stakeAddress?.name}</div>
       },
     },
     {
       title: t('Symbol'),
       dataIndex: 'apr',
       render: (text, record) => {
-        return <div className="staking-item-apr">{record?.rewardAddress?.symbol}</div>
+        return <div className="staking-item-apr">{record?.stakeAddress?.symbol}</div>
       },
     },
     {

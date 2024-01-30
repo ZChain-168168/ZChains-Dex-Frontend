@@ -12,10 +12,10 @@ export const useTotalStaked = (
 ): { totalStaked: number | null | undefined; fetchTotalStaked: () => void } => {
   const dispatch = useAppDispatch()
 
-  const contractStaking = useContractStaking()
+  const contractStaking = useContractStaking(contractAddress)
 
   const { mutate } = useSWR(
-    ['total-staked', [address]],
+    ['total-staked', address, contractAddress],
     async () => {
       if (address && contractStaking) {
         try {

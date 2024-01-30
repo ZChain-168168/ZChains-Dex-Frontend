@@ -8,6 +8,8 @@ import { FetchStatus } from 'config/constants/types'
 import { useTotalStaked } from 'state/staking/fetchTotalStaked'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useRouter } from 'next/router'
+import { roundNumber } from 'helpers'
+import BigNumber from 'bignumber.js'
 
 const WHeaderStakingList = styled.div`
   width: 100%;
@@ -51,8 +53,9 @@ const WButtonHistory = styled.div`
 const HeaderStakingList = ({ opvEarned, pool }) => {
   const { account } = useActiveWeb3React()
   const { balance, fetchStatus } = useGetOpvBalance(pool?.stakeAddress?.id)
-  const { totalStaked } = useTotalStaked(account)
+  const { totalStaked } = useTotalStaked(account, pool?.stakeAddress?.id)
   const router = useRouter()
+  console.log('pool dàafasfasfasfasfa', pool)
 
   return (
     <WHeaderStakingList>
@@ -65,7 +68,7 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              {pool?.rewardAddress?.symbol || 'CREDIT'} AVAILABLE
+              {pool?.stakeAddress?.symbol || 'CREDIT'} AVAILABLE
             </Text>
             <Text fontSize={['13px', , '13px']} ellipsis fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
               <CurrencyFormat
@@ -80,17 +83,22 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              CURRENT {pool?.rewardAddress?.symbol || 'CREDIT'} STAKING
+              CURRENT {pool?.stakeAddress?.symbol || 'CREDIT'} STAKING
             </Text>
             <Text fontSize={['13px', , '13px']} fontWeight={600}>
-              <CurrencyFormat value={totalStaked || 0} displayType="text" thousandSeparator renderText={(t) => t} />
+              <CurrencyFormat
+                value={roundNumber(new BigNumber(pool?.totalStaked).shiftedBy(-18).toNumber()) || 0}
+                displayType="text"
+                thousandSeparator
+                renderText={(t) => t}
+              />
             </Text>
           </WCardInfo>
         </Col>
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              {pool?.rewardAddress?.symbol || 'CREDIT'} EARNED
+              {pool?.stakeAddress?.symbol || 'CREDIT'} EARNED
             </Text>
             <Text fontSize={['13px', , '13px']} fontWeight={600}>
               <CurrencyFormat value={opvEarned || 0} displayType="text" thousandSeparator renderText={(t) => t} />

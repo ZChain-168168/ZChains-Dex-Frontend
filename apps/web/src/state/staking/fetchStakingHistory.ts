@@ -13,13 +13,14 @@ import { setStakingHistory } from './actions'
 
 export const useStakingHistory = (
   address: string,
+  stakingAddress?: string,
 ): { stakingHistory: StakingHistory[] | null | undefined; fetchStakingHistory: () => void } => {
   const dispatch = useAppDispatch()
 
-  const contractStaking = useContractStaking()
+  const contractStaking = useContractStaking(stakingAddress)
 
   const { mutate } = useSWR(
-    ['staking-history', [address]],
+    ['staking-history', address, stakingAddress],
     async () => {
       if (address && contractStaking) {
         try {

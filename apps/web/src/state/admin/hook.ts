@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setOwnerStaking, setOwnerContract } from './actions'
 import { AppState } from '../index'
 
-export const useGetOwnerStaking = () => {
+export const useGetOwnerStaking = (stakingAddress?: string) => {
   const dispatch = useDispatch()
-  const contractStaking = useContractStaking()
+  const contractStaking = useContractStaking(stakingAddress)
 
   const fetchOwnerStaking = useCallback(async () => {
     if (contractStaking) {

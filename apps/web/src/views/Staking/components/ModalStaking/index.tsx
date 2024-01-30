@@ -151,7 +151,7 @@ const ModalStaking: React.FC<Props> = ({
     setStakingLoading(false)
     if (status) {
       addTransaction(txResponse, {
-        summary: `Staking: ${dataModal.day} days with ${amount} ${dataModal?.pool?.stakeAddress?.symbol}`,
+        summary: `Staking: ${dataModal?.day} days with ${amount} ${dataModal?.pool?.stakeAddress?.symbol}`,
       })
       onStakingSuccess()
       setAmount('')
@@ -259,7 +259,7 @@ const ModalStaking: React.FC<Props> = ({
             <Flex justifyContent="space-between" mb="6px">
               <Text fontSize={['12px', , '16px']}>Redemption Period</Text>
               <Text bold fontSize={['12px', , '16px']}>
-                {dataModal?.time} Days
+                {dataModal?.day} Days
               </Text>
             </Flex>
             <Flex justifyContent="space-between" mb="6px">

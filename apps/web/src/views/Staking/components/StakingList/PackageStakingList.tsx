@@ -10,6 +10,8 @@ import MobileListContainer from 'components/MobileListContainer'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import StakingListItemMobile from './StakingListItemMobile'
+import { useGetOwnerStaking } from 'state/admin/hook'
+import { useEffect, useState } from 'react'
 
 const WPackageStakingList = styled.div`
   width: 100%;
@@ -88,12 +90,23 @@ interface Props {
   stakingList: StakingItemType[] | undefined | null
   onStaking: (p: any) => void
   pool: any
+  onUpdate: (p: any) => void
 }
-const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool }) => {
+const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool, onUpdate }) => {
   const { t } = useTranslation()
   const { isMobile } = useMatchBreakpoints()
   const { account } = useActiveWeb3React()
+  const { ownerStake } = useGetOwnerStaking()
 
+  const [isOwner, setIsOwner] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (ownerStake) {
+      setIsOwner(account?.toLowerCase() === ownerStake?.toLowerCase())
+      setLoading(false)
+    }
+  }, [account, ownerStake])
   const columns = [
     {
       title: t('Token'),
@@ -103,12 +116,22 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool }) =
       },
     },
     {
-      title: t('Est.APR'),
+      title: t('Symbol'),
       dataIndex: 'rewardPerSecond',
       render: (text) => {
+        return <div className="staking-item-token">{pool?.stakeAddress?.symbol}</div>
+      },
+    },
+    {
+      title: <div style={{ textAlign: 'center' }}>{t('Daily reward')}</div>,
+      dataIndex: 'rewardPerSecond',
+      render: (text, record) => {
         return (
-          <div className="staking-item-apr">
-            {roundNumber(new BigNumber(text).shiftedBy(-18).toNumber()) * 3600 * 24}%
+          <div className="staking-item-token" style={{ textAlign: 'center' }}>
+            {Number((record?.rewardPerSecond / 10 ** Number(record?.pool?.rewardAddress?.decimals)).toFixed(6)) *
+              3600 *
+              24}{' '}
+            {record?.pool?.rewardAddress?.symbol}
           </div>
         )
       },
@@ -145,27 +168,6 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool }) =
         )
       },
     },
-    // {
-    //   title: <div style={{ textAlign: 'center' }}>{t('Minimum Locked Amount')}</div>,
-    //   dataIndex: 'totalStakedAmount',
-    //   render: (text) => {
-    //     return (
-    //       <div className="staking-item-amount" style={{ textAlign: 'center' }}>
-    //         {isNumber(text) ? (
-    //           <CurrencyFormat
-    //             value={roundNumber(new BigNumber(text).shiftedBy(-18).toNumber())}
-    //             displayType="text"
-    //             thousandSeparator
-    //             suffix={` OPV`}
-    //             renderText={(txt) => txt}
-    //           />
-    //         ) : (
-    //           <Skeleton height="14px" width="80px" />
-    //         )}
-    //       </div>
-    //     )
-    //   },
-    // },
     {
       title: '',
       dataIndex: 'actions',
@@ -182,6 +184,25 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool }) =
           </Flex>
         )
       },
+    },
+    {
+      ...(isOwner && {
+        title: '',
+        dataIndex: 'actions',
+        render: (_, record) => {
+          return (
+            <Flex justifyContent="center">
+              {account ? (
+                <Button scale="sm" minWidth={[, '80px']} onClick={() => onUpdate(record)}>
+                  Update
+                </Button>
+              ) : (
+                <ConnectWalletButton scale="sm" />
+              )}
+            </Flex>
+          )
+        },
+      }),
     },
   ]
 
