@@ -10,7 +10,7 @@ import MobileListContainer from 'components/MobileListContainer'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import StakingListItemMobile from './StakingListItemMobile'
-import { useGetOwnerStaking } from 'state/admin/hook'
+import { useGetOwnerStaking, useGetWhiteListAddress } from 'state/admin/hook'
 import { useEffect, useState } from 'react'
 
 const WPackageStakingList = styled.div`
@@ -96,17 +96,16 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool, onU
   const { t } = useTranslation()
   const { isMobile } = useMatchBreakpoints()
   const { account } = useActiveWeb3React()
-  const { ownerStake } = useGetOwnerStaking()
+  const { isWhitelistAddress } = useGetWhiteListAddress(account)
 
   const [isOwner, setIsOwner] = useState(false)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (ownerStake) {
-      setIsOwner(account?.toLowerCase() === ownerStake?.toLowerCase())
-      setLoading(false)
-    }
-  }, [account, ownerStake])
+    setIsOwner(isWhitelistAddress)
+    setLoading(false)
+  }, [account, isWhitelistAddress])
+
   const columns = [
     {
       title: t('Token'),
@@ -128,10 +127,7 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool, onU
       render: (text, record) => {
         return (
           <div className="staking-item-token" style={{ textAlign: 'center' }}>
-            {Number((record?.rewardPerSecond / 10 ** Number(record?.pool?.rewardAddress?.decimals)).toFixed(6)) *
-              3600 *
-              24}{' '}
-            {record?.pool?.rewardAddress?.symbol}
+            {Number((record?.rewardPerSecond / 10 ** 9).toFixed(6)) * 3600 * 24} {record?.pool?.rewardAddress?.symbol}
           </div>
         )
       },
@@ -210,15 +206,17 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool, onU
     <WPackageStakingList>
       {isMobile ? (
         <MobileListContainer
-          total={pool.terms?.length}
+          total={pool?.terms?.length}
           dataSource={pool?.terms || []}
-          renderItem={(item) => <StakingListItemMobile stakingItem={item} onStake={onStaking} />}
+          renderItem={(item) => (
+            <StakingListItemMobile pool={pool} stakingItem={item} onStake={onStaking} onUpdate={onUpdate} />
+          )}
         />
       ) : (
         <Table
           columns={columns}
           scroll={{ x: 400 }}
-          rowKey={(record) => record.planId}
+          rowKey={(record) => record?.planId}
           dataSource={pool?.terms || []}
           pagination={false}
         />

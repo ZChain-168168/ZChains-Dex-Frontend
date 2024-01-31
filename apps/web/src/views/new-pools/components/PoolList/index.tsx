@@ -7,7 +7,7 @@ import useCatchTxErrorMessage from 'hooks/useCatchTxErrorMessage'
 import { useContractStaking } from 'hooks/useContract'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useGetOwnerStaking } from 'state/admin/hook'
+import { useGetOwnerStaking, useGetWhiteListAddress } from 'state/admin/hook'
 import { useClaimPools } from 'state/staking/fetchPoolList'
 import { useTransactionAdder } from 'state/transactions/hooks'
 import styled from 'styled-components'
@@ -23,21 +23,21 @@ const PoolList: React.FC = () => {
   const router = useRouter()
   const { poolLists, fetchPoolList } = useClaimPools()
   const handleStaking = (packageItem) => {
-    router.push(`/new-staking/${packageItem.id}`)
+    router.push(`/staking/${packageItem.id}`)
   }
   const { account } = useActiveWeb3React()
 
-  const { ownerStake } = useGetOwnerStaking()
+  const { isWhitelistAddress } = useGetWhiteListAddress(account)
 
   const [isOwner, setIsOwner] = useState(false)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (ownerStake) {
-      setIsOwner(account?.toLowerCase() === ownerStake?.toLowerCase())
+    if (isWhitelistAddress) {
+      setIsOwner(true)
       setLoading(false)
     }
-  }, [account, ownerStake])
+  }, [account, isWhitelistAddress])
 
   const [form] = Form.useForm()
   const [errorMess, setErrorMess] = useState('')

@@ -63,7 +63,7 @@ export function UnsupportedNetworkModal({ pageSupportedChains }: { pageSupported
               if (supportedMainnetChains.map((c) => c.id).includes(chainId)) {
                 switchNetworkAsync(supportedMainnetChains[0].id)
               } else {
-                switchNetworkAsync(chainsInit[0].id)
+                switchNetworkAsync(supportedMainnetChains[0].id)
               }
             }}
           >

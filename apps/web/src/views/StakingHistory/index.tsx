@@ -12,7 +12,7 @@ const TokenInfo: React.FC<React.PropsWithChildren> = () => {
   return (
     <TokenInfoContainer>
       <Container mb={['14px', , '24px']}>
-        <BackLink showArrow title="Stake History" href="/new-staking" />
+        <BackLink showArrow title="Stake History" href="/staking" />
       </Container>
 
       <Container mb={['24px', , '48px']}>
