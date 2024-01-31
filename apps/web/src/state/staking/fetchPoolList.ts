@@ -148,12 +148,12 @@ export const useClaimPool = (
   id: string,
 ): {
   pool: any
-  fetchPoolList: () => void
+  fetchPoolList: (id) => void
 } => {
   const [pool, setPool] = useState<any>({
     data: undefined,
   })
-  const fetchPoolList = useCallback(async () => {
+  const fetchPoolList = useCallback(async (id) => {
     const result = await graphStakingClaimPool(id)
     setPool({
       data: result?.pool || null,
@@ -161,8 +161,10 @@ export const useClaimPool = (
   }, [])
 
   useEffect(() => {
-    fetchPoolList()
-  }, [fetchPoolList])
+    if (id) {
+      fetchPoolList(id)
+    }
+  }, [fetchPoolList, id])
 
   return { pool, fetchPoolList }
 }

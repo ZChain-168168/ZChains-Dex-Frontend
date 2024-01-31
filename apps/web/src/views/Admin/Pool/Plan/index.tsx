@@ -183,7 +183,7 @@ const PlanList: React.FC = () => {
     table.setAttribute('id', 'table-to-xls')
   }, [tableRef])
 
-  const { stakingList, fetchStakingList } = useStakingListData()
+  const { stakingList, fetchStakingList } = useStakingListData(poolId)
 
   const columns = [
     {
