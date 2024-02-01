@@ -8,9 +8,10 @@ import { isNumber, roundNumber } from 'helpers'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useEffect, useState } from 'react'
 import CurrencyFormat from 'react-currency-format'
-import { useGetOwnerStaking } from 'state/admin/hook'
+import { useGetOwnerStaking, useGetWhiteListAddress } from 'state/admin/hook'
 import styled from 'styled-components'
 import StakingListItemMobile from './PoolListItemMobile'
+import useWhitelistedAddresses from 'views/FarmAuction/hooks/useWhitelistedAddresses'
 
 const WPackageStakingList = styled.div`
   width: 100%;
@@ -94,31 +95,31 @@ const PackagePoolList: React.FC<Props> = ({ stakingList, onStaking, onUpdate }) 
   const { t } = useTranslation()
   const { isMobile } = useMatchBreakpoints()
   const { account } = useActiveWeb3React()
-  const { ownerStake } = useGetOwnerStaking()
+  const { isWhitelistAddress } = useGetWhiteListAddress(account)
 
   const [isOwner, setIsOwner] = useState(false)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (ownerStake) {
-      setIsOwner(account?.toLowerCase() === ownerStake?.toLowerCase())
+    if (isWhitelistAddress) {
+      setIsOwner(isWhitelistAddress)
       setLoading(false)
     }
-  }, [account, ownerStake])
+  }, [account, isWhitelistAddress])
 
   const columns = [
     {
-      title: t('Token'),
+      title: t('Stake Token'),
       dataIndex: 'title',
       render: (_, record) => {
-        return <div className="staking-item-token">{record?.stakeAddress?.name}</div>
+        return <div className="staking-item-token">{record?.stakeAddress?.symbol}</div>
       },
     },
     {
-      title: t('Symbol'),
+      title: t('Reward token'),
       dataIndex: 'apr',
       render: (text, record) => {
-        return <div className="staking-item-apr">{record?.stakeAddress?.symbol}</div>
+        return <div className="staking-item-apr">{record?.rewardAddress?.symbol}</div>
       },
     },
     {
@@ -207,7 +208,7 @@ const PackagePoolList: React.FC<Props> = ({ stakingList, onStaking, onUpdate }) 
         <MobileListContainer
           total={stakingList?.length}
           dataSource={stakingList || []}
-          renderItem={(item) => <StakingListItemMobile stakingItem={item} onStake={onStaking} />}
+          renderItem={(item) => <StakingListItemMobile stakingItem={item} onStake={onStaking} onUpdate={onUpdate} />}
         />
       ) : (
         <Table

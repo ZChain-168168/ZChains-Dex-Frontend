@@ -10,7 +10,7 @@ import HeaderStakingList from './HeaderStakingList'
 import PackageStakingList from './PackageStakingList'
 import useContractStakingConditions from '../../hooks/useContractStakingConditions'
 import { useClaimPool } from 'state/staking/fetchPoolList'
-import { useGetOwnerStaking } from 'state/admin/hook'
+import { useGetOwnerStaking, useGetWhiteListAddress } from 'state/admin/hook'
 import { Button } from '@pancakeswap/uikit'
 import { Col, DatePicker, Form, Input, Modal, Row, Button as AntButton } from 'antd'
 import { useTranslation } from '@pancakeswap/localization'
@@ -46,13 +46,11 @@ const StakingList: React.FC = () => {
     fetchStakingList()
   }, [fetchStakingList])
 
-  const { ownerStake } = useGetOwnerStaking(pool.data?.stakeAddress?.id)
+  const { isWhitelistAddress } = useGetWhiteListAddress(account)
   useEffect(() => {
-    if (ownerStake) {
-      setIsOwner(account?.toLowerCase() === ownerStake?.toLowerCase())
-      setLoading(false)
-    }
-  }, [account, ownerStake])
+    setIsOwner(isWhitelistAddress)
+    setLoading(false)
+  }, [account, isWhitelistAddress])
 
   const [isOwner, setIsOwner] = useState(false)
   const [loading, setLoading] = useState(true)
@@ -232,7 +230,7 @@ const StakingList: React.FC = () => {
               <Form.Item
                 style={{ width: '100%' }}
                 name="maxTotalStake"
-                label="Max total stake"
+                label="Max total stake (Set value to 0 for unlimited staking)"
                 rules={[{ required: true }]}
               >
                 <Input size="large" placeholder="Max total stake" autoComplete="true" />
@@ -300,7 +298,7 @@ const StakingList: React.FC = () => {
               <Form.Item
                 style={{ width: '100%' }}
                 name="maxTotalStake"
-                label="Max total stake"
+                label="Max total stake (Set value to 0 for unlimited staking)"
                 rules={[{ required: true }]}
               >
                 <Input size="large" placeholder="Max total stake" autoComplete="true" />

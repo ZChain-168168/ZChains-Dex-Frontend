@@ -96,7 +96,7 @@ const config: (
     },
     {
       label: t('Staking'),
-      href: '/new-staking',
+      href: '/staking?chain=bscTestnet',
       icon: EarnIcon,
       fillIcon: EarnFillIcon,
       showItemsOnMobile: false,

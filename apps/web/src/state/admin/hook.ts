@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useContractStaking, useContractCampaigns } from 'hooks/useContract'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOwnerStaking, setOwnerContract } from './actions'
@@ -22,6 +22,29 @@ export const useGetOwnerStaking = (stakingAddress?: string) => {
   const { ownerStake } = useSelector((state: AppState) => state.admin)
 
   return { ownerStake }
+}
+
+export const useGetWhiteListAddress = (
+  account: string,
+): {
+  isWhitelistAddress: boolean
+  fetchWhiteListAddress: () => void
+} => {
+  const [isWhitelistAddress, setIsWhitelistAddress] = useState<boolean>(false)
+  const contractStaking = useContractStaking()
+
+  const fetchWhiteListAddress = useCallback(async () => {
+    if (contractStaking) {
+      const isWhitelistAddress = await contractStaking.whiteList(account)
+      setIsWhitelistAddress(isWhitelistAddress)
+    }
+  }, [contractStaking])
+
+  useEffect(() => {
+    fetchWhiteListAddress()
+  }, [fetchWhiteListAddress])
+
+  return { isWhitelistAddress, fetchWhiteListAddress }
 }
 
 export const useGetOwnerContract = () => {

@@ -97,7 +97,7 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              {pool?.stakeAddress?.symbol || 'CREDIT'} EARNED
+              {pool?.rewardAddress?.symbol || 'CREDIT'} EARNED
             </Text>
             <Text fontSize={['13px', , '13px']} fontWeight={600}>
               <CurrencyFormat value={opvEarned || 0} displayType="text" thousandSeparator renderText={(t) => t} />
@@ -108,7 +108,7 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
           <WButtonHistory>
             <Button
               onClick={() => {
-                router.push('/new-staking/history')
+                router.push('/staking/history')
               }}
             >
               History

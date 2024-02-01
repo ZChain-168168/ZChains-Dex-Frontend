@@ -269,9 +269,10 @@ const ModalStaking: React.FC<Props> = ({
               </Text>
             </Flex>
             <Flex justifyContent="space-between" mb="24px">
-              <Text fontSize={['12px', , '16px']}>Est.APR</Text>
+              <Text fontSize={['12px', , '16px']}>Daily reward</Text>
               <Text bold color="#46D79E" fontSize={['12px', , '16px']}>
-                {roundNumber(new BigNumber(dataModal?.rewardPerSecond).shiftedBy(-18).toNumber()) * 3600 * 24} %
+                {Number((dataModal?.rewardPerSecond / 10 ** 9).toFixed(6)) * 3600 * 24}{' '}
+                {dataModal?.pool?.rewardAddress?.symbol}
               </Text>
             </Flex>
             <Box background="#BBBBBB" borderRadius="12px" p="12px">
