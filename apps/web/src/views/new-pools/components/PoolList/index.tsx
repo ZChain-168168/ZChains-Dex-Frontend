@@ -118,6 +118,7 @@ const PoolList: React.FC = () => {
     fetchPoolList()
   }
 
+  const maxPoolId = Math.max(...(poolLists?.data?.map((item) => Number(item?.id)) || []))
   return (
     <WStakingList>
       <div
@@ -163,18 +164,32 @@ const PoolList: React.FC = () => {
           maxWidth: '500px',
         }}
       >
-        <Form layout="vertical" form={form} onFinish={handleSubmit}>
+        <Form
+          initialValues={{
+            poolId: maxPoolId + 1,
+          }}
+          layout="vertical"
+          form={form}
+          onFinish={handleSubmit}
+        >
           <Row gutter={8}>
             <Col span={24}>
               <Form.Item name="poolId" label="Pool ID" rules={[{ required: true }]} style={{ width: '100%' }}>
-                <Input style={{ width: '100%' }} size="large" placeholder="Pool ID" autoComplete="true" />
+                <Input
+                  style={{ width: '100%' }}
+                  readOnly
+                  value={maxPoolId + 1}
+                  size="large"
+                  placeholder="Pool ID"
+                  autoComplete="true"
+                />
               </Form.Item>
 
               <Form.Item name="rewardAddress" label="Reward Address" rules={[{ required: true }]}>
                 <Input style={{ width: '100%' }} size="large" placeholder="Address" autoComplete="true" />
               </Form.Item>
 
-              <Form.Item name="lpAddress" label="LP Address" rules={[{ required: true }]}>
+              <Form.Item name="lpAddress" label="Stake Address" rules={[{ required: true }]}>
                 <Input style={{ width: '100%' }} size="large" placeholder="Address" autoComplete="true" />
               </Form.Item>
             </Col>
@@ -218,7 +233,7 @@ const PoolList: React.FC = () => {
                 <Input style={{ width: '100%' }} size="large" placeholder="Address" autoComplete="true" />
               </Form.Item>
 
-              <Form.Item name="lpAddress" label="LP Address" rules={[{ required: true }]}>
+              <Form.Item name="lpAddress" label="Stake Address" rules={[{ required: true }]}>
                 <Input style={{ width: '100%' }} size="large" placeholder="Address" autoComplete="true" />
               </Form.Item>
             </Col>

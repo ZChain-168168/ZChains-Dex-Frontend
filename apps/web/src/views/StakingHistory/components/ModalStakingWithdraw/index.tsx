@@ -79,7 +79,7 @@ const WStyledModal = styled.div`
 
 interface Props {
   title?: string
-  dataModal?: StakingHistory
+  dataModal?: any
   onDismiss?: () => void
 }
 
@@ -101,12 +101,12 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
     if (!account) return false
     if (!contractStaking || !isNumber(projectFee)) return false
     if (!isAgreementChecked) {
-      setErrorMess(t('Please check to agree OPENLIVE Staking Service Agreement'))
+      setErrorMess(t('Please check to agree TELEPORT Staking Service Agreement'))
       return false
     }
 
     const paramsWithdraw = {
-      start: dataModal.start / 1000,
+      start: dataModal.start,
       feeBnb: toLocaleString(projectFee * 1e18),
     }
     setErrorMess('')
@@ -137,30 +137,30 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
         <ul className="modal-history-steps">
           <li>
             <p>Stake Date</p>
-            <p>{dataModal ? formatDate(dataModal?.start, 'YYYY/MM/DD') : '--'}</p>
+            <p>{dataModal ? formatDate(dataModal?.start * 1000, 'YYYY/MM/DD') : '--'}</p>
           </li>
           <li>
             <p>Value Date</p>
-            <p>{dataModal ? formatDate(dataModal?.start, 'YYYY/MM/DD') : '--'}</p>
+            <p>{dataModal ? formatDate(dataModal?.start * 1000, 'YYYY/MM/DD') : '--'}</p>
           </li>
           <li>
             <p>End Date</p>
-            <p>{dataModal ? formatDate(dataModal?.finish, 'YYYY/MM/DD') : '--'}</p>
+            <p>{dataModal ? formatDate(dataModal?.finish * 1000, 'YYYY/MM/DD') : '--'}</p>
           </li>
         </ul>
         <div className="modal-info-stake">
           <Flex justifyContent="space-between" mb="10px">
-            <Text fontWeight="700">CREDIT Staked</Text>
+            <Text fontWeight="700">{dataModal?.staking?.pool?.stakeAddress?.symbol} Staked</Text>
             <Text color="textSubtle" fontWeight="600">
-              <Amount value={dataModal?.amount} />
+              <Amount value={dataModal?.amount / 1e18} suffix={` ${dataModal?.staking?.pool?.stakeAddress?.symbol}`} />
             </Text>
           </Flex>
           <Flex justifyContent="space-between">
-            <Text fontWeight="700">CREDIT Earn</Text>
+            <Text fontWeight="700">{dataModal?.staking?.pool?.rewardAddress?.symbol} Earn</Text>
             <Text color="textSubtle" fontWeight="600">
               <FormatAmount
                 value={roundNumber(opvEarned, { scale: 6, scaleSmall: 3 })}
-                suffix={` CREDIT`}
+                suffix={` ${dataModal?.staking?.pool?.rewardAddress?.symbol}`}
                 nullValue="--"
               />
             </Text>
@@ -185,7 +185,7 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
               />
             </Box>
             <Text fontSize={['12px', , ' 14px']} pl="10px">
-              I have read and I agree to OPENLIVE Staking Service Agreement
+              I have read and I agree to TELEPORT Staking Service Agreement
             </Text>
           </Flex>
         </Box>

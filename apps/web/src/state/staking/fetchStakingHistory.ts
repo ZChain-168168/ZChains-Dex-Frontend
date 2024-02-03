@@ -10,57 +10,59 @@ import { gql } from 'graphql-request'
 import { infoClientStaking } from 'utils/graphql'
 import { StakingHistory, STAKING_STATUS } from './types'
 import { setStakingHistory } from './actions'
+import { p } from 'vitest/dist/index-50755efe'
 
-export const useStakingHistory = (
-  address: string,
-  stakingAddress?: string,
-): { stakingHistory: StakingHistory[] | null | undefined; fetchStakingHistory: () => void } => {
-  const dispatch = useAppDispatch()
+// export const useStakingHistory = (
+//   address: string,
+//   stakingAddress?: string,
+// ): { stakingHistory: StakingHistory[] | null | undefined; fetchStakingHistory: () => void } => {
+//   const dispatch = useAppDispatch()
 
-  const contractStaking = useContractStaking(stakingAddress)
+//   const contractStaking = useContractStaking(stakingAddress)
 
-  const { mutate } = useSWR(
-    ['staking-history', address, stakingAddress],
-    async () => {
-      if (address && contractStaking) {
-        try {
-          const { deposits } = await contractStaking.getUserInfo(address)
-          if (deposits?.length > 0) {
-            const parseDeposits = deposits.map((item) => {
-              const currentTime = new Date().getTime()
-              const startTime = +item.start.toString() * 1000
-              const endTime = +item.finish.toString() * 1000
-              return {
-                amount: new BigNumber(+item.amount.toString()).shiftedBy(-18).toNumber(),
-                apr: new BigNumber(+item.amount.toString()).shiftedBy(-18).toNumber() * 3600 * 24,
-                checkpoint: +item.checkpoint.toString(),
-                fee: +item.fee.toString(),
-                isUnStake: item.isUnStake,
-                planId: item.plan,
-                poolId: item.poolId,
-                userAddress: item.userAddress,
-                start: startTime,
-                finish: endTime,
-                poolStatus: currentTime >= endTime ? STAKING_STATUS.END : STAKING_STATUS.LIVE,
-                isOld: true,
-              }
-            })
-            dispatch(setStakingHistory(parseDeposits.reverse()))
-          } else {
-            dispatch(setStakingHistory([]))
-          }
-        } catch (error) {
-          // console.error('useStakingHistory', error)
-          dispatch(setStakingHistory(null))
-        }
-      }
-    },
-    { refreshInterval: FAST_INTERVAL },
-  )
+//   const { mutate } = useSWR(
+//     ['staking-history', address, stakingAddress],
+//     async () => {
+//       if (address && contractStaking) {
+//         try {
+//           const { deposits } = await contractStaking.getUserInfo(address)
+//           console.log('deposits', deposits)
+//           if (deposits?.length > 0) {
+//             const parseDeposits = deposits.map((item) => {
+//               const currentTime = new Date().getTime()
+//               const startTime = +item.start.toString() * 1000
+//               const endTime = +item.finish.toString() * 1000
+//               return {
+//                 amount: new BigNumber(+item.amount.toString()).shiftedBy(-18).toNumber(),
+//                 apr: new BigNumber(+item.amount.toString()).shiftedBy(-18).toNumber() * 3600 * 24,
+//                 checkpoint: +item.checkpoint.toString(),
+//                 fee: +item.fee.toString(),
+//                 isUnStake: item.isUnStake,
+//                 planId: item.plan,
+//                 poolId: item.poolId,
+//                 userAddress: item.userAddress,
+//                 start: startTime,
+//                 finish: endTime,
+//                 poolStatus: currentTime >= endTime ? STAKING_STATUS.END : STAKING_STATUS.LIVE,
+//                 isOld: true,
+//               }
+//             })
+//             dispatch(setStakingHistory(parseDeposits.reverse()))
+//           } else {
+//             dispatch(setStakingHistory([]))
+//           }
+//         } catch (error) {
+//           // console.error('useStakingHistory', error)
+//           dispatch(setStakingHistory(null))
+//         }
+//       }
+//     },
+//     { refreshInterval: FAST_INTERVAL },
+//   )
 
-  const stakingHistory = useSelector((state: AppState) => state.staking.stakingHistory)
-  return { stakingHistory, fetchStakingHistory: mutate }
-}
+//   const stakingHistory = useSelector((state: AppState) => state.staking.stakingHistory)
+//   return { stakingHistory, fetchStakingHistory: mutate }
+// }
 
 // fetch staking with draw History graphql
 const graphStakingClaimWithdrawHistories = async (userAddress, planId, transactionHash, startTime, endTime) => {
@@ -324,4 +326,101 @@ export const useClaimDepositHistoriesByDate = (
   }, [fetchStakingDepositHistories])
 
   return { stakingDepositHistories, fetchStakingDepositHistories }
+}
+
+const graphStakingHistory = async (
+  address: string,
+  poolId?: number,
+  planId?: number,
+  first?: number,
+  skip?: number,
+) => {
+  try {
+    const query = gql`
+      query GetStakingHistory($staker: String, $first: Int, $skip: Int) {
+        depositeds(where: { staker: $staker }, first: $first, skip: $skip) {
+          transactionHash
+          start
+          rewardPerSecond
+          poolId
+          plan
+          id
+          finish
+          fee
+          blockTimestamp
+          blockNumber
+          amount
+
+          staker {
+            address
+            id
+            totalStaked
+            deposited {
+              amount
+              blockNumber
+              blockTimestamp
+              fee
+              finish
+              id
+              plan
+              poolId
+              rewardPerSecond
+              transactionHash
+              start
+            }
+          }
+          staking {
+            id
+            rewardPerSecond
+            amount
+            unstake {
+              id
+            }
+            withdrawn {
+              id
+            }
+            pool {
+              id
+              stakeAddress {
+                name
+                symbol
+                decimals
+                id
+              }
+              rewardAddress {
+                name
+                symbol
+                decimals
+                id
+              }
+            }
+          }
+        }
+      }
+    `
+    const data = await infoClientStaking.request(query, { staker: address, first, skip })
+    return data
+  } catch (error) {
+    console.error('Failed staking Claim Pools', error)
+    return null
+  }
+}
+
+export const useStakingHistory = (
+  address: string,
+  first?: number,
+  skip?: number,
+): { stakingHistory: StakingHistory[] | null | undefined; fetchStakingHistory: () => void } => {
+  const [stakingHistory, setStakingHistory] = useState<StakingHistory[]>([])
+
+  const fetchStakingHistory = useCallback(async () => {
+    const result = await graphStakingHistory(address, first, skip)
+    setStakingHistory(result.depositeds)
+  }, [])
+
+  useEffect(() => {
+    fetchStakingHistory()
+  }, [fetchStakingHistory, first, skip, address])
+
+  return { stakingHistory, fetchStakingHistory }
 }

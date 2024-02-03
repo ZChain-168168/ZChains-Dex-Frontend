@@ -33,7 +33,7 @@ const StakingList: React.FC = () => {
   const { stakingList, fetchStakingList } = useStakingListData(Number(id), pool.data?.stakeAddress?.id)
 
   const { projectFee } = useContractStakingConditions()
-  const { stakingHistory } = useStakingHistory(account, pool.data?.stakeAddress?.id)
+  const { stakingHistory } = useStakingHistory(account)
   // const { opvEarned } = useStakingEarn(account, stakingList, stakingHistory)
   const { opvEarned } = useStakingTotalEarnedContract(account, stakingHistory, pool.data?.rewardAddress?.id)
 
@@ -149,6 +149,8 @@ const StakingList: React.FC = () => {
     setShowUpdatePlan(true)
   }
 
+  const maxPlanId = Math.max(...(stakingList?.map((item) => Number(item?.planId)) || []))
+
   return (
     <WStakingList>
       <HeaderStakingList opvEarned={opvEarned} pool={pool?.data} />
@@ -203,7 +205,14 @@ const StakingList: React.FC = () => {
           maxWidth: '500px',
         }}
       >
-        <Form layout="vertical" form={form} onFinish={handleSubmit}>
+        <Form
+          initialValues={{
+            planId: maxPlanId + 1,
+          }}
+          layout="vertical"
+          form={form}
+          onFinish={handleSubmit}
+        >
           <Row>
             <Col span={24}>
               <Form.Item
@@ -222,10 +231,10 @@ const StakingList: React.FC = () => {
               <Form.Item
                 style={{ width: '100%' }}
                 name="rewardPerSecond"
-                label="Reward per second"
+                label="Reward Amount per second"
                 rules={[{ required: true }]}
               >
-                <Input size="large" placeholder="Reward per second" autoComplete="true" />
+                <Input size="large" placeholder="Reward Amount per second" autoComplete="true" />
               </Form.Item>
               <Form.Item
                 style={{ width: '100%' }}
@@ -290,10 +299,10 @@ const StakingList: React.FC = () => {
               <Form.Item
                 style={{ width: '100%' }}
                 name="rewardPerSecond"
-                label="Reward per second"
+                label="Reward Amount per second"
                 rules={[{ required: true }]}
               >
-                <Input size="large" placeholder="Reward per second" autoComplete="true" />
+                <Input size="large" placeholder="Reward Amount per second" autoComplete="true" />
               </Form.Item>
               <Form.Item
                 style={{ width: '100%' }}

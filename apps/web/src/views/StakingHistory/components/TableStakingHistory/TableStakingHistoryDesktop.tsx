@@ -2,11 +2,12 @@ import { useTranslation } from '@pancakeswap/localization'
 import { Table } from 'antd'
 import styled from 'styled-components'
 import { formatDate } from 'helpers'
-import { StakingHistory } from 'state/staking/types'
+import { STAKING_STATUS, StakingHistory } from 'state/staking/types'
 import Amount from './DataItems/Amount'
 import StakingStatus from './DataItems/StakingStatus'
 import Period from './DataItems/Period'
 import Action from './DataItems/Action'
+import { useEffect, useState } from 'react'
 
 const WTableStakingHistoryDesktop = styled(Table)`
   .ant-table {
@@ -14,7 +15,9 @@ const WTableStakingHistoryDesktop = styled(Table)`
 
     .ant-table-thead
       > tr
-      > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+      > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not(
+        [colspan]
+      )::before {
       display: none;
     }
 
@@ -58,8 +61,8 @@ interface Props {
   dataSource?: StakingHistory[]
   paramsStakingHistory: any
   setPramsStakingHistory: (p: any) => void
-  onClaim?: (p: StakingHistory, cb: () => void) => void
-  onWithdraw?: (p: StakingHistory, cb: () => void) => void
+  onClaim?: (p: any, cb: () => void) => void
+  onWithdraw?: (p: any, cb: () => void) => void
 }
 const TableStakingHistoryDesktop: React.FC<Props> = ({
   dataSource,
@@ -69,7 +72,14 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
   onWithdraw,
 }) => {
   const { t } = useTranslation()
+  const [time, setTime] = useState(Date.now())
 
+  useEffect(() => {
+    const interval = setInterval(() => setTime(Date.now()), 1000)
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
   const columns = [
     {
       title: '#',
@@ -80,12 +90,36 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
       },
     },
     {
-      title: <div style={{ textAlign: 'center' }}>{t('Value')}</div>,
+      title: <div style={{ textAlign: 'center' }}>{t('Stake Amount')}</div>,
       dataIndex: 'amount',
       render: (_, record) => {
         return (
           <div style={{ textAlign: 'center' }}>
-            <Amount value={record.amount} />
+            <Amount suffix={` ${record?.staking?.pool?.stakeAddress?.symbol}`} value={record.amount / 1e18} />
+          </div>
+        )
+      },
+    },
+    {
+      title: <div style={{ textAlign: 'center' }}>{t('Est Reward')}</div>,
+      dataIndex: 'amount',
+      render: (_, record) => {
+        return (
+          <div style={{ textAlign: 'center' }}>
+            <Amount
+              suffix={` ${record?.staking?.pool?.rewardAddress?.symbol}`}
+              value={
+                (record?.rewardPerSecond *
+                  (record.finish < time / 1000
+                    ? time / 1000
+                    : record.finish -
+                      (record.staking?.withDraw?.length &&
+                      record?.staking?.withDraw[record?.staking?.withDraw?.length - 1] > record?.start
+                        ? record?.staking?.withDraw[record?.staking?.withDraw?.length - 1]
+                        : record?.start))) /
+                10 ** record?.staking?.pool?.rewardAddress?.decimals
+              }
+            />
           </div>
         )
       },
@@ -103,7 +137,7 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
       render: (_, record) => {
         return (
           <div style={{ textAlign: 'center' }}>
-            <Period start={record.start} end={record.finish} />
+            <Period start={record.start * 1000} end={record.finish * 1000} />
           </div>
         )
       },
@@ -114,8 +148,15 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
       render: (_, record) => {
         return (
           <StakingStatus
-            isUnStake={record.isUnStake}
-            poolStatus={record.poolStatus}
+            isUnStake={
+              (record?.staking?.withDraw ? record?.staking?.withDraw[record?.staking?.withDraw?.length - 1] : 0) ===
+              (record.finish < Date.now() / 1000 ? Date.now() / 1000 : record.finish)
+            }
+            poolStatus={
+              record.blockTimestamp < (record.finish < Date.now() / 1000 ? Date.now() / 1000 : record.finish)
+                ? STAKING_STATUS.LIVE
+                : STAKING_STATUS.END
+            }
             onClaim={() => {
               if (onClaim) {
                 onClaim(record, () => null)
@@ -129,14 +170,14 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
       title: <div style={{ textAlign: 'center' }}>{t('Start')}</div>,
       dataIndex: 'start',
       render: (text) => {
-        return <p style={{ textAlign: 'center' }}>{formatDate(text)}</p>
+        return <p style={{ textAlign: 'center' }}>{formatDate(text * 1000)}</p>
       },
     },
     {
       title: <div style={{ textAlign: 'center' }}>{t('Finish')}</div>,
       dataIndex: 'finish',
       render: (text) => {
-        return <p style={{ textAlign: 'center' }}>{formatDate(text)}</p>
+        return <p style={{ textAlign: 'center' }}>{formatDate(text * 1000)}</p>
       },
     },
     {

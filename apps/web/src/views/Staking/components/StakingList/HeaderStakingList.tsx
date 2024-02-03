@@ -108,7 +108,9 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
           <WButtonHistory>
             <Button
               onClick={() => {
-                router.push('/staking/history')
+                router.push(
+                  `/staking/history?stakeAddress=${pool?.stakeAddress?.id}&rewardAddress=${pool?.rewardAddress?.id}`,
+                )
               }}
             >
               History

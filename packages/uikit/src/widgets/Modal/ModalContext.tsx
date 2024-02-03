@@ -17,9 +17,10 @@ import { Handler } from "./types";
 interface ModalsContext {
   isOpen: boolean;
   nodeId: string;
+  dataModal?: any;
   modalNode: React.ReactNode;
   setModalNode: React.Dispatch<React.SetStateAction<React.ReactNode>>;
-  onPresent: (node: React.ReactNode, newNodeId: string, closeOverlayClick: boolean) => void;
+  onPresent: (node: React.ReactNode, newNodeId: string, closeOverlayClick: boolean, dataModal?: any) => void;
   onDismiss: Handler;
 }
 
@@ -60,6 +61,7 @@ export const Context = createContext<ModalsContext>({
   isOpen: false,
   nodeId: "",
   modalNode: null,
+  dataModal: undefined,
   setModalNode: () => null,
   onPresent: () => null,
   onDismiss: () => null,
@@ -71,7 +73,7 @@ const ModalProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [nodeId, setNodeId] = useState("");
   const [closeOnOverlayClick, setCloseOnOverlayClick] = useState(true);
   const animationRef = useRef<HTMLDivElement>(null);
-
+  const [dataModal, setDataModal] = useState();
   useIsomorphicEffect(() => {
     const setViewportHeight = () => {
       const vh = window.innerHeight * 0.01;
@@ -82,19 +84,20 @@ const ModalProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     return () => window.removeEventListener("resize", setViewportHeight);
   }, []);
 
-  const handlePresent = useCallback((node: React.ReactNode, newNodeId: string, closeOverlayClick: boolean) => {
+  const handlePresent = (node: React.ReactNode, newNodeId: string, closeOverlayClick: boolean, data?: any) => {
+    setDataModal(data);
     setModalNode(node);
     setIsOpen(true);
     setNodeId(newNodeId);
     setCloseOnOverlayClick(closeOverlayClick);
-  }, []);
+  };
 
-  const handleDismiss = useCallback(() => {
+  const handleDismiss = () => {
     setModalNode(undefined);
     setIsOpen(false);
     setNodeId("");
     setCloseOnOverlayClick(true);
-  }, []);
+  };
 
   const handleOverlayDismiss = () => {
     if (closeOnOverlayClick) {
@@ -122,6 +125,7 @@ const ModalProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
               {React.isValidElement(modalNode) &&
                 React.cloneElement(modalNode, {
                   // @ts-ignore
+                  dataModal,
                   onDismiss: handleDismiss,
                 })}
             </StyledModalWrapper>

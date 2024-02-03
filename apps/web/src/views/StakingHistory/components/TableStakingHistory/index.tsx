@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { use, useState } from 'react'
 import { useMatchBreakpoints, useModal } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
@@ -8,6 +8,7 @@ import StakingHistoryItemMobile from './StakingHistoryItemMobile'
 import TableStakingHistoryDesktop from './TableStakingHistoryDesktop'
 import ModalDetailUnstake from '../ModalDetailUnstake'
 import ModalStakingWithdraw from '../ModalStakingWithdraw'
+import { useRouter } from 'next/router'
 
 const WTableStakingHistory = styled.div`
   width: 100%;
@@ -23,13 +24,14 @@ const WTableStakingHistory = styled.div`
 const TableStakingHistory = () => {
   const { account } = useActiveWeb3React()
   const { isMobile } = useMatchBreakpoints()
-  const { stakingHistory } = useStakingHistory(account)
+  const router = useRouter()
+  const { stakeAddress, rewardAddress } = router.query
 
   const [paramsStakingHistory, setPramsStakingHistory] = useState({
     page: 1,
     pageSize: 10,
   })
-
+  const { stakingHistory } = useStakingHistory(account, paramsStakingHistory.pageSize, paramsStakingHistory.page)
   const dataStakingHistoryMobile = stakingHistory
     ? stakingHistory.slice(
         paramsStakingHistory.page * paramsStakingHistory.pageSize - paramsStakingHistory.pageSize,
