@@ -29,7 +29,7 @@ export const INFO_CLIENT =
 
 export const INFO_CLIENT_STAKING = 'https://api.thegraph.com/subgraphs/name/vanphuc079/staking-pools/'
 
-export const INFO_CLIENT_AVAX = 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-avax'
+export const INFO_CLIENT_AVAX = 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-exchange-avax'
 
 export const INFO_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exhange-eth'
 export const BLOCKS_CLIENT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks'

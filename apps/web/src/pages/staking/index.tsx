@@ -4,6 +4,6 @@ import Pools from 'views/new-pools/components'
 
 const PoolsPage = () => <Pools />
 
-PoolsPage.chains = [ChainId.BSC_TESTNET]
+PoolsPage.chains = [ChainId.CREDIT]
 
 export default PoolsPage

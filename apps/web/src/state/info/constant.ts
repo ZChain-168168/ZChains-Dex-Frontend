@@ -17,7 +17,7 @@ export const multiChainQueryMainToken = {
   BSC: 'BNB',
   ETH: 'ETH',
   CREDIT: 'ETH',
-  AVAX: 'AVAX',
+  AVAX: 'ETH',
 }
 
 export const multiChainBlocksClient = {
@@ -31,6 +31,7 @@ export const multiChainStartTime = {
   BSC: PCS_V2_START,
   ETH: PCS_ETH_START,
   CREDIT: PCS_ETH_START,
+  AVAX: PCS_ETH_START,
 }
 
 export const multiChainId = {
@@ -70,6 +71,7 @@ export const multiChainTokenBlackList = {
   BSC: TOKEN_BLACKLIST,
   ETH: ETH_TOKEN_BLACKLIST,
   CREDIT: TOKEN_BLACKLIST,
+  AVAX: TOKEN_BLACKLIST,
 }
 
 export const multiChainTokenWhiteList = {
