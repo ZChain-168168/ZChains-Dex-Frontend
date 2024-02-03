@@ -1,13 +1,14 @@
 import { useTranslation } from '@pancakeswap/localization'
 import { Table } from 'antd'
 import styled from 'styled-components'
-import { formatDate } from 'helpers'
+import { formatDate, roundNumber } from 'helpers'
 import { STAKING_STATUS, StakingHistory } from 'state/staking/types'
 import Amount from './DataItems/Amount'
 import StakingStatus from './DataItems/StakingStatus'
 import Period from './DataItems/Period'
 import Action from './DataItems/Action'
 import { useEffect, useState } from 'react'
+import { Button } from '@pancakeswap/uikit'
 
 const WTableStakingHistoryDesktop = styled(Table)`
   .ant-table {
@@ -108,8 +109,9 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
           <div style={{ textAlign: 'center' }}>
             <Amount
               suffix={` ${record?.staking?.pool?.rewardAddress?.symbol}`}
-              value={
+              value={roundNumber(
                 (record?.rewardPerSecond *
+                  (record?.amount / 10 ** record?.staking?.pool?.rewardAddress?.decimals) *
                   (record.finish < time / 1000
                     ? time / 1000
                     : record.finish -
@@ -117,20 +119,15 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
                       record?.staking?.withDraw[record?.staking?.withDraw?.length - 1] > record?.start
                         ? record?.staking?.withDraw[record?.staking?.withDraw?.length - 1]
                         : record?.start))) /
-                10 ** record?.staking?.pool?.rewardAddress?.decimals
-              }
+                  10 ** record?.staking?.pool?.rewardAddress?.decimals,
+                { scale: 9 },
+              )}
             />
           </div>
         )
       },
     },
-    {
-      title: <div style={{ textAlign: 'center' }}>{t('Fee')}</div>,
-      dataIndex: 'fee',
-      render: (_, record) => {
-        return <p style={{ textAlign: 'center' }}>{record.fee}</p>
-      },
-    },
+
     {
       title: <div style={{ textAlign: 'center' }}>{t('Period')}</div>,
       dataIndex: 'period',
@@ -148,15 +145,8 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
       render: (_, record) => {
         return (
           <StakingStatus
-            isUnStake={
-              (record?.staking?.withDraw ? record?.staking?.withDraw[record?.staking?.withDraw?.length - 1] : 0) ===
-              (record.finish < Date.now() / 1000 ? Date.now() / 1000 : record.finish)
-            }
-            poolStatus={
-              record.blockTimestamp < (record.finish < Date.now() / 1000 ? Date.now() / 1000 : record.finish)
-                ? STAKING_STATUS.LIVE
-                : STAKING_STATUS.END
-            }
+            isUnStake={record.staking?.unstake.length !== 0}
+            poolStatus={record.finish > Date.now() / 1000 ? STAKING_STATUS.LIVE : STAKING_STATUS.END}
             onClaim={() => {
               if (onClaim) {
                 onClaim(record, () => null)
@@ -185,12 +175,26 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
       dataIndex: 'finish',
       render: (_, record) => (
         <div style={{ textAlign: 'center' }}>
-          <Action
-            stakingHistory={record}
-            onWithdraw={(cb) => {
-              onWithdraw(record, cb)
-            }}
-          />
+          {record.finish < Date.now() / 1000 && record.staking.unstake.length === 0 ? (
+            <Button
+              scale="sm"
+              width={105}
+              onClick={() => {
+                if (onClaim) {
+                  onClaim(record, () => null)
+                }
+              }}
+            >
+              {t('Unstake')}
+            </Button>
+          ) : (
+            <Action
+              stakingHistory={record}
+              onWithdraw={(cb) => {
+                onWithdraw(record, cb)
+              }}
+            />
+          )}
         </div>
       ),
     },

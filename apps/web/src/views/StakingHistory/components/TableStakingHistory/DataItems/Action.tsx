@@ -26,11 +26,7 @@ const Action: React.FC<{
       setLoading(false)
     })
   }
-  const poolStatus =
-    stakingHistory.blockTimestamp <
-    (stakingHistory.finish < Date.now() / 1000 ? Date.now() / 1000 : stakingHistory.finish)
-      ? STAKING_STATUS.LIVE
-      : STAKING_STATUS.END
+  const poolStatus = stakingHistory.finish > Date.now() / 1000 ? STAKING_STATUS.LIVE : STAKING_STATUS.END
   const isLive = poolStatus === STAKING_STATUS.LIVE
   return (
     <WAction className="tokens-item-pairs" {...props}>

@@ -30,11 +30,7 @@ const StakingStatus: React.FC<{
         if (poolStatus === STAKING_STATUS.LIVE) {
           return t('Locked')
         }
-        return (
-          <Button scale="sm" isLoading={loading} disabled={loading} onClick={onClaim}>
-            {t('Unstake')}
-          </Button>
-        )
+        return t('Claimable')
       })()}
     </WStakingStatus>
   )

@@ -18,6 +18,20 @@ const WStakingList = styled.div`
   margin-top: 40px;
 `
 
+const WButtonHistory = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: right;
+
+  a,
+  button {
+    width: 100%;
+    ${({ theme }) => theme.mediaQueries.md} {
+      width: fit-content;
+    }
+  }
+`
+
 const PoolList: React.FC = () => {
   const { t } = useTranslation()
   const router = useRouter()
@@ -138,17 +152,29 @@ const PoolList: React.FC = () => {
         >
           Pool List
         </div>
-        {isOwner && (
-          <Button
-            scale="sm"
-            minWidth={[, '120px']}
-            onClick={() => {
-              setShowCreatePool(true)
-            }}
-          >
-            Add Pool
-          </Button>
-        )}
+        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          <WButtonHistory>
+            <Button
+              onClick={() => {
+                router.push(`/staking/history`)
+              }}
+            >
+              History
+            </Button>
+          </WButtonHistory>
+          {isOwner && (
+            <Button
+              style={{ marginLeft: '10px', height: '48px' }}
+              scale="sm"
+              minWidth={[, '120px']}
+              onClick={() => {
+                setShowCreatePool(true)
+              }}
+            >
+              Add Pool
+            </Button>
+          )}
+        </div>
       </div>
       <PackagePoolList stakingList={poolLists.data} onStaking={handleStaking} onUpdate={onUpdate} />
       <Modal

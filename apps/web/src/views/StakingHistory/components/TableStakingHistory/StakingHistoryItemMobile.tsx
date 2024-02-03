@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from '@pancakeswap/localization'
 import { STAKING_STATUS, StakingHistory } from 'state/staking/types'
-import { formatDate } from 'helpers'
+import { formatDate, roundNumber } from 'helpers'
 import Amount from './DataItems/Amount'
 import Period from './DataItems/Period'
 import StakingStatus from './DataItems/StakingStatus'
 import Action from './DataItems/Action'
+import { Button } from '@pancakeswap/uikit'
 
 const WStakingHistoryItemMobile = styled.div`
   .market-price-item-content {
@@ -110,8 +111,9 @@ const StakingHistoryItemMobile: React.FC<{
           <p>{t('Est Reward')}</p>
           <Amount
             suffix={` ${stakingHistoryItem?.staking?.pool?.rewardAddress?.symbol}`}
-            value={
+            value={roundNumber(
               (stakingHistoryItem?.rewardPerSecond *
+                (stakingHistoryItem?.amount / 10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals) *
                 (stakingHistoryItem.finish < time / 1000
                   ? time / 1000
                   : stakingHistoryItem.finish -
@@ -120,8 +122,9 @@ const StakingHistoryItemMobile: React.FC<{
                       stakingHistoryItem?.start
                       ? stakingHistoryItem?.staking?.withDraw[stakingHistoryItem?.staking?.withDraw?.length - 1]
                       : stakingHistoryItem?.start))) /
-              10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals
-            }
+                10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals,
+              { scale: 9 },
+            )}
           />
         </div>
         {/*  */}
@@ -143,18 +146,8 @@ const StakingHistoryItemMobile: React.FC<{
           <p>{t('Status')}</p>
           <p>
             <StakingStatus
-              isUnStake={
-                (stakingHistoryItem?.staking?.withDraw
-                  ? stakingHistoryItem?.staking?.withDraw[stakingHistoryItem?.staking?.withDraw?.length - 1]
-                  : 0) ===
-                (stakingHistoryItem.finish < Date.now() / 1000 ? Date.now() / 1000 : stakingHistoryItem.finish)
-              }
-              poolStatus={
-                stakingHistoryItem.blockTimestamp <
-                (stakingHistoryItem.finish < Date.now() / 1000 ? Date.now() / 1000 : stakingHistoryItem.finish)
-                  ? STAKING_STATUS.LIVE
-                  : STAKING_STATUS.END
-              }
+              isUnStake={stakingHistoryItem?.staking?.unstake.length !== 0}
+              poolStatus={stakingHistoryItem?.finish > Date.now() / 1000 ? STAKING_STATUS.LIVE : STAKING_STATUS.END}
               onClaim={() => {
                 if (onClaim) {
                   onClaim(stakingHistoryItem, () => null)
@@ -178,14 +171,28 @@ const StakingHistoryItemMobile: React.FC<{
 
         {/*  */}
         <div className="history-item-line">
-          <p>{t('Finish')}</p>
-          <div>
-            <Action
-              stakingHistory={stakingHistoryItem}
-              onWithdraw={(cb) => {
-                onWithdraw(stakingHistoryItem, cb)
-              }}
-            />
+          <p>{t('Action')}</p>
+          <div style={{ textAlign: 'center' }}>
+            {stakingHistoryItem.finish < Date.now() / 1000 && stakingHistoryItem.staking.unstake.length === 0 ? (
+              <Button
+                scale="sm"
+                width={105}
+                onClick={() => {
+                  if (onClaim) {
+                    onClaim(stakingHistoryItem, () => null)
+                  }
+                }}
+              >
+                {t('Unstake')}
+              </Button>
+            ) : (
+              <Action
+                stakingHistory={stakingHistoryItem}
+                onWithdraw={(cb) => {
+                  onWithdraw(stakingHistoryItem, cb)
+                }}
+              />
+            )}
           </div>
         </div>
       </div>

@@ -416,11 +416,13 @@ export const useStakingHistory = (
   const fetchStakingHistory = useCallback(async () => {
     const result = await graphStakingHistory(address, first, skip)
     setStakingHistory(result.depositeds)
-  }, [])
+  }, [address, first, skip])
 
   useEffect(() => {
-    fetchStakingHistory()
-  }, [fetchStakingHistory, first, skip, address])
+    if (address) {
+      fetchStakingHistory()
+    }
+  }, [first, skip, address])
 
   return { stakingHistory, fetchStakingHistory }
 }

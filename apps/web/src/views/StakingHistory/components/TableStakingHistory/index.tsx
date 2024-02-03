@@ -1,4 +1,4 @@
-import { use, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import { useMatchBreakpoints, useModal } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
@@ -31,7 +31,11 @@ const TableStakingHistory = () => {
     page: 1,
     pageSize: 10,
   })
-  const { stakingHistory } = useStakingHistory(account, paramsStakingHistory.pageSize, paramsStakingHistory.page)
+  const { stakingHistory, fetchStakingHistory } = useStakingHistory(
+    account,
+    paramsStakingHistory.pageSize,
+    paramsStakingHistory.page,
+  )
   const dataStakingHistoryMobile = stakingHistory
     ? stakingHistory.slice(
         paramsStakingHistory.page * paramsStakingHistory.pageSize - paramsStakingHistory.pageSize,
@@ -45,6 +49,10 @@ const TableStakingHistory = () => {
       pageSize: prev.pageSize + 10,
     }))
   }
+
+  useEffect(() => {
+    fetchStakingHistory()
+  }, [])
 
   const [onPresentModalStaking] = useModal(<ModalDetailUnstake title="Stake Detail" />)
   const [onPresentModalWithdraw] = useModal(<ModalStakingWithdraw title="Stake Detail" />)
