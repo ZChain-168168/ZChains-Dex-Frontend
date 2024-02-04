@@ -84,7 +84,7 @@ const graphStakingClaimPool = async (id: string) => {
             name
             symbol
           }
-          terms {
+          terms(orderBy: "day", orderDirection: "desc") {
             id
             day
             rewardPerSecond

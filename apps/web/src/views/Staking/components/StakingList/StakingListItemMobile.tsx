@@ -86,7 +86,13 @@ const StakingListItemMobile: React.FC<{
 
           <Box background="#EDF0F3" p="5px 10px" borderRadius="10px" minWidth="100px">
             <Text color="#000" bold fontSize="13px" textAlign="center">
-              {Number((stakingItem?.rewardPerSecond / 10 ** 9).toFixed(6)) * 3600 * 24}{' '}
+              {roundNumber(
+                (stakingItem?.rewardPerSecond * 3600 * 24) / 10 ** stakingItem?.pool?.rewardAddress?.decimals,
+                {
+                  scale: 9,
+                  scaleSmall: 9,
+                },
+              ).toFixed(9)}{' '}
               {stakingItem?.pool?.rewardAddress?.symbol}
             </Text>
           </Box>
