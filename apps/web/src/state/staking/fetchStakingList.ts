@@ -10,7 +10,7 @@ import { setStakingList } from './actions'
 export const useStakingListData = (
   poolId,
   contractAddress?: string,
-): { stakingList: StakingItemType[]; fetchStakingList: () => void } => {
+): { stakingList: any[]; fetchStakingList: () => void } => {
   const dispatch = useAppDispatch()
 
   const { mutate } = useSWR(

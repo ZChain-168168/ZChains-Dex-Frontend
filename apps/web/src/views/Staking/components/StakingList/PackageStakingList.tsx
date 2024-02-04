@@ -127,7 +127,11 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool, onU
       render: (text, record) => {
         return (
           <div className="staking-item-token" style={{ textAlign: 'center' }}>
-            {Number((record?.rewardPerSecond / 10 ** 9).toFixed(6)) * 3600 * 24} {record?.pool?.rewardAddress?.symbol}
+            {roundNumber((record?.rewardPerSecond * 3600 * 24) / 10 ** Number(record?.pool?.rewardAddress?.decimals), {
+              scale: 9,
+              scaleSmall: 9,
+            }).toFixed(9)}{' '}
+            {record?.pool?.rewardAddress?.symbol}
           </div>
         )
       },
