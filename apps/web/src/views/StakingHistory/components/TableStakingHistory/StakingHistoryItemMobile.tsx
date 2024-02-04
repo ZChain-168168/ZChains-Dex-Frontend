@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from '@pancakeswap/localization'
-import { StakingHistory } from 'state/staking/types'
-import { formatDate } from 'helpers'
+import { STAKING_STATUS, StakingHistory } from 'state/staking/types'
+import { formatDate, roundNumber } from 'helpers'
 import Amount from './DataItems/Amount'
 import Period from './DataItems/Period'
 import StakingStatus from './DataItems/StakingStatus'
 import Action from './DataItems/Action'
+import { Button } from '@pancakeswap/uikit'
 
 const WStakingHistoryItemMobile = styled.div`
   .market-price-item-content {
@@ -76,11 +77,20 @@ const WStakingHistoryItemMobile = styled.div`
 
 const StakingHistoryItemMobile: React.FC<{
   index: number
-  stakingHistoryItem: StakingHistory
+  stakingHistoryItem: any
   onClaim: (p: any, cb: () => void) => void
   onWithdraw: (p: any, cb: () => void) => void
 }> = ({ index, stakingHistoryItem, onClaim, onWithdraw }) => {
   const { t } = useTranslation()
+
+  const [time, setTime] = useState(Date.now())
+
+  useEffect(() => {
+    const interval = setInterval(() => setTime(Date.now()), 1000)
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
   return (
     <WStakingHistoryItemMobile>
       <div className="market-price-item-content">
@@ -90,8 +100,32 @@ const StakingHistoryItemMobile: React.FC<{
         </div>
         {/*  */}
         <div className="history-item-line">
-          <p>{t('Value')}</p>
-          <Amount value={stakingHistoryItem.amount} />
+          <p>{t('Stake Amount')}</p>
+          <Amount
+            suffix={` ${stakingHistoryItem?.staking?.pool?.stakeAddress?.symbol}`}
+            value={stakingHistoryItem.amount / 1e18}
+          />
+        </div>
+
+        <div className="history-item-line">
+          <p>{t('Est Reward')}</p>
+          <Amount
+            suffix={` ${stakingHistoryItem?.staking?.pool?.rewardAddress?.symbol}`}
+            value={roundNumber(
+              (stakingHistoryItem?.rewardPerSecond *
+                (stakingHistoryItem?.amount / 10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals) *
+                (stakingHistoryItem.finish < time / 1000
+                  ? time / 1000
+                  : stakingHistoryItem.finish -
+                    (stakingHistoryItem.staking?.withDraw?.length &&
+                    stakingHistoryItem?.staking?.withDraw[stakingHistoryItem?.staking?.withDraw?.length - 1] >
+                      stakingHistoryItem?.start
+                      ? stakingHistoryItem?.staking?.withDraw[stakingHistoryItem?.staking?.withDraw?.length - 1]
+                      : stakingHistoryItem?.start))) /
+                10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals,
+              { scale: 9 },
+            )}
+          />
         </div>
         {/*  */}
         <div className="history-item-line">
@@ -103,7 +137,7 @@ const StakingHistoryItemMobile: React.FC<{
         <div className="history-item-line">
           <p>{t('Period')}</p>
           <p>
-            <Period start={stakingHistoryItem.start} end={stakingHistoryItem.finish} />
+            <Period start={stakingHistoryItem.start * 1000} end={stakingHistoryItem.finish * 1000} />
           </p>
         </div>
 
@@ -112,8 +146,8 @@ const StakingHistoryItemMobile: React.FC<{
           <p>{t('Status')}</p>
           <p>
             <StakingStatus
-              isUnStake={stakingHistoryItem.isUnStake}
-              poolStatus={stakingHistoryItem.poolStatus}
+              isUnStake={stakingHistoryItem?.staking?.unstake.length !== 0}
+              poolStatus={stakingHistoryItem?.finish > Date.now() / 1000 ? STAKING_STATUS.LIVE : STAKING_STATUS.END}
               onClaim={() => {
                 if (onClaim) {
                   onClaim(stakingHistoryItem, () => null)
@@ -126,25 +160,39 @@ const StakingHistoryItemMobile: React.FC<{
         {/*  */}
         <div className="history-item-line">
           <p>{t('Start')}</p>
-          <p>{formatDate(stakingHistoryItem.start)}</p>
+          <p>{formatDate(stakingHistoryItem.start * 1000)}</p>
         </div>
 
         {/*  */}
         <div className="history-item-line">
           <p>{t('Finish')}</p>
-          <p>{formatDate(stakingHistoryItem.finish)}</p>
+          <p>{formatDate(stakingHistoryItem.finish * 1000)}</p>
         </div>
 
         {/*  */}
         <div className="history-item-line">
-          <p>{t('Finish')}</p>
-          <div>
-            <Action
-              stakingHistory={stakingHistoryItem}
-              onWithdraw={(cb) => {
-                onWithdraw(stakingHistoryItem, cb)
-              }}
-            />
+          <p>{t('Action')}</p>
+          <div style={{ textAlign: 'center' }}>
+            {stakingHistoryItem.finish < Date.now() / 1000 && stakingHistoryItem.staking.unstake.length === 0 ? (
+              <Button
+                scale="sm"
+                width={105}
+                onClick={() => {
+                  if (onClaim) {
+                    onClaim(stakingHistoryItem, () => null)
+                  }
+                }}
+              >
+                {t('Unstake')}
+              </Button>
+            ) : (
+              <Action
+                stakingHistory={stakingHistoryItem}
+                onWithdraw={(cb) => {
+                  onWithdraw(stakingHistoryItem, cb)
+                }}
+              />
+            )}
           </div>
         </div>
       </div>

@@ -27,9 +27,9 @@ export const INFO_CLIENT =
     ? 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/exchange'
     : 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-exchange-avax' // edit
 
-export const INFO_CLIENT_STAKING = 'https://api.thegraph.com/subgraphs/name/vanphuc079/staking-pools/'
+export const INFO_CLIENT_STAKING = 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/staking'
 
-export const INFO_CLIENT_AVAX = 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-avax'
+export const INFO_CLIENT_AVAX = 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-exchange-avax'
 
 export const INFO_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exhange-eth'
 export const BLOCKS_CLIENT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks'

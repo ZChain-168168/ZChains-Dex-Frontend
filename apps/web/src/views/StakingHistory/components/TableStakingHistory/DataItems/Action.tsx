@@ -15,7 +15,7 @@ const WAction = styled.div`
 `
 
 const Action: React.FC<{
-  stakingHistory: StakingHistory
+  stakingHistory: any
   onWithdraw: (cb: () => void) => void
 }> = ({ stakingHistory, onWithdraw, ...props }) => {
   const { t } = useTranslation()
@@ -26,8 +26,8 @@ const Action: React.FC<{
       setLoading(false)
     })
   }
-
-  const isLive = stakingHistory.poolStatus === STAKING_STATUS.LIVE
+  const poolStatus = stakingHistory.finish > Date.now() / 1000 ? STAKING_STATUS.LIVE : STAKING_STATUS.END
+  const isLive = poolStatus === STAKING_STATUS.LIVE
   return (
     <WAction className="tokens-item-pairs" {...props}>
       {(() => {

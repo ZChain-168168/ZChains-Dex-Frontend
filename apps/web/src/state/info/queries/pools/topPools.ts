@@ -21,10 +21,10 @@ interface TopPoolsResponse {
 const fetchTopPools = async (chainName: MultiChainName, timestamp24hAgo: number): Promise<string[]> => {
   const isStableSwap = checkIsStableSwap()
   const firstCount = isStableSwap ? 100 : 30
-  let whereCondition =
-    chainName === 'CREDIT'
-      ? `where: { dailyTxns_gt: 0, token0_not_in: $blacklist, token1_not_in: $blacklist }`
-      : `where: { date_gt: ${timestamp24hAgo}, token0_not_in: $blacklist, token1_not_in: $blacklist, dailyVolumeUSD_gt: 2000 }`
+  let whereCondition = `where: { dailyTxns_gt: 0, token0_not_in: $blacklist, token1_not_in: $blacklist }`
+  // chainName === 'CREDIT'
+  //   ? `where: { dailyTxns_gt: 0, token0_not_in: $blacklist, token1_not_in: $blacklist }`
+  //   : `where: { date_gt: ${timestamp24hAgo}, token0_not_in: $blacklist, token1_not_in: $blacklist, dailyVolumeUSD_gt: 2000 }`
   if (isStableSwap) whereCondition = `where: { date_gt: ${timestamp24hAgo}}`
   try {
     const query = gql`
@@ -43,6 +43,7 @@ const fetchTopPools = async (chainName: MultiChainName, timestamp24hAgo: number)
     const data = await getMultiChainQueryEndPointWithStableSwap(chainName).request<TopPoolsResponse>(query, {
       blacklist: multiChainTokenBlackList[chainName],
     })
+
     // pairDayDatas id has compound id "0xPOOLADDRESS-NUMBERS", extracting pool address with .split('-')
     return data.pairDayDatas.map((p) => p.id.split('-')[0])
   } catch (error) {

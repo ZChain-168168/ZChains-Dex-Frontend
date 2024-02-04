@@ -18,6 +18,20 @@ const WStakingList = styled.div`
   margin-top: 40px;
 `
 
+const WButtonHistory = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: right;
+
+  a,
+  button {
+    width: 100%;
+    ${({ theme }) => theme.mediaQueries.md} {
+      width: fit-content;
+    }
+  }
+`
+
 const PoolList: React.FC = () => {
   const { t } = useTranslation()
   const router = useRouter()
@@ -118,6 +132,7 @@ const PoolList: React.FC = () => {
     fetchPoolList()
   }
 
+  const maxPoolId = Math.max(...(poolLists?.data?.map((item) => Number(item?.id)) || []))
   return (
     <WStakingList>
       <div
@@ -137,17 +152,29 @@ const PoolList: React.FC = () => {
         >
           Pool List
         </div>
-        {isOwner && (
-          <Button
-            scale="sm"
-            minWidth={[, '120px']}
-            onClick={() => {
-              setShowCreatePool(true)
-            }}
-          >
-            Add Pool
-          </Button>
-        )}
+        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          <WButtonHistory>
+            <Button
+              onClick={() => {
+                router.push(`/staking/history`)
+              }}
+            >
+              History
+            </Button>
+          </WButtonHistory>
+          {isOwner && (
+            <Button
+              style={{ marginLeft: '10px', height: '48px' }}
+              scale="sm"
+              minWidth={[, '120px']}
+              onClick={() => {
+                setShowCreatePool(true)
+              }}
+            >
+              Add Pool
+            </Button>
+          )}
+        </div>
       </div>
       <PackagePoolList stakingList={poolLists.data} onStaking={handleStaking} onUpdate={onUpdate} />
       <Modal
@@ -163,18 +190,32 @@ const PoolList: React.FC = () => {
           maxWidth: '500px',
         }}
       >
-        <Form layout="vertical" form={form} onFinish={handleSubmit}>
+        <Form
+          initialValues={{
+            poolId: maxPoolId + 1,
+          }}
+          layout="vertical"
+          form={form}
+          onFinish={handleSubmit}
+        >
           <Row gutter={8}>
             <Col span={24}>
               <Form.Item name="poolId" label="Pool ID" rules={[{ required: true }]} style={{ width: '100%' }}>
-                <Input style={{ width: '100%' }} size="large" placeholder="Pool ID" autoComplete="true" />
+                <Input
+                  style={{ width: '100%' }}
+                  readOnly
+                  value={maxPoolId + 1}
+                  size="large"
+                  placeholder="Pool ID"
+                  autoComplete="true"
+                />
               </Form.Item>
 
               <Form.Item name="rewardAddress" label="Reward Address" rules={[{ required: true }]}>
                 <Input style={{ width: '100%' }} size="large" placeholder="Address" autoComplete="true" />
               </Form.Item>
 
-              <Form.Item name="lpAddress" label="LP Address" rules={[{ required: true }]}>
+              <Form.Item name="lpAddress" label="Stake Address" rules={[{ required: true }]}>
                 <Input style={{ width: '100%' }} size="large" placeholder="Address" autoComplete="true" />
               </Form.Item>
             </Col>
@@ -218,7 +259,7 @@ const PoolList: React.FC = () => {
                 <Input style={{ width: '100%' }} size="large" placeholder="Address" autoComplete="true" />
               </Form.Item>
 
-              <Form.Item name="lpAddress" label="LP Address" rules={[{ required: true }]}>
+              <Form.Item name="lpAddress" label="Stake Address" rules={[{ required: true }]}>
                 <Input style={{ width: '100%' }} size="large" placeholder="Address" autoComplete="true" />
               </Form.Item>
             </Col>

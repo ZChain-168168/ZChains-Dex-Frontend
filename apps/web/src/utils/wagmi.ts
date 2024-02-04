@@ -131,7 +131,7 @@ export const avalanche: Chain = {
   testnet: true,
 }
 
-const CHAINS = [creditChain, avalanche, bscTestnet]
+const CHAINS = [creditChain, avalanche]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null

@@ -2,7 +2,7 @@ import React from 'react'
 import CurrencyFormat from 'react-currency-format'
 import { roundNumber } from 'helpers'
 
-const Amount: React.FC<{ value }> = ({ value, ...props }) => (
+const Amount: React.FC<{ value: any; suffix?: any }> = ({ value, ...props }) => (
   <>
     {value !== undefined ? (
       <CurrencyFormat

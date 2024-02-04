@@ -201,7 +201,7 @@ export const useTokenDatasSWR = (addresses?: string[], withSettings = true): Tok
           return { ...a, ...b }
         }, {})
       : {}
-  }, [data])
+  }, [data, chainName])
 
   const tokensWithData = useMemo(() => {
     if (!addresses && allData) {
@@ -280,7 +280,7 @@ export const useGetChainName = () => {
   const { pathname, query } = useRouter()
 
   const getChain = useCallback(() => {
-    if (pathname.includes('avax')) return 'AVAX'
+    if (query.chain === 'avax') return 'AVAX'
     return 'CREDIT'
   }, [pathname, query])
   const [name, setName] = useState<MultiChainName | null>(() => getChain())
@@ -288,7 +288,7 @@ export const useGetChainName = () => {
 
   useEffect(() => {
     setName(getChain())
-  }, [getChain])
+  }, [pathname, query])
 
   return result
 }
