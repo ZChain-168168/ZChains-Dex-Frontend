@@ -149,7 +149,7 @@ const StakingList: React.FC = () => {
     setShowUpdatePlan(true)
   }
 
-  const maxPlanId = stakingList?.length ? Math.max(...(stakingList?.map((item) => Number(item?.planId)) || [])) : 0
+  const maxPlanId = stakingList?.length ? Math.max(...(stakingList?.map((item) => Number(item?.planId)) || [])) : -1
 
   return (
     <WStakingList>

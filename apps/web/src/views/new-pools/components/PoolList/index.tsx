@@ -132,7 +132,7 @@ const PoolList: React.FC = () => {
     fetchPoolList()
   }
 
-  const maxPoolId = poolLists?.data?.length ? Math.max(...(poolLists?.data?.map((item) => Number(item?.id)) || [])) : 0
+  const maxPoolId = poolLists?.data?.length ? Math.max(...(poolLists?.data?.map((item) => Number(item?.id)) || [])) : -1
   return (
     <WStakingList>
       <div
