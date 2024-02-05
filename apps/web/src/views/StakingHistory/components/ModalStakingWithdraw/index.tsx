@@ -106,9 +106,10 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
     }
 
     const paramsWithdraw = {
-      start: dataModal.start,
+      start: dataModal.start * 1000,
       feeBnb: toLocaleString(projectFee * 1e18),
     }
+
     setErrorMess('')
     setLoading(true)
     const { txResponse, status, message } = await fetchWithCatchTxError(() =>

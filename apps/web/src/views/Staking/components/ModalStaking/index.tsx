@@ -133,7 +133,6 @@ const ModalStaking: React.FC<Props> = ({
       setErrorMess(t('Please check to agree Teleport Staking Service Agreement'))
       return false
     }
-    console.log('projectFee', projectFee)
 
     const stakingParams = {
       poolId: dataModal?.pool?.id,
@@ -141,7 +140,7 @@ const ModalStaking: React.FC<Props> = ({
       feeBnb: toLocaleString(projectFee * 1e18),
       amount: toLocaleString(+amount * 1e18),
     }
-    console.log('stakingParams', stakingParams)
+
     setErrorMess('')
     setStakingLoading(true)
     const { txResponse, status, message } = await fetchWithCatchTxError(() =>
@@ -157,8 +156,6 @@ const ModalStaking: React.FC<Props> = ({
       onStakingSuccess()
       setAmount('')
     } else {
-      console.log('31523512512351235')
-
       setErrorMess(message)
     }
 
