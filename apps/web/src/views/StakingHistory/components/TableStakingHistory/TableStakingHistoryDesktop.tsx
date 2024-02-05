@@ -96,7 +96,13 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
       render: (_, record) => {
         return (
           <div style={{ textAlign: 'center' }}>
-            <Amount suffix={` ${record?.staking?.pool?.stakeAddress?.symbol}`} value={record.amount / 1e18} />
+            <Amount
+              suffix={` ${record?.staking?.pool?.stakeAddress?.symbol}`}
+              value={roundNumber(record.amount / 10 ** record?.staking?.pool?.stakeAddress?.decimals, {
+                scale: 9,
+                scaleSmall: 9,
+              }).toFixed(9)}
+            />
           </div>
         )
       },
