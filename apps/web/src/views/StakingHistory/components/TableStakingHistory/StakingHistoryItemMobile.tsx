@@ -96,9 +96,12 @@ const StakingHistoryItemMobile: React.FC<{
     stakingHistoryItem.staking?.withDraw?.length > 0
       ? stakingHistoryItem?.staking?.withDraw[stakingHistoryItem?.staking?.withDraw?.length - 1]
       : stakingHistoryItem?.start
+  const diffTime = endTime - startTime
+  const estReward =
+    diffTime *
+    (stakingHistoryItem?.rewardPerSecond / 10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals) *
+    (stakingHistoryItem?.amount / 10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals)
 
-  const diffTime = (endTime - startTime);
-  const estReward = diffTime * stakingHistoryItem?.rewardPerSecond  * stakingHistoryItem?.amount / 10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals
   return (
     <WStakingHistoryItemMobile>
       <div className="market-price-item-content">
@@ -119,13 +122,7 @@ const StakingHistoryItemMobile: React.FC<{
           <p>{t('Est Reward')}</p>
           <Amount
             suffix={` ${stakingHistoryItem?.staking?.pool?.rewardAddress?.symbol}`}
-            // value={diffTime }
-            value={estReward}
-          // value={roundNumber(
-          //   (stakingHistoryItem?.rewardPerSecond * stakingHistoryItem?.amount * (endTime - startTime)) /
-          //     10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals,
-          //   { scale: 9 },
-          // )}
+            value={roundNumber(estReward, { scale: 9, scaleSmall: 9 }).toFixed(18)}
           />
         </div>
         {/*  */}
