@@ -111,23 +111,25 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
       title: <div style={{ textAlign: 'center' }}>{t('Est Reward')}</div>,
       dataIndex: 'amount',
       render: (_, record) => {
+        const endTime = record.finish < time / 1000 ? record.finish : time / 1000
+        const startTime =
+          record.staking?.withDraw?.length > 0
+            ? record?.staking?.withDraw[record?.staking?.withDraw?.length - 1]
+            : record?.start
+        const diffTime = endTime - startTime
+        const estReward =
+          diffTime *
+          (record?.rewardPerSecond / 10 ** record?.staking?.pool?.rewardAddress?.decimals) *
+          (record?.amount / 10 ** record?.staking?.pool?.rewardAddress?.decimals)
+
         return (
           <div style={{ textAlign: 'center' }}>
             <Amount
               suffix={` ${record?.staking?.pool?.rewardAddress?.symbol}`}
-              value={roundNumber(
-                (record?.rewardPerSecond *
-                  (record?.amount / 10 ** record?.staking?.pool?.rewardAddress?.decimals) *
-                  (record.finish < time / 1000
-                    ? time / 1000
-                    : record.finish -
-                      (record.staking?.withDraw?.length &&
-                      record?.staking?.withDraw[record?.staking?.withDraw?.length - 1] > record?.start
-                        ? record?.staking?.withDraw[record?.staking?.withDraw?.length - 1]
-                        : record?.start))) /
-                  10 ** record?.staking?.pool?.rewardAddress?.decimals,
-                { scale: 9 },
-              )}
+              value={roundNumber(estReward, {
+                scale: estReward < 1 ? 9 : 2,
+                scaleSmall: estReward < 1 ? 9 : 2,
+              }).toFixed(estReward < 1 ? 9 : 2)}
             />
           </div>
         )

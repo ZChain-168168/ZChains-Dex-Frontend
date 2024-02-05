@@ -91,6 +91,17 @@ const StakingHistoryItemMobile: React.FC<{
       clearInterval(interval)
     }
   }, [])
+  const endTime = stakingHistoryItem.finish < time / 1000 ? stakingHistoryItem.finish : time / 1000
+  const startTime =
+    stakingHistoryItem.staking?.withDraw?.length > 0
+      ? stakingHistoryItem?.staking?.withDraw[stakingHistoryItem?.staking?.withDraw?.length - 1]
+      : stakingHistoryItem?.start
+  const diffTime = endTime - startTime
+  const estReward =
+    diffTime *
+    (stakingHistoryItem?.rewardPerSecond / 10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals) *
+    (stakingHistoryItem?.amount / 10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals)
+
   return (
     <WStakingHistoryItemMobile>
       <div className="market-price-item-content">
@@ -103,7 +114,11 @@ const StakingHistoryItemMobile: React.FC<{
           <p>{t('Stake Amount')}</p>
           <Amount
             suffix={` ${stakingHistoryItem?.staking?.pool?.stakeAddress?.symbol}`}
-            value={stakingHistoryItem.amount / 1e18}
+            value={roundNumber(
+              stakingHistoryItem.amount / 10 ** stakingHistoryItem?.staking?.pool?.stakeAddress?.decimals,
+              { scale: estReward < 1 ? 9 : 2, scaleSmall: estReward < 1 ? 9 : 2 },
+            ).toFixed(estReward < 1 ? 9 : 2)}
+            scale={2}
           />
         </div>
 
@@ -111,19 +126,8 @@ const StakingHistoryItemMobile: React.FC<{
           <p>{t('Est Reward')}</p>
           <Amount
             suffix={` ${stakingHistoryItem?.staking?.pool?.rewardAddress?.symbol}`}
-            value={roundNumber(
-              (stakingHistoryItem?.rewardPerSecond *
-                (stakingHistoryItem?.amount / 10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals) *
-                (stakingHistoryItem.finish < time / 1000
-                  ? time / 1000
-                  : stakingHistoryItem.finish -
-                    (stakingHistoryItem.staking?.withDraw?.length &&
-                    stakingHistoryItem?.staking?.withDraw[stakingHistoryItem?.staking?.withDraw?.length - 1] >
-                      stakingHistoryItem?.start
-                      ? stakingHistoryItem?.staking?.withDraw[stakingHistoryItem?.staking?.withDraw?.length - 1]
-                      : stakingHistoryItem?.start))) /
-                10 ** stakingHistoryItem?.staking?.pool?.rewardAddress?.decimals,
-              { scale: 9 },
+            value={roundNumber(estReward, { scale: estReward < 1 ? 9 : 2, scaleSmall: estReward < 1 ? 9 : 2 }).toFixed(
+              estReward < 1 ? 9 : 2,
             )}
           />
         </div>

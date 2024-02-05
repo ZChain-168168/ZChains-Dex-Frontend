@@ -153,7 +153,10 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
           <Flex justifyContent="space-between" mb="10px">
             <Text fontWeight="700">{dataModal?.staking?.pool?.stakeAddress?.symbol} Staked</Text>
             <Text color="textSubtle" fontWeight="600">
-              <Amount value={dataModal?.amount / 1e18} suffix={` ${dataModal?.staking?.pool?.stakeAddress?.symbol}`} />
+              <Amount
+                value={roundNumber(dataModal?.amount / 1e18, { scale: 9, scaleSmall: 9 })}
+                suffix={` ${dataModal?.staking?.pool?.stakeAddress?.symbol}`}
+              />
             </Text>
           </Flex>
           <Flex justifyContent="space-between">

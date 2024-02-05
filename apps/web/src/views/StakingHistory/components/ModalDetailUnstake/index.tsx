@@ -160,14 +160,20 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
           <Flex justifyContent="space-between" mb="10px">
             <Text fontWeight="700">{dataModal?.staking?.pool?.stakeAddress?.symbol} Staked</Text>
             <Text color="textSubtle" fontWeight="600">
-              <Amount value={dataModal?.amount / 1e18} />
+              <Amount
+                value={roundNumber(dataModal?.amount / 10 ** dataModal?.staking?.pool?.stakeAddress?.decimals, {
+                  scale: 9,
+                  scaleSmall: 9,
+                })}
+                scale={9}
+              />
             </Text>
           </Flex>
           <Flex justifyContent="space-between">
             <Text fontWeight="700">CREDIT Earn</Text>
             <Text color="textSubtle" fontWeight="600">
               <CurrencyFormat
-                value={roundNumber(opvEarned, { scale: 6, scaleSmall: 3 })}
+                value={roundNumber(opvEarned, { scale: 9, scaleSmall: 9 })}
                 thousandSeparator
                 displayType="text"
                 suffix={` CREDIT`}

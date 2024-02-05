@@ -2,11 +2,11 @@ import React from 'react'
 import CurrencyFormat from 'react-currency-format'
 import { roundNumber } from 'helpers'
 
-const Amount: React.FC<{ value: any; suffix?: any }> = ({ value, ...props }) => (
+const Amount: React.FC<{ value: any; suffix?: any; scale?: number }> = ({ value, scale = 2, ...props }) => (
   <>
     {value !== undefined ? (
       <CurrencyFormat
-        value={roundNumber(value, { scale: 2 })}
+        value={value}
         thousandSeparator
         displayType="text"
         suffix={` CREDIT`}
