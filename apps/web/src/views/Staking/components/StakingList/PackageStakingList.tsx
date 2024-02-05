@@ -158,7 +158,7 @@ const PackageStakingList: React.FC<Props> = ({ stakingList, onStaking, pool, onU
                 value={roundNumber(new BigNumber(text).shiftedBy(-18).toNumber())}
                 displayType="text"
                 thousandSeparator
-                suffix={` ${pool?.rewardAddress?.symbol}` || ` CREDIT`}
+                suffix={` ${pool?.stakeAddress?.symbol}` || ` CREDIT`}
                 renderText={(txt) => txt}
               />
             ) : (

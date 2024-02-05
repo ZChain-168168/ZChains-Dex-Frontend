@@ -354,7 +354,7 @@ const ModalStaking: React.FC<Props> = ({
                     disabled={stakingLoading}
                     onClick={onPurchase}
                   >
-                    Confirm Purchase
+                    Confirm Staking
                   </Button>
                 )
               })()}
