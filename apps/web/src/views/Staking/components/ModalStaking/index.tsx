@@ -113,7 +113,7 @@ const ModalStaking: React.FC<Props> = ({
   const { balance: opvBalance, fetchStatus: opvFetchStatus } = useGetOpvBalance(dataModal?.pool?.stakeAddress?.id)
 
   // w currency
-  const currencyOpv = useCurrency(TOKEN_ADDRESS)
+  const currencyOpv = useCurrency(dataModal?.pool?.stakeAddress?.id)
   // amounts
   const independentAmount: CurrencyAmount<Currency> | undefined = tryParseAmount(`${amount}`, currencyOpv)
   const [approveState, approveCallback] = useApproveCallback(independentAmount, contractStaking?.address)
@@ -133,6 +133,7 @@ const ModalStaking: React.FC<Props> = ({
       setErrorMess(t('Please check to agree Teleport Staking Service Agreement'))
       return false
     }
+    console.log('projectFee', projectFee)
 
     const stakingParams = {
       poolId: dataModal?.pool?.id,
@@ -140,7 +141,7 @@ const ModalStaking: React.FC<Props> = ({
       feeBnb: toLocaleString(projectFee * 1e18),
       amount: toLocaleString(+amount * 1e18),
     }
-
+    console.log('stakingParams', stakingParams)
     setErrorMess('')
     setStakingLoading(true)
     const { txResponse, status, message } = await fetchWithCatchTxError(() =>
@@ -156,6 +157,8 @@ const ModalStaking: React.FC<Props> = ({
       onStakingSuccess()
       setAmount('')
     } else {
+      console.log('31523512512351235')
+
       setErrorMess(message)
     }
 
@@ -272,7 +275,8 @@ const ModalStaking: React.FC<Props> = ({
               <Text fontSize={['12px', , '16px']}>Daily reward</Text>
               <Text bold color="#46D79E" fontSize={['12px', , '16px']}>
                 {roundNumber(
-                  (dataModal?.rewardPerSecond * 3600 * 24) / 10 ** dataModal?.pool?.rewardAddress?.decimals,
+                  (dataModal?.rewardPerSecond * 3600 * 24 * Number(amount || 0)) /
+                    10 ** dataModal?.pool?.rewardAddress?.decimals,
                   {
                     scale: 9,
                     scaleSmall: 3,
