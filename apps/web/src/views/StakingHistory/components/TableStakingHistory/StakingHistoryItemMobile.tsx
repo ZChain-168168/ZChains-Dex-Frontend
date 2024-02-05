@@ -114,7 +114,11 @@ const StakingHistoryItemMobile: React.FC<{
           <p>{t('Stake Amount')}</p>
           <Amount
             suffix={` ${stakingHistoryItem?.staking?.pool?.stakeAddress?.symbol}`}
-            value={stakingHistoryItem.amount / 1e18}
+            value={roundNumber(
+              stakingHistoryItem.amount / 10 ** stakingHistoryItem?.staking?.pool?.stakeAddress?.decimals,
+              { scale: estReward < 1 ? 9 : 2, scaleSmall: estReward < 1 ? 9 : 2 },
+            ).toFixed(estReward < 1 ? 9 : 2)}
+            scale={2}
           />
         </div>
 
@@ -122,7 +126,9 @@ const StakingHistoryItemMobile: React.FC<{
           <p>{t('Est Reward')}</p>
           <Amount
             suffix={` ${stakingHistoryItem?.staking?.pool?.rewardAddress?.symbol}`}
-            value={roundNumber(estReward, { scale: 9, scaleSmall: 9 }).toFixed(18)}
+            value={roundNumber(estReward, { scale: estReward < 1 ? 9 : 2, scaleSmall: estReward < 1 ? 9 : 2 }).toFixed(
+              estReward < 1 ? 9 : 2,
+            )}
           />
         </div>
         {/*  */}
