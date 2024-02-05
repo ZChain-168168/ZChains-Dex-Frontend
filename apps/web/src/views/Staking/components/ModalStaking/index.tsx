@@ -74,7 +74,7 @@ const InputRightNode = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  max-width: 200px;
   .divider {
     width: 2px;
     height: 16px;
@@ -101,7 +101,7 @@ const ModalStaking: React.FC<Props> = ({
 
   const [errorMess, setErrorMess] = useState('')
   const [isAgreementChecked, setIsAgreementChecked] = useState(false)
-  const [amount, setAmount] = useState<string | number>('')
+  const [amount, setAmount] = useState<string | number>(1000)
   const [stakingLoading, setStakingLoading] = useState(false)
   const contractStaking = useContractStaking()
   const { callWithGasPrice } = useCallWithGasPrice()
@@ -222,7 +222,7 @@ const ModalStaking: React.FC<Props> = ({
                 value={amount}
                 rightNode={
                   <InputRightNode className="">
-                    <Text>{dataModal?.pool?.stakeAddress?.symbol}</Text>
+                    {/* <Text width={120}>{dataModal?.pool?.stakeAddress?.symbol}</Text> */}
                     <span className="divider" />
                     <Button scale="xs" onClick={handleMaxAmount}>
                       Max
