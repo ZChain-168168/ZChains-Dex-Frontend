@@ -106,7 +106,7 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
     }
 
     const paramsWithdraw = {
-      start: dataModal.start * 1000,
+      start: dataModal.start,
       feeBnb: toLocaleString(projectFee * 1e18),
     }
 
