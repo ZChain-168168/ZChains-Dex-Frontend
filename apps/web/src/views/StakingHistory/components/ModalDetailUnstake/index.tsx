@@ -106,7 +106,7 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
     }
 
     const paramsWithdraw = {
-      start: dataModal.start * 1000,
+      start: dataModal.start,
       feeBnb: toLocaleString(projectFee * 1e18),
     }
     setErrorMess('')
@@ -166,17 +166,18 @@ function ModalDetailUnstake({ title, dataModal, onDismiss, ...props }: Props) {
                   scaleSmall: 9,
                 })}
                 scale={9}
+                suffix={` ${dataModal?.staking?.pool?.stakeAddress?.symbol}`}
               />
             </Text>
           </Flex>
           <Flex justifyContent="space-between">
-            <Text fontWeight="700">CREDIT Earn</Text>
+            <Text fontWeight="700">{dataModal?.staking?.pool?.rewardAddress?.symbol} Earn</Text>
             <Text color="textSubtle" fontWeight="600">
               <CurrencyFormat
                 value={roundNumber(opvEarned, { scale: 9, scaleSmall: 9 })}
                 thousandSeparator
                 displayType="text"
-                suffix={` CREDIT`}
+                suffix={` ${dataModal?.staking?.pool?.rewardAddress?.symbol}`}
                 renderText={(txt) => txt}
                 {...props}
               />
