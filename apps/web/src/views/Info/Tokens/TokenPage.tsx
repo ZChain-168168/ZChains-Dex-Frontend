@@ -38,7 +38,7 @@ import {
 } from 'state/info/hooks'
 import { useWatchlistTokens } from 'state/user/hooks'
 import styled from 'styled-components'
-import { getBlockExploreLink } from 'utils'
+import { getBlockExploreLink, getBlockExploreName } from 'utils'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { CurrencyLogo } from 'views/Info/components/CurrencyLogo'
 import ChartCard from 'views/Info/components/InfoCharts/ChartCard'
@@ -149,7 +149,7 @@ const TokenPage: React.FC<React.PropsWithChildren<{ routeAddress: string }>> = (
                   color="primary"
                   href={getBlockExploreLink(address, 'address', chainId)}
                 >
-                  {t('View on %site%', { site: cstValue.scanName })}
+                  {t('View on %site%', { site: getBlockExploreName(chainId) })}
                 </LinkExternal>
                 {cmcLink && (
                   <StyledCMCLink href={cmcLink} rel="noopener noreferrer nofollow" target="_blank">
