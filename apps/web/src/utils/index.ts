@@ -51,6 +51,7 @@ export function getBlockExploreLink(
 export function getBlockExploreName(chainIdOverride?: number) {
   const chainId = chainIdOverride || ChainId.BSC
   const chain = chains.find((c) => c.id === chainId)
+  console.log('chain', chain)
 
   return chain?.blockExplorers?.default.name || bsc.blockExplorers.default.name
 }

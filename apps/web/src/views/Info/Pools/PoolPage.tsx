@@ -35,7 +35,7 @@ import {
 } from 'state/info/hooks'
 import { useWatchlistPools } from 'state/user/hooks'
 import styled from 'styled-components'
-import { getBlockExploreLink } from 'utils'
+import { getBlockExploreLink, getBlockExploreName } from 'utils'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { CurrencyLogo, DoubleCurrencyLogo } from 'views/Info/components/CurrencyLogo'
 import ChartCard from 'views/Info/components/InfoCharts/ChartCard'
@@ -146,7 +146,7 @@ const PoolPage: React.FC<React.PropsWithChildren<{ address: string }>> = ({ addr
                 mr="8px"
                 href={getBlockExploreLink(address, 'address', multiChainId[chainName])}
               >
-                {t('View on %site%', { site: multiChainScan[chainName] })}
+                {t('View on %site%', { site: getBlockExploreName(chainId) })}
               </LinkExternal>
               <SaveIcon fill={watchlistPools.includes(address)} onClick={() => addPoolToWatchlist(address)} />
             </Flex>

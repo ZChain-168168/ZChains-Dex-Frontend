@@ -94,7 +94,7 @@ export const creditChain: Chain = {
     default: { http: ['https://rpc.creditsmartchain.com'] },
   },
   blockExplorers: {
-    default: { name: 'Scan creditsmartchain', url: 'https://scan.creditsmartchain.com' },
+    default: { name: 'Scan Creditsmartchain', url: 'https://scan.creditsmartchain.com' },
   },
 
   contracts: {
@@ -114,7 +114,7 @@ export const avalanche: Chain = {
   nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 6 },
   blockExplorers: {
     default: {
-      name: 'snowtrace',
+      name: 'Snowtrace',
       url: 'https://snowtrace.io/',
     },
   },
