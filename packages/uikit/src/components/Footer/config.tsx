@@ -85,7 +85,15 @@ export const footerLinks: FooterLinkType[] = [
   },
 ];
 
-export const socials = [
+export const socials: Array<{
+  label: string;
+  icon: any;
+  href?: string;
+  items?: Array<{
+    label: string;
+    href: string;
+  }>;
+}> = [
   {
     label: "Facebook",
     icon: FacebookIcon,
