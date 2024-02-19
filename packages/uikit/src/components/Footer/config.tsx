@@ -99,72 +99,73 @@ export const socials = [
   {
     label: "Telegram",
     icon: TelegramIcon,
-    items: [
-      {
-        label: "English",
-        // href: "https://t.me/pancakeswap",
-      },
-      {
-        label: "Bahasa Indonesia",
-        // href: "https://t.me/PancakeSwapIndonesia",
-      },
-      {
-        label: "中文",
-        // href: "https://t.me/PancakeSwap_CN",
-      },
-      {
-        label: "Tiếng Việt",
-        // href: "https://t.me/PancakeSwapVN",
-      },
-      {
-        label: "Italiano",
-        // href: "https://t.me/pancakeswap_ita",
-      },
-      {
-        label: "русский",
-        // href: "https://t.me/pancakeswap_ru",
-      },
-      {
-        label: "Türkiye",
-        // href: "https://t.me/pancakeswapturkiye",
-      },
-      {
-        label: "Português",
-        // href: "https://t.me/PancakeSwapPortuguese",
-      },
-      {
-        label: "Español",
-        // href: "https://t.me/PancakeswapEs",
-      },
-      {
-        label: "日本語",
-        // href: "https://t.me/pancakeswapjp",
-      },
-      {
-        label: "Français",
-        // href: "https://t.me/pancakeswapfr",
-      },
-      {
-        label: "Deutsch",
-        // href: "https://t.me/PancakeSwap_DE",
-      },
-      {
-        label: "Filipino",
-        // href: "https://t.me/Pancakeswap_Ph",
-      },
-      {
-        label: "ქართული ენა",
-        // href: "https://t.me/PancakeSwapGeorgia",
-      },
-      {
-        label: "हिन्दी",
-        // href: "https://t.me/PancakeSwapINDIA",
-      },
-      {
-        label: "Announcements",
-        // href: "https://t.me/PancakeSwapAnn",
-      },
-    ],
+    href: "https://t.me/creditweb3updates",
+    // items: [
+    //   {
+    //     label: "English",
+    //     // href: "https://t.me/pancakeswap",
+    //   },
+    //   {
+    //     label: "Bahasa Indonesia",
+    //     // href: "https://t.me/PancakeSwapIndonesia",
+    //   },
+    //   {
+    //     label: "中文",
+    //     // href: "https://t.me/PancakeSwap_CN",
+    //   },
+    //   {
+    //     label: "Tiếng Việt",
+    //     // href: "https://t.me/PancakeSwapVN",
+    //   },
+    //   {
+    //     label: "Italiano",
+    //     // href: "https://t.me/pancakeswap_ita",
+    //   },
+    //   {
+    //     label: "русский",
+    //     // href: "https://t.me/pancakeswap_ru",
+    //   },
+    //   {
+    //     label: "Türkiye",
+    //     // href: "https://t.me/pancakeswapturkiye",
+    //   },
+    //   {
+    //     label: "Português",
+    //     // href: "https://t.me/PancakeSwapPortuguese",
+    //   },
+    //   {
+    //     label: "Español",
+    //     // href: "https://t.me/PancakeswapEs",
+    //   },
+    //   {
+    //     label: "日本語",
+    //     // href: "https://t.me/pancakeswapjp",
+    //   },
+    //   {
+    //     label: "Français",
+    //     // href: "https://t.me/pancakeswapfr",
+    //   },
+    //   {
+    //     label: "Deutsch",
+    //     // href: "https://t.me/PancakeSwap_DE",
+    //   },
+    //   {
+    //     label: "Filipino",
+    //     // href: "https://t.me/Pancakeswap_Ph",
+    //   },
+    //   {
+    //     label: "ქართული ენა",
+    //     // href: "https://t.me/PancakeSwapGeorgia",
+    //   },
+    //   {
+    //     label: "हिन्दी",
+    //     // href: "https://t.me/PancakeSwapINDIA",
+    //   },
+    //   {
+    //     label: "Announcements",
+    //     // href: "https://t.me/PancakeSwapAnn",
+    //   },
+    // ],
   },
   {
     label: "Youtube",
