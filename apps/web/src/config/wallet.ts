@@ -5,7 +5,7 @@ import { isFirefox } from 'react-device-detect'
 import WalletConnectProvider from '@walletconnect/ethereum-provider'
 import { getTrustWalletProvider } from '@pancakeswap/wagmi/connectors/trustWallet'
 import { metaMaskConnector, walletConnectNoQrCodeConnector } from '../utils/wagmi'
-import { DOCS_URL } from "config/constants"
+import { DOCS_URL } from 'config/constants'
 
 export enum ConnectorNames {
   MetaMask = 'metaMask',
@@ -63,9 +63,9 @@ const walletsConfig = ({
         return isMetamaskInstalled() && metaMaskConnector.ready
       },
       connectorId: ConnectorNames.MetaMask,
-      deepLink: 'https://metamask.app.link/dapp/pancakeswap.finance/',
+      deepLink: 'https://metamask.app.link/dapp/swap.teleportstation.io/',
       qrCode,
-      downloadLink: 'https://metamask.app.link/dapp/pancakeswap.finance/',
+      downloadLink: 'https://metamask.app.link/dapp/swap.teleportstation.io/',
     },
     {
       id: 'binance',
@@ -98,7 +98,7 @@ const walletsConfig = ({
       get installed() {
         return !!getTrustWalletProvider()
       },
-      deepLink: 'https://link.trustwallet.com/open_url?coin_id=20000714&url=https://pancakeswap.finance/',
+      deepLink: 'https://link.trustwallet.com/open_url?coin_id=20000714&url=https://swap.teleportstation.io   /',
       downloadLink: 'https://chrome.google.com/webstore/detail/trust-wallet/egjidjbpglichdcondbcbdnbeeppgdph',
       guide: {
         desktop: 'https://trustwallet.com/browser-extension',
