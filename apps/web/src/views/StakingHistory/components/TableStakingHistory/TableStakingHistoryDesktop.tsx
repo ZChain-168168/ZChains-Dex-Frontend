@@ -9,6 +9,7 @@ import Period from './DataItems/Period'
 import Action from './DataItems/Action'
 import { useEffect, useState } from 'react'
 import { Button } from '@pancakeswap/uikit'
+import moment from 'moment-timezone'
 
 const WTableStakingHistoryDesktop = styled(Table)`
   .ant-table {
@@ -181,30 +182,33 @@ const TableStakingHistoryDesktop: React.FC<Props> = ({
     {
       title: <div style={{ textAlign: 'center' }}>{t('Action')}</div>,
       dataIndex: 'finish',
-      render: (_, record) => (
-        <div style={{ textAlign: 'center' }}>
-          {record.finish < Date.now() / 1000 && record.staking.unstake.length === 0 ? (
-            <Button
-              scale="sm"
-              width={105}
-              onClick={() => {
-                if (onClaim) {
-                  onClaim(record, () => null)
-                }
-              }}
-            >
-              {t('Unstake')}
-            </Button>
-          ) : (
-            <Action
-              stakingHistory={record}
-              onWithdraw={(cb) => {
-                onWithdraw(record, cb)
-              }}
-            />
-          )}
-        </div>
-      ),
+      render: (_, record) => {
+        const current = moment().tz('Asia/Ho_Chi_Minh').unix()
+        return (
+          <div style={{ textAlign: 'center' }}>
+            {record?.finish < current && record?.staking?.unstake?.length === 0 ? (
+              <Button
+                scale="sm"
+                width={105}
+                onClick={() => {
+                  if (onClaim) {
+                    onClaim(record, () => null)
+                  }
+                }}
+              >
+                {t('Unstake')}
+              </Button>
+            ) : (
+              <Action
+                stakingHistory={record}
+                onWithdraw={(cb) => {
+                  onWithdraw(record, cb)
+                }}
+              />
+            )}
+          </div>
+        )
+      },
     },
   ]
 

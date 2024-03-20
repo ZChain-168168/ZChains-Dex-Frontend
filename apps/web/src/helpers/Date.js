@@ -53,7 +53,6 @@ export function countDateToDate(t0, t1) {
 }
 
 export const formatDate = (date, format = 'YYYY/MM/DD HH:mm:ss') => {
-  // const country = JSON.parse(localStorage.getItem("userInfo"));
   const country = 'Asia/Ho_Chi_Minh'
   if (date) {
     const tz = momentTimezone(date)

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { STAKING_STATUS, StakingHistory } from 'state/staking/types'
 import { useTranslation } from '@pancakeswap/localization'
 import { Button } from '@pancakeswap/uikit'
+import moment from 'moment-timezone'
+import momentTimezone from 'moment-timezone'
 
 const WAction = styled.div`
   color: black;
@@ -26,7 +28,13 @@ const Action: React.FC<{
       setLoading(false)
     })
   }
-  const poolStatus = stakingHistory.finish > Date.now() / 1000 ? STAKING_STATUS.LIVE : STAKING_STATUS.END
+
+  const tz = momentTimezone(stakingHistory.finish * 1000)
+  const time = tz.tz('Asia/Ho_Chi_Minh').unix()
+
+  const current = moment().tz('Asia/Ho_Chi_Minh').unix()
+
+  const poolStatus = time > current ? STAKING_STATUS.LIVE : STAKING_STATUS.END
   const isLive = poolStatus === STAKING_STATUS.LIVE
   return (
     <WAction className="tokens-item-pairs" {...props}>
