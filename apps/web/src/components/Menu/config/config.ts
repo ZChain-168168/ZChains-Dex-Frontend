@@ -102,6 +102,14 @@ const config: (
       showItemsOnMobile: false,
       items: [],
     },
+    {
+      label: t('Teleport'),
+      href: 'https://teleportstation.io/',
+      icon: EarnIcon,
+      fillIcon: EarnFillIcon,
+      showItemsOnMobile: false,
+      items: [],
+    },
     // {
     //   label: t('Voting'),
     //   href: '/voting',

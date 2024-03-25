@@ -149,7 +149,12 @@ const StakingList: React.FC = () => {
     setShowUpdatePlan(true)
   }
 
-  const maxPlanId = stakingList?.length ? Math.max(...(stakingList?.map((item) => Number(item?.planId)) || [])) : -1
+  const maxPlanId =
+    pool?.data && pool?.data?.terms.length > 0
+      ? Math.max(
+          ...(pool?.data?.terms?.map((item) => Number(item?.id?.split('-') ? item?.id?.split('-')[1] : '0')) || []),
+        )
+      : -1
 
   return (
     <WStakingList>
@@ -222,7 +227,7 @@ const StakingList: React.FC = () => {
                 label="Plan ID"
                 id="planId"
               >
-                <Input size="large" placeholder={`Plan ID`} />
+                <Input readOnly size="large" placeholder={`Plan ID`} />
               </Form.Item>
 
               <Form.Item style={{ width: '100%' }} name="day" label="Periods" rules={[{ required: true }]}>
