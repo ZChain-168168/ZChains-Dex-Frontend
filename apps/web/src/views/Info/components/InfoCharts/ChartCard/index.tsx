@@ -90,14 +90,14 @@ const ChartCard: React.FC<React.PropsWithChildren<ChartCardProps>> = ({
     <Card>
       <TabToggleGroup>
         <TabToggle isActive={view === ChartView.VOLUME} onClick={() => setView(ChartView.VOLUME)}>
-          <Text color={view === ChartView.VOLUME && '#5CE1E6'}>{t('Volume')}</Text>
+          <Text color={view === ChartView.VOLUME && '#ed2e38'}>{t('Volume')}</Text>
         </TabToggle>
         <TabToggle isActive={view === ChartView.LIQUIDITY} onClick={() => setView(ChartView.LIQUIDITY)}>
-          <Text color={view === ChartView.LIQUIDITY && '#5CE1E6'}>{t('Liquidity')}</Text>
+          <Text color={view === ChartView.LIQUIDITY && '#ed2e38'}>{t('Liquidity')}</Text>
         </TabToggle>
         {variant === 'token' && (
           <TabToggle isActive={view === ChartView.PRICE} onClick={() => setView(ChartView.PRICE)}>
-            <Text color={view === ChartView.PRICE && '#5CE1E6'}>{t('Price')}</Text>
+            <Text color={view === ChartView.PRICE && '#ed2e38'}>{t('Price')}</Text>
           </TabToggle>
         )}
       </TabToggleGroup>

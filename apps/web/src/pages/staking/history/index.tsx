@@ -4,6 +4,6 @@ import { SUPPORT_STAKING } from 'config/constants/supportChains'
 
 const StakingHistoryPage = () => <StakingHistory />
 
-StakingHistoryPage.Chains = [ChainId.CREDIT]
+StakingHistoryPage.Chains = [ChainId.ZCD]
 
 export default StakingHistoryPage

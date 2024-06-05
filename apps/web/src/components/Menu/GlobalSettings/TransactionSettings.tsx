@@ -132,6 +132,7 @@ const SlippageTabs = () => {
               <Input
                 scale="sm"
                 inputMode="decimal"
+                style={{ color: '#cb1b17', background: 'rgb(53,54,60)' }}
                 pattern="^[0-9]*[.,]?[0-9]{0,2}$"
                 placeholder={(userSlippageTolerance / 100).toFixed(2)}
                 value={slippageInput}
@@ -181,6 +182,7 @@ const SlippageTabs = () => {
               onBlur={() => {
                 parseCustomDeadline((ttl / 60).toString())
               }}
+              style={{ color: '#cb1b17', background: 'rgb(53,54,60)' }}
               placeholder={(ttl / 60).toString()}
               value={deadlineInput}
               onChange={(event) => {

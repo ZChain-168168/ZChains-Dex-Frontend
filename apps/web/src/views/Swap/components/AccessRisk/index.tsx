@@ -123,12 +123,12 @@ const AccessRiskComponent: React.FC<AccessRiskProps> = ({ token }) => {
       <Flex justifyContent="flex-end">
         <div ref={targetRef} style={{ userSelect: 'none' }}>
           <Tag variant={data.riskLevel > TOKEN_RISK.MEDIUM ? 'failure' : 'primary'}>
-            <Text bold small color="invertedContrast">
+            <Text bold small color="text">
               {hasRiskValue}
             </Text>
             {tooltipVisible && tooltip}
             <Flex>
-              <HelpIcon ml="4px" width="16px" height="16px" color="invertedContrast" />
+              <HelpIcon ml="4px" width="16px" height="16px" color="text" />
             </Flex>
           </Tag>
         </div>
@@ -141,12 +141,12 @@ const AccessRiskComponent: React.FC<AccessRiskProps> = ({ token }) => {
       <Flex justifyContent="flex-end" alignItems="center">
         <div ref={targetRef} style={{ userSelect: 'none' }}>
           <Tag variant="textDisabled">
-            <Text bold small color="invertedContrast">
+            <Text bold small color="text">
               {t('Unknown')}
             </Text>
             {tooltipVisible && tooltip}
             <Flex>
-              <HelpIcon ml="4px" width="16px" height="16px" color="invertedContrast" />
+              <HelpIcon ml="4px" width="16px" height="16px" color="text" />
             </Flex>
           </Tag>
         </div>

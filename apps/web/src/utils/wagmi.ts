@@ -14,93 +14,27 @@ import { LedgerConnector } from 'wagmi/connectors/ledger'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { SafeConnector } from './safeConnector'
 
-export const mtvTestnet: Chain = {
-  // edit
-  id: ChainId.MTV_TESTNET,
-  name: 'MetaViral Chain Testnet',
-  network: 'mtvTestnet',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'MetaViral Chain Native Token',
-    symbol: 'tMTV',
-  },
-  rpcUrls: {
-    public: {
-      http: ['https://testnet-rpc.metaviralscan.com'],
-      // webSocket?:
-    },
-    default: {
-      http: ['https://testnet-rpc.metaviralscan.com'],
-      // webSocket?:
-    },
-  },
-  blockExplorers: {
-    etherscan: { name: 'MTVScan', url: 'https://testnet.metaviralscan.com' },
-    default: { name: 'MTVScan', url: 'https://testnet.metaviralscan.com' },
-  },
-  contracts: {
-    multicall3: {
-      address: multicallAddresses[ChainId.MTV_TESTNET] as any,
-      blockCreated: multicallCreateBlockNumber[ChainId.MTV_TESTNET],
-    },
-  },
-  testnet: true,
-}
-
-export const mtv: Chain = {
-  // edit
-  id: ChainId.MTV,
-  name: 'MetaViral Chain',
-  network: 'mtv',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'MetaViral Chain Native Token',
-    symbol: 'MTV',
-  },
-  rpcUrls: {
-    public: {
-      http: ['https://mainnet-rpc.metaviralscan.com'],
-      // webSocket?:
-    },
-    default: {
-      http: ['https://mainnet-rpc.metaviralscan.com'],
-      // webSocket?:
-    },
-  },
-  blockExplorers: {
-    etherscan: { name: 'MTVScan', url: 'https://metaviralscan.com' },
-    default: { name: 'MTVScan', url: 'https://metaviralscan.com' },
-  },
-  contracts: {
-    multicall3: {
-      address: multicallAddresses[ChainId.MTV] as any,
-      blockCreated: multicallCreateBlockNumber[ChainId.MTV],
-    },
-  },
-  testnet: true,
-}
-
 export const creditChain: Chain = {
-  id: 4400,
-  name: 'Credit Smart Chain',
-  network: 'CREDIT',
+  id: 16816,
+  name: 'zChain Coin Testnet',
+  network: 'ZCD',
   nativeCurrency: {
     decimals: 18,
-    name: 'CREDIT mainnet',
-    symbol: 'CREDIT',
+    name: 'zChain Testnet',
+    symbol: 'ZCD',
   },
   rpcUrls: {
-    public: { http: ['https://rpc.creditsmartchain.com'] },
-    default: { http: ['https://rpc.creditsmartchain.com'] },
+    public: { http: ['https://rpc-testnet.zchains.com'] },
+    default: { http: ['https://rpc-testnet.zchains.com'] },
   },
   blockExplorers: {
-    default: { name: 'Scan Creditsmartchain', url: 'https://scan.creditsmartchain.com' },
+    default: { name: 'Scan zChain', url: 'https://testscan.zchains.com' },
   },
 
   contracts: {
     multicall3: {
-      address: multicallAddresses[ChainId.CREDIT] as any,
-      blockCreated: multicallCreateBlockNumber[ChainId.CREDIT],
+      address: multicallAddresses[ChainId.ZCD] as any,
+      blockCreated: multicallCreateBlockNumber[ChainId.ZCD],
     },
   },
   testnet: true,

@@ -3,6 +3,6 @@ import { BUSD, USDT } from './common'
 
 // edit
 export const creditTokens = {
-  wbnb: WBNB[ChainId.CREDIT],
-  usdt: USDT[ChainId.CREDIT],
+  wbnb: WBNB[ChainId.ZCD],
+  usdt: USDT[ChainId.ZCD],
 }

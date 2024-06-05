@@ -15,14 +15,15 @@ const blink = keyframes`
 
 const StyledLink = styled("a")`
   display: flex;
+  height: 60px;
+  width: 160px;
   .mobile-icon {
-    width: 32px;
+    width: 60px;
     ${({ theme }) => theme.mediaQueries.lg} {
       display: none;
     }
   }
   .desktop-icon {
-    width: 160px;
     display: none;
     ${({ theme }) => theme.mediaQueries.lg} {
       display: block;
@@ -47,8 +48,8 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ href }) => {
   const innerLogo = (
     <>
       {/* <LogoIcon className="mobile-icon" /> */}
-      <img className="mobile-icon" src="/images/logo-icon.png" alt="" />
-      <img className="desktop-icon" src="/images/logo-text.png" alt="" />
+      <img className="mobile-icon" height={60} src="/images/logo-icon.jpeg" alt="" />
+      <img className="desktop-icon" height={60} src="/images/logo-text.jpeg" alt="" />
       {/* <LogoWithTextIcon className="desktop-icon" /> */}
     </>
   );

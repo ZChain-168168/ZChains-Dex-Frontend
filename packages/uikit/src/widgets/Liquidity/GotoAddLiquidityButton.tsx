@@ -7,7 +7,7 @@ export function GotoAddLiquidityButton() {
 
   return (
     <NextLinkFromReactRouter to="/add">
-      <Button id="join-pool-button" width="100%" startIcon={<AddIcon color="invertedContrast" />}>
+      <Button id="join-pool-button" width="100%" startIcon={<AddIcon color="text" />}>
         {t("Add Liquidity")}
       </Button>
     </NextLinkFromReactRouter>

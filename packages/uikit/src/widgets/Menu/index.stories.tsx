@@ -181,7 +181,7 @@ ConnectedWithBanner.args = {
   ...defaultProps,
   banner: (
     <Flex height="100%" p="16px" alignItems="center" justifyContent="center" background="#7645D9">
-      <Text color="invertedContrast" mr="8px">
+      <Text color="text" mr="8px">
         Banner example
       </Text>
       <Button scale="sm">I am button</Button>

@@ -19,15 +19,6 @@ export const CAKE_TESTNET = new ERC20Token(
   'https://pancakeswap.finance/',
 )
 
-export const CAKE_TESTNET_MTV = new ERC20Token( // edit
-  ChainId.MTV_TESTNET,
-  '0xbc691Ff9F9DCCa20DB97FCd56930a193169c9305',
-  18,
-  'CAKE',
-  'TeleportSwap Token',
-  'https://pancakeswap.finance/',
-)
-
 // export const CAKE_CREDIT = new ERC20Token( // edit
 //   ChainId.CREDIT,
 //   '0x6ee35EC174d928E773Be492c99ab89Bd25EdbBf0',
@@ -63,14 +54,6 @@ export const USDC_ETH = new ERC20Token(
   'USD Coin',
 )
 
-export const USDC_GOERLI = new ERC20Token(
-  ChainId.GOERLI,
-  '0x07865c6E87B9F70255377e024ace6630C1Eaa37F',
-  6,
-  'tUSDC',
-  'test USD Coin',
-)
-
 export const USDT_BSC = new ERC20Token(
   ChainId.BSC,
   '0x55d398326f99059fF775485246999027B3197955',
@@ -90,7 +73,7 @@ export const USDT_ETH = new ERC20Token(
 )
 
 export const EGG_CREDIT = new ERC20Token(
-  ChainId.CREDIT,
+  ChainId.ZCD,
   '0x366b71c23396d845Bb5CC1631606F17F0b45033f',
   18,
   'EGG',
@@ -100,7 +83,7 @@ export const EGG_CREDIT = new ERC20Token(
 )
 
 export const HEN_CREDIT = new ERC20Token(
-  ChainId.CREDIT,
+  ChainId.ZCD,
   '0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A',
   18,
   'HEN',
@@ -109,27 +92,8 @@ export const HEN_CREDIT = new ERC20Token(
   '/images/4400/tokens/0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A.png',
 )
 
-export const USDT_MTV_TESTNET = new ERC20Token(
-  ChainId.MTV_TESTNET,
-  '0x35F6207320Ae813198485b93eD8036ebab8De5c8',
-  18,
-  'USDT',
-  'Tether USD',
-  'https://tether.to/',
-  '/images/10435/tokens/0x35F6207320Ae813198485b93eD8036ebab8De5c8.png',
-)
-export const USDT_MTV = new ERC20Token(
-  ChainId.MTV,
-  '0x88cd3B410235F7C35819ab4a606b2724Da47a56a',
-  18,
-  'USDT',
-  'MetaViral USD PEG-Tether',
-  'https://tether.to/',
-  '/images/10435/tokens/0x88cd3B410235F7C35819ab4a606b2724Da47a56a.png',
-)
-
 export const USDT_CREDIT = new ERC20Token(
-  ChainId.CREDIT,
+  ChainId.ZCD,
   '0x4DD741d2F49073ed7aCfaA34fb53330C7324e319',
   18,
   'USDT',
@@ -166,26 +130,6 @@ export const BUSD_TESTNET = new ERC20Token(
   'https://www.paxos.com/busd/',
 )
 
-export const BUSD_TESTNET_MTV = new ERC20Token(
-  ChainId.MTV_TESTNET,
-  '0x65c72B37d645A0533418E68E89AAA513A11AdA99',
-  18,
-  'BUSD',
-  'Binance USD',
-  'https://www.paxos.com/busd/',
-  '/images/10435/tokens/0x65c72B37d645A0533418E68E89AAA513A11AdA99.png',
-)
-
-export const BUSD_MTV = new ERC20Token(
-  ChainId.MTV,
-  '0x6a3f146746AFf711D7486c01ba0F181FF364e23D',
-  18,
-  'MUSD',
-  'MetaViral USD ( MUSD )',
-  'https://www.paxos.com/busd/',
-  '/images/10435/tokens/0x6a3f146746AFf711D7486c01ba0F181FF364e23D.png',
-)
-
 // export const BUSD_CREDIT = new ERC20Token(
 //   ChainId.CREDIT,
 //   process.env.NEXT_PUBLIC_WRAPPED || '0xf7D5280ED0DC5fC3E0Af25973508a4F0b9B19Ba6',
@@ -205,15 +149,6 @@ export const BUSD_ETH = new ERC20Token(
   'https://www.paxos.com/busd/',
 )
 
-export const BUSD_GOERLI = new ERC20Token(
-  ChainId.GOERLI,
-  '0xb809b9B2dc5e93CB863176Ea2D565425B03c0540',
-  18,
-  'BUSD',
-  'Binance USD',
-  'https://www.paxos.com/busd/',
-)
-
 export const WBTC_ETH = new ERC20Token(
   ChainId.ETHEREUM,
   '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
@@ -224,18 +159,14 @@ export const WBTC_ETH = new ERC20Token(
 
 export const BUSD = {
   [ChainId.ETHEREUM]: BUSD_ETH,
-  [ChainId.GOERLI]: BUSD_GOERLI,
   [ChainId.BSC]: BUSD_BSC,
   [ChainId.BSC_TESTNET]: BUSD_TESTNET,
-  [ChainId.MTV_TESTNET]: BUSD_TESTNET_MTV,
-  [ChainId.MTV]: BUSD_MTV, // edit as MUSD
   // [ChainId.CREDIT]: BUSD_CREDIT,
 }
 
 export const CAKE = {
   [ChainId.BSC]: CAKE_MAINNET,
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
-  [ChainId.MTV_TESTNET]: CAKE_TESTNET_MTV, // edit
   // [ChainId.CREDIT]: CAKE_CREDIT,
 }
 
@@ -243,16 +174,13 @@ export const USDC = {
   [ChainId.BSC]: USDC_BSC,
   [ChainId.BSC_TESTNET]: USDC_TESTNET,
   [ChainId.ETHEREUM]: USDC_ETH,
-  [ChainId.GOERLI]: USDC_GOERLI,
   // [ChainId.CREDIT]: USDT_CREDIT,
 }
 
 export const USDT = {
   [ChainId.BSC]: USDT_BSC,
   [ChainId.ETHEREUM]: USDT_ETH,
-  [ChainId.MTV_TESTNET]: USDT_MTV_TESTNET,
-  [ChainId.MTV]: USDT_MTV, // edit
-  [ChainId.CREDIT]: USDT_CREDIT, // edit
+  [ChainId.ZCD]: USDT_CREDIT, // edit
   [ChainId.AVAX]: USDT_AVAX,
 }
 export const OPV_MAINNET = new Token(
@@ -274,7 +202,7 @@ export const OPV_TESTNET = new Token(
 )
 
 export const TELEPORT_CREDIT = new Token(
-  ChainId.CREDIT,
+  ChainId.ZCD,
   '0x4d5d78a5e645707b7039f6e872d3d02984c9ddf5',
   18,
   'CREDIT',

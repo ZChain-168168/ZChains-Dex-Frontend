@@ -16,20 +16,33 @@ import useWhitelistedAddresses from 'views/FarmAuction/hooks/useWhitelistedAddre
 const WPackageStakingList = styled.div`
   width: 100%;
   padding: 0px 12px;
-  background: #eefbff;
+  background: var(--colors-backgroundAlt);
   border-radius: 12px;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding: 16px 24px;
   }
   .ant-table {
     background: transparent;
-
+    color: var(--colors-text);
     .ant-table-thead
       > tr
       > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not(
         [colspan]
       )::before {
       display: none;
+    }
+
+    .ant-table-thead
+      > tr
+      > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not(
+        [colspan]
+      )::before,
+    .ant-table-thead
+      > tr
+      > td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not(
+        [colspan]
+      )::before {
+      background: transparent;
     }
 
     .ant-table-thead {
@@ -39,6 +52,7 @@ const WPackageStakingList = styled.div`
         padding: 12px 6px;
         background: transparent;
         border-bottom: 1px solid #292929;
+        color: var(--colors-text);
         ${({ theme }) => theme.mediaQueries.sm} {
           font-size: 16px;
           padding: 12px;
@@ -72,7 +86,7 @@ const WPackageStakingList = styled.div`
       }
       .staking-item-duration {
         padding: 6px 20px;
-        background: #edf0f3;
+        background: #000000;
         border-radius: 8px;
       }
     }

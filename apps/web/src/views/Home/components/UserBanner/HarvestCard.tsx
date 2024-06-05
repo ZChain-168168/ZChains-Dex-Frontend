@@ -115,7 +115,7 @@ const HarvestCard = () => {
               disabled={pendingTx}
               onClick={harvestAllFarms}
             >
-              <Text color="invertedContrast" bold>
+              <Text color="text" bold>
                 {pendingTx ? t('Harvesting') : t('Harvest all')}
               </Text>
             </Button>

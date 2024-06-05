@@ -114,10 +114,10 @@ const FarmAuction = () => {
             </Text>
             <Link external href={FORM_ADDRESS}>
               <Button>
-                <Text color="invertedContrast" bold fontSize="16px" mr="4px">
+                <Text color="text" bold fontSize="16px" mr="4px">
                   {t('Apply for a Farm/Pool')}
                 </Text>
-                <OpenNewIcon width="24px" color="invertedContrast" />
+                <OpenNewIcon width="24px" color="text" />
               </Button>
             </Link>
           </Left>

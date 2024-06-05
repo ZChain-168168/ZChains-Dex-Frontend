@@ -335,7 +335,7 @@ const AdminLayout = ({ children }: any) => {
           <div className="logo">
             <Link href="/admin">
               <a>
-                <img src="/logo-text.png" alt="logo" />
+                <img src="/logo-text.jpeg" alt="logo" />
               </a>
             </Link>
           </div>

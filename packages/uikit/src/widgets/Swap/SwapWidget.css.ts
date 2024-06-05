@@ -46,7 +46,7 @@ export const inputVariants = recipe({
     textOverflow: "ellipsis",
     padding: 0,
     WebkitAppearance: "textfield",
-    color: vars.colors.text,
+    color: "#fafafb",
     selectors: {
       "&::-webkit-search-decoration": {
         WebkitAppearance: "none",
@@ -58,7 +58,7 @@ export const inputVariants = recipe({
         WebkitAppearance: "none",
       },
       "&::placeholder": {
-        color: vars.colors.textSubtle,
+        color: "#fafafb",
       },
     },
   },

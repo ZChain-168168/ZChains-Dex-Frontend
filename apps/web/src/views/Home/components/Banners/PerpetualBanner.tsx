@@ -65,10 +65,10 @@ const PerpetualBanner = () => {
           <Header width={['160px', '160px', 'auto']}>{t('Up to 100× Leverage')}</Header>
           <Link href={perpetualUrl} external>
             <Button>
-              <Text color="invertedContrast" bold fontSize="16px" mr="4px">
+              <Text color="text" bold fontSize="16px" mr="4px">
                 {t('Trade Now')}
               </Text>
-              <ArrowForwardIcon color="invertedContrast" />
+              <ArrowForwardIcon color="text" />
             </Button>
           </Link>
         </S.LeftWrapper>

@@ -55,7 +55,8 @@ const InputPanel = styled.div`
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
   border-radius: 16px;
   /* background-color: ${({ theme }) => theme.colors.input}; */
-  border: 1px solid var(--colors-cardBorder);
+  background-color: rgb(53, 54, 60);
+  border: 1px solid rgb(53, 54, 60);
   box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
   ${({ zapStyle }) =>
     !!zapStyle &&
@@ -167,7 +168,7 @@ export default function CurrencyInputPanel({
   const isAtPercentMax = (maxAmount && value === maxAmount.toExact()) || (lpPercent && lpPercent === '100')
 
   return (
-    <Box position="relative" id={id}>
+    <Box borderRadius={8} padding={10} background="#000" position="relative" id={id}>
       <Flex alignItems="center" justifyContent="space-between">
         <Flex>
           {beforeButton}
@@ -188,11 +189,11 @@ export default function CurrencyInputPanel({
                 <CurrencyLogo currency={currency} size="24px" style={{ marginRight: '8px' }} />
               ) : null}
               {pair ? (
-                <Text id="pair" bold>
+                <Text color="#fafafb" id="pair" bold>
                   {pair?.token0.symbol}:{pair?.token1.symbol}
                 </Text>
               ) : (
-                <Text id="pair" bold>
+                <Text color="#fafafb" id="pair" bold>
                   {(currency && currency.symbol && currency.symbol.length > 10
                     ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
                         currency.symbol.length - 5,
@@ -201,14 +202,14 @@ export default function CurrencyInputPanel({
                     : currency?.symbol) || t('Select a currency')}
                 </Text>
               )}
-              {!disableCurrencySelect && <ChevronDownIcon />}
+              {!disableCurrencySelect && <ChevronDownIcon color="#fafafb" />}
             </Flex>
           </CurrencySelectButton>
           {token && tokenAddress ? (
             <Flex style={{ gap: '4px' }} ml="4px" alignItems="center">
               <CopyButton
                 width="16px"
-                buttonColor="textSubtle"
+                buttonColor="#fafafb"
                 text={tokenAddress}
                 tooltipMessage={t('Token address copied')}
               />
@@ -228,7 +229,7 @@ export default function CurrencyInputPanel({
         {account && (
           <Text
             onClick={!disabled && onMax}
-            color="textSubtle"
+            color="#fafafb"
             fontSize="14px"
             style={{ display: 'inline', cursor: 'pointer' }}
           >
@@ -245,6 +246,7 @@ export default function CurrencyInputPanel({
               error={error}
               disabled={disabled}
               className="token-amount-input"
+              color="#fafafb"
               value={value}
               onBlur={onInputBlur}
               onUserInput={(val) => {
@@ -257,7 +259,7 @@ export default function CurrencyInputPanel({
             <Flex justifyContent="flex-end" mr="1rem">
               <Flex maxWidth="200px">
                 {Number.isFinite(amountInDollar) ? (
-                  <Text fontSize="12px" color="textSubtle">
+                  <Text fontSize="12px" color="#fafafb">
                     ~{formatNumber(amountInDollar)} USD
                   </Text>
                 ) : (

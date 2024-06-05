@@ -64,10 +64,10 @@ const AptosBanner = () => {
               window?.open('https://docs.teleportstationscan.com/aptos-deployment', '_blank', 'noopener noreferrer')
             }
           >
-            <Text color="invertedContrast" bold fontSize="16px" mr="4px">
+            <Text color="text" bold fontSize="16px" mr="4px">
               👋 {t('Get in Touch')}
             </Text>
-            <OpenNewIcon color="invertedContrast" />
+            <OpenNewIcon color="text" />
           </Button>
         </S.LeftWrapper>
         <RightWrapper>

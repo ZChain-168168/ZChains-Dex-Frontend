@@ -96,15 +96,15 @@ const config: (
     },
     {
       label: t('Staking'),
-      href: '/staking?chain=bscTestnet',
+      href: '/staking',
       icon: EarnIcon,
       fillIcon: EarnFillIcon,
       showItemsOnMobile: false,
       items: [],
     },
     {
-      label: t('Teleport'),
-      href: 'https://teleportstation.io/',
+      label: t('Bridge'),
+      href: '/bridge',
       icon: EarnIcon,
       fillIcon: EarnFillIcon,
       showItemsOnMobile: false,

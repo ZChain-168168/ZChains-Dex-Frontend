@@ -12,6 +12,7 @@ import {
   Zap,
 } from 'config/abi/types'
 import zapAbi from 'config/abi/zap.json'
+import BridgeABI from 'config/abi/Bridge.json'
 import campaignsAbi from 'config/abi/campaignAbi.json'
 import { useProviderOrSigner } from 'hooks/useProviderOrSigner'
 import { useMemo } from 'react'
@@ -405,4 +406,8 @@ export function useContractStaking(address?: string, withSignerIfPossible = true
 
 export function useContractCampaigns(withSignerIfPossible = true): CampaignAbi {
   return useContract(getCampaignsAddress(), campaignsAbi, withSignerIfPossible)
+}
+
+export const useBridgeContract = (contractBridge: string, withSignerIfPossible = true) => {
+  return useContract(contractBridge, BridgeABI, withSignerIfPossible)
 }

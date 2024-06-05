@@ -65,6 +65,7 @@ export function CurrencyInputPanel({
               disabled={disabled}
               className="token-amount-input"
               value={value}
+              color="#fafafb"
               onBlur={onInputBlur}
               onUserInput={(val) => {
                 onUserInput(val);

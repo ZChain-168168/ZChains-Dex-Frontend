@@ -50,10 +50,10 @@ const CompetitionBanner = () => {
           <Header width={['150px', '150px', 'auto']}>{t('$120,000 in Prizes!')}</Header>
           <NextLinkFromReactRouter to="/competition">
             <Button>
-              <Text color="invertedContrast" bold fontSize="16px" mr="4px">
+              <Text color="text" bold fontSize="16px" mr="4px">
                 {t('Trade Now')}
               </Text>
-              <ArrowForwardIcon color="invertedContrast" />
+              <ArrowForwardIcon color="text" />
             </Button>
           </NextLinkFromReactRouter>
         </S.LeftWrapper>

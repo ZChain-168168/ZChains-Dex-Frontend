@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const ResetCSS = createGlobalStyle`
---colors-primary:#5CE1E6;
+--colors-primary:#ed2e38;
 --colors-backgroundAlt:#0D0023;
---colors-secondary:#5CE1E6;
+--colors-secondary:#ed2e38;
   /* prettier-ignore */
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,

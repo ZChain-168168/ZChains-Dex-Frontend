@@ -147,7 +147,7 @@ const PoolList: React.FC = () => {
           style={{
             fontSize: '24px',
             fontWeight: 500,
-            color: 'rgba(0, 0, 0, 0.88)',
+            color: 'var(--colors-text)',
           }}
         >
           Pool List

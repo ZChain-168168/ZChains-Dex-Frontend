@@ -249,6 +249,7 @@ function CurrencySearch({
               ref={inputRef as RefObject<HTMLInputElement>}
               onChange={handleInput}
               onKeyDown={handleEnter}
+              style={{ background: 'rgb(53,54,60)' }}
             />
           </Row>
         )}

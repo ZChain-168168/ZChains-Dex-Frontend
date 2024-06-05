@@ -113,6 +113,7 @@ const ModalInput: React.FC<React.PropsWithChildren<ModalInputProps>> = ({
             inputMode="decimal"
             step="any"
             min="0"
+            color="primary"
             onChange={onChange}
             placeholder="0"
             value={value}

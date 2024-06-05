@@ -1,6 +1,6 @@
 // eslint-disable-next-line camelcase
 import { SWRConfig, unstable_serialize } from 'swr'
-import { ChainId } from "@pancakeswap/sdk"
+import { ChainId } from '@pancakeswap/sdk'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
 import { getProposal } from 'state/voting/helpers'
@@ -79,6 +79,6 @@ export const getStaticProps = (async ({ params }) => {
   }
 }) satisfies GetStaticProps
 
-ProposalPage.chains = [ChainId.BSC, ChainId.GOERLI]
+ProposalPage.chains = [ChainId.BSC]
 
 export default ProposalPage

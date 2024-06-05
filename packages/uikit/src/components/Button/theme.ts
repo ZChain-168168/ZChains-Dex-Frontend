@@ -20,7 +20,7 @@ export const scaleVariants = {
 export const styleVariants = {
   [variants.PRIMARY]: {
     backgroundColor: "primary",
-    color: "invertedContrast",
+    color: "text",
   },
   [variants.SECONDARY]: {
     backgroundColor: "transparent",

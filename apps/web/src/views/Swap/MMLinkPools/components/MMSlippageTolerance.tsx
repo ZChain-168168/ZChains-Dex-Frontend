@@ -18,8 +18,8 @@ export const MMSlippageTolerance = memo(() => {
   )
   return (
     <>
-      <Text ref={targetRef} color="textSubtle" display="flex" fontSize="14px" style={{ gap: 5 }}>
-        -- <InfoIcon width="13px" />
+      <Text ref={targetRef} color="primary" display="flex" fontSize="14px" style={{ gap: 5 }}>
+        -- <InfoIcon color="primary" width="13px" />
       </Text>
       {tooltipVisible && tooltip}
     </>

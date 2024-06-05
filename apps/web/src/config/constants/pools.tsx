@@ -1,9 +1,9 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { Pool } from '@pancakeswap/uikit'
 import { SerializedWrappedToken } from '@pancakeswap/token-lists'
+import { creditTokens } from '@pancakeswap/tokens'
+import { Pool } from '@pancakeswap/uikit'
 import Trans from 'components/Trans'
 import { VaultKey } from 'state/types'
-import { bscTokens, creditTokens, mtvTestnetTokens } from '@pancakeswap/tokens'
 import { PoolCategory } from './types'
 
 export const MAX_LOCK_DURATION = 31536000
@@ -30,7 +30,7 @@ export const vaultPoolConfig = {
     autoCompoundFrequency: 5000,
     gasLimit: 600000,
     tokenImage: {
-      primarySrc: `/images/tokens/${mtvTestnetTokens.cake.address}.svg`,
+      // primarySrc: `/images/tokens/${mtvTestnetTokens.cake.address}.svg`,
       secondarySrc: '/images/tokens/autorenew.svg',
     },
   },

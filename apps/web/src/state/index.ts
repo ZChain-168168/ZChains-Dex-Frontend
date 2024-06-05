@@ -21,6 +21,7 @@ import staking from './staking/reducer'
 import admin from './admin/reducer'
 import nfts from './nfts/reducer'
 import campaignsReducer from './campaigns'
+import home from './home/reducer'
 const PERSISTED_KEYS: string[] = ['user', 'transactions']
 
 const persistConfig = {
@@ -54,6 +55,7 @@ const persistedReducer = persistReducer(
     admin,
     nfts,
     campaigns: campaignsReducer,
+    home,
   }),
 )
 

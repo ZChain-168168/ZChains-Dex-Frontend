@@ -5,12 +5,9 @@ import invert from 'lodash/invert'
 
 export const CHAIN_QUERY_NAME = {
   [ChainId.ETHEREUM]: 'eth',
-  [ChainId.GOERLI]: 'goerli',
   [ChainId.BSC]: 'bsc',
   [ChainId.BSC_TESTNET]: 'bscTestnet',
-  [ChainId.MTV_TESTNET]: 'mtvTestnet',
-  [ChainId.MTV]: 'mtv',
-  [ChainId.CREDIT]: 'credit',
+  [ChainId.ZCD]: 'zchainTestnet',
   [ChainId.AVAX]: 'avax',
 } satisfies Record<ChainId, string>
 
@@ -28,11 +25,11 @@ if (typeof global.window !== undefined) {
 
 // Config constant
 export const ACTIVE_CHAIN =
-  chainKey === CHAIN_QUERY_NAME[ChainId.CREDIT]
-    ? CHAIN_QUERY_NAME[ChainId.CREDIT]
+  chainKey === CHAIN_QUERY_NAME[ChainId.ZCD]
+    ? CHAIN_QUERY_NAME[ChainId.ZCD]
     : chainKey === CHAIN_QUERY_NAME[ChainId.BSC_TESTNET]
     ? CHAIN_QUERY_NAME[ChainId.BSC_TESTNET]
     : CHAIN_QUERY_NAME[ChainId.AVAX] // edit
 
 // default select chainId
-export const DEFAULT_ACTIVE_CHAIN_ID = ChainId.CREDIT // edit
+export const DEFAULT_ACTIVE_CHAIN_ID = ChainId.ZCD // edit

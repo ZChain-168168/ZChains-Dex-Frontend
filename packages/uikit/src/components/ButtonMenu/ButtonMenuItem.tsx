@@ -26,7 +26,7 @@ const ButtonMenuItem: PolymorphicComponent<ButtonMenuItemProps, "button"> = ({
     return <InactiveButton forwardedAs={as} variant={variant} {...props} />;
   }
 
-  return <Button style={{ color: "#FAFAFA" }} as={as} variant={variant} {...props} />;
+  return <Button style={{ color: "primary" }} as={as} variant={variant} {...props} />;
 };
 
 export default ButtonMenuItem;

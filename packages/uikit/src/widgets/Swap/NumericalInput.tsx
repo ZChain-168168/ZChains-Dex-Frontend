@@ -49,6 +49,7 @@ export const NumericalInput = memo(function InnerInput({
       title={t("Token Amount")}
       autoComplete="off"
       autoCorrect="off"
+      color="primary"
       // text-specific options
       type="text"
       pattern="^[0-9]*[.,]?[0-9]*$"

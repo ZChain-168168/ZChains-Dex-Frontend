@@ -9,17 +9,14 @@ import { fetchStableFarmData } from './fetchStableFarmData'
 import { isStableFarm, SerializedFarmConfig } from './types'
 import { getFullDecimalMultiplier } from './getFullDecimalMultiplier'
 
-const evmNativeStableLpMap = { // edit
+const evmNativeStableLpMap = {
+  // edit
   [ChainId.ETHEREUM]: {
     address: '0x2E8135bE71230c6B1B4045696d41C09Db0414226',
     wNative: 'WETH',
     stable: 'USDC',
   },
-  [ChainId.GOERLI]: {
-    address: '0xf5bf0C34d3c428A74Ceb98d27d38d0036C587200',
-    wNative: 'WETH',
-    stable: 'tUSDC',
-  },
+
   [ChainId.BSC]: {
     address: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16', // lps bnb/busd
     wNative: 'WBNB',
@@ -29,11 +26,6 @@ const evmNativeStableLpMap = { // edit
     address: '0x4E96D2e92680Ca65D58A0e2eB5bd1c0f44cAB897',
     wNative: 'WBNB',
     stable: 'BUSD',
-  },
-  [ChainId.MTV_TESTNET]: {
-    address: '0x60f4343FfD8B94C005588A44e2A0CB0769E002d9', // lps WMTV/USDT
-    wNative: 'WMTV',
-    stable: 'USDT',
   },
 }
 
@@ -264,7 +256,6 @@ export const fetchMasterChefV2Data = async ({
   //   console.log('balanceOf error', error)
   // }
 
-
   try {
     const [[poolLength], [totalRegularAllocPoint], [totalSpecialAllocPoint], [cakePerBlock]] = await multicallv2<
       [[BigNumber], [BigNumber], [BigNumber], [BigNumber]]
@@ -291,7 +282,6 @@ export const fetchMasterChefV2Data = async ({
       ],
       chainId,
     })
- 
 
     return {
       poolLength,

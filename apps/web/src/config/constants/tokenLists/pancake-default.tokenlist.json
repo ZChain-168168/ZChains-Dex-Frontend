@@ -11,60 +11,20 @@
   "keywords": ["Teleport", "default"],
   "tokens": [
     {
-      "name": "Wrapped CREDIT",
-      "symbol": "WCREDIT",
-      "address": "0xe5C2B1a3EbcD5Abd7511306E9931d26d5bb3C2e4",
+      "name": "Wrapped ZCD",
+      "symbol": "WZCD",
+      "address": "0x8EF73631891FE90FF30813Fbc94c6858FCE5117d",
       "chainId": 4400,
       "decimals": 18,
-      "logoURI": "/images/4400/tokens/0xe5C2B1a3EbcD5Abd7511306E9931d26d5bb3C2e4.png"
+      "logoURI": "/images/4400/tokens/0x8EF73631891FE90FF30813Fbc94c6858FCE5117d.png"
     },
     {
-      "name": "Teleport USDT",
-      "symbol": "USDT",
-      "address": "0x4DD741d2F49073ed7aCfaA34fb53330C7324e319",
+      "name": "ZCD USDT",
+      "symbol": "USDZ",
+      "address": "0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4",
       "chainId": 4400,
       "decimals": 18,
-      "logoURI": "/images/4400/tokens/0x4DD741d2F49073ed7aCfaA34fb53330C7324e319.png"
-    },
-    {
-      "name": "AFASA EggBank Hen Token",
-      "symbol": "HEN",
-      "address": "0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A",
-      "chainId": 4400,
-      "decimals": 18,
-      "logoURI": "/images/4400/tokens/0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A.png"
-    },
-    {
-      "name": "AFASA EggBank EGG Token",
-      "symbol": "EGG",
-      "address": "0x366b71c23396d845Bb5CC1631606F17F0b45033f",
-      "chainId": 4400,
-      "decimals": 18,
-      "logoURI": "/images/4400/tokens/0x366b71c23396d845Bb5CC1631606F17F0b45033f.png"
-    },
-    {
-      "name": "Wrapped Avalanche C-Chain",
-      "symbol": "WAVAX",
-      "address": "0x5464FcbDdC94005e77c81739CA99A7F9C98fa8e4",
-      "chainId": 43114,
-      "decimals": 6,
-      "logoURI": "/images/43114/tokens/0x5464FcbDdC94005e77c81739CA99A7F9C98fa8e4.png"
-    },
-    {
-      "name": "Avalanche USDT",
-      "symbol": "USDT",
-      "address": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
-      "chainId": 43114,
-      "decimals": 6,
-      "logoURI": "/images/43114/tokens/0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7.png"
-    },
-    {
-      "name": "Teleport CREDIT",
-      "symbol": "tCREDIT",
-      "address": "0x0667D72e77D899A81965FFD415A5ea45D4A1275A",
-      "chainId": 43114,
-      "decimals": 18,
-      "logoURI": "/images/43114/tokens/0x0667D72e77D899A81965FFD415A5ea45D4A1275A.png"
+      "logoURI": "/images/4400/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png"
     }
   ]
 }

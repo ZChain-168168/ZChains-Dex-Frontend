@@ -5,6 +5,7 @@ import getThemeValue from "../../utils/getThemeValue";
 import { ModalBody, ModalHeader, ModalTitle, ModalContainer, ModalCloseButton, ModalBackButton } from "./styles";
 import { ModalProps, ModalWrapperProps } from "./types";
 import { useMatchBreakpoints } from "../../contexts";
+import { Text } from "../../components/Text";
 
 export const MODAL_SWIPE_TO_CLOSE_VELOCITY = 300;
 
@@ -44,6 +45,7 @@ export const ModalWrapper = ({
 
 const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   title,
+  description,
   onDismiss,
   onBack,
   children,
@@ -61,6 +63,11 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
         <ModalTitle>
           {onBack && <ModalBackButton onBack={onBack} />}
           <Heading>{title}</Heading>
+          {description && (
+            <Text color="#bebebe" fontSize="16px" mt="8px">
+              {description}
+            </Text>
+          )}
         </ModalTitle>
         {!hideCloseButton && <ModalCloseButton onDismiss={onDismiss} />}
       </ModalHeader>

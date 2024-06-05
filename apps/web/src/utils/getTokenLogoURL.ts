@@ -6,9 +6,7 @@ const mapping = {
   // edit
   [ChainId.BSC]: 'smartchain',
   [ChainId.ETHEREUM]: 'ethereum',
-  [ChainId.MTV_TESTNET]: 'mtvtestnet',
-  [ChainId.MTV]: 'mtv',
-  [ChainId.CREDIT]: 'credit',
+  [ChainId.ZCD]: 'zchainTestnet',
   [ChainId.AVAX]: 'avax',
 }
 

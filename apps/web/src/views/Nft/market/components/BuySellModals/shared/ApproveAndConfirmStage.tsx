@@ -31,7 +31,7 @@ const ApproveAndConfirmStage: React.FC<React.PropsWithChildren<ApproveAndConfirm
         <Flex flexDirection="column">
           <Flex alignItems="center">
             <StepIndicator success={isApproved}>
-              <Text fontSize="20px" bold color="invertedContrast">
+              <Text fontSize="20px" bold color="text">
                 1
               </Text>
             </StepIndicator>

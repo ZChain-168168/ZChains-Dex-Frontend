@@ -134,10 +134,10 @@ const LotteryBanner = () => {
           )}
           <NextLinkFromReactRouter to="/lottery">
             <Button>
-              <Text color="invertedContrast" bold fontSize="16px" mr="4px">
+              <Text color="text" bold fontSize="16px" mr="4px">
                 {status === FetchStatus.Fetched && isLotteryLive(data.status) ? t('Play Now') : t('Check Now')}
               </Text>
-              <ArrowForwardIcon color="invertedContrast" />
+              <ArrowForwardIcon color="text" />
             </Button>
           </NextLinkFromReactRouter>
         </S.LeftWrapper>

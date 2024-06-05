@@ -208,12 +208,9 @@ export function useAllLists(): {
 function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddressMap {
   return {
     [ChainId.ETHEREUM]: { ...map1[ChainId.ETHEREUM], ...map2[ChainId.ETHEREUM] },
-    [ChainId.GOERLI]: { ...map1[ChainId.GOERLI], ...map2[ChainId.GOERLI] },
     [ChainId.BSC]: { ...map1[ChainId.BSC], ...map2[ChainId.BSC] },
     [ChainId.BSC_TESTNET]: { ...map1[ChainId.BSC_TESTNET], ...map2[ChainId.BSC_TESTNET] },
-    [ChainId.MTV_TESTNET]: { ...map1[ChainId.MTV_TESTNET], ...map2[ChainId.MTV_TESTNET] },
-    [ChainId.MTV]: { ...map1[ChainId.MTV], ...map2[ChainId.MTV] }, // edit
-    [ChainId.CREDIT]: { ...map1[ChainId.CREDIT], ...map2[ChainId.CREDIT] },
+    [ChainId.ZCD]: { ...map1[ChainId.ZCD], ...map2[ChainId.ZCD] },
     [ChainId.AVAX]: { ...map1[ChainId.AVAX], ...map2[ChainId.AVAX] },
   }
 }

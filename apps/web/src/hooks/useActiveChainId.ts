@@ -49,7 +49,7 @@ export const useActiveChainId = () => {
 
   const { chain } = useNetwork()
 
-  const chainId = localChainId ?? chain?.id ?? (queryChainId >= 0 ? ChainId.CREDIT : undefined)
+  const chainId = localChainId ?? chain?.id ?? (queryChainId >= 0 ? ChainId.ZCD : undefined)
 
   const isNotMatched = useDeferredValue(chain && localChainId && chain.id !== localChainId)
 

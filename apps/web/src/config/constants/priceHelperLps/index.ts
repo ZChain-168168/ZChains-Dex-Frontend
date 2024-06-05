@@ -4,11 +4,11 @@ import PoolsEthereumPriceHelper from './pools/1'
 import PoolsGoerliPriceHelper from './pools/5'
 import PoolsBscPriceHelper from './pools/56'
 import PoolsBscTestnetPriceHelper from './pools/97'
-import PoolsMTVTestnetPriceHelper from './pools/10435'
 
 export { getFarmsPriceHelperLpFiles }
 
-export const getPoolsPriceHelperLpFiles = (chainId: ChainId) => { // edit
+export const getPoolsPriceHelperLpFiles = (chainId: ChainId) => {
+  // edit
   switch (chainId) {
     case ChainId.BSC:
       return PoolsBscPriceHelper
@@ -16,10 +16,6 @@ export const getPoolsPriceHelperLpFiles = (chainId: ChainId) => { // edit
       return PoolsBscTestnetPriceHelper
     case ChainId.ETHEREUM:
       return PoolsEthereumPriceHelper
-    case ChainId.GOERLI:
-      return PoolsGoerliPriceHelper
-    case ChainId.MTV_TESTNET:
-      return PoolsMTVTestnetPriceHelper
     default:
       return []
   }

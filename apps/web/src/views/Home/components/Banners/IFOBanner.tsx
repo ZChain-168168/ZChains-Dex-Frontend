@@ -109,10 +109,10 @@ const IFOBanner = () => {
           </S.StyledHeading>
           <NextLinkFromReactRouter to="/ifo">
             <Button>
-              <Text color="invertedContrast" bold fontSize="16px" mr="4px">
+              <Text color="text" bold fontSize="16px" mr="4px">
                 {t('Go to IFO')}
               </Text>
-              <ArrowForwardIcon color="invertedContrast" />
+              <ArrowForwardIcon color="text" />
             </Button>
           </NextLinkFromReactRouter>
         </S.LeftWrapper>

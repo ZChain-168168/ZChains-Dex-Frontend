@@ -28,7 +28,7 @@ const IfoGetTokenModal: React.FC<React.PropsWithChildren<Props>> = ({ symbol, ad
           as={Link}
           external
           href={`/?outputCurrency=${address}`}
-          endIcon={<OpenNewIcon color="invertedContrast" />}
+          endIcon={<OpenNewIcon color="text" />}
           minWidth="100%" // Bypass the width="fit-content" on Links
         >
           {t("Get %symbol%", { symbol })}

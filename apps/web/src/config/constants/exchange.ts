@@ -1,26 +1,13 @@
-import { avaxTokens } from './../../../../../packages/tokens/src/43114'
-import { ChainId, JSBI, Percent, Token, WNATIVE } from '@pancakeswap/sdk'
 import { BigNumber } from '@ethersproject/bignumber'
-import {
-  bscTokens,
-  bscTestnetTokens,
-  mtvTestnetTokens,
-  mtvTokens,
-  USDC,
-  USDT,
-  BUSD,
-  WBTC_ETH,
-  creditTokens,
-  EGG_CREDIT,
-  HEN_CREDIT,
-} from '@pancakeswap/tokens'
+import { ChainId, JSBI, Percent, Token, WNATIVE } from '@pancakeswap/sdk'
+import { BUSD, USDC, USDT, WBTC_ETH, bscTestnetTokens, bscTokens, creditTokens } from '@pancakeswap/tokens'
 import { DOCS_URL } from 'config/constants'
+import { avaxTokens } from './../../../../../packages/tokens/src/43114'
 import { ChainTokenList } from './types'
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.ETHEREUM]: [WNATIVE[ChainId.ETHEREUM], USDC[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
-  [ChainId.GOERLI]: [WNATIVE[ChainId.GOERLI], USDC[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [
     bscTokens.wbnb,
     bscTokens.cake,
@@ -31,9 +18,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     bscTokens.usdc,
   ],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
-  [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
-  [ChainId.CREDIT]: [creditTokens.usdt],
+  [ChainId.ZCD]: [creditTokens.usdt],
   [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
@@ -62,24 +47,18 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], WBTC_ETH],
-  [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.usdt, bscTokens.cake, bscTokens.btcb],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
-  [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
-  [ChainId.CREDIT]: [creditTokens.usdt, creditTokens.wbnb],
+  [ChainId.ZCD]: [creditTokens.usdt, creditTokens.wbnb],
   [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
-  [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.wbnb, bscTokens.dai, bscTokens.busd, bscTokens.usdt, bscTokens.cake],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.MTV_TESTNET]: [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
-  [ChainId.MTV]: [mtvTokens.wbnb, mtvTokens.busd],
-  [ChainId.CREDIT]: [creditTokens.usdt, creditTokens.wbnb],
+  [ChainId.ZCD]: [creditTokens.usdt, creditTokens.wbnb],
   [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
@@ -94,15 +73,7 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [bscTokens.busd, bscTokens.usdt],
     [bscTokens.dai, bscTokens.usdt],
   ],
-  [ChainId.MTV_TESTNET]: [
-    [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
-    [mtvTestnetTokens.busd, mtvTestnetTokens.usdt],
-  ],
-  [ChainId.MTV]: [
-    [mtvTestnetTokens.wbnb, mtvTestnetTokens.busd],
-    [mtvTestnetTokens.busd, mtvTestnetTokens.usdt],
-  ],
-  [ChainId.CREDIT]: [
+  [ChainId.ZCD]: [
     [creditTokens.usdt, creditTokens.wbnb],
     [creditTokens.usdt, creditTokens.wbnb],
   ],

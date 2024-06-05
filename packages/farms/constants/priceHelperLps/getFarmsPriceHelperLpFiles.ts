@@ -14,11 +14,7 @@ export const getFarmsPriceHelperLpFiles = (chainId: ChainId) => {
       return FarmsBscTestnetPriceHelper
     case ChainId.ETHEREUM:
       return FarmsEthereumPriceHelper
-    case ChainId.GOERLI:
-      return FarmsGoerliPriceHelper
-    case ChainId.MTV_TESTNET:
-      return FarmsMtvPriceHelper
-    case ChainId.CREDIT:
+    case ChainId.ZCD:
       return FarmsCreditPriceHelper
     default:
       return []

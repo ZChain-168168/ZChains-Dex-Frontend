@@ -28,7 +28,7 @@ const EventStepsSection: React.FC<React.PropsWithChildren<EventStepsProps>> = ({
         <EventStepsTopWave isDark={isDark} />
       </StyledWaveContainer>
       <LandingBodyWrapper flexDirection="column" alignItems="center" py="64px">
-        <Text color="invertedContrast" textAlign="center" fontSize="40px" mb="64px" bold>
+        <Text color="text" textAlign="center" fontSize="40px" mb="64px" bold>
           {t('Sounds great, how can I get one?')}
         </Text>
         <Box mb={['80px', null, null, '170px']}>

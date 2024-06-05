@@ -22,7 +22,7 @@ export const StyledListItem = styled.li`
   text-transform: capitalize;
 
   &:first-child {
-    color: ${darkColors.secondary};
+    color: #ed2e38;
     font-weight: 600;
     text-transform: uppercase;
   }
@@ -36,7 +36,7 @@ export const StyledIconMobileContainer = styled(Box)`
 `;
 
 export const StyledToolsContainer = styled(Flex)`
-  border-color: ${darkColors.primary};
+  border-color: #ed2e38;
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-style: solid;
@@ -52,7 +52,7 @@ export const StyledToolsContainer = styled(Flex)`
 `;
 
 export const StyledSocialLinks = styled(SocialLinks)`
-  border-bottom: 1px solid ${darkColors.primary};
+  border-bottom: 1px solid #ed2e38;
 `;
 
 export const StyledText = styled.span`

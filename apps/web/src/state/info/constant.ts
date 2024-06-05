@@ -37,14 +37,14 @@ export const multiChainStartTime = {
 export const multiChainId = {
   BSC: ChainId.BSC,
   ETH: ChainId.ETHEREUM,
-  CREDIT: ChainId.CREDIT,
+  CREDIT: ChainId.ZCD,
   AVAX: ChainId.AVAX,
 }
 
 export const multiChainPaths = {
   [ChainId.BSC]: '',
   [ChainId.ETHEREUM]: '/eth',
-  [ChainId.CREDIT]: '',
+  [ChainId.ZCD]: '',
   [ChainId.AVAX]: '',
 }
 

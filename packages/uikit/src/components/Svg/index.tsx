@@ -176,3 +176,4 @@ export type { SvgProps } from "./types";
 export { default as ArrowBackIconBig } from "./Icons/ArrowBackBig";
 export { default as EyeIcon } from "./Icons/Eye";
 export { default as EyeSleepIcon } from "./Icons/EyeSleep";
+export { default as EmptyIcon } from "./Icons/Empty";
