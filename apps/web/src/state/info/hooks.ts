@@ -281,7 +281,7 @@ export const useGetChainName = () => {
 
   const getChain = useCallback(() => {
     if (query.chain === 'avax') return 'AVAX'
-    return 'CREDIT'
+    return 'ZCD'
   }, [pathname, query])
   const [name, setName] = useState<MultiChainName | null>(() => getChain())
   const result = useMemo(() => name, [name])

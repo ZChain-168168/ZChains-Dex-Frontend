@@ -172,7 +172,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                             </Link>
                             <Text my="8px">
                               {t(
-                                'It is a tool for indicative purposes only to allow users to check the reference risk level of a CREDIT Chain Smart Contract. Please do your own research - interactions with any CREDIT Chain Smart Contract is at your own risk.',
+                                'It is a tool for indicative purposes only to allow users to check the reference risk level of a ZCD Chain Smart Contract. Please do your own research - interactions with any ZCD Chain Smart Contract is at your own risk.',
                               )}
                             </Text>
                           </>

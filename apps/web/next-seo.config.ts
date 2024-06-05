@@ -1,19 +1,19 @@
 import { DefaultSeoProps } from 'next-seo'
 
 export const SEO: DefaultSeoProps = {
-  titleTemplate: '%s | TeleportStation',
-  defaultTitle: 'TeleportStation',
+  titleTemplate: '%s | zChain',
+  defaultTitle: 'zChain',
   description:
-    'Cheaper and faster than Uniswap? Discover TeleportStation, the leading DEX on TeleportStation with the best farms in DeFi and a lottery for CREDIT.',
+    'Cheaper and faster than Uniswap? Discover zChain, the leading DEX on zChain with the best farms in DeFi and a lottery for ZCD.',
   twitter: {
     cardType: 'summary_large_image',
-    handle: '@TeleportStation',
-    site: '@TeleportStation',
+    handle: '@zChain',
+    site: '@zChain',
   },
   openGraph: {
-    title: 'TeleportStation - A next evolution DeFi exchange on TeleportStation',
+    title: 'zChain - A next evolution DeFi exchange on zChain',
     description:
-      'The most popular AMM on CREDIT by user count! Earn CREDIT through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by TeleportStation, NFTs, and more, on a platform you can trust.',
-    images: [{ url: 'https://assets.teleportstation.finance/web/og/hero.jpg' }],
+      'The most popular AMM on ZCD by user count! Earn ZCD through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by zChain, NFTs, and more, on a platform you can trust.',
+    images: [{ url: 'https://assets.zChain.finance/web/og/hero.jpg' }],
   },
 }

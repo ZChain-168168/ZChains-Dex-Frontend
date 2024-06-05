@@ -122,7 +122,7 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'TeleportStation',
+    appName: 'zChain',
     appLogoUrl: 'https://swap.metaviral.com/logo.png',
   },
 })

@@ -67,7 +67,7 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              {pool?.stakeAddress?.symbol || 'CREDIT'} AVAILABLE
+              {pool?.stakeAddress?.symbol || 'ZCD'} AVAILABLE
             </Text>
             <Text fontSize={['13px', , '13px']} ellipsis fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
               <CurrencyFormat
@@ -82,7 +82,7 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              CURRENT {pool?.stakeAddress?.symbol || 'CREDIT'} STAKING
+              CURRENT {pool?.stakeAddress?.symbol || 'ZCD'} STAKING
             </Text>
             <Text fontSize={['13px', , '13px']} fontWeight={600}>
               <CurrencyFormat
@@ -97,7 +97,7 @@ const HeaderStakingList = ({ opvEarned, pool }) => {
         <Col xs={24} sm={12} md={6}>
           <WCardInfo className="card-info-item">
             <Text fontSize={['13px', , '13px']} fontWeight={600} style={{ whiteSpace: 'nowrap' }}>
-              {pool?.rewardAddress?.symbol || 'CREDIT'} EARNED
+              {pool?.rewardAddress?.symbol || 'ZCD'} EARNED
             </Text>
             <Text fontSize={['13px', , '13px']} fontWeight={600}>
               <CurrencyFormat value={opvEarned || 0} displayType="text" thousandSeparator renderText={(t) => t} />

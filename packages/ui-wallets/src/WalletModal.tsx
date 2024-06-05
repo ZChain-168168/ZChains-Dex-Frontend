@@ -87,7 +87,6 @@ const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLin
       <AtomBox
         display="flex"
         position="relative"
-        background="gradientCardHeader"
         borderRadius="card"
         borderBottomRadius={{
           xs: '0',
@@ -420,7 +419,10 @@ export function WalletModalV2<T = unknown>(props: WalletModalV2Props<T>) {
 
   return (
     <ModalV2 closeOnOverlayClick {...rest}>
-      <ModalWrapper onDismiss={props.onDismiss} style={{ overflow: 'visible', border: 'none' }}>
+      <ModalWrapper
+        onDismiss={props.onDismiss}
+        style={{ overflow: 'visible', border: 'none', background: 'backgroundAlt' }}
+      >
         <AtomBox position="relative">
           <TabContainer docLink={docLink} docText={docText}>
             {isMobile ? (
@@ -442,7 +444,7 @@ const Intro = ({ docLink, docText }: { docLink: string; docText: string }) => {
       <Heading as="h1" fontSize="20px" color="secondary">
         {t('Haven’t got a wallet yet?')}
       </Heading>
-      <Image src="https://creditsmartchain.com/fav.png" width={198} height={178} />
+      <Image src="/logo.png" width={198} height={178} />
       {/* <Button as={LinkExternal} color="backgroundAlt" variant="subtle" href={docLink}>
         {docText}
       </Button> */}

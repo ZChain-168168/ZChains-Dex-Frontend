@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { gql } from 'graphql-request'
-import { infoClientCREDIT } from 'utils/graphql'
+import { infoClientZCD } from 'utils/graphql'
 import { ClaimHistoryItemType } from './types'
 
 // fetch nft detail graphql
@@ -17,7 +17,7 @@ const graphNftClaimHistory = async (total: number, tokenId?: string) => {
         }
       }
     `
-    const data = await infoClientCREDIT.request(query, { total })
+    const data = await infoClientZCD.request(query, { total })
     return data
   } catch (error) {
     console.error('Failed graphNftClaimHistory', error)
@@ -116,7 +116,7 @@ const graphCampaignsClaimHistory = async (
       }
     }
   `
-    const data = await infoClientCREDIT.request(query, { total })
+    const data = await infoClientZCD.request(query, { total })
     return data
   } catch (error) {
     console.error('Failed graphCampaignsClaimHistory', error)

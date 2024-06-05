@@ -36,7 +36,7 @@ export const infoClientETH = new GraphQLClient(INFO_CLIENT_ETH)
 
 export const infoClientMTV = new GraphQLClient(INFO_CLIENT_ETH)
 
-export const infoClientCREDIT = new GraphQLClient(INFO_CLIENT)
+export const infoClientZCD = new GraphQLClient(INFO_CLIENT)
 
 export const infoClientStaking = new GraphQLClient(INFO_CLIENT_STAKING)
 

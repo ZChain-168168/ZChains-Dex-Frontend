@@ -64,19 +64,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover TeleportStation, the leading DEX on Credit Smart Chain (CREDIT) with the best farms in DeFi and a lottery for CAKE."
+          content="Cheaper and faster than Uniswap? Discover TeleportStation, the leading DEX on Credit Smart Chain (ZCD) with the best farms in DeFi and a lottery for CAKE."
         />
         <meta name="theme-color" content="#1FC7D4" />
         <meta name="twitter:image" content="https://TeleportStation.finance/images/hero.png" />
         <meta
           name="twitter:description"
-          content="The most popular AMM on CREDIT! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by TeleportStation), NFTs, and more, on a platform you can trust."
+          content="The most popular AMM on ZCD! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by TeleportStation), NFTs, and more, on a platform you can trust."
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="🥞 Teleport - A next evolution DeFi exchange on Credit Smart Chain (CREDIT)"
-        />
+        <meta name="twitter:title" content="🥞 Teleport - A next evolution DeFi exchange on Credit Smart Chain (ZCD)" />
         <title>Bridge | TeleportStation</title>
       </Head>
       <NextThemeProvider>

@@ -94,14 +94,14 @@ const config: (
       showItemsOnMobile: false,
       items: [],
     },
-    {
-      label: t('Staking'),
-      href: '/staking',
-      icon: EarnIcon,
-      fillIcon: EarnFillIcon,
-      showItemsOnMobile: false,
-      items: [],
-    },
+    // {
+    //   label: t('Staking'),
+    //   href: '/staking',
+    //   icon: EarnIcon,
+    //   fillIcon: EarnFillIcon,
+    //   showItemsOnMobile: false,
+    //   items: [],
+    // },
     {
       label: t('Bridge'),
       href: '/bridge',

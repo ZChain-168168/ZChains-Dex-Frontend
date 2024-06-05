@@ -27,7 +27,7 @@ const StakingBanner = () => {
           - Staked package will not be allowed to cancel until the lock expires.
         </Text>
         <Text fontSize={['12px', , '16px']} color="text" fontWeight={600}>
-          - After locking, your CREDIT tokens will be deducted from &#34;Spot&#34; wallet.
+          - After locking, your ZCD tokens will be deducted from &#34;Spot&#34; wallet.
         </Text>
         <Text fontSize={['12px', , '16px']} color="text" fontWeight={600}>
           - You can participate in many different &#34;Stake&#34; packages with only one account.

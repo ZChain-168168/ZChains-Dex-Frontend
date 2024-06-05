@@ -19,8 +19,8 @@ export const CAKE_TESTNET = new ERC20Token(
   'https://pancakeswap.finance/',
 )
 
-// export const CAKE_CREDIT = new ERC20Token( // edit
-//   ChainId.CREDIT,
+// export const CAKE_ZCD = new ERC20Token( // edit
+//   ChainId.ZCD,
 //   '0x6ee35EC174d928E773Be492c99ab89Bd25EdbBf0',
 //   18,
 //   'CAKE',
@@ -72,7 +72,7 @@ export const USDT_ETH = new ERC20Token(
   'https://tether.to/',
 )
 
-export const EGG_CREDIT = new ERC20Token(
+export const EGG_ZCD = new ERC20Token(
   ChainId.ZCD,
   '0x366b71c23396d845Bb5CC1631606F17F0b45033f',
   18,
@@ -82,7 +82,7 @@ export const EGG_CREDIT = new ERC20Token(
   '/images/4400/tokens/0x366b71c23396d845Bb5CC1631606F17F0b45033f.png',
 )
 
-export const HEN_CREDIT = new ERC20Token(
+export const HEN_ZCD = new ERC20Token(
   ChainId.ZCD,
   '0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A',
   18,
@@ -92,7 +92,7 @@ export const HEN_CREDIT = new ERC20Token(
   '/images/4400/tokens/0x7690fAfd39B2D41aceCa85BA78970D6078eFbb4A.png',
 )
 
-export const USDT_CREDIT = new ERC20Token(
+export const USDT_ZCD = new ERC20Token(
   ChainId.ZCD,
   '0x4DD741d2F49073ed7aCfaA34fb53330C7324e319',
   18,
@@ -130,8 +130,8 @@ export const BUSD_TESTNET = new ERC20Token(
   'https://www.paxos.com/busd/',
 )
 
-// export const BUSD_CREDIT = new ERC20Token(
-//   ChainId.CREDIT,
+// export const BUSD_ZCD = new ERC20Token(
+//   ChainId.ZCD,
 //   process.env.NEXT_PUBLIC_WRAPPED || '0xf7D5280ED0DC5fC3E0Af25973508a4F0b9B19Ba6',
 //   18,
 //   'CUSD',
@@ -161,26 +161,26 @@ export const BUSD = {
   [ChainId.ETHEREUM]: BUSD_ETH,
   [ChainId.BSC]: BUSD_BSC,
   [ChainId.BSC_TESTNET]: BUSD_TESTNET,
-  // [ChainId.CREDIT]: BUSD_CREDIT,
+  // [ChainId.ZCD]: BUSD_ZCD,
 }
 
 export const CAKE = {
   [ChainId.BSC]: CAKE_MAINNET,
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
-  // [ChainId.CREDIT]: CAKE_CREDIT,
+  // [ChainId.ZCD]: CAKE_ZCD,
 }
 
 export const USDC = {
   [ChainId.BSC]: USDC_BSC,
   [ChainId.BSC_TESTNET]: USDC_TESTNET,
   [ChainId.ETHEREUM]: USDC_ETH,
-  // [ChainId.CREDIT]: USDT_CREDIT,
+  // [ChainId.ZCD]: USDT_ZCD,
 }
 
 export const USDT = {
   [ChainId.BSC]: USDT_BSC,
   [ChainId.ETHEREUM]: USDT_ETH,
-  [ChainId.ZCD]: USDT_CREDIT, // edit
+  [ChainId.ZCD]: USDT_ZCD, // edit
   [ChainId.AVAX]: USDT_AVAX,
 }
 export const OPV_MAINNET = new Token(
@@ -201,12 +201,12 @@ export const OPV_TESTNET = new Token(
   'https://pancakeswap.finance/',
 )
 
-export const TELEPORT_CREDIT = new Token(
+export const TELEPORT_ZCD = new Token(
   ChainId.ZCD,
   '0x4d5d78a5e645707b7039f6e872d3d02984c9ddf5',
   18,
-  'CREDIT',
-  'Teleport CREDIT',
+  'ZCD',
+  'Teleport ZCD',
   'https://pancakeswap.finance/',
 )
 

@@ -298,6 +298,7 @@ function ManageLists({
             scale="lg"
             placeholder={t('https:// or ipfs://')}
             value={listUrlInput}
+            style={{ backgroundColor: 'var(--colors-backgroundAlt)' }}
             onChange={handleInput}
           />
         </Row>

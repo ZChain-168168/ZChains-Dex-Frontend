@@ -94,20 +94,20 @@ export const socials: Array<{
     href: string;
   }>;
 }> = [
-  {
-    label: "Facebook",
-    icon: FacebookIcon,
-    // href: "https://github.com/facebook/",
-  },
+  // {
+  //   label: "Facebook",
+  //   icon: FacebookIcon,
+  //   // href: "https://github.com/facebook/",
+  // },
   {
     label: "Twitter",
     icon: TwitterIcon,
-    // href: "https://twitter.com/pancakeswap",
+    href: "https://twitter.com/zchains_io",
   },
   {
     label: "Telegram",
     icon: TelegramIcon,
-    href: "https://t.me/creditweb3updates",
+    href: "https://t.me/zchains_io",
     // items: [
     //   {
     //     label: "English",
@@ -175,11 +175,11 @@ export const socials: Array<{
     //   },
     // ],
   },
-  {
-    label: "Youtube",
-    icon: YoutubeIcon,
-    // href: "https://www.youtube.com/@pancakeswap_official",
-  },
+  // {
+  //   label: "Youtube",
+  //   icon: YoutubeIcon,
+  //   // href: "https://www.youtube.com/@pancakeswap_official",
+  // },
   // {
   //   label: "Reddit",
   //   icon: RedditIcon,
@@ -188,18 +188,18 @@ export const socials: Array<{
   {
     label: "Instagram",
     icon: InstagramIcon,
-    // href: "https://instagram.com/pancakeswap_official",
+    href: "https://www.instagram.com/zchains.io/",
   },
   // {
   //   label: "Github",
   //   icon: GithubIcon,
   //   href: "https://github.com/pancakeswap/",
   // },
-  // {
-  //   label: "Discord",
-  //   icon: DiscordIcon,
-  //   href: "https://discord.gg/pancakeswap",
-  // },
+  {
+    label: "Discord",
+    icon: DiscordIcon,
+    href: "https://discord.gg/HgTVFcqPcg",
+  },
 ];
 
 export const langs: Language[] = [...Array(20)].map((_, i) => ({

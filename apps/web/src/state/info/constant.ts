@@ -1,5 +1,5 @@
 import { BLOCKS_CLIENT, BLOCKS_CLIENT_ETH, INFO_CLIENT, INFO_CLIENT_ETH } from 'config/constants/endpoints'
-import { infoClientETH, infoClient, infoStableSwapClient, infoClientCREDIT, infoClientAVAX } from 'utils/graphql'
+import { infoClientETH, infoClient, infoStableSwapClient, infoClientZCD, infoClientAVAX } from 'utils/graphql'
 
 import { ChainId } from '@pancakeswap/sdk'
 import {
@@ -11,33 +11,33 @@ import {
   ETH_TOKEN_WHITELIST,
 } from 'config/constants/info'
 
-export type MultiChainName = 'BSC' | 'ETH' | 'CREDIT' | 'AVAX'
+export type MultiChainName = 'BSC' | 'ETH' | 'ZCD' | 'AVAX'
 
 export const multiChainQueryMainToken = {
   BSC: 'BNB',
   ETH: 'ETH',
-  CREDIT: 'ETH',
+  ZCD: 'ETH',
   AVAX: 'ETH',
 }
 
 export const multiChainBlocksClient = {
   BSC: BLOCKS_CLIENT,
   ETH: BLOCKS_CLIENT_ETH,
-  CREDIT: BLOCKS_CLIENT,
+  ZCD: BLOCKS_CLIENT,
   AVAX: BLOCKS_CLIENT,
 }
 
 export const multiChainStartTime = {
   BSC: PCS_V2_START,
   ETH: PCS_ETH_START,
-  CREDIT: PCS_ETH_START,
+  ZCD: PCS_ETH_START,
   AVAX: PCS_ETH_START,
 }
 
 export const multiChainId = {
   BSC: ChainId.BSC,
   ETH: ChainId.ETHEREUM,
-  CREDIT: ChainId.ZCD,
+  ZCD: ChainId.ZCD,
   AVAX: ChainId.AVAX,
 }
 
@@ -51,33 +51,33 @@ export const multiChainPaths = {
 export const multiChainQueryClient = {
   BSC: infoClient,
   ETH: infoClientETH,
-  CREDIT: infoClientCREDIT,
+  ZCD: infoClientZCD,
   AVAX: infoClientAVAX,
 }
 
 export const multiChainQueryEndPoint = {
   BSC: INFO_CLIENT,
   ETH: INFO_CLIENT_ETH,
-  CREDIT: INFO_CLIENT,
+  ZCD: INFO_CLIENT,
 }
 
 export const multiChainScan = {
   BSC: 'BscScan',
   ETH: 'EtherScan',
-  CREDIT: 'CreditScan',
+  ZCD: 'CreditScan',
 }
 
 export const multiChainTokenBlackList = {
   BSC: TOKEN_BLACKLIST,
   ETH: ETH_TOKEN_BLACKLIST,
-  CREDIT: TOKEN_BLACKLIST,
+  ZCD: TOKEN_BLACKLIST,
   AVAX: TOKEN_BLACKLIST,
 }
 
 export const multiChainTokenWhiteList = {
   BSC: BSC_TOKEN_WHITELIST,
   ETH: ETH_TOKEN_WHITELIST,
-  CREDIT: BSC_TOKEN_WHITELIST,
+  ZCD: BSC_TOKEN_WHITELIST,
 }
 
 export const getMultiChainQueryEndPointWithStableSwap = (chainName: MultiChainName) => {

@@ -24,7 +24,7 @@ const Container = styled.div`
 const StyledInput = styled(Input)`
   z-index: 9999;
   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.backgroundAlt};
 `
 
 const Menu = styled.div`

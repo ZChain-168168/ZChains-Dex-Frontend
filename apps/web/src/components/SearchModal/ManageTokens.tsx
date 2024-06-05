@@ -116,6 +116,7 @@ export default function ManageTokens({
               id="token-search-input"
               scale="lg"
               placeholder="0x0000"
+              style={{ backgroundColor: 'var(--colors-backgroundAlt)' }}
               value={searchQuery}
               autoComplete="off"
               ref={inputRef as RefObject<HTMLInputElement>}

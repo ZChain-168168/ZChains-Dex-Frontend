@@ -9,7 +9,7 @@ const Amount: React.FC<{ value: any; suffix?: any; scale?: number }> = ({ value,
         value={value}
         thousandSeparator
         displayType="text"
-        suffix={` CREDIT`}
+        suffix={` ZCD`}
         renderText={(txt) => txt}
         {...props}
       />

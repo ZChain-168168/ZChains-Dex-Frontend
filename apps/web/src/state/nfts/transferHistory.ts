@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { gql } from 'graphql-request'
-import { infoClientCREDIT } from 'utils/graphql'
+import { infoClientZCD } from 'utils/graphql'
 import { NftTransferHistoryItemType } from './types'
 
 // fetch nft detail graphql
@@ -18,7 +18,7 @@ const graphNftTransferHistory = async (total: number, tokenId?: string) => {
         }
       } 
     `
-    const data = await infoClientCREDIT.request(query)
+    const data = await infoClientZCD.request(query)
     return data
   } catch (error) {
     console.error('Failed graphNftTransferHistory', error)

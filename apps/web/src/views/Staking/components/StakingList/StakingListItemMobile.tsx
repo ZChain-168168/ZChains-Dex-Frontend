@@ -117,7 +117,7 @@ const StakingListItemMobile: React.FC<{
                 value={roundNumber(new BigNumber(stakingItem?.totalStaked).shiftedBy(-18).toNumber())}
                 displayType="text"
                 thousandSeparator
-                suffix={` ${pool?.stakeAddress?.symbol}` || ` CREDIT`}
+                suffix={` ${pool?.stakeAddress?.symbol}` || ` ZCD`}
                 renderText={(txt) => txt}
               />
             </Box>

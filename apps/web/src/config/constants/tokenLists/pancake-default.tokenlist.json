@@ -14,17 +14,17 @@
       "name": "Wrapped ZCD",
       "symbol": "WZCD",
       "address": "0x8EF73631891FE90FF30813Fbc94c6858FCE5117d",
-      "chainId": 4400,
+      "chainId": 16816,
       "decimals": 18,
-      "logoURI": "/images/4400/tokens/0x8EF73631891FE90FF30813Fbc94c6858FCE5117d.png"
+      "logoURI": "/images/16816/tokens/0x8EF73631891FE90FF30813Fbc94c6858FCE5117d.png"
     },
     {
       "name": "ZCD USDT",
       "symbol": "USDZ",
       "address": "0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4",
-      "chainId": 4400,
+      "chainId": 16816,
       "decimals": 18,
-      "logoURI": "/images/4400/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png"
+      "logoURI": "/images/16816/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png"
     }
   ]
 }

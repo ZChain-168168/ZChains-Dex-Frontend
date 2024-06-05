@@ -4,8 +4,8 @@ import { PageMeta } from './types'
 import { ASSET_CDN } from './endpoints'
 
 export const DEFAULT_META: PageMeta = {
-  title: 'TeleportStation',
-  description: 'TeleportStation',
+  title: 'zChain',
+  description: 'zChain is a decentralized exchange running on the zChain blockchain.',
   image: `${ASSET_CDN}/web/og/hero.jpg`,
 }
 
@@ -38,17 +38,17 @@ const getPathList = (t: ContextApi['t']): PathList => {
       '/voting/proposal/create': { title: t('Make a Proposal'), image: `/logo.png` },
       '/info': {
         title: `${t('Overview')} - ${t('Info')}`,
-        description: 'View statistics for TeleportStation exchanges.',
+        description: 'View statistics for zChain exchanges.',
         image: `/logo.png`,
       },
       '/info/pairs': {
         title: `${t('Pairs')} - ${t('Info')}`,
-        description: 'View statistics for TeleportStation exchanges.',
+        description: 'View statistics for zChain exchanges.',
         image: `/logo.png`,
       },
       '/info/tokens': {
         title: `${t('Tokens')} - ${t('Info')}`,
-        description: 'View statistics for TeleportStation exchanges.',
+        description: 'View statistics for zChain exchanges.',
         image: `/logo.png`,
       },
       '/nfts': { title: t('NFT Marketplace'), image: `/logo.png` },
@@ -58,7 +58,7 @@ const getPathList = (t: ContextApi['t']): PathList => {
       '/pancake-squad': { basePath: true, title: t('Pancake Squad') },
       '/pottery': { basePath: true, title: t('Pottery'), image: `/logo.png` },
     },
-    defaultTitleSuffix: t('TeleportStation'),
+    defaultTitleSuffix: t('zChain'),
   }
 }
 

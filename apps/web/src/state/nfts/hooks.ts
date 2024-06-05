@@ -8,7 +8,7 @@ import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { DEFAULT_CHAIN_ID, NFT_ADDRESS } from 'config'
 import { setNftsList } from './actions'
 import { MyNftItem, NftResponse } from './types'
-import { infoClientCREDIT } from '../../utils/graphql'
+import { infoClientZCD } from '../../utils/graphql'
 
 export const useSelectorMyNftsList = (): NftResponse | null | undefined => {
   return useSelector((state: AppState) => state.nfts.list)
@@ -75,7 +75,7 @@ const fetchOpvNftsList = async (total: number, address: string, rareName?: strin
         }
       } 
     `
-    const data = await infoClientCREDIT.request(query, { address, total, rareName })
+    const data = await infoClientZCD.request(query, { address, total, rareName })
     return data
   } catch (error) {
     console.error('Failed to fetch my nfts list', error)
@@ -146,7 +146,7 @@ const fetchOpvNftDetail = async (tokenId?: string) => {
         }
       } 
     `
-    const data = await infoClientCREDIT.request(query)
+    const data = await infoClientZCD.request(query)
     return data
   } catch (error) {
     console.error('Failed to fetch my nfts list', error)

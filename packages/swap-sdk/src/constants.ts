@@ -87,7 +87,7 @@ export const WBNB = {
     'WZCD',
     'Wrapped ZCD',
     'https://www.binance.org',
-    '/images/4400/tokens/0x8EF73631891FE90FF30813Fbc94c6858FCE5117d.png'
+    '/images/16816/tokens/0x8EF73631891FE90FF30813Fbc94c6858FCE5117d.png'
   ),
   [ChainId.AVAX]: new ERC20Token(
     ChainId.AVAX,
