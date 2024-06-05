@@ -58,7 +58,12 @@ const IfoPoolVaultCardMobile: React.FC<React.PropsWithChildren<IfoPoolVaultCardM
       <CardHeader p="16px">
         <Flex justifyContent="space-between" alignItems="center">
           <StyledTokenContent alignItems="center" flex={1}>
-            <UITokenPairImage width={24} height={24} {...vaultPoolConfig[VaultKey.CakeVault].tokenImage} />
+            <UITokenPairImage
+              primarySrc=""
+              width={24}
+              height={24}
+              {...vaultPoolConfig[VaultKey.CakeVault].tokenImage}
+            />
             <Box ml="8px" width="180px">
               <Text small bold>
                 {vaultPoolConfig[VaultKey.CakeVault].name}
