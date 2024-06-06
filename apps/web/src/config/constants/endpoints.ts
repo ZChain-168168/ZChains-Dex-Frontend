@@ -9,7 +9,7 @@ export const GRAPH_API_LOTTERY = 'https://api.thegraph.com/subgraphs/name/pancak
 export const SNAPSHOT_BASE_URL =
   ACTIVE_CHAIN === 'zchainTestnet'
     ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/pairs'
-    : 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-avax' // edit
+    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/pairs' // edit
 export const API_PROFILE = 'https://profile.pancakeswap.com'
 export const API_NFT = 'https://nft.pancakeswap.com/api/v1'
 export const SNAPSHOT_API = `${SNAPSHOT_BASE_URL}`
@@ -25,7 +25,7 @@ export const GRAPH_API_PREDICTION_V1 = 'https://api.thegraph.com/subgraphs/name/
 export const INFO_CLIENT =
   ACTIVE_CHAIN === 'zchainTestnet'
     ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/exchange'
-    : 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-exchange-avax' // edit
+    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/exchange' // edit
 
 export const INFO_CLIENT_STAKING = 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/staking'
 

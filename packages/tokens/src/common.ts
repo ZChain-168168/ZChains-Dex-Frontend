@@ -94,20 +94,20 @@ export const HEN_ZCD = new ERC20Token(
 
 export const USDT_ZCD = new ERC20Token(
   ChainId.ZCD,
-  '0x4DD741d2F49073ed7aCfaA34fb53330C7324e319',
+  '0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4',
   18,
-  'USDT',
-  'Teleport USDT',
+  'USDZ',
+  'zChain USDT',
   'https://tether.to/',
-  '/images/4400/tokens/0x4DD741d2F49073ed7aCfaA34fb53330C7324e319.png',
+  '/images/16816/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png',
 )
 
 export const USDT_AVAX = new ERC20Token(
   ChainId.AVAX,
   '0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7',
   18,
-  'USDT',
-  'Avalanche USDT',
+  'USDZ',
+  'zChain USDT',
   'https://tether.to/',
   '/images/43114/tokens/0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7.png',
 )

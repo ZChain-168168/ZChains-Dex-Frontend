@@ -156,7 +156,7 @@ export default function SwapModalFooter({
                     </Text>
                     :{' '}
                     {t(
-                      'TeleportStation does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
+                      'zChain does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
                     )}
                   </Text>
                 </>

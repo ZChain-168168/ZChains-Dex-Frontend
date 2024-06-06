@@ -17,16 +17,12 @@ const config = [
         no participation fee.
       </Trans>,
       <Trans>
-        In the Public Sale, everyone with an active TeleportStation profile can commit. However the maximum amount of
-        CAKE users can commit, is equal to the number of iCAKE they have.
+        In the Public Sale, everyone with an active zChain profile can commit. However the maximum amount of CAKE users
+        can commit, is equal to the number of iCAKE they have.
       </Trans>,
       <>
         <Trans>Learn more about iCAKE</Trans>
-        <InlineLink
-          ml="4px"
-          external
-          href="https://docs.TeleportStation.finance/products/ifo-initial-farm-offering/icake"
-        >
+        <InlineLink ml="4px" external href="https://docs.zChain.finance/products/ifo-initial-farm-offering/icake">
           <Trans>here</Trans>
         </InlineLink>
       </>,
@@ -41,7 +37,7 @@ const config = [
         We recommend you to check if you are eligible to participate in the Private Sale first. In the Public Sale, if
         the amount you commit is too small, you may not receive a meaningful amount of IFO tokens.
       </Trans>,
-      <Trans>Just remember you need an active TeleportStation Profile in order to participate.</Trans>,
+      <Trans>Just remember you need an active zChain Profile in order to participate.</Trans>,
     ],
   },
   {

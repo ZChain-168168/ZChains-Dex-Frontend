@@ -120,7 +120,7 @@ const TrustWalletCampaignBanner = () => {
     >
       <S.Inner>
         <S.LeftWrapper>
-          <StyledBox>TeleportStation x Trust Wallet</StyledBox>
+          <StyledBox>zChain x Trust Wallet</StyledBox>
           <Title>{t('Trade and win $10,000 Prize Pool')}</Title>
           <Flex style={{ gap: 8 }} flexWrap={isMobile ? 'wrap' : 'nowrap'}>
             <NextLinkFromReactRouter to="/?chain=eth">

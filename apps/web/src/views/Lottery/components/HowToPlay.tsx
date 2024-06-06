@@ -352,7 +352,7 @@ const HowToPlay: React.FC<React.PropsWithChildren> = () => {
           <Text>
             {t('Check our in-depth guide on')}{' '}
             <InlineLink href={`${DOCS_URL}/products/lottery/lottery-guide`}>
-              {t('how to play the TeleportStation lottery!')}
+              {t('how to play the zChain lottery!')}
             </InlineLink>
           </Text>
         </Flex>
