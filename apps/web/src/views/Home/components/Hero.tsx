@@ -130,7 +130,7 @@ const Hero = () => {
         <Flex flex="1" flexDirection="column">
           <Text mb="16px" maxWidth="600px">
             <TextGradient as="span" fontSize={['32px', , '48px']}>
-              {t('zChain ')}{' '}
+              {t('ZChains ')}{' '}
             </TextGradient>
             <Text as="span" fontSize={['32px', , '48px']}>
               synergizes with MSMEs

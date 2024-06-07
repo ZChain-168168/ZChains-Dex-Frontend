@@ -97,7 +97,7 @@ const Footer = () => {
         <Text mb="24px" fontSize="32px" textAlign="center">
           {t('Ready for ')}{' '}
           <TextGradient as="span" fontSize="32px">
-            zChain ?
+            ZChains ?
           </TextGradient>
         </Text>
         <Text textAlign="center" fontSize="16px">

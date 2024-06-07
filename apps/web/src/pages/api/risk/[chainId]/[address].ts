@@ -11,12 +11,12 @@ const endpoint = host + url
 const appId = '0331c8c6a3130f66c01a3ea362ddc7de3612c5f18d65898896a32650553d47aa1e'
 const appSecret = process.env.RISK_APP_SECRET
 
-const zChainId = z.enum(['56'])
+const ZChainsId = z.enum(['56'])
 
 const zAddress = z.string().regex(/^0x[a-fA-F0-9]{40}$/)
 
 const zParams = z.object({
-  chainId: zChainId,
+  chainId: ZChainsId,
   address: zAddress,
 })
 

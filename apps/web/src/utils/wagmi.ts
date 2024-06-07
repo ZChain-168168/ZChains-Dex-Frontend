@@ -16,11 +16,11 @@ import { SafeConnector } from './safeConnector'
 
 export const creditChain: Chain = {
   id: 16816,
-  name: 'zChain Coin Testnet',
+  name: 'ZChains Coin Testnet',
   network: 'ZCD',
   nativeCurrency: {
     decimals: 18,
-    name: 'zChain Testnet',
+    name: 'ZChains Testnet',
     symbol: 'ZCD',
   },
   rpcUrls: {
@@ -28,7 +28,7 @@ export const creditChain: Chain = {
     default: { http: ['https://rpc-testnet.zchains.com'] },
   },
   blockExplorers: {
-    default: { name: 'Scan zChain', url: 'https://testscan.zchains.com' },
+    default: { name: 'Scan ZChains', url: 'https://testscan.zchains.com' },
   },
 
   contracts: {
@@ -122,7 +122,7 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'zChain',
+    appName: 'ZChains',
     appLogoUrl: 'https://swap.metaviral.com/logo.png',
   },
 })

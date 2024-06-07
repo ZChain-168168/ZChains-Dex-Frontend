@@ -37,12 +37,12 @@ const SalesSection: React.FC<{ chainId: number }> = ({ chainId }) => {
         >
           <Text mb="24px" fontSize="32px">
             <TextGradient as="span" fontSize={['32px', , '32px']}>
-              {t('zChain ')}{' '}
+              {t('ZChains ')}{' '}
             </TextGradient>
             <Text fontSize="32px">Community Vote</Text>
           </Text>
           <Text mb="24px" fontSize="16px">
-            <Text as="span">zChain</Text> is governed by it’s community members who can create & vote important
+            <Text as="span">ZChains</Text> is governed by it’s community members who can create & vote important
             proposals
           </Text>
           {/* <Flex>

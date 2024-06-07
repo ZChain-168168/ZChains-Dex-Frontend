@@ -53,7 +53,7 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
             Trading crypto assets has high opportunities and risks. Make sure you use good judgment in making buying and
             selling decisions on your assets.{" "}
             <Text color="primary" fontSize="14px" as="span">
-              zChain
+              ZChains
             </Text>{" "}
             does not force users to make buying and selling transactions and all buying and selling decisions of your
             digital money assets are your own decisions and are not influenced by any party.

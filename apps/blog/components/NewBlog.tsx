@@ -76,7 +76,7 @@ const NewBlog = () => {
               {t('Blog')}
             </Text>
             <Text bold mt="4px" mb={['20px', '20px', '35px']} color="textSubtle" fontSize={['14px', '14px', '16px']}>
-              {t('Latest News about zChain and more!')}
+              {t('Latest News about ZChains and more!')}
             </Text>
           </Box>
         </Flex>
