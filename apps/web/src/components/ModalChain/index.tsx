@@ -23,7 +23,7 @@ const ModalChain: React.FC<Props> = ({ isOpen, onRequestClose, onAfterOpen, data
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Text color="red" bold pl="12px" fontSize={[18, , 24]}>
             {!currency
-              ? 'Please Sellect Currency !!!'
+              ? 'Please select currency'
               : 'There are current no supported chains for your selected asset. Please try another asset'}
           </Text>
         </div>

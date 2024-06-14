@@ -9,10 +9,10 @@ export const CardBridgeTransfer = styled.div`
   max-width: 630px;
   margin: 0 auto 48px;
   background: #1e2026;
-  box-shadow:0px 4px 24px rgba(0, 0, 0, 0.04)
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--colors-cardBorder);
 
-  border: 1px solid #2f3034;
-  border-radius: 16px;
+  border-radius: 24px;
   .head {
     padding: 24px 16px;
     border-bottom: 1px solid #383e48;

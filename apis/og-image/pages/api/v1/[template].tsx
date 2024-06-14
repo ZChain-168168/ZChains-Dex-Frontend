@@ -89,7 +89,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       fonts: [
         {
           data: kanit600,
-          name: 'Kanit',
+          name: 'Geomanist',
           weight: 600,
         },
       ],

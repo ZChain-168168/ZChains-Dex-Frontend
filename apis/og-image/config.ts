@@ -5,7 +5,7 @@ export const ASSET_BASE_PATH = 'https://assets.pancakeswap.finance'
 export const OG_IMAGE_DEFAULT = `${ASSET_BASE_PATH}/web/og` as const
 export const OG_TEMPLATE_IMAGE_DEFAULT = `${ASSET_BASE_PATH}/web/og-template` as const
 
-export const FONT_BOLD = `${ASSET_BASE_PATH}/web/fonts/Kanit/Kanit-Bold.ttf`
+export const FONT_BOLD = `${ASSET_BASE_PATH}/web/fonts/Geomanist/Geomanist-Bold.ttf`
 
 export const zTemplate = z.enum(['swap', 'voting', 'nft', 'nft-collection', 'info-pair', 'info-token'])
 type TemplateType = typeof zTemplate._type

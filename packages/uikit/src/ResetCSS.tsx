@@ -1,6 +1,20 @@
 import { createGlobalStyle } from "styled-components";
 
 const ResetCSS = createGlobalStyle`
+@font-face {
+  font-family: 'Geomanist';
+  src: url('/fonts/Geomanist-Regular.otf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LTRenovate';
+  src: url('/fonts/LTRenovate-Regular.otf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 --colors-primary:#ed2e38;
 --colors-backgroundAlt:#0D0023;
 --colors-secondary:#ed2e38;
@@ -23,7 +37,13 @@ const ResetCSS = createGlobalStyle`
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
+    
   }
+
+   h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'LTRenovate', sans-serif;
+   }
+
   /* HTML5 display-role reset for older browsers */
   /* prettier-ignore */
   article, aside, details, figcaption, figure, 
@@ -66,7 +86,7 @@ const ResetCSS = createGlobalStyle`
     box-sizing: border-box;
   }
   * {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Geomanist', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

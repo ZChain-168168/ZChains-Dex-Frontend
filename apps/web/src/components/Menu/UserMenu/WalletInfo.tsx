@@ -24,7 +24,7 @@ import { useBalance } from 'wagmi'
 import CakeBenefitsCard from './CakeBenefitsCard'
 
 const COLORS = {
-  ETH: '#627EEA',
+  ETH: '#000000',
   BNB: 'primary',
 }
 
