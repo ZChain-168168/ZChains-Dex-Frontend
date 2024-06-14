@@ -7,7 +7,7 @@ export const CHAIN_QUERY_NAME = {
   [ChainId.ETHEREUM]: 'eth',
   [ChainId.BSC]: 'bsc',
   [ChainId.BSC_TESTNET]: 'bscTestnet',
-  [ChainId.ZCD]: 'zchainTestnet',
+  [ChainId.ZCD]: 'zchain',
   [ChainId.AVAX]: 'avax',
 } satisfies Record<ChainId, string>
 

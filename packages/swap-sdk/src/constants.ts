@@ -5,7 +5,7 @@ export enum ChainId {
   ETHEREUM = 1,
   BSC = 56,
   BSC_TESTNET = 97,
-  ZCD = 16816,
+  ZCD = 168168,
   AVAX = 43114,
 }
 
@@ -20,7 +20,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.ETHEREUM]: '0xEfF92A263d31888d860bD50809A8D171709b7b1c',
   [ChainId.BSC]: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   [ChainId.BSC_TESTNET]: '0x176344b44a95536df4F486378A50875F48cB17FA',
-  [ChainId.ZCD]: '0xd9deB02a8D33d6e94809edad16321e166aa9b2Df',
+  [ChainId.ZCD]: '0x0448dC0C885492E4bcACEb451bF793cb49632953',
   [ChainId.AVAX]: '0x24035Dc2e27B3BD7114d0D9995FaD0d08F8019A6',
 }
 
@@ -40,7 +40,7 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
   [ChainId.BSC]: INIT_CODE_HASH,
   [ChainId.BSC_TESTNET]: '0x5fecf0089b488d689ca663fae59c148ac40005aeadbdc683b9afe2dd5ac445b7',
-  [ChainId.ZCD]: '0xebcdd31eb37a7178e95b1325e1363f886f8a4b8eede92217b64a232f1acbdd93',
+  [ChainId.ZCD]: '0x2ff3f45ecbc49f8868007fe7cc58203ad68d73094625fe7a60149ab51e932844',
   [ChainId.AVAX]: '0x9e9171515ff75fad67c7c77c4275f331193a37970e9479011a5b574dfb829ecd',
 }
 
@@ -129,8 +129,8 @@ export const NATIVE: Record<
     decimals: 18,
   },
   [ChainId.ZCD]: {
-    name: 'ZChains Coin Native Token Testnet',
-    symbol: 'tZCD',
+    name: 'ZChains Coin Native Token',
+    symbol: 'ZCD',
     decimals: 18,
   },
   [ChainId.AVAX]: {

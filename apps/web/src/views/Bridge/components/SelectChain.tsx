@@ -31,6 +31,7 @@ function SelectChain({ data, onSelect, selectTitle }: Props) {
 const SelectWrap = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 15px;
   svg path {
     fill: #fff;

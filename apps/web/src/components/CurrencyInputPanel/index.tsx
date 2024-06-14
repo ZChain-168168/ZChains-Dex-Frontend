@@ -22,10 +22,10 @@ const InputRow = styled.div<{ selected: boolean }>`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-end;
-  padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0.75rem 0.75rem 1rem')};
 `
 const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm' })<{ zapStyle?: ZapStyle }>`
-  padding: 0 0.5rem;
+  padding: 0px;
+  margin-bottom: 10px;
   ${({ zapStyle, theme }) =>
     zapStyle &&
     css`
@@ -43,7 +43,6 @@ const LabelRow = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-size: 0.75rem;
   line-height: 1rem;
-  padding: 0.75rem 1rem 0 1rem;
 `
 const InputPanel = styled.div`
   display: flex;
@@ -57,7 +56,7 @@ const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
   /* background-color: ${({ theme }) => theme.colors.input}; */
   background-color: rgb(53, 54, 60);
   border: 1px solid rgb(53, 54, 60);
-  box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
+  // box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
   ${({ zapStyle }) =>
     !!zapStyle &&
     css`
@@ -168,7 +167,7 @@ export default function CurrencyInputPanel({
   const isAtPercentMax = (maxAmount && value === maxAmount.toExact()) || (lpPercent && lpPercent === '100')
 
   return (
-    <Box borderRadius={8} padding={10} background="#000" position="relative" id={id}>
+    <Box borderRadius={8} padding={10} background="rgb(53,54,60)" position="relative" id={id}>
       <Flex alignItems="center" justifyContent="space-between">
         <Flex>
           {beforeButton}
@@ -226,18 +225,6 @@ export default function CurrencyInputPanel({
             </Flex>
           ) : null}
         </Flex>
-        {account && (
-          <Text
-            onClick={!disabled && onMax}
-            color="#fafafb"
-            fontSize="14px"
-            style={{ display: 'inline', cursor: 'pointer' }}
-          >
-            {!hideBalance && !!currency
-              ? t('Balance: %balance%', { balance: selectedCurrencyBalance?.toSignificant(6) ?? t('Loading') })
-              : ' -'}
-          </Text>
-        )}
       </Flex>
       <InputPanel>
         <Container as="label" zapStyle={zapStyle} error={error}>
@@ -256,19 +243,56 @@ export default function CurrencyInputPanel({
             />
           </LabelRow>
           {!!currency && showUSDPrice && (
-            <Flex justifyContent="flex-end" mr="1rem">
+            <Flex marginTop="10px" justifyContent="space-between" alignItems="center">
               <Flex maxWidth="200px">
                 {Number.isFinite(amountInDollar) ? (
                   <Text fontSize="12px" color="#fafafb">
                     ~{formatNumber(amountInDollar)} USD
                   </Text>
                 ) : (
-                  <Box height="18px" />
+                  <Text fontSize="12px" color="#fafafb">
+                    --
+                  </Text>
                 )}
+              </Flex>
+              <Flex alignItems="center" justifyContent="flex-end">
+                {account && (
+                  <Text
+                    onClick={!disabled && onMax}
+                    color="#fafafb"
+                    fontSize="14px"
+                    style={{ display: 'inline', cursor: 'pointer' }}
+                  >
+                    {!hideBalance && !!currency
+                      ? t('Balance: %balance%', { balance: selectedCurrencyBalance?.toSignificant(6) ?? t('Loading') })
+                      : ' -'}
+                  </Text>
+                )}
+                <InputRow selected={disableCurrencySelect}>
+                  {account && currency && selectedCurrencyBalance?.greaterThan(0) && !disabled && label !== 'To' && (
+                    <Flex ml="0.5rem" alignItems="right" justifyContent="right">
+                      {maxAmount?.greaterThan(0) && showMaxButton && (
+                        <Button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            e.preventDefault()
+                            onMax?.()
+                            setCurrentClickedPercent('MAX')
+                          }}
+                          scale="xs"
+                          variant={isAtPercentMax ? 'primary' : 'secondary'}
+                          style={{ textTransform: 'uppercase' }}
+                        >
+                          {t('Max')}
+                        </Button>
+                      )}
+                    </Flex>
+                  )}
+                </InputRow>
               </Flex>
             </Flex>
           )}
-          <InputRow selected={disableCurrencySelect}>
+          {/* <InputRow selected={disableCurrencySelect}>
             {account && currency && selectedCurrencyBalance?.greaterThan(0) && !disabled && label !== 'To' && (
               <Flex alignItems="right" justifyContent="right">
                 {maxAmount?.greaterThan(0) &&
@@ -313,7 +337,7 @@ export default function CurrencyInputPanel({
                 )}
               </Flex>
             )}
-          </InputRow>
+          </InputRow> */}
         </Container>
         {disabled && <Overlay />}
       </InputPanel>

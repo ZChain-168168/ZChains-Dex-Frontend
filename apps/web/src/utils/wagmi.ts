@@ -14,21 +14,21 @@ import { LedgerConnector } from 'wagmi/connectors/ledger'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { SafeConnector } from './safeConnector'
 
-export const creditChain: Chain = {
-  id: 16816,
-  name: 'ZChains Coin Testnet',
+export const zChain: Chain = {
+  id: 168168,
+  name: 'ZChains Coin',
   network: 'ZCD',
   nativeCurrency: {
     decimals: 18,
-    name: 'ZChains Testnet',
+    name: 'ZChains',
     symbol: 'ZCD',
   },
   rpcUrls: {
-    public: { http: ['https://rpc-testnet.zchains.com'] },
-    default: { http: ['https://rpc-testnet.zchains.com'] },
+    public: { http: ['https://rpc.zchains.com'] },
+    default: { http: ['https://rpc.zchains.com'] },
   },
   blockExplorers: {
-    default: { name: 'Scan ZChains', url: 'https://testscan.zchains.com' },
+    default: { name: 'Scan ZChains', url: 'https://scan.zchains.com' },
   },
 
   contracts: {
@@ -65,7 +65,7 @@ export const avalanche: Chain = {
   testnet: true,
 }
 
-const CHAINS = [creditChain]
+const CHAINS = [zChain]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null

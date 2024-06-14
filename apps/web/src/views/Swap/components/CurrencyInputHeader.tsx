@@ -167,9 +167,9 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
             </>
           )}
         </ColoredIconButton> */}
-        <NotificationDot show={expertMode}>
+        {/* <NotificationDot show={expertMode}>
           <GlobalSettings color="#fafafb" mr="0" mode={SettingsMode.SWAP_LIQUIDITY} />
-        </NotificationDot>
+        </NotificationDot> */}
         <IconButton onClick={onPresentTransactionsModal} variant="text" scale="sm">
           <HistoryIcon color="#fafafb" width="24px" />
         </IconButton>

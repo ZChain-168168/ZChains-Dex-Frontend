@@ -282,7 +282,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
         hasAmount={hasAmount}
         onRefreshPrice={onRefreshPrice}
       />
-      <Wrapper id="swap-page" style={{ minHeight: '412px' }}>
+      <Wrapper id="swap-page" style={{ minHeight: '360px' }}>
         <AutoColumn gap="sm">
           <CurrencyInputPanel
             label={independentField === Field.OUTPUT && !showWrap && tradeInfo ? t('From (estimated)') : t('From')}
@@ -307,9 +307,16 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             </Box>
           )} */}
 
-          <AutoColumn justify="space-between">
-            <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
+          <AutoColumn position="relative" justify="space-between">
+            <AutoRow
+              position="absolute"
+              top={'-16px'}
+              zIndex={20}
+              justify={isExpertMode ? 'space-between' : 'center'}
+              style={{ padding: '0 1rem' }}
+            >
               <SwapUI.SwitchButton
+                style={{ background: '#000' }}
                 onClick={() => {
                   setApprovalSubmitted(false) // reset 2 step UI for approvals
                   onSwitchTokens()
@@ -382,7 +389,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
             </>
           ) : null}
 
-          {showWrap ? null : (
+          {/* {showWrap ? null : (
             <SwapUI.Info
               price={
                 (Boolean(tradeInfo) || Boolean(mmTradeInfo)) && (
@@ -400,7 +407,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
               onSlippageClick={!isMMBetter ? onPresentSettingsModal : null}
               allowedSlippageSlot={isMMBetter || (!v2Trade && !isExpertMode) ? <MMSlippageTolerance /> : undefined}
             />
-          )}
+          )} */}
         </AutoColumn>
 
         <Box mt="0.25rem">

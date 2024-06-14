@@ -7,9 +7,9 @@ export const GRAPH_API_PREDICTION_CAKE = 'https://api.thegraph.com/subgraphs/nam
 
 export const GRAPH_API_LOTTERY = 'https://api.thegraph.com/subgraphs/name/pancakeswap/lottery'
 export const SNAPSHOT_BASE_URL =
-  ACTIVE_CHAIN === 'zchainTestnet'
-    ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/pairs'
-    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/pairs' // edit
+  ACTIVE_CHAIN === 'zchain'
+    ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/pairs'
+    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/pairs' // edit
 export const API_PROFILE = 'https://profile.pancakeswap.com'
 export const API_NFT = 'https://nft.pancakeswap.com/api/v1'
 export const SNAPSHOT_API = `${SNAPSHOT_BASE_URL}`
@@ -23,16 +23,16 @@ export const GRAPH_API_PREDICTION_V1 = 'https://api.thegraph.com/subgraphs/name/
 
 // export const INFO_CLIENT = 'https://proxy-worker.pancake-swap.workers.dev/bsc-exchange'
 export const INFO_CLIENT =
-  ACTIVE_CHAIN === 'zchainTestnet'
-    ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/exchange'
-    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/exchange' // edit
+  ACTIVE_CHAIN === 'zchain'
+    ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/exchange'
+    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/exchange' // edit
 
 export const INFO_CLIENT_STAKING = 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/staking'
 
 export const INFO_CLIENT_AVAX = 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-exchange-avax'
 
 export const INFO_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exhange-eth'
-export const BLOCKS_CLIENT = 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/blocks'
+export const BLOCKS_CLIENT = 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/blocks'
 export const BLOCKS_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
 export const STABLESWAP_SUBGRAPH_CLIENT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-stableswap'
 export const GRAPH_API_NFTMARKET = 'https://api.thegraph.com/subgraphs/name/pancakeswap/nft-market'

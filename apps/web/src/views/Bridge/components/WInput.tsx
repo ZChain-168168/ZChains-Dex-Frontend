@@ -13,17 +13,17 @@ const StyledInput = styled.div`
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    padding: 3px 12px;
+    padding: 3px 0px;
 
     ${({ theme }) => theme.mediaQueries.sm} {
       height: 60px;
-      padding: 5px 24px;
+      padding: 5px 0px;
     }
 
     input {
       color: #aeafb0;
-      font-size: 14px;
-      line-height: 23px;
+      font-size: 24px;
+
       /* padding: 2px 4px; */
 
       flex: 1 1 auto;
@@ -40,7 +40,7 @@ const StyledInput = styled.div`
       }
 
       ${({ theme }) => theme.mediaQueries.sm} {
-        font-size: 16px;
+        font-size: 24px;
         /* padding: 2px 10px; */
       }
     }
