@@ -14,6 +14,7 @@ export const multicallCreateBlockNumber = {
   97: 462418,
   [ChainId.ZCD]: 1269263,
   [ChainId.AVAX]: 40374887,
+  [ChainId.ZCD_TESTNET]: 1269263,
 }
 
 export const multicallAddresses = {
@@ -24,6 +25,7 @@ export const multicallAddresses = {
   97: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.ZCD]: '0xC7F37132944Ef14042e275A17709F30892128776',
   [ChainId.AVAX]: '0xd68A5f46e7F7AB0f122cda11F4AC49e72b56f005',
+  [ChainId.ZCD_TESTNET]: '0xC7F37132944Ef14042e275A17709F30892128776',
 }
 
 export const getMulticallContract = (chainId: ChainId, provider: Provider) => {

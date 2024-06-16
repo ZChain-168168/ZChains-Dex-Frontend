@@ -37,6 +37,32 @@ export const zChain: Chain = {
       blockCreated: multicallCreateBlockNumber[ChainId.ZCD],
     },
   },
+  testnet: false,
+}
+
+export const zChainTestnet: Chain = {
+  id: 16816,
+  name: 'ZChains Coin Testnet',
+  network: 'ZCD',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ZChains Testnet',
+    symbol: 'tZCD',
+  },
+  rpcUrls: {
+    public: { http: ['https://rpc-testnet.zchains.com'] },
+    default: { http: ['https://rpc-testnet.zchains.com'] },
+  },
+  blockExplorers: {
+    default: { name: 'Scan ZChains Testnet', url: 'https://testscan.zchains.com' },
+  },
+
+  contracts: {
+    multicall3: {
+      address: multicallAddresses[ChainId.ZCD_TESTNET] as any,
+      blockCreated: multicallCreateBlockNumber[ChainId.ZCD_TESTNET],
+    },
+  },
   testnet: true,
 }
 
@@ -65,7 +91,7 @@ export const avalanche: Chain = {
   testnet: true,
 }
 
-const CHAINS = [zChain]
+const CHAINS = [zChain, zChainTestnet]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null

@@ -6,6 +6,7 @@ export enum ChainId {
   BSC = 56,
   BSC_TESTNET = 97,
   ZCD = 168168,
+  ZCD_TESTNET = 16816,
   AVAX = 43114,
 }
 
@@ -21,6 +22,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.BSC]: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   [ChainId.BSC_TESTNET]: '0x176344b44a95536df4F486378A50875F48cB17FA',
   [ChainId.ZCD]: '0x0448dC0C885492E4bcACEb451bF793cb49632953',
+  [ChainId.ZCD_TESTNET]: '0xd9deB02a8D33d6e94809edad16321e166aa9b2Df',
   [ChainId.AVAX]: '0x24035Dc2e27B3BD7114d0D9995FaD0d08F8019A6',
 }
 
@@ -31,6 +33,7 @@ export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.BSC]: FACTORY_ADDRESS,
   [ChainId.BSC_TESTNET]: '0xe27Fb19E926C47E05c1a4be6FD744f74B656479E',
   [ChainId.ZCD]: '0x3e759360B8773a217Ad4c4A43452ab9888fbe392',
+  [ChainId.ZCD_TESTNET]: '0x3e759360B8773a217Ad4c4A43452ab9888fbe392',
   [ChainId.AVAX]: '0x5C19Ff4FDCD47320D56390dAd2B2e4E9e7095137',
 }
 
@@ -42,6 +45,7 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.BSC_TESTNET]: '0x5fecf0089b488d689ca663fae59c148ac40005aeadbdc683b9afe2dd5ac445b7',
   [ChainId.ZCD]: '0x2ff3f45ecbc49f8868007fe7cc58203ad68d73094625fe7a60149ab51e932844',
   [ChainId.AVAX]: '0x9e9171515ff75fad67c7c77c4275f331193a37970e9479011a5b574dfb829ecd',
+  [ChainId.ZCD_TESTNET]: '0xebcdd31eb37a7178e95b1325e1363f886f8a4b8eede92217b64a232f1acbdd93',
 }
 
 export const WETH9 = {
@@ -89,6 +93,16 @@ export const WBNB = {
     'https://www.binance.org',
     '/images/16816/tokens/0x8EF73631891FE90FF30813Fbc94c6858FCE5117d.png'
   ),
+
+  [ChainId.ZCD_TESTNET]: new ERC20Token(
+    ChainId.ZCD_TESTNET,
+    '0x8EF73631891FE90FF30813Fbc94c6858FCE5117d', // edit
+    18,
+    'WZCD',
+    'Wrapped ZCD Testnet',
+    'https://www.binance.org',
+    '/images/16816/tokens/0x8EF73631891FE90FF30813Fbc94c6858FCE5117d.png'
+  ),
   [ChainId.AVAX]: new ERC20Token(
     ChainId.AVAX,
     '0x5464FcbDdC94005e77c81739CA99A7F9C98fa8e4', // edit
@@ -106,6 +120,7 @@ export const WNATIVE: Record<number, ERC20Token> = {
   [ChainId.BSC_TESTNET]: WBNB[ChainId.BSC_TESTNET],
   [ChainId.ZCD]: WBNB[ChainId.ZCD],
   [ChainId.AVAX]: WBNB[ChainId.AVAX],
+  [ChainId.ZCD_TESTNET]: WBNB[ChainId.ZCD_TESTNET],
 }
 
 export const NATIVE: Record<
@@ -131,6 +146,11 @@ export const NATIVE: Record<
   [ChainId.ZCD]: {
     name: 'ZChains Coin Native Token',
     symbol: 'ZCD',
+    decimals: 18,
+  },
+  [ChainId.ZCD_TESTNET]: {
+    name: 'ZChains Coin Native Token Testnet',
+    symbol: 'tZCD',
     decimals: 18,
   },
   [ChainId.AVAX]: {

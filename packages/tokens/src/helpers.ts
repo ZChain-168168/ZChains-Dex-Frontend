@@ -9,6 +9,7 @@ export const EMPTY_LIST: TokenAddressMap<ChainId> = {
   [ChainId.BSC]: {},
   [ChainId.BSC_TESTNET]: {},
   [ChainId.ZCD]: {},
+  [ChainId.ZCD_TESTNET]: {},
   [ChainId.AVAX]: {},
 }
 

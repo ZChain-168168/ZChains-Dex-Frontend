@@ -1,6 +1,6 @@
 import { avaxTokens } from './../../../tokens/src/43114'
 import { ChainId, Token, WBNB, WNATIVE } from '@pancakeswap/sdk'
-import { bscTokens, bscTestnetTokens, BUSD, USDC, USDT, creditTokens } from '@pancakeswap/tokens'
+import { bscTokens, bscTestnetTokens, BUSD, USDC, USDT, zTokens, zTokensTestnet } from '@pancakeswap/tokens'
 
 import { ChainMap, ChainTokenList } from '../types'
 
@@ -9,6 +9,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.BSC]: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   [ChainId.BSC_TESTNET]: '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',
   [ChainId.ZCD]: '0x0448dC0C885492E4bcACEb451bF793cb49632953',
+  [ChainId.ZCD_TESTNET]: '0xd9deB02a8D33d6e94809edad16321e166aa9b2Df',
   [ChainId.AVAX]: '0x24035Dc2e27B3BD7114d0D9995FaD0d08F8019A6',
 }
 
@@ -37,7 +38,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     bscTokens.usdc,
   ],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.ZCD]: [creditTokens.wbnb, creditTokens.usdt],
+  [ChainId.ZCD]: [zTokens.wbnb, zTokens.usdt],
+  [ChainId.ZCD_TESTNET]: [zTokensTestnet.wbnb, zTokensTestnet.usdt],
 }
 
 /**
@@ -71,7 +73,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], WBNB[ChainId.ETHEREUM], BUSD[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM]],
   [ChainId.BSC]: [bscTokens.busd, bscTokens.cake, bscTokens.btcb],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.ZCD]: [creditTokens.wbnb, creditTokens.usdt],
+  [ChainId.ZCD]: [zTokens.wbnb, zTokens.usdt],
+  [ChainId.ZCD_TESTNET]: [zTokensTestnet.wbnb, zTokensTestnet.usdt],
   [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.wbnb],
 }
 
@@ -86,7 +89,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ],
   [ChainId.BSC]: [bscTokens.wbnb, bscTokens.dai, bscTokens.busd, bscTokens.usdt, bscTokens.cake],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.ZCD]: [creditTokens.wbnb, creditTokens.usdt],
+  [ChainId.ZCD]: [zTokens.wbnb, zTokens.usdt],
+  [ChainId.ZCD_TESTNET]: [zTokensTestnet.wbnb, zTokensTestnet.usdt],
   [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.wbnb],
 }
 

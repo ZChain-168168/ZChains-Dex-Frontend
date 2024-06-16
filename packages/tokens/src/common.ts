@@ -102,6 +102,16 @@ export const USDT_ZCD = new ERC20Token(
   '/images/16816/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png',
 )
 
+export const USDT_ZCD_TESTNET = new ERC20Token(
+  ChainId.ZCD_TESTNET,
+  '0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4',
+  18,
+  'tUSDZ',
+  'ZChains USDT Testnet',
+  'https://tether.to/',
+  '/images/16816/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png',
+)
+
 export const USDT_AVAX = new ERC20Token(
   ChainId.AVAX,
   '0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7',
@@ -181,6 +191,7 @@ export const USDT = {
   [ChainId.BSC]: USDT_BSC,
   [ChainId.ETHEREUM]: USDT_ETH,
   [ChainId.ZCD]: USDT_ZCD, // edit
+  [ChainId.ZCD_TESTNET]: USDT_ZCD_TESTNET, // edit
   [ChainId.AVAX]: USDT_AVAX,
 }
 export const OPV_MAINNET = new Token(

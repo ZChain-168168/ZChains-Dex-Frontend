@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { ChainId, JSBI, Percent, Token, WNATIVE } from '@pancakeswap/sdk'
-import { BUSD, USDC, USDT, WBTC_ETH, bscTestnetTokens, bscTokens, creditTokens } from '@pancakeswap/tokens'
+import { BUSD, USDC, USDT, WBTC_ETH, bscTestnetTokens, bscTokens, zTokens, zTokensTestnet } from '@pancakeswap/tokens'
 import { DOCS_URL } from 'config/constants'
 import { avaxTokens } from './../../../../../packages/tokens/src/43114'
 import { ChainTokenList } from './types'
@@ -18,7 +18,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     bscTokens.usdc,
   ],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.ZCD]: [creditTokens.usdt],
+  [ChainId.ZCD]: [zTokens.usdt],
+  [ChainId.ZCD_TESTNET]: [zTokensTestnet.usdt],
   [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
@@ -49,7 +50,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], WBTC_ETH],
   [ChainId.BSC]: [bscTokens.usdt, bscTokens.cake, bscTokens.btcb],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.ZCD]: [creditTokens.usdt, creditTokens.wbnb],
+  [ChainId.ZCD]: [zTokens.usdt, zTokens.wbnb],
+  [ChainId.ZCD_TESTNET]: [zTokensTestnet.usdt, zTokensTestnet.wbnb],
   [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
@@ -58,7 +60,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
   [ChainId.BSC]: [bscTokens.wbnb, bscTokens.dai, bscTokens.busd, bscTokens.usdt, bscTokens.cake],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.ZCD]: [creditTokens.usdt, creditTokens.wbnb],
+  [ChainId.ZCD]: [zTokens.usdt, zTokens.wbnb],
+  [ChainId.ZCD_TESTNET]: [zTokensTestnet.usdt, zTokensTestnet.wbnb],
   [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
@@ -74,8 +77,12 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [bscTokens.dai, bscTokens.usdt],
   ],
   [ChainId.ZCD]: [
-    [creditTokens.usdt, creditTokens.wbnb],
-    [creditTokens.usdt, creditTokens.wbnb],
+    [zTokens.usdt, zTokens.wbnb],
+    [zTokens.usdt, zTokens.wbnb],
+  ],
+  [ChainId.ZCD_TESTNET]: [
+    [zTokensTestnet.usdt, zTokensTestnet.wbnb],
+    [zTokensTestnet.usdt, zTokensTestnet.wbnb],
   ],
   [ChainId.AVAX]: [[avaxTokens.wbnb, avaxTokens.usdt]],
 }

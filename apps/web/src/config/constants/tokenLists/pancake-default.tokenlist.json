@@ -1,5 +1,5 @@
 {
-  "name": "Teleport Default List",
+  "name": "ZChains Default List",
   "timestamp": "2022-01-26T11:45:09Z",
   "version": {
     "major": 4,
@@ -8,7 +8,7 @@
   },
   "tags": {},
   "logoURI": "https://creditsmartchain.com/fav.png",
-  "keywords": ["Teleport", "default"],
+  "keywords": ["ZChains", "default"],
   "tokens": [
     {
       "name": "Wrapped ZCD",
@@ -25,6 +25,22 @@
       "chainId": 168168,
       "decimals": 18,
       "logoURI": "/images/16816/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png"
+    },
+    {
+      "name": "ZCD USDT Testnet",
+      "symbol": "tUSDZ",
+      "address": "0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4",
+      "chainId": 16816,
+      "decimals": 18,
+      "logoURI": "/images/16816/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png"
+    },
+    {
+      "name": "Wrapped ZCD Testnet",
+      "symbol": "WZCD",
+      "address": "0x8EF73631891FE90FF30813Fbc94c6858FCE5117d",
+      "chainId": 16816,
+      "decimals": 18,
+      "logoURI": "/images/16816/tokens/0x8EF73631891FE90FF30813Fbc94c6858FCE5117d.png"
     }
   ]
 }

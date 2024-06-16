@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { SerializedWrappedToken } from '@pancakeswap/token-lists'
-import { creditTokens } from '@pancakeswap/tokens'
+import { zTokens } from '@pancakeswap/tokens'
 import { Pool } from '@pancakeswap/uikit'
 import Trans from 'components/Trans'
 import { VaultKey } from 'state/types'
@@ -60,8 +60,8 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
   // edit
   {
     sousId: 0,
-    stakingToken: creditTokens.usdt,
-    earningToken: creditTokens.usdt,
+    stakingToken: zTokens.usdt,
+    earningToken: zTokens.usdt,
     contractAddress: {
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
       97: '0x228E1ae35066E836ad3D0856a31591faB1Fd3d99',

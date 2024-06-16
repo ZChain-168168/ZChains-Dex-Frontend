@@ -9,7 +9,7 @@ export const GRAPH_API_LOTTERY = 'https://api.thegraph.com/subgraphs/name/pancak
 export const SNAPSHOT_BASE_URL =
   ACTIVE_CHAIN === 'zchain'
     ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/pairs'
-    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/pairs' // edit
+    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/pairs' // edit
 export const API_PROFILE = 'https://profile.pancakeswap.com'
 export const API_NFT = 'https://nft.pancakeswap.com/api/v1'
 export const SNAPSHOT_API = `${SNAPSHOT_BASE_URL}`
@@ -25,14 +25,17 @@ export const GRAPH_API_PREDICTION_V1 = 'https://api.thegraph.com/subgraphs/name/
 export const INFO_CLIENT =
   ACTIVE_CHAIN === 'zchain'
     ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/exchange'
-    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/exchange' // edit
+    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/exchange' // edit
 
 export const INFO_CLIENT_STAKING = 'https://credit-graphnode.evmbuilder.com/subgraphs/name/dex/staking'
 
 export const INFO_CLIENT_AVAX = 'https://api.thegraph.com/subgraphs/name/ttsgoerbridge/dexswap-exchange-avax'
 
 export const INFO_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exhange-eth'
-export const BLOCKS_CLIENT = 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/blocks'
+export const BLOCKS_CLIENT =
+  ACTIVE_CHAIN === 'zchain'
+    ? 'https://graphnode.evmbuilder.com/subgraphs/name/zchaindex/blocks'
+    : 'https://graphnode.evmbuilder.com/subgraphs/name/zchaintestnetdex/blocks'
 export const BLOCKS_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
 export const STABLESWAP_SUBGRAPH_CLIENT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-stableswap'
 export const GRAPH_API_NFTMARKET = 'https://api.thegraph.com/subgraphs/name/pancakeswap/nft-market'
@@ -54,6 +57,7 @@ export const INFO_CLIENT_WITH_CHAIN = {
   [ChainId.ETHEREUM]: INFO_CLIENT_ETH,
   [ChainId.ZCD]: INFO_CLIENT,
   [ChainId.AVAX]: INFO_CLIENT,
+  [ChainId.ZCD_TESTNET]: INFO_CLIENT,
 }
 
 export const BLOCKS_CLIENT_WITH_CHAIN = {
@@ -61,6 +65,7 @@ export const BLOCKS_CLIENT_WITH_CHAIN = {
   [ChainId.ETHEREUM]: BLOCKS_CLIENT_ETH,
   [ChainId.ZCD]: BLOCKS_CLIENT,
   [ChainId.AVAX]: INFO_CLIENT,
+  [ChainId.ZCD_TESTNET]: BLOCKS_CLIENT,
 }
 
 export const ASSET_CDN = 'https://assets.pancakeswap.finance'
