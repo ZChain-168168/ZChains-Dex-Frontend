@@ -16,7 +16,7 @@ import { SafeConnector } from './safeConnector'
 
 export const zChain: Chain = {
   id: 168168,
-  name: 'ZChains Coin',
+  name: 'ZChains',
   network: 'ZCD',
   nativeCurrency: {
     decimals: 18,
@@ -42,12 +42,12 @@ export const zChain: Chain = {
 
 export const zChainTestnet: Chain = {
   id: 16816,
-  name: 'ZChains Coin Testnet',
+  name: 'ZChains Testnet',
   network: 'ZCD',
   nativeCurrency: {
     decimals: 18,
     name: 'ZChains Testnet',
-    symbol: 'tZCD',
+    symbol: 'ZCD',
   },
   rpcUrls: {
     public: { http: ['https://rpc-testnet.zchains.com'] },

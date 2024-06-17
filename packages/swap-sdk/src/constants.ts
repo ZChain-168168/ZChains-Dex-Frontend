@@ -144,13 +144,13 @@ export const NATIVE: Record<
     decimals: 18,
   },
   [ChainId.ZCD]: {
-    name: 'ZChains Coin Native Token',
+    name: 'ZChains Native Token',
     symbol: 'ZCD',
     decimals: 18,
   },
   [ChainId.ZCD_TESTNET]: {
-    name: 'ZChains Coin Native Token Testnet',
-    symbol: 'tZCD',
+    name: 'ZChains Native Token Testnet',
+    symbol: 'ZCD',
     decimals: 18,
   },
   [ChainId.AVAX]: {
