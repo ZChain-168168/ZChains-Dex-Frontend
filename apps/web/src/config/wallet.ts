@@ -63,9 +63,9 @@ const walletsConfig = ({
         return isMetamaskInstalled() && metaMaskConnector.ready
       },
       connectorId: ConnectorNames.MetaMask,
-      deepLink: 'https://metamask.app.link/dapp/swap.teleportstation.io/',
+      deepLink: 'https://metamask.app.link/dapp/https://swap.zchains.com',
       qrCode,
-      downloadLink: 'https://metamask.app.link/dapp/swap.teleportstation.io/',
+      downloadLink: 'https://metamask.app.link/dapp/https://swap.zchains.com',
     },
     {
       id: 'binance',
