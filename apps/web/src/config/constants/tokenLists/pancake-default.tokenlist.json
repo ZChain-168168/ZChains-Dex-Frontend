@@ -20,11 +20,11 @@
     },
     {
       "name": "ZCD USDT",
-      "symbol": "tUSDZ",
-      "address": "0xC7F37132944Ef14042e275A17709F30892128776",
+      "symbol": "USDZ",
+      "address": "0x818a65d080EfE45881DBC8f95f4184B9EF3582fD",
       "chainId": 168168,
       "decimals": 18,
-      "logoURI": "/images/168168/tokens/0xC7F37132944Ef14042e275A17709F30892128776.png"
+      "logoURI": "/images/168168/tokens/0x818a65d080EfE45881DBC8f95f4184B9EF3582fD.png"
     },
     {
       "name": "ZCD USDT Testnet",

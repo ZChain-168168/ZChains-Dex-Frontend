@@ -94,19 +94,19 @@ export const HEN_ZCD = new ERC20Token(
 
 export const USDT_ZCD = new ERC20Token(
   ChainId.ZCD,
-  '0xC7F37132944Ef14042e275A17709F30892128776',
+  '0x818a65d080EfE45881DBC8f95f4184B9EF3582fD',
   18,
-  'tUSDZ',
+  'USDZ',
   'ZChains USDT',
   'https://tether.to/',
-  '/images/168168/tokens/0xC7F37132944Ef14042e275A17709F30892128776.png',
+  '/images/168168/tokens/0x818a65d080EfE45881DBC8f95f4184B9EF3582fD.png',
 )
 
 export const USDT_ZCD_TESTNET = new ERC20Token(
   ChainId.ZCD_TESTNET,
   '0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4',
   18,
-  'tUSDZ',
+  'USDZ',
   'ZChains USDT Testnet',
   'https://tether.to/',
   '/images/16816/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png',
