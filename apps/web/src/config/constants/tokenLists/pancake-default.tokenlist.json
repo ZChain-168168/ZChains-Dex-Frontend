@@ -23,7 +23,7 @@
       "symbol": "USDZ",
       "address": "0x818a65d080EfE45881DBC8f95f4184B9EF3582fD",
       "chainId": 168168,
-      "decimals": 18,
+      "decimals": 6,
       "logoURI": "/images/168168/tokens/0x818a65d080EfE45881DBC8f95f4184B9EF3582fD.png"
     },
     {
@@ -31,7 +31,7 @@
       "symbol": "USDZ",
       "address": "0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4",
       "chainId": 16816,
-      "decimals": 18,
+      "decimals": 186,
       "logoURI": "/images/16816/tokens/0x9Af0c33a08C930eF15C4F40222CB3EfcB94C99B4.png"
     },
     {
