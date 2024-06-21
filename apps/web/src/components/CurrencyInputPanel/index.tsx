@@ -242,7 +242,7 @@ export default function CurrencyInputPanel({
               }}
             />
           </LabelRow>
-          {!!currency && showUSDPrice && (
+          {
             <Flex marginTop="10px" justifyContent="space-between" alignItems="center">
               <Flex maxWidth="200px">
                 {Number.isFinite(amountInDollar) ? (
@@ -291,7 +291,7 @@ export default function CurrencyInputPanel({
                 </InputRow>
               </Flex>
             </Flex>
-          )}
+          }
           {/* <InputRow selected={disableCurrencySelect}>
             {account && currency && selectedCurrencyBalance?.greaterThan(0) && !disabled && label !== 'To' && (
               <Flex alignItems="right" justifyContent="right">
