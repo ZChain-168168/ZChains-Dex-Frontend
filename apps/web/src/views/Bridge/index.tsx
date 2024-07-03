@@ -33,10 +33,9 @@ import { useCurrency } from 'hooks/Tokens'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useCatchTxError from 'hooks/useCatchTxError'
 import { useAllBlockchain } from 'state/home/fetchAllBlockChain'
-import { avalanche, zChain, isChainSupported } from 'utils/wagmi'
-import { useBalance } from 'wagmi'
+import { eth, isChainSupported, zChain, zChainTestnet } from 'utils/wagmi'
+import { mainnet, useBalance } from 'wagmi'
 // eslint-disable-next-line lodash/import-scope
-
 import _ from 'lodash'
 import SelectChain from './components/SelectChain'
 import WInput from './components/WInput'
@@ -159,7 +158,7 @@ const CurrencySelect = ({ fromNetwork, switchCurrency, currencySelect, currencyL
   )
 }
 
-const Bridge = ({ pageSupportedChains }: { pageSupportedChains: number[] }) => {
+const Home = ({ pageSupportedChains }: { pageSupportedChains: number[] }) => {
   // const account = useWeb3React()
   const { account, chainId, isConnected } = useActiveWeb3React()
   const native = useNativeCurrency()
@@ -250,7 +249,7 @@ const Bridge = ({ pageSupportedChains }: { pageSupportedChains: number[] }) => {
   const getToChain = async () => {
     const listToBlockchain = await bridgeContract.listBlockchainTo()
     const supportedToChain = _.intersection(
-      [zChain, avalanche].map((item) => item.network),
+      [zChain, zChainTestnet, eth].map((item) => item.network),
       listToBlockchain,
     )
     setToChainList(supportedToChain)
@@ -476,17 +475,16 @@ const Bridge = ({ pageSupportedChains }: { pageSupportedChains: number[] }) => {
         <div className="content">
           <div className="form">
             {/* From */}
-
+            <SelectChain
+              data={{
+                chainid: isConnected ? chainId : undefined,
+                title: isConnected ? allBlockchain?.find((item) => item.chainid === chainId)?.title : undefined,
+              }}
+              onSelect={() => setShowPopup('FROM')}
+              selectTitle="From"
+            />
             {/* Send amount */}
-            <Box background="rgb(53, 54, 60)" paddingY="10px" paddingX="10px" borderRadius="15px" mb={2} mt={3}>
-              <SelectChain
-                data={{
-                  chainid: isConnected ? chainId : undefined,
-                  title: isConnected ? allBlockchain?.find((item) => item.chainid === chainId)?.title : undefined,
-                }}
-                onSelect={() => setShowPopup('FROM')}
-                selectTitle="From"
-              />
+            <Box background="#000000" paddingY="10px" paddingX="10px" borderRadius="15px" mb={2} mt={3}>
               <div className="wrap-input-item">
                 <WInput
                   value={formValue.sendAmount}
@@ -503,10 +501,10 @@ const Bridge = ({ pageSupportedChains }: { pageSupportedChains: number[] }) => {
                           cursor: 'pointer',
                           borderRadius: 8,
                           background: 'transparent',
-                          border: '1px solid var(--colors-primary)',
+                          border: '1px solid #f0b90b',
                         }}
                       >
-                        <Text color="primary">Max</Text>
+                        <div style={{ color: '#f0b90b' }}>Max</div>
                       </button>
                     </Flex>
                   }
@@ -576,22 +574,19 @@ const Bridge = ({ pageSupportedChains }: { pageSupportedChains: number[] }) => {
               </Text>
             </Box>
             {/* To */}
-            <Flex position="relative" alignItems="center" justifyContent="center">
-              <Button
-                style={{ background: 'transparent', boxShadow: 'none', position: 'absolute' }}
-                onClick={onTurnAround}
-              >
+            <Flex alignItems="center" justifyContent="center" mb={2}>
+              <Button style={{ background: 'transparent', boxShadow: 'none' }} onClick={onTurnAround}>
                 <img src="/images/icon-arrow.svg" alt="arrow" />
               </Button>
             </Flex>
 
+            <SelectChain
+              data={{ chainid: formValue?.toNetwork?.chainid, title: formValue?.toNetwork?.title }}
+              onSelect={() => setShowPopup('TO')}
+              selectTitle="To"
+            />
             {/* Receive amount */}
-            <Box background="rgb(53, 54, 60)" paddingY="10px" paddingX="10px" borderRadius="15px" mb={4} mt={1}>
-              <SelectChain
-                data={{ chainid: formValue?.toNetwork?.chainid, title: formValue?.toNetwork?.title }}
-                onSelect={() => setShowPopup('TO')}
-                selectTitle="To"
-              />
+            <Box background="#000000" paddingY="10px" paddingX="10px" borderRadius="15px" mb={4} mt={3}>
               <div className="wrap-input-item">
                 <WInput
                   value={formValue.receiveAmount}
@@ -676,4 +671,4 @@ const Bridge = ({ pageSupportedChains }: { pageSupportedChains: number[] }) => {
   )
 }
 
-export default Bridge
+export default Home

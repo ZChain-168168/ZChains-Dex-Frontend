@@ -30,6 +30,7 @@ import { SentryErrorBoundary } from '../components/ErrorBoundary'
 import Menu from '../components/Menu'
 import Providers from '../Providers'
 import GlobalStyle from '../style/Global'
+import { useFetchAllBlockchain } from 'state/home/fetchAllBlockChain'
 
 const EasterEgg = dynamic(() => import('components/EasterEgg'), { ssr: false })
 
@@ -47,6 +48,7 @@ function GlobalHooks() {
   useSentryUser()
   useThemeCookie()
   useLockedEndNotification()
+  useFetchAllBlockchain()
   return null
 }
 
@@ -57,6 +59,7 @@ function MPGlobalHooks() {
   useAccountEventListener()
   useSentryUser()
   useLockedEndNotification()
+  useFetchAllBlockchain()
   return null
 }
 

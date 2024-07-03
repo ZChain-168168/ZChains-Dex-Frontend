@@ -3,7 +3,7 @@ import { BinanceWalletConnector } from '@pancakeswap/wagmi/connectors/binanceWal
 import { BloctoConnector } from '@pancakeswap/wagmi/connectors/blocto'
 import { TrustWalletConnector } from '@pancakeswap/wagmi/connectors/trustWallet'
 import { multicallAddresses, multicallCreateBlockNumber } from '@pancakeswap/multicall'
-import { bsc, bscTestnet, mainnet } from 'wagmi/chains'
+import { mainnet } from 'wagmi/chains'
 import { Chain, configureChains, createClient } from 'wagmi'
 import memoize from 'lodash/memoize'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
@@ -40,6 +40,32 @@ export const zChain: Chain = {
   testnet: false,
 }
 
+export const eth: Chain = {
+  id: 1,
+  name: 'Ethereum',
+  network: 'ETH',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Ether',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    public: { http: ['https://cloudflare-eth.com'] },
+    default: { http: ['https://cloudflare-eth.com'] },
+  },
+  blockExplorers: {
+    default: { name: 'Etherscan', url: 'https://etherscan.io' },
+  },
+
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      blockCreated: 14353601,
+    },
+  },
+  testnet: false,
+}
+
 export const zChainTestnet: Chain = {
   id: 16816,
   name: 'ZChains Testnet',
@@ -64,6 +90,33 @@ export const zChainTestnet: Chain = {
     },
   },
   testnet: true,
+}
+
+const bscExplorer = { name: 'BscScan', url: 'https://bscscan.com' }
+
+export const bsc: Chain = {
+  id: 56,
+  name: 'BNB Smart Chain',
+  network: 'BSC',
+  rpcUrls: {
+    public: { http: ['https://bsc-dataseed1.binance.org'] },
+    default: { http: ['https://bsc-dataseed1.binance.org'] },
+  },
+  blockExplorers: {
+    default: bscExplorer,
+    etherscan: bscExplorer,
+  },
+  nativeCurrency: {
+    name: 'Binance Chain Native Token',
+    symbol: 'BNB',
+    decimals: 18,
+  },
+  contracts: {
+    multicall3: {
+      address: '0x1Ee38d535d541c55C9dae27B12edf090C608E6Fb',
+      blockCreated: 10959122,
+    },
+  },
 }
 
 export const avalanche: Chain = {
@@ -91,7 +144,7 @@ export const avalanche: Chain = {
   testnet: true,
 }
 
-const CHAINS = [zChain, zChainTestnet]
+const CHAINS = [zChain, zChainTestnet, eth]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null
