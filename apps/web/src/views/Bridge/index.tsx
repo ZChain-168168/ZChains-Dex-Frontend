@@ -639,7 +639,7 @@ const Home = ({ pageSupportedChains }: { pageSupportedChains: number[] }) => {
           )}
           <div className="form-action">
             {account ? (
-              <Button onClick={handleTransfer} disabled={formIsValid}>
+              <Button variant="danger" onClick={handleTransfer} disabled={formIsValid}>
                 {formValue.sendAmount === 'Insufficient balance' ? 'Insufficient balance' : 'Deposit'}
               </Button>
             ) : (
