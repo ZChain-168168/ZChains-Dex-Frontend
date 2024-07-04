@@ -8,7 +8,6 @@ const mapping = {
   [ChainId.ETHEREUM]: 'ethereum',
   [ChainId.ZCD]: 'zchain',
   [ChainId.ZCD_TESTNET]: 'zchainTestnet',
-  [ChainId.AVAX]: 'avax',
 }
 
 const getTokenLogoURL = memoize(

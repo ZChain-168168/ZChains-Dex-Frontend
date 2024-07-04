@@ -58,8 +58,8 @@ export const lightColors = {
 export const darkColors = {
   ...baseColors,
   ...additionalColors,
-  secondary: '#9A6AFF',
-  secondary80: '#9A6AFF80',
+  secondary: '#E10600',
+  secondary80: '#E1060080',
   background: '#181a1e',
   backgroundDisabled: '#3c3742',
   backgroundAlt: '#27262c',
@@ -86,5 +86,5 @@ export const darkColors = {
   gradientViolet: 'linear-gradient(180deg, #6C4999 0%, #6D4DB2 100%)',
   gradientVioletAlt: 'linear-gradient(180deg, #434575 0%, #66578D 100%)',
   gradientGold: 'linear-gradient(180deg, #FFD800 0%, #FDAB32 100%)',
-  gradientBold: 'linear-gradient(#53DEE9, #9A6AFF)',
+  gradientBold: 'linear-gradient(#53DEE9, #E10600)',
 }

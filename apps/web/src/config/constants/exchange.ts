@@ -20,7 +20,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.ZCD]: [zTokens.usdt],
   [ChainId.ZCD_TESTNET]: [zTokensTestnet.usdt],
-  [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
 /**
@@ -52,7 +51,6 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.ZCD]: [zTokens.usdt, zTokens.wbnb],
   [ChainId.ZCD_TESTNET]: [zTokensTestnet.usdt, zTokensTestnet.wbnb],
-  [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -62,7 +60,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
   [ChainId.ZCD]: [zTokens.usdt, zTokens.wbnb],
   [ChainId.ZCD_TESTNET]: [zTokensTestnet.usdt, zTokensTestnet.wbnb],
-  [ChainId.AVAX]: [avaxTokens.wbnb, avaxTokens.usdt],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -84,7 +81,6 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [zTokensTestnet.usdt, zTokensTestnet.wbnb],
     [zTokensTestnet.usdt, zTokensTestnet.wbnb],
   ],
-  [ChainId.AVAX]: [[avaxTokens.wbnb, avaxTokens.usdt]],
 }
 
 export const BIG_INT_ZERO = JSBI.BigInt(0)

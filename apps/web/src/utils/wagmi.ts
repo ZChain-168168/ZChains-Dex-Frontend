@@ -119,31 +119,6 @@ export const bsc: Chain = {
   },
 }
 
-export const avalanche: Chain = {
-  id: 43114,
-  name: 'Avalanche C-Chain',
-  network: 'AVAX',
-
-  nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 6 },
-  blockExplorers: {
-    default: {
-      name: 'Snowtrace',
-      url: 'https://snowtrace.io/',
-    },
-  },
-  rpcUrls: {
-    public: { http: ['https://rpc.ankr.com/avalanche'] },
-    default: { http: ['https://rpc.ankr.com/avalanche'] },
-  },
-  contracts: {
-    multicall3: {
-      address: multicallAddresses[ChainId.AVAX] as any,
-      blockCreated: multicallCreateBlockNumber[ChainId.AVAX],
-    },
-  },
-  testnet: true,
-}
-
 const CHAINS = [zChain, zChainTestnet, eth]
 
 const getNodeRealUrl = (networkName: string) => {

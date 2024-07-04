@@ -39,7 +39,6 @@ export const multiChainId = {
   ETH: ChainId.ETHEREUM,
   ZCD: ChainId.ZCD,
   ZCD_TESTNET: ChainId.ZCD_TESTNET,
-  AVAX: ChainId.AVAX,
 }
 
 export const multiChainPaths = {
@@ -47,7 +46,6 @@ export const multiChainPaths = {
   [ChainId.ETHEREUM]: '/eth',
   [ChainId.ZCD]: '',
   [ChainId.ZCD_TESTNET]: '',
-  [ChainId.AVAX]: '',
 }
 
 export const multiChainQueryClient = {
